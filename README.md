@@ -1,13 +1,14 @@
 # org.id-tools
+Core tools for the ORGiD ecosystem
 
 ## Maintenance
 
 To make a release of the package:
 
 ```bash
-curl \
-  -X POST \
-  -H "Accept: application/vnd.github.v3+json" \
-  https://api.github.com/repos/windingtree/org.id-tools/dispatches \
-  -d '{"event_type":"release_to_npm", "client_payload": {"packageName": "<PACKAGE_NAME_TO_RELEASE>"}}'
+./scripts/release <GITHUB_PERSONAL_ACCESS_TOKEN> <PACKAGE_NAME>
 ```
+
+Do not forget to set a proper version number of the package you want to release in the package.json
+
+To get an access token please use this [guide](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
