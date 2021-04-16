@@ -18,8 +18,6 @@ jobs:
         run: npm run link
       - name: Lerna bootstrap
         run: npm run bootstrap
-      - name: Run lint
-        run: npm lint
       - name: Run tests
         run: npm test
       - name: Build the package
