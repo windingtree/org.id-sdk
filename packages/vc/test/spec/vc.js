@@ -1,7 +1,7 @@
 const {
   createVc,
   verifyVc
-} = require('../../src/vc');
+} = require('../../src');
 const keys = require('../fixtures/keys.json');
 require('chai').should();
 
