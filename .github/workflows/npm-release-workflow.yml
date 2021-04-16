@@ -1,0 +1,35 @@
+name: Public Release to npmjs.com
+
+on:
+  repository_dispatch:
+    types: [release_to_npm]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: npm install
+      - name: Lerna link
+        run: npm run link
+      - name: Lerna bootstrap
+        run: npm run bootstrap
+      - name: Run lint
+        run: npm lint
+      - name: Run tests
+        run: npm test
+      - name: Build the package
+        run: npm run build
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: "https://registry.npmjs.org"
+          scope: "@windingtree"
+      - name: Publish to npmjs.org
+        run: npm run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} npm publish -- --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

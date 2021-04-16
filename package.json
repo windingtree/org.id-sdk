@@ -1,0 +1,41 @@
+{
+  "name": "@windingtree/org.id-tools",
+  "description": "Core tools for the ORGiD ecosystem",
+  "private": true,
+  "scripts": {
+    "link": "lerna link",
+    "lint": "lerna run lint",
+    "clean": "lerna clean",
+    "build": "lerna run build",
+    "bootstrap": "lerna bootstrap",
+    "publish": "lerna publish",
+    "test": "lerna run test",
+    "test:coverage": "lerna run test:coverage",
+    "exec": "lerna exec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windingtree/org.id-tools.git"
+  },
+  "keywords": [
+    "orgid",
+    "windingtree",
+    "did",
+    "vc",
+    "authentication",
+    "crypto"
+  ],
+  "author": "Winding Tree Developers <dev@windingtree.com>",
+  "contributors": [
+    "Kostiantyn Smyrnov <kostysh@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/windingtree/org.id-tools/issues"
+  },
+  "homepage": "https://github.com/windingtree/org.id-tools#readme",
+  "devDependencies": {
+    "husky": "6.0.0",
+    "lerna": "4.0.0"
+  }
+}

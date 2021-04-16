@@ -1,0 +1,37 @@
+{
+  "name": "@windingtree/common-utilities",
+  "version": "0.1.0",
+  "description": "Common utilities for the orgid-tools",
+  "main": "src index.js",
+  "scripts": {
+    "lint": "npx eslint src test",
+    "test": "scripts/test.sh",
+    "test:coverage": "COVERAGE=true scripts/test.sh",
+    "test:coverage:ci": "COVERAGE=true CONTINUOUS_INTEGRATION=true scripts/test.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windingtree/org.id-tools.git"
+  },
+  "keywords": [
+    "orgid",
+    "windingtree",
+    "orgid-tools",
+    "utilities"
+  ],
+  "author": "Winding Tree Developers <dev@windingtree.com>",
+  "contributors": [
+    "Kostiantyn Smyrnov <kostysh@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/windingtree/org.id-tools/issues"
+  },
+  "homepage": "https://github.com/windingtree/org.id-tools#readme",
+  "devDependencies": {
+    "chai": "4.3.4",
+    "eslint": "7.24.0",
+    "mocha": "8.3.2",
+    "nyc": "15.1.0"
+  }
+}
