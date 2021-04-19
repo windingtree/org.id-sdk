@@ -113,8 +113,9 @@ module.exports.verifyVc = (vc, keyType, pubKey, parsePayload = true) => {
     }
   );
 
+  const { proof, ...vcPayload } = vc;
   const verificationResult = JWS.verify(
-    vc.proof.jws,
+    proof.jws,
     pubKey,
     {
       complete: true
@@ -131,6 +132,48 @@ module.exports.verifyVc = (vc, keyType, pubKey, parsePayload = true) => {
     }
   } else {
     verificationResult.payload = verificationResult.payload.toString();
+  }
+
+  // Validate common VC integrity
+  if (JSON.stringify(vcPayload) !== JSON.stringify(verificationResult.payload)) {
+    throw new Error('VC did not pass integrity check');
+  }
+
+  const {
+    issuanceDate,
+    expirationDate,
+    issuer,
+    holder,
+    credentialSubject
+  } = verificationResult.payload;
+
+  // Validate VC issuance date
+  if (!issuanceDate) {
+    throw new Error('VC issuance date not defined');
+  }
+
+  if (new Date(issuanceDate).getTime() > Date.now()) {
+    throw new Error('VС issuance date has a wrong value');
+  }
+
+  // Validate VC expiration date
+  if (expirationDate && new Date(expirationDate).getTime() < Date.now()) {
+    throw new Error('VC expired');
+  }
+
+  // Validate VC issuer existence
+  if (!issuer) {
+    throw new Error('VC issuer not defined');
+  }
+
+  // Validate VC holder existence
+  if (!holder || !holder.id) {
+    throw new Error('VC holder not defined');
+  }
+
+  // Validate VC credentialSubject existence
+  if (!credentialSubject) {
+    throw new Error('VC credentialSubject not defined');
   }
 
   return verificationResult.payload;
