@@ -20,7 +20,7 @@ module.exports.createVc = (
     '@context': [
       'https://www.w3.org/2018/credentials/v1'
     ],
-    'id': `${holderDid}#${simpleUid()}`,
+    'id': `${holderDid}#credential-${simpleUid()}`,
     'type': [
       'VerifiableCredential',
       vcType
