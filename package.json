@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/windingtree/org.id-tools.git"
+    "url": "git+https://github.com/windingtree/org.id-sdk.git"
   },
   "keywords": [
     "javascript",
@@ -34,9 +34,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/windingtree/org.id-tools/issues"
+    "url": "https://github.com/windingtree/org.id-sdk/issues"
   },
-  "homepage": "https://github.com/windingtree/org.id-tools#readme",
+  "homepage": "https://github.com/windingtree/org.id-sdk#readme",
   "devDependencies": {
     "husky": "6.0.0",
     "lerna": "4.0.0"
