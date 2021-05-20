@@ -5,7 +5,7 @@
  * @example
  * simpleUid(5); // returns a string like 'jedpr'
  */
-export const simpleUid = (length: number = 11) => {
+export const simpleUid = (length = 11): string => {
 
   if (length < 5 || length > 11) {
     throw new Error('length value must be between 5 and 11');

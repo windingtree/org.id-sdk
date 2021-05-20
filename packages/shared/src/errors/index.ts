@@ -22,4 +22,4 @@ export class HttpError extends Error {
     this.code = HTTP_STATUS_CODES[args[1]] || HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR;
     this.status = args[1];
   }
-};
+}
