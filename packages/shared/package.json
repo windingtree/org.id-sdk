@@ -36,6 +36,7 @@
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/shared#readme",
   "devDependencies": {
     "@types/jest": "26.0.23",
+    "eslint": "7.26.0",
     "@typescript-eslint/eslint-plugin": "4.24.0",
     "@typescript-eslint/parser": "4.24.0",
     "ts-jest": "26.5.6",
