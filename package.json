@@ -1,6 +1,6 @@
 {
-  "name": "@windingtree/org.id-tools",
-  "description": "Core tools for the ORGiD ecosystem",
+  "name": "@windingtree/org.id-sdk",
+  "description": "Core Javascript tools for the ORGiD ecosystem",
   "private": true,
   "scripts": {
     "link": "lerna link",
@@ -18,12 +18,15 @@
     "url": "git+https://github.com/windingtree/org.id-tools.git"
   },
   "keywords": [
+    "javascript",
     "orgid",
     "windingtree",
     "did",
-    "vc",
     "authentication",
-    "crypto"
+    "vc",
+    "crypto",
+    "encryption",
+    "utils"
   ],
   "author": "Winding Tree Developers <dev@windingtree.com>",
   "contributors": [
