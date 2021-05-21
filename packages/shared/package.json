@@ -8,12 +8,12 @@
     "/dist"
   ],
   "scripts": {
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
-    "build": "rm -rf dist && tsc -p tsconfig-build.json",
-    "build:docs": "rm -rf docs && typedoc --out docs src",
-    "test": "jest",
-    "test:coverage": "jest --coverage"
+    "lint": "npx eslint . --ext .ts",
+    "lint:fix": "npx eslint . --ext .ts --fix",
+    "build": "rm -rf dist && npx tsc -p tsconfig-build.json",
+    "build:docs": "rm -rf docs && npx typedoc --out docs src",
+    "test": "npx jest",
+    "test:coverage": "npx jest --coverage"
   },
   "repository": {
     "type": "git",
