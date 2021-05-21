@@ -6,7 +6,7 @@ Core Javascript tools for the ORGiD ecosystem
 | Package  | Description  |
 |---|---|
 | @windingtree/org.id-core | Core ORGiD library |
-| @windingtree/org.id-utils | Shared ORGiD utilities |
+| [@windingtree/org.id-utils](packages/shared/README.md) | Shared ORGiD utilities |
 | @windingtree/org.id-auth | ORGiD authentication library |
 | [@windingtree/org.id-vc](packages/vc/README.md) | ORGiD verifiable credentials library |
 | @windingtree/org.json-utils  | ORG.JSON utilities |
