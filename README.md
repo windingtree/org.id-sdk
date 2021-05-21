@@ -3,13 +3,13 @@ Core Javascript tools for the ORGiD ecosystem
 
 ## Javascript SDK
 
-| Package  | Description  |
-|---|---|
-| @windingtree/org.id-core | Core ORGiD library |
-| [@windingtree/org.id-utils](packages/shared#readme) | Shared ORGiD utilities |
-| @windingtree/org.id-auth | ORGiD authentication library |
-| [@windingtree/org.id-vc](packages/vc#readme) | ORGiD verifiable credentials library |
-| @windingtree/org.json-utils  | ORG.JSON utilities |
+| Package  | Version | Description  |
+|---|---|---|
+| @windingtree/org.id-core |  | Core ORGiD library |
+| [@windingtree/org.id-utils](packages/shared#readme) | [![@windingtree/org.id-utils](https://img.shields.io/npm/v/@windingtree/org.id-utils.svg)](https://www.npmjs.com/package/@windingtree/org.id-utils) | Shared ORGiD utilities |
+| @windingtree/org.id-auth |  | ORGiD authentication library |
+| [@windingtree/org.id-vc](packages/vc#readme) |  | ORGiD verifiable credentials library |
+| @windingtree/org.json-utils |  | ORG.JSON utilities |
 
 ## Maintenance
 
