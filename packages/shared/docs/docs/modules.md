@@ -1,3 +1,5 @@
+@windingtree/org.id-utils / [Exports](../modules.md)
+
 # @windingtree/org.id-utils
 Shared ORGiD utilities
 
@@ -27,4 +29,4 @@ Creates a unique Id. Length is an optional parameter with a value from 5 to 11.
 
 ## Documentation
 
-[Generated docs](docs/docs/modules.md)
+[Generated docs](./docs/index.html)
