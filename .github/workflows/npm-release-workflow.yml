@@ -19,9 +19,9 @@ jobs:
       - name: Lerna bootstrap
         run: npm run bootstrap
       - name: Run tests
-        run: npm test
+        run: npm run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} npm test
       - name: Build the package
-        run: npm run build
+        run: npm run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} npm run build
       - uses: actions/setup-node@v1
         with:
           node-version: 12
