@@ -1,4 +1,4 @@
-[@windingtree/org.id-utils](../docs/modules.md) / [Exports](../modules.md) / [errors](../modules/errors.md) / HttpError
+[@windingtree/org.id-utils](../README.md) / [errors](../modules/errors.md) / HttpError
 
 # Class: HttpError
 
@@ -49,7 +49,7 @@ new HttpError('Cannot find you in the list', 'FORBIDDEN');
 
 **Returns:** [*HttpError*](errors.httperror.md)
 
-Defined in: [src/errors/index.ts:19](https://github.com/windingtree/org.id-sdk/blob/07aa4fa/packages/shared/src/errors/index.ts#L19)
+Defined in: [src/errors/index.ts:19](https://github.com/windingtree/org.id-sdk/blob/1dd1e5e/packages/shared/src/errors/index.ts#L19)
 
 ## Properties
 
@@ -57,7 +57,7 @@ Defined in: [src/errors/index.ts:19](https://github.com/windingtree/org.id-sdk/b
 
 • **code**: [*Code*](../modules/http.md#code)
 
-Defined in: [src/errors/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/07aa4fa/packages/shared/src/errors/index.ts#L10)
+Defined in: [src/errors/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/1dd1e5e/packages/shared/src/errors/index.ts#L10)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 • **status**: [*Status*](../modules/http.md#status)
 
-Defined in: [src/errors/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/07aa4fa/packages/shared/src/errors/index.ts#L11)
+Defined in: [src/errors/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/1dd1e5e/packages/shared/src/errors/index.ts#L11)
 
 ___
 

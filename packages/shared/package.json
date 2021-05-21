@@ -11,7 +11,7 @@
     "lint": "npx eslint . --ext .ts",
     "lint:fix": "npx eslint . --ext .ts --fix",
     "build": "rm -rf dist && npx tsc -p tsconfig-build.json",
-    "build:docs": "rm -rf docs && npx typedoc --plugin typedoc-plugin-markdown --entryDocument docs/modules.md --out docs src/index.ts",
+    "build:docs": "rm -rf docs && npx typedoc --plugin typedoc-plugin-markdown --readme none --out docs src/index.ts",
     "test": "npx jest",
     "test:coverage": "npx jest --coverage"
   },

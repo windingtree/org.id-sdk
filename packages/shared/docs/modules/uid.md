@@ -1,4 +1,4 @@
-[@windingtree/org.id-utils](../docs/modules.md) / [Exports](../modules.md) / uid
+[@windingtree/org.id-utils](../README.md) / uid
 
 # Namespace: uid
 
@@ -30,4 +30,4 @@ simpleUid(5); // returns a string like 'jedpr'
 
 **Returns:** *string*
 
-Defined in: [src/uid/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/07aa4fa/packages/shared/src/uid/index.ts#L8)
+Defined in: [src/uid/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/1dd1e5e/packages/shared/src/uid/index.ts#L8)

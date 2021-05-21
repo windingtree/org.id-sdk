@@ -1,4 +1,4 @@
-[@windingtree/org.id-utils](docs/modules.md) / Exports
+@windingtree/org.id-utils
 
 # @windingtree/org.id-utils
 

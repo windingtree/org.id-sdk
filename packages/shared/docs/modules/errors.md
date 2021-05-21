@@ -1,4 +1,4 @@
-[@windingtree/org.id-utils](../docs/modules.md) / [Exports](../modules.md) / errors
+[@windingtree/org.id-utils](../README.md) / errors
 
 # Namespace: errors
 

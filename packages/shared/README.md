@@ -1,3 +1,4 @@
+[![@windingtree/org.id-utils](https://img.shields.io/npm/v/@windingtree/org.id-utils.svg)](https://www.npmjs.com/package/@windingtree/org.id-utils)
 # @windingtree/org.id-utils
 Shared ORGiD utilities
 
@@ -27,4 +28,4 @@ Creates a unique Id. Length is an optional parameter with a value from 5 to 11.
 
 ## Documentation
 
-[Generated docs](docs/docs/modules.md)
+[Generated docs](docs#readme)
