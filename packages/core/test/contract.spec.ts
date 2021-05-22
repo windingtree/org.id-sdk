@@ -6,7 +6,7 @@ describe('OrgId contract', () => {
     let contract;
 
     beforeAll(async () => {
-      const contract = orgIdContract({
+      contract = orgIdContract({
         network: '<main | ropsten>',
         providerUri: '<HTTP_OR_WSS_PROVIDER_URI>',
         // walletProvider: window.ethereum // Metamask provider or HDWalletProvider

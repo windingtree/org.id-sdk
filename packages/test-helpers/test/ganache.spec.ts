@@ -1,7 +1,8 @@
 import Web3 from 'web3';
-import ganache, {
+import {
   DevelopmentServer,
-  defaults
+  defaults,
+  ganache
 }  from '../src/ganache';
 
 describe('Ganache server', () => {

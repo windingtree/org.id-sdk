@@ -1,1 +1,1 @@
-export * as ganache from './ganache';
+export * from './ganache';

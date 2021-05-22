@@ -35,7 +35,8 @@
   },
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/core#readme",
   "dependencies": {
-    "@windingtree/org.id": "2.0.0"
+    "@windingtree/org.id": "2.0.0",
+    "@windingtree/org.id-test-helpers": "0.1.0"
   },
   "devDependencies": {
     "@types/jest": "26.0.23",

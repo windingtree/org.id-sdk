@@ -42,7 +42,7 @@ export const defaults: Ganache.IServerOptions = {
 };
 
 // eslint-disable-next-line no-async-promise-executor
-export default (options: Ganache.IServerOptions = defaults): Promise<DevelopmentServer> => new Promise((resolve, reject) => {
+export const ganache = (options: Ganache.IServerOptions = defaults): Promise<DevelopmentServer> => new Promise((resolve, reject) => {
   const portOrigin: number = portNumber;
   const server: Ganache.Server = Ganache.server(options);
 
