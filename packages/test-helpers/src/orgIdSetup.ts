@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const contract = require('@truffle/contract');
 import Web3 from 'web3';
 import { OrgIdContract } from '@windingtree/org.id';
