@@ -9,12 +9,12 @@ import {
 } from './core';
 import Web3 from 'web3';
 import {
-  OrgIdInterfaceContract,
+  OrgIdContract as CompiledOrgIdContract,
   addresses
 } from '@windingtree/org.id';
-import getOrgId from './api/getOrgId';
+import { getOrgId } from './api/getOrgId';
 
-export default (
+export const orgIdContract = (
   networkOrAddress: OrgIdNetwork | EthereumAddress,
   web3ProviderOrUri: Web3Provider | Web3ProviderUri
 ): OrgIdContract => {
@@ -22,25 +22,28 @@ export default (
 
   if (/^0x[a-fA-F0-9]{40}$/.exec(networkOrAddress)) {
     orgIdAddress = networkOrAddress;
-  } else {
+  } else if (networkOrAddress) {
     orgIdAddress = addresses[networkOrAddress.replace('mainnet', 'main')];
   }
 
   if (!orgIdAddress) {
     throw new Error(
-      `Invalid network or a smart contract address: ${networkOrAddress}`
+      `orgIdContract: Invalid network or a smart contract address: ${networkOrAddress}`
     );
   }
 
   const web3 = new Web3(web3ProviderOrUri);
-  const contract = new web3.eth.Contract(OrgIdInterfaceContract, orgIdAddress);
 
-  console.log(contract);
+  if (!web3.currentProvider) {
+    throw new Error('orgIdContract: Unable to initialize web3 provider');
+  }
+
+  const contract = new web3.eth.Contract(CompiledOrgIdContract.abi, orgIdAddress);
 
   return {
-    orgIdAddress,
+    address: orgIdAddress,
     web3,
     contract,
-    getOrgId: (orgIdHash: OrgIdHash): Promise<OrgIdData> => getOrgId(contract, orgIdHash)
+    getOrgId: (orgIdHash: OrgIdHash): Promise<OrgIdData> => getOrgId(web3, contract, orgIdHash)
   };
 };

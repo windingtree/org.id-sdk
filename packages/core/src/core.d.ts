@@ -30,7 +30,7 @@ export interface OrgIdRawResult {
 }
 
 export interface OrgIdContract {
-  orgIdAddress: EthereumAddress;
+  address: EthereumAddress;
   web3: Web3;
   contract: Contract;
   getOrgId(orgId: OrgIdHash): Promise<OrgIdData>;

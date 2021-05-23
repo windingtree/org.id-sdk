@@ -1,3 +1,4 @@
+import Web3 from 'web3';
 import { Contract } from 'web3-eth-contract';
 import {
   OrgIdHash,
@@ -5,10 +6,14 @@ import {
   OrgIdRawResult
 } from '../core';
 
-export default async (contract: Contract, orgIdHash: OrgIdHash): Promise<OrgIdData> => {
+export const getOrgId = async (
+  web3: Web3,
+  contract: Contract,
+  orgIdHash: OrgIdHash
+): Promise<OrgIdData> => {
 
   if (!/^0x[a-fA-F0-9]{64}$/.exec(orgIdHash)) {
-    throw new Error(`Invalid ORGiD hash: ${orgIdHash}`);
+    throw new Error(`getOrgId: Invalid ORGiD hash: ${orgIdHash}`);
   }
 
   const result: OrgIdRawResult = await contract.methods.getOrgId(orgIdHash).call();
@@ -17,7 +22,7 @@ export default async (contract: Contract, orgIdHash: OrgIdHash): Promise<OrgIdDa
     return null;
   }
 
-  const event = await contract.getPastEvents('OrganizationCreated', {
+  const events = await contract.getPastEvents('OrgIdCreated', {
     filter: {
       orgId: orgIdHash
     },
@@ -26,10 +31,15 @@ export default async (contract: Contract, orgIdHash: OrgIdHash): Promise<OrgIdDa
   });
   let orgIdCreationDate;
 
-  // if (event.length === 1) {
-  //   const block = await web3.eth.getBlock(event[0].blockNumber);
-  //   orgIdCreationDate = new Date(block.timestamp * 1000).toISOString();
-  // }
+  /* istanbul ignore next */
+  if (events.length === 1) {
+    const { timestamp } = await web3.eth.getBlock(events[0].blockNumber);
+    orgIdCreationDate = new Date(Number(timestamp) * 1000).toISOString();
+  } else {
+    throw new Error(
+      `getOrgId: Not found OrgIdCreated event for ORGiD: ${orgIdHash}`
+    );
+  }
 
   return {
     id: orgIdHash,
