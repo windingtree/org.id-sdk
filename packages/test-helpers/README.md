@@ -11,7 +11,7 @@ npm install @windingtree/org.id-test-helpers
 ## Usage
 
 ```javascript
-import { ganache } from '@windingtree/org.id-test-helpers';
+import { ganache. HttpFileServer } from '@windingtree/org.id-test-helpers';
 
 const server = await ganache();
 
@@ -32,8 +32,30 @@ server.getAccounts()
 
 /*
 server.web3 // web3 instance
+server.port
+server.providerUri // web3 provider URI
+server.provider // web3 provider
 server.close() // async closing the server
 */
+
+// HttpFileServer can be used for testing cases where it is required to host files
+const httpServer = new HttpFileServer();
+httpServer.start()
+  .then(() => {
+    const file = {
+      type: 'json',
+      path: '<path_with_name>.json',
+      content: '{"test": "test"}'
+    };
+    httpServer.addFile(file);
+
+    const { data } = await axios.get(`${httpServer.baseUri}/${file.path}`);
+    console.log(data);
+    // {"test": "test"}
+
+  })
+  .catch(console.error);
+
 ```
 
 ## Documentation

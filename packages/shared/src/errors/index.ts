@@ -4,7 +4,7 @@ import {
   HTTP_STATUS_CODES,
 } from '../http';
 
-type ErrorArgs = [string, Status?];
+export type ErrorArgs = [string, Status?];
 
 export interface HttpError {
   code: Code,

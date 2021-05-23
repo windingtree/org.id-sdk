@@ -11,8 +11,13 @@
 ### Properties
 
 - [port](developmentserver.md#port)
+- [providerUri](developmentserver.md#provideruri)
 - [server](developmentserver.md#server)
 - [web3](developmentserver.md#web3)
+
+### Accessors
+
+- [provider](developmentserver.md#provider)
 
 ### Methods
 
@@ -23,18 +28,18 @@
 
 ### constructor
 
-\+ **new DevelopmentServer**(`server`: *Server*, `port`: *number*): [*DevelopmentServer*](developmentserver.md)
+\+ **new DevelopmentServer**(`server`: [*Server*](../interfaces/ganache.server.md), `port`: *number*): [*DevelopmentServer*](developmentserver.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `server` | *Server* |
+| `server` | [*Server*](../interfaces/ganache.server.md) |
 | `port` | *number* |
 
 **Returns:** [*DevelopmentServer*](developmentserver.md)
 
-Defined in: [ganache.ts:7](https://github.com/windingtree/org.id-sdk/blob/7ceab2d/packages/test-helpers/src/ganache.ts#L7)
+Defined in: [src/ganache.ts:10](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L10)
 
 ## Properties
 
@@ -42,15 +47,23 @@ Defined in: [ganache.ts:7](https://github.com/windingtree/org.id-sdk/blob/7ceab2
 
 • **port**: *number*
 
-Defined in: [ganache.ts:7](https://github.com/windingtree/org.id-sdk/blob/7ceab2d/packages/test-helpers/src/ganache.ts#L7)
+Defined in: [src/ganache.ts:9](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L9)
+
+___
+
+### providerUri
+
+• **providerUri**: *string*
+
+Defined in: [src/ganache.ts:10](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L10)
 
 ___
 
 ### server
 
-• **server**: *Server*
+• **server**: [*Server*](../interfaces/ganache.server.md)
 
-Defined in: [ganache.ts:5](https://github.com/windingtree/org.id-sdk/blob/7ceab2d/packages/test-helpers/src/ganache.ts#L5)
+Defined in: [src/ganache.ts:7](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L7)
 
 ___
 
@@ -58,7 +71,17 @@ ___
 
 • **web3**: *default*
 
-Defined in: [ganache.ts:6](https://github.com/windingtree/org.id-sdk/blob/7ceab2d/packages/test-helpers/src/ganache.ts#L6)
+Defined in: [src/ganache.ts:8](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L8)
+
+## Accessors
+
+### provider
+
+• get **provider**(): [*Provider*](../interfaces/ganache.provider.md)
+
+**Returns:** [*Provider*](../interfaces/ganache.provider.md)
+
+Defined in: [src/ganache.ts:19](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L19)
 
 ## Methods
 
@@ -68,7 +91,7 @@ Defined in: [ganache.ts:6](https://github.com/windingtree/org.id-sdk/blob/7ceab2
 
 **Returns:** *Promise*<void \| Error\>
 
-Defined in: [ganache.ts:15](https://github.com/windingtree/org.id-sdk/blob/7ceab2d/packages/test-helpers/src/ganache.ts#L15)
+Defined in: [src/ganache.ts:23](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L23)
 
 ___
 
@@ -78,4 +101,4 @@ ___
 
 **Returns:** *Promise*<string[]\>
 
-Defined in: [ganache.ts:28](https://github.com/windingtree/org.id-sdk/blob/7ceab2d/packages/test-helpers/src/ganache.ts#L28)
+Defined in: [src/ganache.ts:36](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L36)

@@ -61,6 +61,23 @@ describe('Ganache server', () => {
       expect(server).toHaveProperty('port');
       expect(typeof server.port).toBe('number');
     });
+
+    test('should have #providerUri property', async () => {
+      expect(server).toHaveProperty('providerUri');
+      expect(typeof server.providerUri).toBe('string');
+      expect(server.providerUri).toBe(`ws://0.0.0.0:${server.port}`);
+    });
+  });
+
+  describe('Getters', () => {
+
+    describe('#provider', () => {
+
+      test('should return current web3 provider', async () => {
+        expect(server).toHaveProperty('provider');
+        expect(typeof server.provider).toBe('object');
+      });
+    });
   });
 
   describe('Methods', () => {

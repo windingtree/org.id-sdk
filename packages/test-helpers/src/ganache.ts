@@ -1,15 +1,23 @@
 import Web3 from 'web3';
 import Ganache from 'ganache-core';
 
+export { Ganache }
+
 export class DevelopmentServer {
   server: Ganache.Server;
   web3: Web3;
   port: number;
+  providerUri: string;
 
   constructor(server: Ganache.Server, port: number) {
     this.server = server;
     this.port = port;
-    this.web3 = new Web3(`ws://0.0.0.0:${port}`);
+    this.providerUri = `ws://0.0.0.0:${port}`;
+    this.web3 = new Web3(this.providerUri);
+  }
+
+  public get provider(): Ganache.Provider {
+    return this.server.provider;
   }
 
   close(): Promise<void | Error> {
@@ -31,6 +39,7 @@ export class DevelopmentServer {
 }
 
 // Ganache port counter
+// @todo Implement maximum port value feature and set it to 10000 to avoid port conflicts with Http Server
 let portNumber = 9000;
 
 // Default ganache server configuration

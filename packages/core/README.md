@@ -13,11 +13,10 @@ npm install @windingtree/org.id-core
 ```javascript
 import orgIdContract from '@windingtree/org.id-core';
 
-const contract = orgIdContract({
-  network: '<main | ropsten>',
-  providerUri: '<HTTP_OR_WSS_PROVIDER_URI>', // e.g Infura node
-  walletProvider: window.ethereum // Metamask provider or HDWalletProvider
-});
+const contract = orgIdContract(
+  'ropsten', // allowed values main, ropsten or the OrgId smart contract address
+  window.ethereum // web3 compatible provider: Metamask, HDWalletProvider or HTTP/WS/WSS node URI
+);
 
 const orgId = '0xf94c83b1da7bc36989b6a4f25e51ce66dd0fcd88bae1e8486495bbc03e767229';
 contract
@@ -42,3 +41,7 @@ contract
 ## Documentation
 
 [Generated docs](docs#readme)
+
+## Todo
+
+- Create typings for @windingtree/org.id

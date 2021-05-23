@@ -1,17 +1,20 @@
-import orgIdContract from '../src';
+import { setupOrgId } from './utils/setup';
+import orgId from '../src/contract';
 
 describe('OrgId contract', () => {
 
   describe('Initialization', () => {
-    let contract;
+    let contract: any;
 
-    beforeAll(async () => {
-      contract = orgIdContract({
-        network: '<main | ropsten>',
-        providerUri: '<HTTP_OR_WSS_PROVIDER_URI>',
-        // walletProvider: window.ethereum // Metamask provider or HDWalletProvider
-      });
-    });
+    // beforeAll(async () => {
+    //   contract = await setupOrgId();
+
+    //   // contract = orgId('', '');
+    // });
+
+    // test('AAA', async () => {
+    //   console.log(contract);
+    // });
 
   });
 });
