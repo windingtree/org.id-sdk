@@ -1,20 +1,16 @@
-import { setupOrgId } from './utils/setup';
+// import { se } from '@windingtree/org.id-test-helpers';
 import orgId from '../src/contract';
 
 describe('OrgId contract', () => {
+  let contract: any;
 
-  describe('Initialization', () => {
-    let contract: any;
+  beforeAll(async () => {
+    contract = await setupOrgId();
 
-    // beforeAll(async () => {
-    //   contract = await setupOrgId();
+    // contract = orgId('', '');
+  });
 
-    //   // contract = orgId('', '');
-    // });
-
-    // test('AAA', async () => {
-    //   console.log(contract);
-    // });
-
+  test('AAA', async () => {
+    console.log(contract);
   });
 });

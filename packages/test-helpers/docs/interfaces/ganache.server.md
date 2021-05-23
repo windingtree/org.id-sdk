@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- *HttpServer*
+- [*Server*](../classes/http.server.md)
 
   ↳ **Server**
 
@@ -55,7 +55,7 @@
 
 • **connections**: *number*
 
-Inherited from: HttpServer.connections
+Inherited from: [Server](../classes/http.server.md).[connections](../classes/http.server.md#connections)
 
 Defined in: node_modules/@types/node/net.d.ts:219
 
@@ -70,7 +70,7 @@ Limit the amount of time the parser will wait to receive the complete HTTP heade
 **`default`** 60000
 [https://nodejs.org/api/http.html#http_server_headerstimeout](https://nodejs.org/api/http.html#http_server_headerstimeout)
 
-Inherited from: HttpServer.headersTimeout
+Inherited from: [Server](../classes/http.server.md).[headersTimeout](../classes/http.server.md#headerstimeout)
 
 Defined in: node_modules/@types/node/http.d.ts:141
 
@@ -80,7 +80,7 @@ ___
 
 • **keepAliveTimeout**: *number*
 
-Inherited from: HttpServer.keepAliveTimeout
+Inherited from: [Server](../classes/http.server.md).[keepAliveTimeout](../classes/http.server.md#keepalivetimeout)
 
 Defined in: node_modules/@types/node/http.d.ts:142
 
@@ -90,7 +90,7 @@ ___
 
 • **listening**: *boolean*
 
-Inherited from: HttpServer.listening
+Inherited from: [Server](../classes/http.server.md).[listening](../classes/http.server.md#listening)
 
 Defined in: node_modules/@types/node/net.d.ts:220
 
@@ -100,7 +100,7 @@ ___
 
 • **maxConnections**: *number*
 
-Inherited from: HttpServer.maxConnections
+Inherited from: [Server](../classes/http.server.md).[maxConnections](../classes/http.server.md#maxconnections)
 
 Defined in: node_modules/@types/node/net.d.ts:218
 
@@ -115,7 +115,7 @@ Limits maximum incoming headers count. If set to 0, no limit will be applied.
 **`default`** 2000
 [https://nodejs.org/api/http.html#http_server_maxheaderscount](https://nodejs.org/api/http.html#http_server_maxheaderscount)
 
-Inherited from: HttpServer.maxHeadersCount
+Inherited from: [Server](../classes/http.server.md).[maxHeadersCount](../classes/http.server.md#maxheaderscount)
 
 Defined in: node_modules/@types/node/http.d.ts:134
 
@@ -138,7 +138,7 @@ Sets the timeout value in milliseconds for receiving the entire request from the
 **`default`** 0
 [https://nodejs.org/api/http.html#http_server_requesttimeout](https://nodejs.org/api/http.html#http_server_requesttimeout)
 
-Inherited from: HttpServer.requestTimeout
+Inherited from: [Server](../classes/http.server.md).[requestTimeout](../classes/http.server.md#requesttimeout)
 
 Defined in: node_modules/@types/node/http.d.ts:148
 
@@ -148,7 +148,7 @@ ___
 
 • **timeout**: *number*
 
-Inherited from: HttpServer.timeout
+Inherited from: [Server](../classes/http.server.md).[timeout](../classes/http.server.md#timeout)
 
 Defined in: node_modules/@types/node/http.d.ts:135
 
@@ -173,7 +173,7 @@ events.EventEmitter
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.addListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:229
 
@@ -188,7 +188,7 @@ Defined in: node_modules/@types/node/net.d.ts:229
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.addListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:230
 
@@ -203,7 +203,7 @@ Defined in: node_modules/@types/node/net.d.ts:230
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.addListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:231
 
@@ -218,7 +218,7 @@ Defined in: node_modules/@types/node/net.d.ts:231
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.addListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:232
 
@@ -233,7 +233,7 @@ Defined in: node_modules/@types/node/net.d.ts:232
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.addListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:233
 
@@ -245,7 +245,7 @@ ___
 
 **Returns:** *string* \| AddressInfo
 
-Inherited from: HttpServer.address
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:214
 
@@ -263,7 +263,7 @@ ___
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.close
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:213
 
@@ -282,7 +282,7 @@ ___
 
 **Returns:** *boolean*
 
-Inherited from: HttpServer.emit
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:235
 
@@ -296,7 +296,7 @@ Defined in: node_modules/@types/node/net.d.ts:235
 
 **Returns:** *boolean*
 
-Inherited from: HttpServer.emit
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:236
 
@@ -311,7 +311,7 @@ Defined in: node_modules/@types/node/net.d.ts:236
 
 **Returns:** *boolean*
 
-Inherited from: HttpServer.emit
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:237
 
@@ -326,7 +326,7 @@ Defined in: node_modules/@types/node/net.d.ts:237
 
 **Returns:** *boolean*
 
-Inherited from: HttpServer.emit
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:238
 
@@ -340,7 +340,7 @@ Defined in: node_modules/@types/node/net.d.ts:238
 
 **Returns:** *boolean*
 
-Inherited from: HttpServer.emit
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:239
 
@@ -352,7 +352,7 @@ ___
 
 **Returns:** (*string* \| *symbol*)[]
 
-Inherited from: HttpServer.eventNames
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/events.d.ts:87
 
@@ -370,7 +370,7 @@ ___
 
 **Returns:** *void*
 
-Inherited from: HttpServer.getConnections
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:215
 
@@ -382,7 +382,7 @@ ___
 
 **Returns:** *number*
 
-Inherited from: HttpServer.getMaxListeners
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/events.d.ts:79
 
@@ -403,7 +403,7 @@ ___
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.listen
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:204
 
@@ -419,7 +419,7 @@ Defined in: node_modules/@types/node/net.d.ts:204
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.listen
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:205
 
@@ -435,7 +435,7 @@ Defined in: node_modules/@types/node/net.d.ts:205
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.listen
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:206
 
@@ -450,7 +450,7 @@ Defined in: node_modules/@types/node/net.d.ts:206
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.listen
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:207
 
@@ -466,7 +466,7 @@ Defined in: node_modules/@types/node/net.d.ts:207
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.listen
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:208
 
@@ -481,7 +481,7 @@ Defined in: node_modules/@types/node/net.d.ts:208
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.listen
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:209
 
@@ -496,7 +496,7 @@ Defined in: node_modules/@types/node/net.d.ts:209
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.listen
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:210
 
@@ -512,7 +512,7 @@ Defined in: node_modules/@types/node/net.d.ts:210
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.listen
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:211
 
@@ -527,7 +527,7 @@ Defined in: node_modules/@types/node/net.d.ts:211
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.listen
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:212
 
@@ -545,7 +545,7 @@ ___
 
 **Returns:** *number*
 
-Inherited from: HttpServer.listenerCount
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/events.d.ts:83
 
@@ -563,7 +563,7 @@ ___
 
 **Returns:** Function[]
 
-Inherited from: HttpServer.listeners
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/events.d.ts:80
 
@@ -582,7 +582,7 @@ ___
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.off
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/events.d.ts:76
 
@@ -601,7 +601,7 @@ ___
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.on
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:241
 
@@ -616,7 +616,7 @@ Defined in: node_modules/@types/node/net.d.ts:241
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.on
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:242
 
@@ -631,7 +631,7 @@ Defined in: node_modules/@types/node/net.d.ts:242
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.on
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:243
 
@@ -646,7 +646,7 @@ Defined in: node_modules/@types/node/net.d.ts:243
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.on
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:244
 
@@ -661,7 +661,7 @@ Defined in: node_modules/@types/node/net.d.ts:244
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.on
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:245
 
@@ -680,7 +680,7 @@ ___
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.once
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:247
 
@@ -695,7 +695,7 @@ Defined in: node_modules/@types/node/net.d.ts:247
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.once
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:248
 
@@ -710,7 +710,7 @@ Defined in: node_modules/@types/node/net.d.ts:248
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.once
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:249
 
@@ -725,7 +725,7 @@ Defined in: node_modules/@types/node/net.d.ts:249
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.once
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:250
 
@@ -740,7 +740,7 @@ Defined in: node_modules/@types/node/net.d.ts:250
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.once
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:251
 
@@ -759,7 +759,7 @@ ___
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.prependListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:253
 
@@ -774,7 +774,7 @@ Defined in: node_modules/@types/node/net.d.ts:253
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.prependListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:254
 
@@ -789,7 +789,7 @@ Defined in: node_modules/@types/node/net.d.ts:254
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.prependListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:255
 
@@ -804,7 +804,7 @@ Defined in: node_modules/@types/node/net.d.ts:255
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.prependListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:256
 
@@ -819,7 +819,7 @@ Defined in: node_modules/@types/node/net.d.ts:256
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.prependListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:257
 
@@ -838,7 +838,7 @@ ___
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.prependOnceListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:259
 
@@ -853,7 +853,7 @@ Defined in: node_modules/@types/node/net.d.ts:259
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.prependOnceListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:260
 
@@ -868,7 +868,7 @@ Defined in: node_modules/@types/node/net.d.ts:260
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.prependOnceListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:261
 
@@ -883,7 +883,7 @@ Defined in: node_modules/@types/node/net.d.ts:261
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.prependOnceListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:262
 
@@ -898,7 +898,7 @@ Defined in: node_modules/@types/node/net.d.ts:262
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.prependOnceListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:263
 
@@ -916,7 +916,7 @@ ___
 
 **Returns:** Function[]
 
-Inherited from: HttpServer.rawListeners
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/events.d.ts:81
 
@@ -928,7 +928,7 @@ ___
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.ref
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:216
 
@@ -946,7 +946,7 @@ ___
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.removeAllListeners
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/events.d.ts:77
 
@@ -965,7 +965,7 @@ ___
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.removeListener
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/events.d.ts:75
 
@@ -983,7 +983,7 @@ ___
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.setMaxListeners
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/events.d.ts:78
 
@@ -1002,7 +1002,7 @@ ___
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.setTimeout
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/http.d.ts:127
 
@@ -1016,7 +1016,7 @@ Defined in: node_modules/@types/node/http.d.ts:127
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.setTimeout
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/http.d.ts:128
 
@@ -1028,6 +1028,6 @@ ___
 
 **Returns:** [*Server*](ganache.server.md)
 
-Inherited from: HttpServer.unref
+Inherited from: [Server](../classes/http.server.md)
 
 Defined in: node_modules/@types/node/net.d.ts:217

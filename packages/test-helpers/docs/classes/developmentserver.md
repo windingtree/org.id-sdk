@@ -39,7 +39,7 @@
 
 **Returns:** [*DevelopmentServer*](developmentserver.md)
 
-Defined in: [src/ganache.ts:10](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L10)
+Defined in: [src/ganache.ts:10](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/ganache.ts#L10)
 
 ## Properties
 
@@ -47,7 +47,7 @@ Defined in: [src/ganache.ts:10](https://github.com/windingtree/org.id-sdk/blob/4
 
 • **port**: *number*
 
-Defined in: [src/ganache.ts:9](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L9)
+Defined in: [src/ganache.ts:9](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/ganache.ts#L9)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 • **providerUri**: *string*
 
-Defined in: [src/ganache.ts:10](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L10)
+Defined in: [src/ganache.ts:10](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/ganache.ts#L10)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 • **server**: [*Server*](../interfaces/ganache.server.md)
 
-Defined in: [src/ganache.ts:7](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L7)
+Defined in: [src/ganache.ts:7](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/ganache.ts#L7)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 • **web3**: *default*
 
-Defined in: [src/ganache.ts:8](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L8)
+Defined in: [src/ganache.ts:8](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/ganache.ts#L8)
 
 ## Accessors
 
@@ -81,7 +81,7 @@ Defined in: [src/ganache.ts:8](https://github.com/windingtree/org.id-sdk/blob/4f
 
 **Returns:** [*Provider*](../interfaces/ganache.provider.md)
 
-Defined in: [src/ganache.ts:19](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L19)
+Defined in: [src/ganache.ts:19](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/ganache.ts#L19)
 
 ## Methods
 
@@ -91,7 +91,7 @@ Defined in: [src/ganache.ts:19](https://github.com/windingtree/org.id-sdk/blob/4
 
 **Returns:** *Promise*<void \| Error\>
 
-Defined in: [src/ganache.ts:23](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L23)
+Defined in: [src/ganache.ts:23](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/ganache.ts#L23)
 
 ___
 
@@ -101,4 +101,4 @@ ___
 
 **Returns:** *Promise*<string[]\>
 
-Defined in: [src/ganache.ts:36](https://github.com/windingtree/org.id-sdk/blob/4fdede4/packages/test-helpers/src/ganache.ts#L36)
+Defined in: [src/ganache.ts:36](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/ganache.ts#L36)
