@@ -1,5 +1,4 @@
 import Web3 from 'web3';
-import { Contract } from 'web3-eth-contract';
 import { orgIdSetup, OrgIdSetup } from '@windingtree/org.id-test-helpers';
 import {
   OrgIdContract,
