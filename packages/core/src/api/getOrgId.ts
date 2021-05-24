@@ -1,7 +1,6 @@
 import Web3 from 'web3';
 import { Contract } from 'web3-eth-contract';
 import {
-  OrgIdHash,
   OrgIdData,
   OrgIdRawResult
 } from '../core';
@@ -9,30 +8,42 @@ import {
 export const getOrgId = async (
   web3: Web3,
   contract: Contract,
-  orgIdHash: OrgIdHash
+  orgIdHash: string
 ): Promise<OrgIdData> => {
 
   if (!/^0x[a-fA-F0-9]{64}$/.exec(orgIdHash)) {
     throw new Error(`getOrgId: Invalid ORGiD hash: ${orgIdHash}`);
   }
 
-  const result: OrgIdRawResult = await contract.methods.getOrgId(orgIdHash).call();
+  const methodArguments = [
+    orgIdHash
+  ];
+
+  // Call smart contract
+  const result: OrgIdRawResult = await contract
+    .methods['getOrgId(bytes32)']
+    .apply(
+      contract,
+      methodArguments
+    )
+    .call();
 
   if (!result || !result.exists) {
     return null;
   }
 
-  const events = await contract.getPastEvents('OrgIdCreated', {
+  // Fetching of ORGiD creation date
+  let events = await contract.getPastEvents('OrgIdCreated', {
     filter: {
       orgId: orgIdHash
     },
     fromBlock: 0,
     toBlock: 'latest'
   });
-  let orgIdCreationDate;
+  let orgIdCreationDate: string;
 
   /* istanbul ignore next */
-  if (events.length === 1) {
+  if (events && events.length === 1) {
     const { timestamp } = await web3.eth.getBlock(events[0].blockNumber);
     orgIdCreationDate = new Date(Number(timestamp) * 1000).toISOString();
   } else {
@@ -41,9 +52,31 @@ export const getOrgId = async (
     );
   }
 
+  // Fetching of ORGiD's ORG.JSON URI
+  events = await contract.getPastEvents('OrgJsonUriChanged', {
+    filter: {
+      orgId: orgIdHash
+    },
+    fromBlock: 0,
+    toBlock: 'latest'
+  });
+
+  let orgJsonUri: string;
+
+  /* istanbul ignore next */
+  if (events && events.length !== 0) {
+    const latestEvent = events.sort((a, b) => a.blockNumber > b.blockNumber ? -1 : 1)[0];
+    orgJsonUri = latestEvent.returnValues.orgJsonUri;
+  } else {
+    throw new Error(
+      `getOrgId: Not found OrgJsonUriChanged event for ORGiD: ${orgIdHash}`
+    );
+  }
+
   return {
     id: orgIdHash,
     owner: result.owner,
+    orgJsonUri,
     created: orgIdCreationDate
   };
 };

@@ -1,10 +1,6 @@
 import {
-  OrgIdNetwork,
-  EthereumAddress,
   Web3Provider,
-  Web3ProviderUri,
   OrgIdContract,
-  OrgIdHash,
   OrgIdData
 } from './core';
 import Web3 from 'web3';
@@ -12,11 +8,16 @@ import {
   OrgIdContract as CompiledOrgIdContract,
   addresses
 } from '@windingtree/org.id';
+import { createOrgId } from './api/createOrgId';
+import { setOrgJson } from './api/setOrgJson';
+import { transferOrgIdOwnership } from './api/transferOrgIdOwnership';
+import { getOrgIdsCount } from './api/getOrgIdsCount';
 import { getOrgId } from './api/getOrgId';
+import { getOrgIds } from './api/getOrgIds';
 
 export const orgIdContract = (
-  networkOrAddress: OrgIdNetwork | EthereumAddress,
-  web3ProviderOrUri: Web3Provider | Web3ProviderUri
+  networkOrAddress: string,
+  web3ProviderOrUri: Web3Provider | string
 ): OrgIdContract => {
   let orgIdAddress: string;
 
@@ -44,6 +45,44 @@ export const orgIdContract = (
     address: orgIdAddress,
     web3,
     contract,
-    getOrgId: (orgIdHash: OrgIdHash): Promise<OrgIdData> => getOrgId(web3, contract, orgIdHash)
+
+    createOrgId: (
+      salt,
+      orgJsonUri,
+      orgIdOwner,
+      gasPrice,
+      gasLimit,
+      transactionHashCb
+    ): Promise<OrgIdData> =>
+      createOrgId(web3, contract, salt, orgJsonUri, orgIdOwner, gasPrice, gasLimit, transactionHashCb),
+
+    setOrgJson: (
+      orgIdHash,
+      orgJsonUri,
+      orgIdOwner,
+      gasPrice,
+      gasLimit,
+      transactionHashCb
+    ): Promise<OrgIdData> =>
+      setOrgJson(web3, contract, orgIdHash, orgJsonUri, orgIdOwner, gasPrice, gasLimit, transactionHashCb),
+
+    transferOrgIdOwnership: (
+      orgIdHash,
+      newOrgIdOwner,
+      orgIdOwner,
+      gasPrice,
+      gasLimit,
+      transactionHashCb
+    ): Promise<OrgIdData> =>
+      transferOrgIdOwnership(web3, contract, orgIdHash, newOrgIdOwner, orgIdOwner, gasPrice, gasLimit, transactionHashCb),
+
+    getOrgIdsCount: (): Promise<number> =>
+      getOrgIdsCount(contract),
+
+    getOrgId: (orgIdHash): Promise<OrgIdData> =>
+      getOrgId(web3, contract, orgIdHash),
+
+    getOrgIds: (cursor, count): Promise<string[]> =>
+      getOrgIds(contract, cursor, count),
   };
 };

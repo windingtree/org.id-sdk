@@ -30,6 +30,7 @@ contract
       {
         id: '0xf94c83b1da7bc3698...',
         owner: '0xA0B74BFE2822...',
+        orgJsonUri: 'http://orgdomain.com/path/to/org.json',
         created: '2021-03-21T09:23:13.551Z'
       }
       */

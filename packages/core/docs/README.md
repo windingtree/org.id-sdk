@@ -23,4 +23,4 @@
 
 **Returns:** OrgIdContract
 
-Defined in: [contract.ts:17](https://github.com/windingtree/org.id-sdk/blob/a719236/packages/core/src/contract.ts#L17)
+Defined in: [contract.ts:18](https://github.com/windingtree/org.id-sdk/blob/5491695/packages/core/src/contract.ts#L18)
