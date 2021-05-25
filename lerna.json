@@ -12,6 +12,6 @@
             "registry": "https://npm.pkg.github.com"
         }
     },
-    "npmClient": "npm",
+    "npmClient": "yarn",
     "version": "independent"
 }

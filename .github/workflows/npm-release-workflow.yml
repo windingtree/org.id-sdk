@@ -13,21 +13,21 @@ jobs:
         with:
           node-version: 12
       - name: Install dependencies
-        run: npm install
+        run: yarn install
       - name: Lerna link
-        run: npm run link
+        run: yarn run link
       - name: Lerna bootstrap
-        run: npm run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} npm ci
+        run: yarn run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} yarn install --frozen-lockfile
       - name: Run tests
-        run: npm run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} npm test
+        run: yarn run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} yarn run test
       - name: Build the package
-        run: npm run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} npm run build
+        run: yarn run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} yarn run build
       - uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: "https://registry.npmjs.org"
           scope: "@windingtree"
       - name: Publish to npmjs.org
-        run: npm run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} npm publish -- --access public
+        run: yarn run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} npm publish -- --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
