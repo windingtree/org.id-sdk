@@ -12,9 +12,7 @@ export type OrgIdAddresses = {
 
 export type Web3Provider = HttpProvider | WebsocketProvider | IpcProvider;
 
-export type Web3ProviderUri = string;
-
-export type CallbackFn = (data: any | void) => void;
+export type CallbackFn = (data: unknown | void) => void;
 
 export interface OrgIdData {
   id: string;

@@ -7,3 +7,15 @@
 ### Classes
 
 - [HttpError](../classes/errors.httperror.md)
+
+### Type aliases
+
+- [ErrorArgs](errors.md#errorargs)
+
+## Type aliases
+
+### ErrorArgs
+
+Ƭ **ErrorArgs**: [*string*, Status?]
+
+Defined in: [src/errors/index.ts:7](https://github.com/windingtree/org.id-sdk/blob/59e6f29/packages/shared/src/errors/index.ts#L7)

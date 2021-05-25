@@ -3,7 +3,7 @@ const contract = require('@truffle/contract');
 import Web3 from 'web3';
 import { OrgIdContract } from '@windingtree/org.id';
 import { ganache, DevelopmentServer } from './ganache';
-import { HttpFileServer } from './httpServer';
+import { HttpFileServer, File } from './httpServer';
 
 export interface OrgIdSetup {
   accounts: string[];
@@ -15,21 +15,25 @@ export interface OrgIdSetup {
   close(): Promise<void>;
 }
 
-export type ContractObject = any;
+interface ContractObject {
+  createOrgId(salt: string, arg1: string, arg2: { from: string; }): Promise<any>;
+}
 
 export const generateSalt = (): string => Web3.utils.keccak256(Math.random().toString());
 
 const registerOrgId = async (
   contract: ContractObject,
   httpServer: HttpFileServer,
-  owner: string
+  owner: string,
+  orgJsonFile?: File
 ): Promise<string> => {
   const salt = generateSalt();
-  const file = httpServer.addFile({
+  const fileToAdd = orgJsonFile || {
     type: 'json',
     path: `${salt}.json`,
     content: '{"test":"test"}'
-  });
+  }
+  const file = httpServer.addFile(fileToAdd);
   const result = await contract.createOrgId(
     salt,
     `${httpServer.baseUri}/${file.path}`,
