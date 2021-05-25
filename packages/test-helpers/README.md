@@ -11,7 +11,10 @@ npm install @windingtree/org.id-test-helpers
 ## Usage
 
 ```javascript
-import { ganache. HttpFileServer } from '@windingtree/org.id-test-helpers';
+import {
+  ganache,
+  HttpFileServer
+} from '@windingtree/org.id-test-helpers';
 
 const server = await ganache();
 
