@@ -1,5 +1,6 @@
 import Web3 from 'web3';
 import { orgIdSetup, OrgIdSetup, generateSalt } from '@windingtree/org.id-test-helpers';
+import { regexp } from '@windingtree/org.id-utils';
 import {
   OrgIdContract
 } from '../src/core'
@@ -31,7 +32,7 @@ describe('OrgId contract', () => {
 
     test('should expose parameters', async () => {
       expect(contract).toHaveProperty('address');
-      expect(/^0x[a-fA-F0-9]{40}$/.exec(contract.address)).not.toBeNull();
+      expect(regexp.ethereumAddress.exec(contract.address)).not.toBeNull();
       expect(contract).toHaveProperty('web3');
       expect(contract.web3).toBeInstanceOf(Web3);
       expect(contract).toHaveProperty('contract');
@@ -94,7 +95,7 @@ describe('OrgId contract', () => {
         expect(orgId.id).toBe(orgIdHash);
       }
       expect(orgId).toHaveProperty('owner');
-      expect(/^0x[a-fA-F0-9]{40}$/.exec(orgId.owner)).not.toBeNull();
+      expect(regexp.ethereumAddress.exec(orgId.owner)).not.toBeNull();
       expect(orgId).toHaveProperty('created');
       expect(/(\d{4})-(\d{2})-(\d{2})T((\d{2}):(\d{2}):(\d{2}))\.(\d{3})Z/.exec(orgId.created)).not.toBeNull();
       expect(orgId).toHaveProperty('orgJsonUri');

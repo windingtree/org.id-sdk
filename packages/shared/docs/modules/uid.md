@@ -30,4 +30,4 @@ simpleUid(5); // returns a string like 'jedpr'
 
 **Returns:** *string*
 
-Defined in: [src/uid/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/59e6f29/packages/shared/src/uid/index.ts#L8)
+Defined in: [src/uid/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/2cc4566/packages/shared/src/uid/index.ts#L8)

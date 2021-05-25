@@ -37,6 +37,7 @@ console.log(Object.keys(regexp));
   phone,
   uri,
   email,
+  isoDate,
   ethereumAddress,
   bitcoinAddress,
   X25519,          // <-- X25519 pub key

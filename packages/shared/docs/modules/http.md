@@ -25,7 +25,7 @@
 
 Ƭ **Code**: ``200`` \| ``400`` \| ``401`` \| ``403`` \| ``404`` \| ``405`` \| ``500`` \| ``501`` \| ``502`` \| ``503``
 
-Defined in: [src/http/codes.ts:5](https://github.com/windingtree/org.id-sdk/blob/59e6f29/packages/shared/src/http/codes.ts#L5)
+Defined in: [src/http/codes.ts:5](https://github.com/windingtree/org.id-sdk/blob/2cc4566/packages/shared/src/http/codes.ts#L5)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 Ƭ **HttpMethods**: { [key in Method]: Method}
 
-Defined in: [src/http/codes.ts:13](https://github.com/windingtree/org.id-sdk/blob/59e6f29/packages/shared/src/http/codes.ts#L13)
+Defined in: [src/http/codes.ts:13](https://github.com/windingtree/org.id-sdk/blob/2cc4566/packages/shared/src/http/codes.ts#L13)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 Ƭ **HttpStatusCodes**: { [key in Status]: Code}
 
-Defined in: [src/http/codes.ts:17](https://github.com/windingtree/org.id-sdk/blob/59e6f29/packages/shared/src/http/codes.ts#L17)
+Defined in: [src/http/codes.ts:17](https://github.com/windingtree/org.id-sdk/blob/2cc4566/packages/shared/src/http/codes.ts#L17)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 Ƭ **HttpStatuses**: { [key in Status]: Status}
 
-Defined in: [src/http/codes.ts:9](https://github.com/windingtree/org.id-sdk/blob/59e6f29/packages/shared/src/http/codes.ts#L9)
+Defined in: [src/http/codes.ts:9](https://github.com/windingtree/org.id-sdk/blob/2cc4566/packages/shared/src/http/codes.ts#L9)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 Ƭ **Method**: ``"GET"`` \| ``"POST"`` \| ``"PUT"`` \| ``"DELETE"`` \| ``"PATCH"``
 
-Defined in: [src/http/codes.ts:7](https://github.com/windingtree/org.id-sdk/blob/59e6f29/packages/shared/src/http/codes.ts#L7)
+Defined in: [src/http/codes.ts:7](https://github.com/windingtree/org.id-sdk/blob/2cc4566/packages/shared/src/http/codes.ts#L7)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 Ƭ **Status**: ``"OK"`` \| ``"BAD_REQUEST"`` \| ``"UNAUTHORIZED"`` \| ``"FORBIDDEN"`` \| ``"NOT_FOUND"`` \| ``"METHOD_NOT_ALLOWED"`` \| ``"INTERNAL_SERVER_ERROR"`` \| ``"NOT_IMPLEMENTED"`` \| ``"BAD_GATEWAY"`` \| ``"SERVICE_UNAVAILABLE"``
 
-Defined in: [src/http/codes.ts:1](https://github.com/windingtree/org.id-sdk/blob/59e6f29/packages/shared/src/http/codes.ts#L1)
+Defined in: [src/http/codes.ts:1](https://github.com/windingtree/org.id-sdk/blob/2cc4566/packages/shared/src/http/codes.ts#L1)
 
 ## Variables
 
@@ -73,7 +73,7 @@ Defined in: [src/http/codes.ts:1](https://github.com/windingtree/org.id-sdk/blob
 
 • `Const` **HTTP\_METHODS**: [*HttpMethods*](http.md#httpmethods)
 
-Defined in: [src/http/codes.ts:50](https://github.com/windingtree/org.id-sdk/blob/59e6f29/packages/shared/src/http/codes.ts#L50)
+Defined in: [src/http/codes.ts:50](https://github.com/windingtree/org.id-sdk/blob/2cc4566/packages/shared/src/http/codes.ts#L50)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 • `Const` **HTTP\_STATUS**: [*HttpStatuses*](http.md#httpstatuses)
 
-Defined in: [src/http/codes.ts:22](https://github.com/windingtree/org.id-sdk/blob/59e6f29/packages/shared/src/http/codes.ts#L22)
+Defined in: [src/http/codes.ts:22](https://github.com/windingtree/org.id-sdk/blob/2cc4566/packages/shared/src/http/codes.ts#L22)
 
 ___
 
@@ -89,4 +89,4 @@ ___
 
 • `Const` **HTTP\_STATUS\_CODES**: [*HttpStatusCodes*](http.md#httpstatuscodes)
 
-Defined in: [src/http/codes.ts:36](https://github.com/windingtree/org.id-sdk/blob/59e6f29/packages/shared/src/http/codes.ts#L36)
+Defined in: [src/http/codes.ts:36](https://github.com/windingtree/org.id-sdk/blob/2cc4566/packages/shared/src/http/codes.ts#L36)
