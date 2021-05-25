@@ -13,6 +13,5 @@
         }
     },
     "npmClient": "yarn",
-    "useWorkspaces": false,
     "version": "independent"
 }
