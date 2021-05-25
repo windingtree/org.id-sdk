@@ -201,7 +201,7 @@ describe('OrgId contract', () => {
       });
 
       test('should create orgId (with gasLimit, gasPrice, tx callback)', async () => {
-        let txHash: string;
+        let txHash: any;
         const orgId = await contract.createOrgId(
           generateSalt(),
           'http://test.uri',
@@ -299,7 +299,7 @@ describe('OrgId contract', () => {
       });
 
       test('should set ORG.JSON URI (with gasLimit, gasPrice, tx callback)', async () => {
-        let txHash: string;
+        let txHash: any;
         const orgId = await contract.setOrgJson(
           orgIdHash,
           'http://test.uri',
@@ -404,7 +404,7 @@ describe('OrgId contract', () => {
       });
 
       test('should transfer ORGiD ownership (with gas limit, gas price, tx callback)', async () => {
-        let txHash: string;
+        let txHash: any;
         const newOrgIdOwner = setup.accounts[2];
         const orgId = await contract.transferOrgIdOwnership(
           orgIdHash,
