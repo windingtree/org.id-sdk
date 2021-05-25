@@ -2,11 +2,14 @@
   "name": "@windingtree/org.id-utils",
   "version": "0.2.2",
   "description": "Shared ORGiD utilities",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "./dist"
+    "dist"
   ],
+  "publishConfig":{
+    "access": "public"
+  },
   "scripts": {
     "lint": "npx eslint . --ext .ts",
     "lint:fix": "npx eslint . --ext .ts --fix",

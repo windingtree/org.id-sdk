@@ -28,6 +28,6 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           scope: "@windingtree"
       - name: Publish to npmjs.org
-        run: yarn run exec --scope @windingtree/${{ github.event.client_payload.packageName }} npm publish --access public
+        run: yarn run exec --scope @windingtree/${{ github.event.client_payload.packageName }} npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
