@@ -1,5 +1,6 @@
 import Web3 from 'web3';
 import { Contract } from 'web3-eth-contract';
+import { regexp } from '@windingtree/org.id-utils';
 import {
   OrgIdData,
   OrgIdRawResult
@@ -11,7 +12,7 @@ export const getOrgId = async (
   orgIdHash: string
 ): Promise<OrgIdData> => {
 
-  if (!/^0x[a-fA-F0-9]{64}$/.exec(orgIdHash)) {
+  if (!regexp.bytes32.exec(orgIdHash)) {
     throw new Error(`getOrgId: Invalid ORGiD hash: ${orgIdHash}`);
   }
 

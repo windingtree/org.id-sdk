@@ -7,6 +7,7 @@ import {
 } from '../core';
 import { getOrgId } from './getOrgId';
 import { sendHelper } from '../shared/sendHelper'
+import { regexp } from '@windingtree/org.id-utils';
 
 export const transferOrgIdOwnership = async (
   web3: Web3,
@@ -20,15 +21,15 @@ export const transferOrgIdOwnership = async (
   transactionHashCb: CallbackFn | void = () => {}
 ): Promise<OrgIdData> => {
 
-  if (!/^0x[a-fA-F0-9]{64}$/.exec(orgIdHash)) {
+  if (!regexp.bytes32.exec(orgIdHash)) {
     throw new Error(`transferOrgIdOwnership: Invalid ORGiD hash: ${orgIdHash}`);
   }
 
-  if (!/^0x[a-fA-F0-9]{40}$/.exec(newOrgIdOwner)) {
+  if (!regexp.ethereumAddress.exec(newOrgIdOwner)) {
     throw new Error(`transferOrgIdOwnership: Invalid newOrgIdOwner address: ${newOrgIdOwner}`);
   }
 
-  if (!/^0x[a-fA-F0-9]{40}$/.exec(orgIdOwner)) {
+  if (!regexp.ethereumAddress.exec(orgIdOwner)) {
     throw new Error(`transferOrgIdOwnership: Invalid orgIdOwner address: ${orgIdOwner}`);
   }
 

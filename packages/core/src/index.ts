@@ -1,1 +1,1 @@
-export * from './contract';
+export * as OrgIdContract from './contract';

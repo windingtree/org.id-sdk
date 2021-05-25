@@ -1,6 +1,7 @@
 import Web3 from 'web3';
 import { Contract } from 'web3-eth-contract';
 import { TransactionReceipt } from 'web3-eth';
+import { regexp } from '@windingtree/org.id-utils';
 import {
   OrgIdData,
   CallbackFn
@@ -20,7 +21,7 @@ export const createOrgId = async (
   transactionHashCb: CallbackFn | void = () => {}
 ): Promise<OrgIdData> => {
 
-  if (!/^0x[a-fA-F0-9]{64}$/.exec(salt)) {
+  if (!regexp.bytes32.exec(salt)) {
     throw new Error(`createOrgId: Invalid ORGiD salt: ${salt}`);
   }
 
@@ -28,7 +29,7 @@ export const createOrgId = async (
     throw new Error(`createOrgId: Invalid orgJsonUri value: ${orgJsonUri}`);
   }
 
-  if (!/^0x[a-fA-F0-9]{40}$/.exec(orgIdOwner)) {
+  if (!regexp.ethereumAddress.exec(orgIdOwner)) {
     throw new Error(`createOrgId: Invalid orgIdOwner address: ${orgIdOwner}`);
   }
 

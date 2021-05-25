@@ -1,10 +1,7 @@
 import Web3 from 'web3';
 import { orgIdSetup, OrgIdSetup, generateSalt } from '@windingtree/org.id-test-helpers';
 import { regexp } from '@windingtree/org.id-utils';
-import {
-  OrgIdContract
-} from '../src/core'
-import { orgIdContract } from '../src/contract';
+import OrgIdContract from '../src/contract';
 
 describe('OrgId contract', () => {
   let setup: OrgIdSetup;
@@ -18,7 +15,7 @@ describe('OrgId contract', () => {
     orgIdContractAddress = setup.address;
     orgIdOwner = setup.accounts[1];
     orgIdHash = await setup.registerOrgId(orgIdOwner);
-    contract = orgIdContract(
+    contract = new OrgIdContract(
       orgIdContractAddress,
       setup.server.providerUri
     );
@@ -42,7 +39,7 @@ describe('OrgId contract', () => {
     test('should fail if invalid orgIdContractAddress provided', async () => {
       let invalidNetworkOrAddress = '';
       expect(() => {
-        orgIdContract(
+        new OrgIdContract(
           invalidNetworkOrAddress,
           setup.server.providerUri
         )
@@ -51,7 +48,7 @@ describe('OrgId contract', () => {
       );
       invalidNetworkOrAddress = '0x3219B2904F1e4BF';
       expect(() => {
-        orgIdContract(
+        new OrgIdContract(
           invalidNetworkOrAddress,
           setup.server.providerUri
         )
@@ -60,7 +57,7 @@ describe('OrgId contract', () => {
       );
       invalidNetworkOrAddress = undefined;
       expect(() => {
-        orgIdContract(
+        new OrgIdContract(
           invalidNetworkOrAddress,
           setup.server.providerUri
         )
@@ -72,14 +69,14 @@ describe('OrgId contract', () => {
     test('should fail if invalid web3ProviderOrUri provided', async () => {
       let invalidWeb3ProviderOrUri = undefined;
       expect(() => {
-        orgIdContract(
+        new OrgIdContract(
           orgIdContractAddress,
           invalidWeb3ProviderOrUri
         )
       }).toThrow(`orgIdContract: Unable to initialize web3 provider`);
       invalidWeb3ProviderOrUri = '';
       expect(() => {
-        orgIdContract(
+        new OrgIdContract(
           orgIdContractAddress,
           invalidWeb3ProviderOrUri
         )

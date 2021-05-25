@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-core",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Core ORGiD Javascript library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -39,7 +39,7 @@
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/core#readme",
   "dependencies": {
     "@windingtree/org.id": "2.0.0",
-    "@windingtree/org.id-utils": "0.2.3",
+    "@windingtree/org.id-utils": "0.2.4",
     "@windingtree/org.id-test-helpers": "0.2.2"
   },
   "devDependencies": {
