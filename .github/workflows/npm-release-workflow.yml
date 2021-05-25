@@ -17,7 +17,7 @@ jobs:
       - name: Lerna link
         run: npm run link
       - name: Lerna bootstrap
-        run: npm run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} npm install
+        run: npm run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} npm ci
       - name: Run tests
         run: npm run exec -- --scope @windingtree/${{ github.event.client_payload.packageName }} npm test
       - name: Build the package
