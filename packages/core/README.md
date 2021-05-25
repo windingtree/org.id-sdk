@@ -146,7 +146,7 @@ contract
   .catch(console.error);
 ```
 
-### Getting the list registered ORGiD's (without pagination)
+### Getting the list of registered ORGiD's (without pagination)
 
 ```javascript
 contract
@@ -168,7 +168,7 @@ contract
   .catch(console.error);
 ```
 
-### Getting the list registered ORGiD's (with pagination)
+### Getting the list of registered ORGiD's (with pagination)
 
 ```javascript
 contract
