@@ -13,7 +13,6 @@
     }
   },
   "npmClientArgs": [
-    "--production",
     "--no-ci"
   ],
   "npmClient": "yarn",
