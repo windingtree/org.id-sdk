@@ -2,6 +2,9 @@
   "name": "@windingtree/org.id-sdk",
   "description": "Core Javascript tools for the ORGiD ecosystem",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "link": "lerna link",
     "lint": "lerna run lint",
