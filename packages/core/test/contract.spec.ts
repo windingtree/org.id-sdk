@@ -97,7 +97,7 @@ describe('OrgId contract', () => {
       expect(orgId).toHaveProperty('owner');
       expect(regexp.ethereumAddress.exec(orgId.owner)).not.toBeNull();
       expect(orgId).toHaveProperty('created');
-      expect(/(\d{4})-(\d{2})-(\d{2})T((\d{2}):(\d{2}):(\d{2}))\.(\d{3})Z/.exec(orgId.created)).not.toBeNull();
+      expect(regexp.isoDate.exec(orgId.created)).not.toBeNull();
       expect(orgId).toHaveProperty('orgJsonUri');
       expect(typeof orgId.orgJsonUri).toBe('string');
     };
