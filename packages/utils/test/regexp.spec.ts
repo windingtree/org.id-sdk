@@ -86,6 +86,57 @@ describe('Regular expressions', () => {
         expect(rules.bitcoinAddress.exec(s)).not.toBeNull();
       });
     });
+
+    describe('blockchainAccountId', () => {
+      const validIds = [
+        {
+          '0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb@eip155:1': {
+            accountId: '0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb',
+            blockchainType: 'eip155',
+            blockchainId: '1',
+          }
+        },
+        {
+          '128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6@bip122:000000000019d6689c085ae165831e93': {
+            accountId: '128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6',
+            blockchainType: 'bip122',
+            blockchainId: '000000000019d6689c085ae165831e93',
+          }
+        },
+        {
+          'cosmos1t2uflqwqe0fsj0shcfkrvpukewcw40yjj6hdc0@cosmos:cosmoshub-3': {
+            accountId: 'cosmos1t2uflqwqe0fsj0shcfkrvpukewcw40yjj6hdc0',
+            blockchainType: 'cosmos',
+            blockchainId: 'cosmoshub-3',
+          }
+        },
+        {
+          '5hmuyxw9xdgbpptgypokw4thfyoe3ryenebr381z9iaegmfy@polkadot:b0a8d493285c2df73290dfb7e61f870f': {
+            accountId: '5hmuyxw9xdgbpptgypokw4thfyoe3ryenebr381z9iaegmfy',
+            blockchainType: 'polkadot',
+            blockchainId: 'b0a8d493285c2df73290dfb7e61f870f',
+          }
+        },
+        {
+          'bd57219062044ed77c7e5b865339a6d727309c548763141f11e26e9242bbd34@max-namespace-16:xip3343-8c3444cf8970a9e41a706fab93e7a6c4-xxxyyy': {
+            accountId: 'bd57219062044ed77c7e5b865339a6d727309c548763141f11e26e9242bbd34',
+            blockchainType: 'max-namespace-16',
+            blockchainId: 'xip3343-8c3444cf8970a9e41a706fab93e7a6c4-xxxyyy',
+          }
+        }
+      ];
+
+      test('should validate blockchainAccountId format', async () => {
+        validIds.forEach((s: any) => {
+          const string = Object.keys(s)[0];
+          const values = s[string];
+          const result = rules.blockchainAccountIdGrouped.exec(string).groups;
+          expect(result.accountId).toBe(values.accountId);
+          expect(result.blockchainType).toBe(values.blockchainType);
+          expect(result.blockchainId).toBe(values.blockchainId);
+        });
+      });
+    });
   });
 
   describe('Public keys (as strings)', () => {

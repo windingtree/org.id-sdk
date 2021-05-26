@@ -5,8 +5,10 @@ export const email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+")
 export const isoDate = /(\d{4})-(\d{2})-(\d{2})T((\d{2}):(\d{2}):(\d{2}))\.(\d{3})Z/;
 
 // Crypto addresses
-export const ethereumAddress = /^0x[a-fA-F0-9]{40}$/i;
-export const bitcoinAddress = /^(bc1|[13]{1})([a-zA-HJ-NP-Z0-9]{25,39})$/i;
+export const ethereumAddress = /^0x[a-fA-F0-9]{40}$/;
+export const bitcoinAddress = /^(bc1|[13]{1})([a-zA-HJ-NP-Z0-9]{25,39})$/;
+export const blockchainAccountId = /^([a-zA-Z-0-9]+)@([a-zA-Z-0-9]+):([a-zA-Z-0-9]+)$/;
+export const blockchainAccountIdGrouped = /^(?<accountId>[a-zA-Z-0-9]+)@(?<blockchainType>[a-zA-Z-0-9]+):(?<blockchainId>[a-zA-Z-0-9]+)$/;
 
 // Public keys (as strings)
 export const X25519 = /^(MCowBQYDK2VuAyEA[a-zA-Z0-9/]{43}=)$/;
@@ -20,5 +22,5 @@ export const swift = /^[a-zA-Z]{4}[ -]{0,1}[a-zA-Z]{2}[ -]{0,1}[a-zA-Z0-9]{2}[ -
 export const iban = /^([A-Z]{2}[ -]?[0-9]{2})(?=(?:[ -]?[A-Z0-9]){9,30}$)((?:[ -]?[A-Z0-9]{3,5}){2,7})([ -]?[A-Z0-9]{1,3})?$/;
 
 // DID
-export const did = /^did:orgid:([a-zA-Z]*:)?(0x[a-fA-F0-9]{64})?(\?([\w=&%-]+))?((?:#)([[0-9a-zA-Z-]+))?$/i;
-export const didGrouped = /^(?<did>did:(?<method>[a-zA-Z]+):(?<submethod>[a-zA-Z]+)?([:]{1})?(?<id>0x[a-fA-F0-9]{64}))?(\?(?<query>[\w\d=&%-]+))?((?:#)(?<fragment>[[0-9a-zA-Z-]+))?$/i;
+export const did = /^did:orgid:([a-zA-Z]*:)?(0x[a-fA-F0-9]{64})?([?]{1}([0-9a-zA-Z_=&%-]+))?((?:#)([[0-9a-zA-Z-]+))?$/;
+export const didGrouped = /^(?<did>did:(?<method>[a-zA-Z]+):(?<submethod>[a-zA-Z]+)?([:]{1})?(?<id>0x[a-fA-F0-9]{64}))?(\?(?<query>[0-9a-zA-Z_=&%-]+))?((?:#)(?<fragment>[[0-9a-zA-Z-]+))?$/;

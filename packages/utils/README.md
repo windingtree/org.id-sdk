@@ -40,6 +40,8 @@ console.log(Object.keys(regexp));
   isoDate,
   ethereumAddress,
   bitcoinAddress,
+  blockchainAccountId,
+  blockchainAccountIdGrouped,
   X25519,          // <-- X25519 pub key
   secp256k1,       // <-- secp256k1 pub key
   bytes32,
