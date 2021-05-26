@@ -166,5 +166,65 @@ describe('Regular expressions', () => {
         expect(rules.did.exec(s)).not.toBeNull();
       });
     });
+
+    test('should validate ORGiD by DID parameters', async () => {
+      const valid = [
+        {
+          'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d': {
+            did: 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+            method: 'orgid',
+            submethod: 'ropsten',
+            id: '0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d'
+          }
+        },
+        {
+          'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest#intro': {
+            did: 'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+            method: 'orgid',
+            id: '0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+            query: 'service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest',
+            fragment: 'intro'
+          }
+        },
+        {
+          'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest': {
+            did: 'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+            method: 'orgid',
+            id: '0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+            query: 'service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest'
+          }
+        },
+        {
+          'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1': {
+            did: 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+            method: 'orgid',
+            submethod: 'ropsten',
+            id: '0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+            fragment: 'key-1'
+          }
+        },
+        {
+          'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest#intro': {
+            did: 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+            method: 'orgid',
+            submethod: 'ropsten',
+            id: '0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+            query: 'service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest',
+            fragment: 'intro'
+          }
+        },
+      ];
+      valid.forEach((s: any) => {
+        const variant: string = Object.keys(s)[0];
+        const result: any = rules.didGrouped.exec(variant);
+        expect(result).not.toBeNull();
+        expect(result.groups.did).toBe(s[variant].did);
+        expect(result.groups.method).toBe(s[variant].method);
+        expect(result.groups.submethod).toBe(s[variant].submethod);
+        expect(result.groups.id).toBe(s[variant].id);
+        expect(result.groups.query).toBe(s[variant].query);
+        expect(result.groups.fragment).toBe(s[variant].fragment);
+      });
+    });
   });
 });

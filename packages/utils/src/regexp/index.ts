@@ -20,4 +20,5 @@ export const swift = /^[a-zA-Z]{4}[ -]{0,1}[a-zA-Z]{2}[ -]{0,1}[a-zA-Z0-9]{2}[ -
 export const iban = /^([A-Z]{2}[ -]?[0-9]{2})(?=(?:[ -]?[A-Z0-9]){9,30}$)((?:[ -]?[A-Z0-9]{3,5}){2,7})([ -]?[A-Z0-9]{1,3})?$/;
 
 // DID
-export const did = /^(?<did>did:(?<method>[\w]+)(?:[:]{1})(?<submethod>[\w]+)?(?:[:]{1})?(?<id>0x\w{64}))(?<query>\?[\w=&%-]+)?(?:#)?(?<fragment>([\w-]+))?$/i;
+export const did = /^did:orgid:([a-zA-Z]*:)?(0x[a-fA-F0-9]{64})?(\?([\w=&%-]+))?((?:#)([[0-9a-zA-Z-]+))?$/i;
+export const didGrouped = /^(?<did>did:(?<method>[a-zA-Z]+):(?<submethod>[a-zA-Z]+)?([:]{1})?(?<id>0x[a-fA-F0-9]{64}))?(\?(?<query>[\w\d=&%-]+))?((?:#)(?<fragment>[[0-9a-zA-Z-]+))?$/i;
