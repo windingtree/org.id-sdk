@@ -2,12 +2,12 @@ import { regexp } from '@windingtree/org.id-utils';
 import {
   keyTypeFromJWK,
   createJWK
-} from '@windingtree/org.id-auth/keys';
+} from '@windingtree/org.id-auth/dist/keys';
 import type {
   KeyObject,
   KeyLike,
   JWK
-} from '@windingtree/org.id-auth/keys';
+} from '@windingtree/org.id-auth/dist/keys';
 import type {
   VerificationMethodReference
 } from '@windingtree/org.json-schema';

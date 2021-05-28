@@ -729,6 +729,11 @@
     "@typescript-eslint/types" "4.25.0"
     eslint-visitor-keys "^2.0.0"
 
+"@windingtree/org.id-utils@0.2.6":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-utils/-/org.id-utils-0.2.6.tgz#3bc18b3a09aadf658659eab319fe16793b579dd9"
+  integrity sha512-5+D0gEi4ErckKuPTaznUaAFtoUw4UcX6Qb+YR+7v32hGVGMFHIZ6PoOc8ZPr5v1MoA6kbYk79FdaZGnenqxOYw==
+
 "@windingtree/org.json-schema@0.5.3-beta":
   version "0.5.3-beta"
   resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.3-beta.tgz#c5d47faede3c6165760305c8ed6adc74a24bc17e"

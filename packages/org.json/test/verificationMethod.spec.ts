@@ -2,17 +2,17 @@ import {
   KeyTypes,
   generateKeyPair,
   createJWK
-} from '../src/keys';
+} from '@windingtree/org.id-auth/dist/keys';
 import {
   createVerificationMethod
-} from '../src/did';
+} from '../src/verificationMethod';
 import type {
   KeyLike,
   JWK
-} from '../src/keys';
+} from '@windingtree/org.id-auth/dist/keys';
 import type {
   DidVerificationMethod
-} from '../src/did';
+} from '../src/verificationMethod';
 
 describe('DID utilities', () => {
   const id = 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1';

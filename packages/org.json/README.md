@@ -1,11 +1,11 @@
-[![@windingtree/org.id-auth](https://img.shields.io/npm/v/@windingtree/org.id-auth.svg)](https://www.npmjs.com/package/@windingtree/org.id-auth)
-# @windingtree/org.id-auth
-ORGiD authentication library
+[![@windingtree/org.json-utils](https://img.shields.io/npm/v/@windingtree/org.json-utils.svg)](https://www.npmjs.com/package/@windingtree/org.json-utils)
+# @windingtree/org.json-utils
+ORG.JSON utilities
 
 ## Setup
 
 ```bash
-npm install @windingtree/org.id-auth
+npm install @windingtree/org.json-utils
 ```
 
 ## Usage
