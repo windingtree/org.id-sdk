@@ -24,6 +24,7 @@ describe('Regular expressions', () => {
         'https://blaqwert1-asdsad.domain1-2-aaa.io:8080/path/to?user=allowed#readme'
       )).not.toBeNull();
       const validUris = [
+        'http://0.0.0.0:10000/myfile.txt',
         'https://dsfsdf.sdfsdfsd-sf.io:8080/path/to?user=allowed#readme',
         'http://dsfsdf.sdfsdfsd-sf.io:8080/path/to?user=allowed#readme',
         'http://ibm.com:443/path/',
@@ -267,7 +268,7 @@ describe('Regular expressions', () => {
       ];
       valid.forEach((s: any) => {
         const variant: string = Object.keys(s)[0];
-        const result: any = rules.didGrouped.exec(variant);
+        const result: RegExpExecArray | null = rules.didGrouped.exec(variant);
         expect(result).not.toBeNull();
         expect(result.groups.did).toBe(s[variant].did);
         expect(result.groups.method).toBe(s[variant].method);

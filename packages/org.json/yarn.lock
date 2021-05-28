@@ -729,15 +729,6 @@
     "@typescript-eslint/types" "4.25.0"
     eslint-visitor-keys "^2.0.0"
 
-"@windingtree/org.id-auth@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@windingtree/org.id-auth/-/org.id-auth-0.1.0.tgz#14d3837ba13ff0f8afda51c7fbd2fc0d96daf50e"
-  integrity sha512-9zHa4A4ZwLW5MePvry1SFnOuIAJtQeVgCa19qyOVzp5lRpi2ZQ/SFPRvK5VdI7Oxb5AIVQNjIR0nhm81qA5zGg==
-  dependencies:
-    "@windingtree/org.id-utils" "0.2.6"
-    "@windingtree/org.json-schema" "0.5.3-beta"
-    jose "3.12.2"
-
 "@windingtree/org.id-utils@0.2.6":
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/@windingtree/org.id-utils/-/org.id-utils-0.2.6.tgz#3bc18b3a09aadf658659eab319fe16793b579dd9"
@@ -2252,11 +2243,6 @@ jest@27.0.1:
     "@jest/core" "^27.0.1"
     import-local "^3.0.2"
     jest-cli "^27.0.1"
-
-jose@3.12.2:
-  version "3.12.2"
-  resolved "https://registry.yarnpkg.com/jose/-/jose-3.12.2.tgz#7f83348239fa26d6e279b5734bd439be7b7c944e"
-  integrity sha512-6v6JBmmL30iEqr1KTz5qB11EvkQHJ0li7bK8/q9OyljVjCZcFeo1kqFlrQ/zNOSb+XGLIKqGLH8aZyACTT4IVg==
 
 js-tokens@^4.0.0:
   version "4.0.0"

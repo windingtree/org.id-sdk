@@ -1,16 +1,34 @@
-export type Status = 'OK' | 'BAD_REQUEST' | 'UNAUTHORIZED' | 'FORBIDDEN' |
-  'NOT_FOUND' | 'METHOD_NOT_ALLOWED' | 'INTERNAL_SERVER_ERROR' |
-  'NOT_IMPLEMENTED' | 'BAD_GATEWAY' | 'SERVICE_UNAVAILABLE';
+export type Status =
+  | 'OK'
+  | 'BAD_REQUEST'
+  | 'UNAUTHORIZED'
+  | 'FORBIDDEN'
+  | 'NOT_FOUND'
+  | 'METHOD_NOT_ALLOWED'
+  | 'INTERNAL_SERVER_ERROR'
+  | 'NOT_IMPLEMENTED'
+  | 'BAD_GATEWAY'
+  | 'SERVICE_UNAVAILABLE';
 
 export type Code = 200 | 400 | 401 | 403 | 404 | 405 | 500 | 501 | 502 | 503;
 
-export type Method = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+export type Method =
+  | 'get' | 'GET'
+  | 'delete' | 'DELETE'
+  | 'head' | 'HEAD'
+  | 'options' | 'OPTIONS'
+  | 'post' | 'POST'
+  | 'put' | 'PUT'
+  | 'patch' | 'PATCH'
+  | 'purge' | 'PURGE'
+  | 'link' | 'LINK'
+  | 'unlink' | 'UNLINK';
 
 export type HttpStatuses = {
   [key in Status]: Status
 }
 
-export type HttpMethods = {
+export type Methods = {
   [key in Method]: Method
 }
 
@@ -47,10 +65,25 @@ export const HTTP_STATUS_CODES: HttpStatusCodes = {
 };
 
 // HTTP methods
-export const HTTP_METHODS: HttpMethods = {
+export const HTTP_METHODS: Methods = {
   GET: 'GET',
+  get: 'GET',
   POST: 'POST',
+  post: 'POST',
   PUT: 'PUT',
+  put: 'PUT',
   DELETE: 'DELETE',
-  PATCH: 'PATCH'
+  delete: 'DELETE',
+  PATCH: 'PATCH',
+  patch: 'PATCH',
+  head: 'HEAD',
+  HEAD: 'HEAD',
+  options: 'OPTIONS',
+  OPTIONS: 'OPTIONS',
+  purge: 'PURGE',
+  PURGE: 'PURGE',
+  link: 'LINK',
+  LINK: 'LINK',
+  unlink: 'UNLINK',
+  UNLINK: 'UNLINK'
 };
