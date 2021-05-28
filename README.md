@@ -9,7 +9,6 @@ Core Javascript tools for the ORGiD ecosystem
 | [@windingtree/org.id-utils](packages/utils#readme) | [![@windingtree/org.id-utils](https://img.shields.io/npm/v/@windingtree/org.id-utils.svg)](https://www.npmjs.com/package/@windingtree/org.id-utils) | Shared ORGiD utilities |
 | [@windingtree/org.id-test-helpers](packages/test-helpers#readme) | [![@windingtree/org.id-test-helpers](https://img.shields.io/npm/v/@windingtree/org.id-test-helpers.svg)](https://www.npmjs.com/package/@windingtree/org.id-test-helpers) | Javascript library for ORGiD smart contract testing |
 | [@windingtree/org.id-auth](packages/auth#readme) | [![@windingtree/org.id-auth](https://img.shields.io/npm/v/@windingtree/org.id-auth.svg)](https://www.npmjs.com/package/@windingtree/org.id-auth) | ORGiD authentication library |
-| [@windingtree/org.id-vc](packages/vc#readme) |  | ORGiD verifiable credentials library |
 | [@windingtree/org.json-utils](packages/org.json#readme) | [![@windingtree/org.json-utils](https://img.shields.io/npm/v/@windingtree/org.json-utils.svg)](https://www.npmjs.com/package/@windingtree/org.json-utils) | ORG.JSON utilities |
 
 ## Maintenance

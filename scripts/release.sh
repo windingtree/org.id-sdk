@@ -2,7 +2,7 @@
 
 set -o errexit
 
-echo "Emitting dispatch event \"release_to_npm\" for the repo windingtree/org.id-tools";
+echo "Emitting dispatch event \"release_to_npm\" for the repo windingtree/org.id-sdk";
 
 curl \
   -X POST \
