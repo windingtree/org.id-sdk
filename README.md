@@ -31,12 +31,12 @@ yarn run test
 
 ### Packages release
 
-To make a release of the package run the following command.
+To make a release`*` of the package run the following command.
 
 ```bash
 ./scripts/release <GITHUB_PERSONAL_ACCESS_TOKEN> <PACKAGE_NAME>
 ```
 
-Do not forget to set a proper version number of the package you want to release in the package.json of the selected package.
+`*` Do not forget to set a proper version number of the package you want to release in the package.json of the selected package.
 
 To get an access token please use this [guide](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
