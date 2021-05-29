@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-utils",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "Shared ORGiD utilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

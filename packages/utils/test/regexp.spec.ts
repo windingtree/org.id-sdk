@@ -204,6 +204,19 @@ describe('Regular expressions', () => {
 
   describe('DID', () => {
 
+    test('should validate clear ORGiD DID (without query and fragment)', async () => {
+      expect(rules.didOnly.exec('did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1')).toBeNull();
+      expect(rules.didOnly.exec('did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a')).toBeNull();
+      expect(rules.didOnly.exec('did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a#key-1')).toBeNull();
+      const valid = [
+        'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+        'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+      ];
+      valid.forEach(s => {
+        expect(rules.didOnly.exec(s)).not.toBeNull();
+      });
+    });
+
     test('should validate ORGiD DID', async () => {
       expect(rules.did.exec('0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d')).toBeNull();
       const valid = [

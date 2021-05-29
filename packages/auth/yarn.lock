@@ -729,10 +729,10 @@
     "@typescript-eslint/types" "4.25.0"
     eslint-visitor-keys "^2.0.0"
 
-"@windingtree/org.json-schema@0.5.3-beta":
-  version "0.5.3-beta"
-  resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.3-beta.tgz#c5d47faede3c6165760305c8ed6adc74a24bc17e"
-  integrity sha512-VD9cdmyBfia54xh6q6k6DRUjdVwvFhG69CNTKjHWQIxiY0fD3HbXOq7uADqfJrB9JZbi+Gu3QBN4DOENGD1TjQ==
+"@windingtree/org.json-schema@0.5.4-beta":
+  version "0.5.4-beta"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.4-beta.tgz#a66e065d98c12a6be08a53f110a75b4003dcd8ca"
+  integrity sha512-TLaiRJfHuRecWCGf9pw/R/8rnG1KURL63tTQ69R5A/9fIOqAaU04gSEbN6TVC+eoYJDyNC7aldXEX0JBR0jW6g==
 
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"

@@ -23,6 +23,7 @@ export const iban = /^([A-Z]{2}[ -]?[0-9]{2})(?=(?:[ -]?[A-Z0-9]){9,30}$)((?:[ -
 
 // DID
 export const did = /^did:orgid:([a-zA-Z]*:)?(0x[a-fA-F0-9]{64})?([?]{1}([0-9a-zA-Z_=&%-]+))?((?:#)([[0-9a-zA-Z-]+))?$/;
+export const didOnly = /^did:orgid:([a-zA-Z]*:)?(0x[a-fA-F0-9]{64})?$/;
 export const didGrouped = /^(?<did>did:(?<method>[a-zA-Z]+):(?<submethod>[a-zA-Z]+)?([:]{1})?(?<id>0x[a-fA-F0-9]{64}))?(\?(?<query>[0-9a-zA-Z_=&%-]+))?((?:#)(?<fragment>[[0-9a-zA-Z-]+))?$/;
 
 // UUID
