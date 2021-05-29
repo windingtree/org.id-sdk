@@ -8,8 +8,12 @@
 
 - [X25519](regexp.md#x25519)
 - [bitcoinAddress](regexp.md#bitcoinaddress)
+- [blockchainAccountId](regexp.md#blockchainaccountid)
+- [blockchainAccountIdGrouped](regexp.md#blockchainaccountidgrouped)
 - [bytes32](regexp.md#bytes32)
 - [did](regexp.md#did)
+- [didGrouped](regexp.md#didgrouped)
+- [didOnly](regexp.md#didonly)
 - [email](regexp.md#email)
 - [ethereumAddress](regexp.md#ethereumaddress)
 - [iban](regexp.md#iban)
@@ -18,6 +22,7 @@
 - [secp256k1](regexp.md#secp256k1)
 - [swift](regexp.md#swift)
 - [uri](regexp.md#uri)
+- [uuid4](regexp.md#uuid4)
 
 ## Variables
 
@@ -25,7 +30,7 @@
 
 • `Const` **X25519**: *RegExp*
 
-Defined in: [src/regexp/index.ts:12](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/regexp/index.ts#L12)
+Defined in: [src/regexp/index.ts:14](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L14)
 
 ___
 
@@ -33,7 +38,23 @@ ___
 
 • `Const` **bitcoinAddress**: *RegExp*
 
-Defined in: [src/regexp/index.ts:9](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/regexp/index.ts#L9)
+Defined in: [src/regexp/index.ts:9](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L9)
+
+___
+
+### blockchainAccountId
+
+• `Const` **blockchainAccountId**: *RegExp*
+
+Defined in: [src/regexp/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L10)
+
+___
+
+### blockchainAccountIdGrouped
+
+• `Const` **blockchainAccountIdGrouped**: *RegExp*
+
+Defined in: [src/regexp/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L11)
 
 ___
 
@@ -41,7 +62,7 @@ ___
 
 • `Const` **bytes32**: *RegExp*
 
-Defined in: [src/regexp/index.ts:16](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/regexp/index.ts#L16)
+Defined in: [src/regexp/index.ts:18](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L18)
 
 ___
 
@@ -49,7 +70,23 @@ ___
 
 • `Const` **did**: *RegExp*
 
-Defined in: [src/regexp/index.ts:23](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/regexp/index.ts#L23)
+Defined in: [src/regexp/index.ts:25](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L25)
+
+___
+
+### didGrouped
+
+• `Const` **didGrouped**: *RegExp*
+
+Defined in: [src/regexp/index.ts:27](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L27)
+
+___
+
+### didOnly
+
+• `Const` **didOnly**: *RegExp*
+
+Defined in: [src/regexp/index.ts:26](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L26)
 
 ___
 
@@ -57,7 +94,7 @@ ___
 
 • `Const` **email**: *RegExp*
 
-Defined in: [src/regexp/index.ts:4](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/regexp/index.ts#L4)
+Defined in: [src/regexp/index.ts:4](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L4)
 
 ___
 
@@ -65,7 +102,7 @@ ___
 
 • `Const` **ethereumAddress**: *RegExp*
 
-Defined in: [src/regexp/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/regexp/index.ts#L8)
+Defined in: [src/regexp/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L8)
 
 ___
 
@@ -73,7 +110,7 @@ ___
 
 • `Const` **iban**: *RegExp*
 
-Defined in: [src/regexp/index.ts:20](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/regexp/index.ts#L20)
+Defined in: [src/regexp/index.ts:22](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L22)
 
 ___
 
@@ -81,7 +118,7 @@ ___
 
 • `Const` **isoDate**: *RegExp*
 
-Defined in: [src/regexp/index.ts:5](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/regexp/index.ts#L5)
+Defined in: [src/regexp/index.ts:5](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L5)
 
 ___
 
@@ -89,7 +126,7 @@ ___
 
 • `Const` **phone**: *RegExp*
 
-Defined in: [src/regexp/index.ts:2](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/regexp/index.ts#L2)
+Defined in: [src/regexp/index.ts:2](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L2)
 
 ___
 
@@ -97,7 +134,7 @@ ___
 
 • `Const` **secp256k1**: *RegExp*
 
-Defined in: [src/regexp/index.ts:13](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/regexp/index.ts#L13)
+Defined in: [src/regexp/index.ts:15](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L15)
 
 ___
 
@@ -105,7 +142,7 @@ ___
 
 • `Const` **swift**: *RegExp*
 
-Defined in: [src/regexp/index.ts:19](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/regexp/index.ts#L19)
+Defined in: [src/regexp/index.ts:21](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L21)
 
 ___
 
@@ -113,4 +150,12 @@ ___
 
 • `Const` **uri**: *RegExp*
 
-Defined in: [src/regexp/index.ts:3](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/regexp/index.ts#L3)
+Defined in: [src/regexp/index.ts:3](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L3)
+
+___
+
+### uuid4
+
+• `Const` **uuid4**: *RegExp*
+
+Defined in: [src/regexp/index.ts:30](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/regexp/index.ts#L30)

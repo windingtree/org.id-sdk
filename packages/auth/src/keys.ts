@@ -81,13 +81,13 @@ export const keyTypeMap: {
 };
 
 // Get a key type from the JWK
-export const keyTypeFromJWK = (key: JWK): string => {
+export const keyTypeFromJWK = (key: JWK): VerificationMethodType => {
 
   if (!key.kty) {
     throw new Error('Broken JWK');
   }
 
-  let keyType: string;
+  let keyType: VerificationMethodType;
 
   switch (key.kty.toLocaleLowerCase()) {
     case 'ec':

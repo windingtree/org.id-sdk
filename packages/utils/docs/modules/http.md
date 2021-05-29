@@ -4,13 +4,17 @@
 
 ## Table of contents
 
+### Interfaces
+
+- [ExtraHeaders](../interfaces/http.extraheaders.md)
+
 ### Type aliases
 
 - [Code](http.md#code)
-- [HttpMethods](http.md#httpmethods)
 - [HttpStatusCodes](http.md#httpstatuscodes)
 - [HttpStatuses](http.md#httpstatuses)
 - [Method](http.md#method)
+- [Methods](http.md#methods)
 - [Status](http.md#status)
 
 ### Variables
@@ -19,21 +23,18 @@
 - [HTTP\_STATUS](http.md#http_status)
 - [HTTP\_STATUS\_CODES](http.md#http_status_codes)
 
+### Functions
+
+- [createAuthBearerHeader](http.md#createauthbearerheader)
+- [request](http.md#request)
+
 ## Type aliases
 
 ### Code
 
 Ƭ **Code**: ``200`` \| ``400`` \| ``401`` \| ``403`` \| ``404`` \| ``405`` \| ``500`` \| ``501`` \| ``502`` \| ``503``
 
-Defined in: [src/http/codes.ts:5](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/http/codes.ts#L5)
-
-___
-
-### HttpMethods
-
-Ƭ **HttpMethods**: { [key in Method]: Method}
-
-Defined in: [src/http/codes.ts:13](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/http/codes.ts#L13)
+Defined in: [src/http/codes.ts:13](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/http/codes.ts#L13)
 
 ___
 
@@ -41,7 +42,7 @@ ___
 
 Ƭ **HttpStatusCodes**: { [key in Status]: Code}
 
-Defined in: [src/http/codes.ts:17](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/http/codes.ts#L17)
+Defined in: [src/http/codes.ts:35](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/http/codes.ts#L35)
 
 ___
 
@@ -49,15 +50,23 @@ ___
 
 Ƭ **HttpStatuses**: { [key in Status]: Status}
 
-Defined in: [src/http/codes.ts:9](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/http/codes.ts#L9)
+Defined in: [src/http/codes.ts:27](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/http/codes.ts#L27)
 
 ___
 
 ### Method
 
-Ƭ **Method**: ``"GET"`` \| ``"POST"`` \| ``"PUT"`` \| ``"DELETE"`` \| ``"PATCH"``
+Ƭ **Method**: ``"get"`` \| ``"GET"`` \| ``"delete"`` \| ``"DELETE"`` \| ``"head"`` \| ``"HEAD"`` \| ``"options"`` \| ``"OPTIONS"`` \| ``"post"`` \| ``"POST"`` \| ``"put"`` \| ``"PUT"`` \| ``"patch"`` \| ``"PATCH"`` \| ``"purge"`` \| ``"PURGE"`` \| ``"link"`` \| ``"LINK"`` \| ``"unlink"`` \| ``"UNLINK"``
 
-Defined in: [src/http/codes.ts:7](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/http/codes.ts#L7)
+Defined in: [src/http/codes.ts:15](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/http/codes.ts#L15)
+
+___
+
+### Methods
+
+Ƭ **Methods**: { [key in Method]: Method}
+
+Defined in: [src/http/codes.ts:31](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/http/codes.ts#L31)
 
 ___
 
@@ -65,15 +74,15 @@ ___
 
 Ƭ **Status**: ``"OK"`` \| ``"BAD_REQUEST"`` \| ``"UNAUTHORIZED"`` \| ``"FORBIDDEN"`` \| ``"NOT_FOUND"`` \| ``"METHOD_NOT_ALLOWED"`` \| ``"INTERNAL_SERVER_ERROR"`` \| ``"NOT_IMPLEMENTED"`` \| ``"BAD_GATEWAY"`` \| ``"SERVICE_UNAVAILABLE"``
 
-Defined in: [src/http/codes.ts:1](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/http/codes.ts#L1)
+Defined in: [src/http/codes.ts:1](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/http/codes.ts#L1)
 
 ## Variables
 
 ### HTTP\_METHODS
 
-• `Const` **HTTP\_METHODS**: [*HttpMethods*](http.md#httpmethods)
+• `Const` **HTTP\_METHODS**: [*Methods*](http.md#methods)
 
-Defined in: [src/http/codes.ts:50](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/http/codes.ts#L50)
+Defined in: [src/http/codes.ts:68](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/http/codes.ts#L68)
 
 ___
 
@@ -81,7 +90,7 @@ ___
 
 • `Const` **HTTP\_STATUS**: [*HttpStatuses*](http.md#httpstatuses)
 
-Defined in: [src/http/codes.ts:22](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/http/codes.ts#L22)
+Defined in: [src/http/codes.ts:40](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/http/codes.ts#L40)
 
 ___
 
@@ -89,4 +98,41 @@ ___
 
 • `Const` **HTTP\_STATUS\_CODES**: [*HttpStatusCodes*](http.md#httpstatuscodes)
 
-Defined in: [src/http/codes.ts:36](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/http/codes.ts#L36)
+Defined in: [src/http/codes.ts:54](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/http/codes.ts#L54)
+
+## Functions
+
+### createAuthBearerHeader
+
+▸ `Const` **createAuthBearerHeader**(`jwt`: *string*): [*ExtraHeaders*](../interfaces/http.extraheaders.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `jwt` | *string* |
+
+**Returns:** [*ExtraHeaders*](../interfaces/http.extraheaders.md)
+
+Defined in: [src/http/request.ts:20](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/http/request.ts#L20)
+
+___
+
+### request
+
+▸ `Const` **request**(`url`: *string*, `method`: [*Method*](http.md#method), `data?`: *unknown*, `extraHeaders?`: [*ExtraHeaders*](../interfaces/http.extraheaders.md), `timeout?`: *number*, `transformResponse?`: AxiosTransformer): *Promise*<unknown\>
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `url` | *string* | - |
+| `method` | [*Method*](http.md#method) | - |
+| `data?` | *unknown* | - |
+| `extraHeaders?` | [*ExtraHeaders*](../interfaces/http.extraheaders.md) | - |
+| `timeout` | *number* | 10000 |
+| `transformResponse?` | AxiosTransformer | - |
+
+**Returns:** *Promise*<unknown\>
+
+Defined in: [src/http/request.ts:25](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/http/request.ts#L25)

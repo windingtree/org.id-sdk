@@ -625,6 +625,11 @@
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.7.tgz"
   integrity sha512-cxWFQVseBm6O9Gbw1IWb8r6OS4OhSt3hPZLkFApLjM8TEXROBuQGLAH2i2gZpcXdLBIrpXuTDhH7Vbm1iXmNGA==
 
+"@types/luxon@1.26.5":
+  version "1.26.5"
+  resolved "https://registry.yarnpkg.com/@types/luxon/-/luxon-1.26.5.tgz#843fb705e16e4d2a90847a351b799ea9d879859e"
+  integrity sha512-XeQxxRMyJi1znfzHw4CGDLyup/raj84SnjjkI2fDootZPGlB0yqtvlvEIAmzHDa5wiEI5JJevZOWxpcofsaV+A==
+
 "@types/node@*":
   version "15.6.1"
   resolved "https://registry.npmjs.org/@types/node/-/node-15.6.1.tgz"
@@ -729,10 +734,10 @@
     "@typescript-eslint/types" "4.25.0"
     eslint-visitor-keys "^2.0.0"
 
-"@windingtree/org.json-schema@0.5.4-beta":
-  version "0.5.4-beta"
-  resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.4-beta.tgz#a66e065d98c12a6be08a53f110a75b4003dcd8ca"
-  integrity sha512-TLaiRJfHuRecWCGf9pw/R/8rnG1KURL63tTQ69R5A/9fIOqAaU04gSEbN6TVC+eoYJDyNC7aldXEX0JBR0jW6g==
+"@windingtree/org.json-schema@0.5.5-beta":
+  version "0.5.5-beta"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.5-beta.tgz#96ffcc89a394558b0f2dd90299bb8564c7ece208"
+  integrity sha512-zqybo/WsLVWCEa2Rkn7MqicdilP2DOaHYSbtaTe+mVidSP7o5RSOxBRQ3nJSFmdxcVxnj/jr5ia4NFaDhNvMQQ==
 
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
@@ -2397,6 +2402,11 @@ lunr@^2.3.9:
   version "2.3.9"
   resolved "https://registry.npmjs.org/lunr/-/lunr-2.3.9.tgz"
   integrity sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==
+
+luxon@1.27.0:
+  version "1.27.0"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.27.0.tgz#ae10c69113d85dab8f15f5e8390d0cbeddf4f00f"
+  integrity sha512-VKsFsPggTA0DvnxtJdiExAucKdAnwbCCNlMM5ENvHlxubqWd0xhZcdb4XgZ7QFNhaRhilXCFxHuoObP5BNA4PA==
 
 make-dir@^3.0.0:
   version "3.1.0"

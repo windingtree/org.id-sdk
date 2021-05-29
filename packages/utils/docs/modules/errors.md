@@ -18,4 +18,4 @@
 
 Ƭ **ErrorArgs**: [*string*, Status?]
 
-Defined in: [src/errors/index.ts:7](https://github.com/windingtree/org.id-sdk/blob/e9d9d46/packages/shared/src/errors/index.ts#L7)
+Defined in: [src/errors/index.ts:7](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/errors/index.ts#L7)
