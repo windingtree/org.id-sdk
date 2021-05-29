@@ -278,5 +278,11 @@ describe('Regular expressions', () => {
         expect(result.groups.fragment).toBe(s[variant].fragment);
       });
     });
+
+    test('should validate uuid', () => {
+      expect(rules.uuid4.exec(
+        '853171d7-34ed-4481-82f8-043cc407031f'
+      )).not.toBeNull();
+    });
   });
 });

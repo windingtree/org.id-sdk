@@ -40,7 +40,7 @@
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/auth#readme",
   "dependencies": {
     "jose": "3.12.2",
-    "@windingtree/org.id-utils": "0.2.6",
+    "@windingtree/org.id-utils": "0.2.7",
     "@windingtree/org.json-schema": "0.5.3-beta"
   },
   "devDependencies": {
@@ -49,7 +49,7 @@
     "@typescript-eslint/parser": "4.25.0",
     "eslint": "7.27.0",
     "jest": "27.0.1",
-    "ts-jest": "27.0.0",
+    "ts-jest": "27.0.1",
     "typedoc": "0.20.36",
     "typedoc-plugin-markdown": "3.8.2",
     "typescript": "4.2.4"

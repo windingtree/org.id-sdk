@@ -24,3 +24,6 @@ export const iban = /^([A-Z]{2}[ -]?[0-9]{2})(?=(?:[ -]?[A-Z0-9]){9,30}$)((?:[ -
 // DID
 export const did = /^did:orgid:([a-zA-Z]*:)?(0x[a-fA-F0-9]{64})?([?]{1}([0-9a-zA-Z_=&%-]+))?((?:#)([[0-9a-zA-Z-]+))?$/;
 export const didGrouped = /^(?<did>did:(?<method>[a-zA-Z]+):(?<submethod>[a-zA-Z]+)?([:]{1})?(?<id>0x[a-fA-F0-9]{64}))?(\?(?<query>[0-9a-zA-Z_=&%-]+))?((?:#)(?<fragment>[[0-9a-zA-Z-]+))?$/;
+
+// UUID
+export const uuid4 = /^(?:^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[a-f0-9]{4}-[a-f0-9]{12}$)|(?:^0{8}-0{4}-0{4}-0{4}-0{12}$)$/;

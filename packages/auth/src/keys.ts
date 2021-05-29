@@ -58,7 +58,7 @@ export const keyTypeConfig: {
     crv: 'Ed25519',
   },
   'RsaVerificationKey2018': {
-    alg: 'RSA-OAEP-256',
+    alg: 'RSA-OAEP',
     type: 'rsa',
     jws: false,
     modulusLength: 2048,

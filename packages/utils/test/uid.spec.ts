@@ -1,6 +1,8 @@
 import {
-  simpleUid
+  simpleUid,
+  uuid4
 } from '../src/uid';
+import * as regexp from '../src/regexp';
 
 describe('Uid', () => {
 
@@ -23,6 +25,14 @@ describe('Uid', () => {
       expect(() => {
         simpleUid(15)
       }).toThrow('length value must be between 5 and 11');
+    });
+  });
+
+  describe('#uuid4', () => {
+
+    test('should generate a valid UUIDv4', async () => {
+      const id = uuid4();
+      expect(regexp.uuid4.exec(id)).not.toBeNull();
     });
   });
 });
