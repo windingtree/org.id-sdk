@@ -16,11 +16,14 @@ import type {
 } from '@windingtree/org.json-schema';
 import {
   regexp,
-  uid
+  uid,
+  object
 } from '@windingtree/org.id-utils';
+import { DateTime } from  'luxon';
 import { parseJwk } from 'jose/jwk/parse';
 import { CompactSign } from 'jose/jws/compact/sign';
-import { DateTime } from  'luxon';
+import { compactVerify } from 'jose/jws/compact/verify';
+import { publicPem } from '../test/mocks/pemKeys';
 
 export interface SignedVC extends CredentialReference {
   proof: VCProofReference
@@ -296,7 +299,7 @@ export const createVC = (
 
         if ((privateKey as KeyObject).type !== 'private') {
           throw new Error(
-            'Only private keys are accepted for sining of tokens'
+            'Only private keys are accepted for sining of VCs\''
           );
         }
 
@@ -329,14 +332,68 @@ export const createVC = (
 };
 
 // VC verification
-export const verifyVC = (
+export const verifyVC = async (
   vc: SignedVC,
-  publickKey: KeyLike | JWK
+  publicKey: KeyLike | JWK
 ): Promise<CredentialReference> => {
+  const jws = object.getDeepValue(vc, 'proof.jws');
 
-  if (vc) {
-
+  if (typeof jws !== 'string') {
+    throw new Error('Unable to find VC signature');
   }
 
-  const decoder = new TextDecoder()
+  if ((publicKey as JWK).kty) {
+    // JWK provided so converting key to KeyLike format
+    publicKey = await parseJwk(publicKey as JWK);
+  }
+
+  if ((publicKey as KeyObject).type !== 'public') {
+    throw new Error(
+      'Only public keys are accepted for verifying of VCs\''
+    );
+  }
+
+  const decoder = new TextDecoder();
+  const { payload } = await compactVerify(jws, publicKey as KeyObject);
+
+  let decodedPayload: CredentialReference;
+
+  try {
+    decodedPayload = JSON.parse(
+      decoder.decode(payload)
+    );
+  } catch (error) {
+    throw new Error('Unable to parse VC payload');
+  }
+
+  // @todo Add validation of the payload against the VC schema
+
+  return decodedPayload;
+};
+
+// Check if VC expired
+export const isExpired = (vc: CredentialReference): boolean => {
+  const currentDate = DateTime.now();
+  return typeof vc.expirationDate === 'undefined' ||
+    currentDate > DateTime.fromISO(vc.expirationDate);
+};
+
+// Check if VC fullfil from-until range
+export const isValidFromUntil = (vc: CredentialReference): boolean => {
+  const currentDate = DateTime.now();
+
+  if (typeof vc.validFrom !== 'undefined' && typeof vc.validUntil !== 'undefined') {
+    return currentDate >= DateTime.fromISO(vc.validFrom) &&
+      currentDate <= DateTime.fromISO(vc.validUntil);
+  }
+
+  if (typeof vc.validFrom !== 'undefined' && typeof vc.validUntil === 'undefined') {
+    return currentDate >= DateTime.fromISO(vc.validFrom);
+  }
+
+  if (typeof vc.validFrom === 'undefined' && typeof vc.validUntil !== 'undefined') {
+    return currentDate <= DateTime.fromISO(vc.validUntil);
+  }
+
+  return true;
 };

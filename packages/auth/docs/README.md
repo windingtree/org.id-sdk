@@ -8,3 +8,4 @@
 
 - [keys](modules/keys.md)
 - [tokens](modules/tokens.md)
+- [vc](modules/vc.md)

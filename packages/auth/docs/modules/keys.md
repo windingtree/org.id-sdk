@@ -57,7 +57,7 @@ ___
 | `modulusLength?` | *number* |
 | `type` | *string* |
 
-Defined in: src/keys.ts:31
+Defined in: [src/keys.ts:31](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/keys.ts#L31)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 Ƭ **VerificationMethodType**: VerificationMethodReference[``"type"``]
 
-Defined in: src/keys.ts:29
+Defined in: [src/keys.ts:29](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/keys.ts#L29)
 
 ## Variables
 
@@ -73,7 +73,7 @@ Defined in: src/keys.ts:29
 
 • `Const` **KeyTypes**: [*VerificationMethodType*](keys.md#verificationmethodtype)[]
 
-Defined in: src/keys.ts:39
+Defined in: [src/keys.ts:39](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/keys.ts#L39)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Type declaration
 
-Defined in: src/keys.ts:46
+Defined in: [src/keys.ts:46](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/keys.ts#L46)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Type declaration
 
-Defined in: src/keys.ts:74
+Defined in: [src/keys.ts:74](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/keys.ts#L74)
 
 ## Functions
 
@@ -109,7 +109,7 @@ Defined in: src/keys.ts:74
 
 **Returns:** *Promise*<[*JWK*](../interfaces/keys.jwk.md)\>
 
-Defined in: src/keys.ts:181
+Defined in: [src/keys.ts:181](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/keys.ts#L181)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 **Returns:** *Promise*<{ `privateKey`: [*KeyLike*](keys.md#keylike) ; `publicKey`: [*KeyLike*](keys.md#keylike)  }\>
 
-Defined in: src/keys.ts:145
+Defined in: [src/keys.ts:145](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/keys.ts#L145)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 **Returns:** *string*
 
-Defined in: src/keys.ts:111
+Defined in: [src/keys.ts:111](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/keys.ts#L111)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 **Returns:** [*KeyObject*](../classes/keys.keyobject.md)
 
-Defined in: src/keys.ts:184
+Defined in: [src/keys.ts:184](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/keys.ts#L184)
 
 ___
 
@@ -176,13 +176,13 @@ ___
 
 **Returns:** [*KeyObject*](../classes/keys.keyobject.md)
 
-Defined in: src/keys.ts:202
+Defined in: [src/keys.ts:202](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/keys.ts#L202)
 
 ___
 
 ### keyTypeFromJWK
 
-▸ `Const` **keyTypeFromJWK**(`key`: [*JWK*](../interfaces/keys.jwk.md)): *string*
+▸ `Const` **keyTypeFromJWK**(`key`: [*JWK*](../interfaces/keys.jwk.md)): ``"JsonWebKey2020"`` \| ``"EcdsaSecp256k1VerificationKey2019"`` \| ``"Ed25519VerificationKey2018"`` \| ``"RsaVerificationKey2018"`` \| ``"X25519KeyAgreementKey2019"``
 
 #### Parameters
 
@@ -190,6 +190,6 @@ ___
 | :------ | :------ |
 | `key` | [*JWK*](../interfaces/keys.jwk.md) |
 
-**Returns:** *string*
+**Returns:** ``"JsonWebKey2020"`` \| ``"EcdsaSecp256k1VerificationKey2019"`` \| ``"Ed25519VerificationKey2018"`` \| ``"RsaVerificationKey2018"`` \| ``"X25519KeyAgreementKey2019"``
 
-Defined in: src/keys.ts:84
+Defined in: [src/keys.ts:84](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/keys.ts#L84)

@@ -10,6 +10,7 @@ npm install @windingtree/org.id-auth
 
 ## Usage
 
+TBD
 
 
 ## Documentation

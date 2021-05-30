@@ -116,6 +116,12 @@ export const verifyAuthJWT = async (
     publicKey = await parseJwk(publicKey as JWK);
   }
 
+  if ((publicKey as KeyObject).type !== 'public') {
+    throw new Error(
+      'Only public keys are accepted for verifying of tokens'
+    );
+  }
+
   const { payload, protectedHeader } = await jwtVerify(
     jwt,
     publicKey as KeyObject,

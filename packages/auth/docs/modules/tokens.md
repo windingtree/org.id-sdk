@@ -31,7 +31,7 @@
 
 **Returns:** *Promise*<string\>
 
-Defined in: src/tokens.ts:25
+Defined in: [src/tokens.ts:25](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/tokens.ts#L25)
 
 ___
 
@@ -51,4 +51,4 @@ ___
 
 **Returns:** *Promise*<[*JWTVerifyResult*](../interfaces/tokens.jwtverifyresult.md)\>
 
-Defined in: src/tokens.ts:98
+Defined in: [src/tokens.ts:98](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/tokens.ts#L98)
