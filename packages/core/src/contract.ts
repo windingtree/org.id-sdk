@@ -47,10 +47,10 @@ export default class OrgIdContract {
       throw new Error('orgIdContract: Unable to initialize web3 provider');
     }
 
-    this.contract = (new this.web3.eth.Contract(
+    this.contract = ((new this.web3.eth.Contract(
       CompiledOrgIdContract.abi,
       this.address
-    ) as Contract);
+    ) as unknown) as Contract);
   }
 
   createOrgId(
