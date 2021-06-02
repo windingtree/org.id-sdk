@@ -45,11 +45,11 @@ export class HttpFileServer {
     this.server = http.createServer(this.reqHandler.bind(this));
 
     return new Promise(
-      (resolve, reject) => this.server.listen(
+      (resolve, reject) => (this.server as Server).listen(
         this.port,
         (error: void | Error) => error
           ? reject(error)
-          : resolve(this.server)
+          : resolve(this.server as Server)
       )
     );
   }
@@ -68,7 +68,7 @@ export class HttpFileServer {
 
     if (!this.files[path]) {
       res.statusCode = 404;
-      res.statusMessage = http.STATUS_CODES[res.statusCode];
+      res.statusMessage = http.STATUS_CODES[res.statusCode] as string;
       res.end();
       return;
     }

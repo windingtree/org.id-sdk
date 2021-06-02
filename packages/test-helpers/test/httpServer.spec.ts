@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { HttpFileServer, http } from '../src/httpServer';
+import { HttpFileServer } from '../src/httpServer';
 
 type TestInput = any;
 

@@ -22,7 +22,7 @@ export class DevelopmentServer {
 
   close(): Promise<void | Error> {
     return new Promise((resolve, reject) => {
-      this.server.close((error: Error | null) => {
+      this.server.close((error: Error | undefined) => {
 
         if (error) {
           return reject(error);
