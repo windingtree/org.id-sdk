@@ -34,21 +34,21 @@ describe('HTTP fetch method', () => {
             type: undefined,
             path: 'myfile.txt',
             content: 'test'
-          })
+          } as TestInput)
         }).toThrow('Property "type" required');
         expect(() => {
           server.addFile({
             type: 'text',
             path: undefined,
             content: 'test'
-          })
+          } as TestInput)
         }).toThrow('Property "path" required');
         expect(() => {
           server.addFile({
             type: 'text',
             path: 'myfile.txt',
             content: undefined
-          })
+          } as TestInput)
         }).toThrow('Property "content" required');
       });
 
