@@ -84,14 +84,17 @@ export const keyTypeMap: {
 export const keyTypeFromJWK = (key: JWK): VerificationMethodType => {
 
   if (!key.kty) {
-    throw new Error('Broken JWK');
+    throw new Error('Broken JWK: key type not found');
   }
 
-  let keyType: VerificationMethodType;
+  let keyType: VerificationMethodType | undefined;
 
   switch (key.kty.toLocaleLowerCase()) {
     case 'ec':
     case 'okp':
+      if (!key.crv) {
+        throw new Error('Broken JWK: key curve type not found');
+      }
       keyType = keyTypeMap[key.crv];
       break;
     case 'rsa':
@@ -114,14 +117,17 @@ export const getAlgFromJWK = (
 ): string => {
 
   if (!key.kty) {
-    throw new Error('Broken JWK');
+    throw new Error('Broken JWK: key type not found');
   }
 
-  let keyConfig: KeysAlgConfig;
+  let keyConfig: KeysAlgConfig | undefined;
 
   switch (key.kty.toLocaleLowerCase()) {
     case 'ec':
     case 'okp':
+      if (!key.crv) {
+        throw new Error('Broken JWK: key curve type not found');
+      }
       keyConfig = keyTypeConfig[keyTypeMap[key.crv]];
       break;
     case 'rsa':

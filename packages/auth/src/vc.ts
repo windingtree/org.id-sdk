@@ -23,10 +23,19 @@ import { DateTime } from  'luxon';
 import { parseJwk } from 'jose/jwk/parse';
 import { CompactSign } from 'jose/jws/compact/sign';
 import { compactVerify } from 'jose/jws/compact/verify';
-import { publicPem } from '../test/mocks/pemKeys';
+
+export type {
+  VCTypedHolderReference,
+  CredentialReference,
+  VCProofReference
+}
 
 export interface SignedVC extends CredentialReference {
   proof: VCProofReference
+}
+
+export interface CredentialSubject {
+  [k: string]: unknown;
 }
 
 export interface VCBuilderChain {
@@ -44,11 +53,16 @@ export interface VCBuilderChain {
     expire: string
   ): VCBuilderChain;
   setCredentialSubject(
-    subject: unknown
+    subject: CredentialSubject
   ): VCBuilderChain;
   sign(
     privateKey: KeyLike | JWK
-  )
+  ): Promise<SignedVC>;
+}
+
+export interface DidGroupedCheckResult {
+  did?: string;
+  fragment?: string;
 }
 
 // Utility that used for creation of the holder data
@@ -112,10 +126,16 @@ export const createVC = (
     throw new Error(`Wrong Issuer DID format: ${issuer}`);
   }
 
+  const groupedCheck = regexp.didGrouped.exec(issuer);
+
+  if (!groupedCheck || !groupedCheck.groups) {
+    throw new Error(`Wrong Issuer DID format: ${issuer}`);
+  }
+
   const {
     did,
     fragment
-  } = regexp.didGrouped.exec(issuer).groups;
+  } = groupedCheck.groups as DidGroupedCheckResult;
 
   if (!did) {
     throw new Error(
@@ -157,7 +177,7 @@ export const createVC = (
   let vcExpirationDate: DateTime | undefined;
   let vcValidFrom: DateTime | undefined;
   let vcValidUntil: DateTime | undefined;
-  let vcSubject: any;
+  let vcSubject: CredentialSubject;
 
   // Chained methods that implements VC creation
   const chain: VCBuilderChain = {

@@ -1,6 +1,9 @@
+import type {
+  SignedVC
+} from '../src/vc'
 import {
   createVC,
-  verifyVC
+  verifyVC,
 } from '../src/vc';
 import {
   importKeyPrivatePem,
@@ -26,7 +29,7 @@ describe('Verifiable Credentials', () => {
   });
 
   test('should create credential', async () => {
-    const vc = await createVC(
+    const vc: SignedVC = await createVC(
       issuer,
       'TestCredential'
     )
@@ -37,7 +40,6 @@ describe('Verifiable Credentials', () => {
     .setCredentialSubject(subject)
     .sign(privateKey);
 
-    const payload = await verifyVC(vc, publicKey);
-    // @toto verify payload
+    await verifyVC(vc, publicKey); // @toto verify payload
   });
 });

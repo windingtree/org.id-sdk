@@ -34,9 +34,13 @@ export const createAuthJWT = async (
     throw new Error(`Wrong Issuer DID format: ${issuer}`);
   }
 
-  const { fragment } = regexp.didGrouped.exec(issuer).groups;
+  const groupedCheck = regexp.didGrouped.exec(issuer);
 
-  if (!fragment) {
+  if (!groupedCheck || !groupedCheck.groups) {
+    throw new Error(`Wrong Issuer DID format: ${issuer}`);
+  }
+
+  if (!groupedCheck.groups.fragment) {
     throw new Error(
       `Key identifier must be provided as fragment in the DID: ${issuer} #??????`
     );
@@ -132,33 +136,36 @@ export const verifyAuthJWT = async (
   );
 
   if (scope && scope !== '') {
+    let parsedScope: string[];
 
     if (!Array.isArray(scope)) {
       try {
-        scope = JSON.parse(scope);
+        parsedScope = JSON.parse(scope);
       } catch {
-        throw new Error(`Unable to parse scope: ${scope}`);
+        throw new Error(`Unable to parse stringified scope: ${scope}`);
       }
+    } else {
+      parsedScope = scope;
     }
 
     if (!payload.scope) {
-      throw new Error('JWT scope not found in the payload');
+      throw new Error('Scope not found in the payload');
     }
 
     try {
       payload.scope = JSON.parse(payload.scope as string);
     } catch {
-      throw new Error(`Unable to parse scope: ${scope}`);
+      throw new Error(`Unable to parse scope in the payload: ${parsedScope}`);
     }
 
     const scopeMatch = (payload.scope as string[])
       .filter(
-        x => scope.includes(x)
+        x => parsedScope.includes(x)
       );
 
-    if (scopeMatch.length !== scope.length) {
+    if (scopeMatch.length !== parsedScope.length) {
       throw new Error(
-        `The scope provided by the JWT ${JSON.stringify(payload.scope)} not fully matches with verification scope: ${JSON.stringify(scope)}`
+        `The scope provided by the JWT ${JSON.stringify(payload.scope)} not fully matches with verification scope: ${JSON.stringify(parsedScope)}`
       );
     }
   }
