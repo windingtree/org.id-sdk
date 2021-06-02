@@ -3,7 +3,7 @@ import { Contract } from 'web3-eth-contract';
 export const getOrgIds = async (
   contract: Contract,
   cursor?: number,
-  count?: number
+  count = 10
 ): Promise<string[]> => {
 
   if (typeof cursor === 'number' && cursor < 0) {
@@ -18,7 +18,7 @@ export const getOrgIds = async (
     cursor = 0;
   }
 
-  let methodArguments: number[];
+  let methodArguments: number[] | undefined;
 
   if (typeof cursor === 'number') {
     methodArguments = [

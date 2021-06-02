@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-core",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Core ORGiD Javascript library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -40,7 +40,7 @@
   "dependencies": {
     "@windingtree/org.id": "2.0.0",
     "@windingtree/org.id-utils": "0.2.11",
-    "@windingtree/org.id-test-helpers": "0.2.2"
+    "@windingtree/org.id-test-helpers": "0.2.3"
   },
   "devDependencies": {
     "jest": "27.0.3",

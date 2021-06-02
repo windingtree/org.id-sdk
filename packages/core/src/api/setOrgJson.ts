@@ -19,7 +19,7 @@ export const setOrgJson = async (
   gasLimit?: string | number,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   transactionHashCb: CallbackFn | void = () => {}
-): Promise<OrgIdData> => {
+): Promise<OrgIdData | null> => {
 
   if (!regexp.bytes32.exec(orgIdHash)) {
     throw new Error(`setOrgJson: Invalid ORGiD hash: ${orgIdHash}`);
@@ -51,6 +51,12 @@ export const setOrgJson = async (
     gasPrice,
     transactionHashCb
   );
+
+  if (!receipt.events) {
+    throw new Error(
+      'setOrgJson: Unable to found events in the transaction receipt'
+    );
+  }
 
   const updatedOrgId = receipt.events.OrgJsonUriChanged.returnValues.orgId;
 

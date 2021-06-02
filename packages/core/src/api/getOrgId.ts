@@ -10,7 +10,7 @@ export const getOrgId = async (
   web3: Web3,
   contract: Contract,
   orgIdHash: string
-): Promise<OrgIdData> => {
+): Promise<OrgIdData | null> => {
 
   if (!regexp.bytes32.exec(orgIdHash)) {
     throw new Error(`getOrgId: Invalid ORGiD hash: ${orgIdHash}`);

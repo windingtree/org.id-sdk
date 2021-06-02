@@ -1,13 +1,11 @@
-import { Contract } from 'web3-eth-contract';
-import { TransactionReceipt } from 'web3-eth';
-import {
-  CallbackFn
-} from '../core'
+import type { CallbackFn } from '../core';
+import type { Contract } from 'web3-eth-contract';
+import type { TransactionReceipt } from 'web3-eth';
 
 export const sendHelper = async (
   contract: Contract,
   method: string,
-  methodArguments: any[],
+  methodArguments: unknown[],
   owner: string,
   gasLimit?: string | number,
   gasPrice?: string | number,

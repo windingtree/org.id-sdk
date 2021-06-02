@@ -60,7 +60,7 @@ export default class OrgIdContract {
     gasPrice?: string | number,
     gasLimit?: string | number,
     transactionHashCb?: CallbackFn
-  ): Promise<OrgIdData> {
+  ): Promise<OrgIdData | null> {
     return createOrgId(this.web3, this.contract, salt, orgJsonUri, orgIdOwner, gasPrice, gasLimit, transactionHashCb);
   }
 
@@ -71,7 +71,7 @@ export default class OrgIdContract {
     gasPrice?: string | number,
     gasLimit?: string | number,
     transactionHashCb?: CallbackFn
-  ): Promise<OrgIdData> {
+  ): Promise<OrgIdData | null> {
     return setOrgJson(this.web3, this.contract, orgIdHash, orgJsonUri, orgIdOwner, gasPrice, gasLimit, transactionHashCb);
   }
 
@@ -82,7 +82,7 @@ export default class OrgIdContract {
     gasPrice?: string | number,
     gasLimit?: string | number,
     transactionHashCb?: CallbackFn
-  ): Promise<OrgIdData> {
+  ): Promise<OrgIdData | null> {
     return transferOrgIdOwnership(this.web3, this.contract, orgIdHash, newOrgIdOwner, orgIdOwner, gasPrice, gasLimit, transactionHashCb);
   }
 
@@ -90,7 +90,7 @@ export default class OrgIdContract {
     return getOrgIdsCount(this.contract);
   }
 
-  getOrgId(orgIdHash: string): Promise<OrgIdData> {
+  getOrgId(orgIdHash: string): Promise<OrgIdData | null> {
     return getOrgId(this.web3, this.contract, orgIdHash);
   }
 

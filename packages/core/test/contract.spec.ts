@@ -2,6 +2,9 @@ import Web3 from 'web3';
 import { orgIdSetup, OrgIdSetup, generateSalt } from '@windingtree/org.id-test-helpers';
 import { regexp } from '@windingtree/org.id-utils';
 import OrgIdContract from '../src/contract';
+import type { OrgIdData } from '../src/core';
+
+type TestInput = any;
 
 describe('OrgId contract', () => {
   let setup: OrgIdSetup;
@@ -37,7 +40,7 @@ describe('OrgId contract', () => {
     });
 
     test('should fail if invalid orgIdContractAddress provided', async () => {
-      let invalidNetworkOrAddress = '';
+      let invalidNetworkOrAddress: TestInput = '';
       expect(() => {
         new OrgIdContract(
           invalidNetworkOrAddress,
@@ -67,7 +70,7 @@ describe('OrgId contract', () => {
     });
 
     test('should fail if invalid web3ProviderOrUri provided', async () => {
-      let invalidWeb3ProviderOrUri = undefined;
+      let invalidWeb3ProviderOrUri: TestInput = undefined;
       expect(() => {
         new OrgIdContract(
           orgIdContractAddress,
@@ -106,7 +109,7 @@ describe('OrgId contract', () => {
       });
 
       test('should fail if wrong orgIdHash provided', async () => {
-        let wrongOrgIdHash = '';
+        let wrongOrgIdHash: TestInput = '';
         expect(contract.getOrgId(wrongOrgIdHash))
           .rejects
           .toThrow(`getOrgId: Invalid ORGiD hash: ${wrongOrgIdHash}`);
@@ -133,7 +136,7 @@ describe('OrgId contract', () => {
       });
 
       test('should fail if invalid salt provided', async () => {
-        let invalidSalt = '';
+        let invalidSalt: TestInput = '';
         expect(
           contract.createOrgId(
             invalidSalt,
@@ -152,7 +155,7 @@ describe('OrgId contract', () => {
       });
 
       test('should fail if invalid orgJsonUri provided', async () => {
-        let invalidUri = '';
+        let invalidUri: TestInput = '';
         expect(
           contract.createOrgId(
             generateSalt(),
@@ -171,7 +174,7 @@ describe('OrgId contract', () => {
       });
 
       test('should fail if invalid orgIdOwner provided', async () => {
-        let invalidAddress = '';
+        let invalidAddress: TestInput = '';
         expect(
           contract.createOrgId(
             generateSalt(),
@@ -220,7 +223,7 @@ describe('OrgId contract', () => {
       });
 
       test('should fail if invalid orgIdHash provided', async () => {
-        let invalidOrgIdHash = '';
+        let invalidOrgIdHash: TestInput = '';
         expect(
           contract.setOrgJson(
             invalidOrgIdHash,
@@ -250,7 +253,7 @@ describe('OrgId contract', () => {
       });
 
       test('should fail if invalid orgJsonUri provided', async () => {
-        let invalidUri = '';
+        let invalidUri: TestInput = '';
         expect(
           contract.setOrgJson(
             generateSalt(),
@@ -269,7 +272,7 @@ describe('OrgId contract', () => {
       });
 
       test('should fail if invalid orgIdOwner provided', async () => {
-        let invalidAddress = '';
+        let invalidAddress: TestInput = '';
         expect(
           contract.setOrgJson(
             generateSalt(),
@@ -318,7 +321,7 @@ describe('OrgId contract', () => {
       });
 
       test('should fail if invalid orgIdHash provided', async () => {
-        let invalidOrgIdHash = '';
+        let invalidOrgIdHash: TestInput = '';
         expect(
           contract.transferOrgIdOwnership(
             invalidOrgIdHash,
@@ -337,7 +340,7 @@ describe('OrgId contract', () => {
       });
 
       test('should fail if invalid newOrgIdOwner provided', async () => {
-        let invalidNewOrgIdOwner = '';
+        let invalidNewOrgIdOwner: TestInput = '';
         expect(
           contract.transferOrgIdOwnership(
             orgIdHash,
@@ -356,7 +359,7 @@ describe('OrgId contract', () => {
       });
 
       test('should fail if invalid orgIdOwner provided', async () => {
-        let invalidOrgIdOwner = '';
+        let invalidOrgIdOwner: TestInput = '';
         expect(
           contract.transferOrgIdOwnership(
             orgIdHash,
@@ -392,8 +395,8 @@ describe('OrgId contract', () => {
           newOrgIdOwner,
           orgIdOwner
         );
-        expect(orgId.id).toBe(orgIdHash);
-        expect(orgId.owner).toBe(newOrgIdOwner);
+        expect((orgId as OrgIdData).id).toBe(orgIdHash);
+        expect((orgId as OrgIdData).owner).toBe(newOrgIdOwner);
         await contract.transferOrgIdOwnership(
           orgIdHash,
           orgIdOwner,
@@ -412,8 +415,8 @@ describe('OrgId contract', () => {
           '100000000000',
           th => { txHash = th; }
         );
-        expect(orgId.id).toBe(orgIdHash);
-        expect(orgId.owner).toBe(newOrgIdOwner);
+        expect((orgId as OrgIdData).id).toBe(orgIdHash);
+        expect((orgId as OrgIdData).owner).toBe(newOrgIdOwner);
         expect(typeof txHash).toBe('string');
       });
     });

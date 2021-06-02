@@ -19,7 +19,7 @@ export const createOrgId = async (
   gasLimit?: string | number,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   transactionHashCb: CallbackFn | void = () => {}
-): Promise<OrgIdData> => {
+): Promise<OrgIdData | null> => {
 
   if (!regexp.bytes32.exec(salt)) {
     throw new Error(`createOrgId: Invalid ORGiD salt: ${salt}`);
@@ -46,7 +46,13 @@ export const createOrgId = async (
     transactionHashCb
   );
 
+  if (!receipt.events) {
+    throw new Error(
+      'createOrgId: Unable to found events in the transaction receipt'
+    );
+  }
+
   const createdOrgId = receipt.events.OrgIdCreated.returnValues.orgId;
 
-  return getOrgId(web3, contract, createdOrgId)
+  return getOrgId(web3, contract, createdOrgId);
 }
