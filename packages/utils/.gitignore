@@ -27,6 +27,7 @@ coverage
 
 # Compiled files
 dist
+build
 build/Release
 public/api/**
 !public/.gitkeep

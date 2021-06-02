@@ -15,7 +15,7 @@ export interface OrgIdSetup {
   close(): Promise<void>;
 }
 
-interface ContractObject {
+export interface ContractObject {
   createOrgId(salt: string, arg1: string, arg2: { from: string; }): Promise<any>;
 }
 

@@ -4,7 +4,7 @@ import http, {
   ServerResponse
 } from 'http';
 
-export { http }
+export type { http }
 
 export type MimeKeys = 'html' | 'text' | 'json';
 
