@@ -1,25 +1,24 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "target": "ES2019",
+    "lib": [
+      "ES2020"
+    ],
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "target": "ES2019",
-    "noImplicitAny": true,
-    "moduleResolution": "node",
+    "noImplicitAny": false,
     "sourceMap": true,
     "outDir": "dist",
     "declaration": true,
     "baseUrl": ".",
     "experimentalDecorators": true,
-    "paths": {
-      "*": [
-        "node_modules/*"
-      ]
-    }
+    "strictNullChecks": true
   },
   "include": [
-    "src/**/*",
-    "test/**/*"
+    "src",
+    "test"
   ],
   "exclude": [
     "node_modules"

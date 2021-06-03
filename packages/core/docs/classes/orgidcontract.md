@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[contract.ts:25](https://github.com/windingtree/org.id-sdk/blob/5937473/packages/core/src/contract.ts#L25)
+[contract.ts:25](https://github.com/windingtree/org.id-sdk/blob/31570ea/packages/core/src/contract.ts#L25)
 
 ## Properties
 
@@ -48,7 +48,7 @@
 
 #### Defined in
 
-[contract.ts:23](https://github.com/windingtree/org.id-sdk/blob/5937473/packages/core/src/contract.ts#L23)
+[contract.ts:23](https://github.com/windingtree/org.id-sdk/blob/31570ea/packages/core/src/contract.ts#L23)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[contract.ts:25](https://github.com/windingtree/org.id-sdk/blob/5937473/packages/core/src/contract.ts#L25)
+[contract.ts:25](https://github.com/windingtree/org.id-sdk/blob/31570ea/packages/core/src/contract.ts#L25)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[contract.ts:24](https://github.com/windingtree/org.id-sdk/blob/5937473/packages/core/src/contract.ts#L24)
+[contract.ts:24](https://github.com/windingtree/org.id-sdk/blob/31570ea/packages/core/src/contract.ts#L24)
 
 ## Methods
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[contract.ts:56](https://github.com/windingtree/org.id-sdk/blob/5937473/packages/core/src/contract.ts#L56)
+[contract.ts:56](https://github.com/windingtree/org.id-sdk/blob/31570ea/packages/core/src/contract.ts#L56)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[contract.ts:93](https://github.com/windingtree/org.id-sdk/blob/5937473/packages/core/src/contract.ts#L93)
+[contract.ts:93](https://github.com/windingtree/org.id-sdk/blob/31570ea/packages/core/src/contract.ts#L93)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[contract.ts:97](https://github.com/windingtree/org.id-sdk/blob/5937473/packages/core/src/contract.ts#L97)
+[contract.ts:97](https://github.com/windingtree/org.id-sdk/blob/31570ea/packages/core/src/contract.ts#L97)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[contract.ts:89](https://github.com/windingtree/org.id-sdk/blob/5937473/packages/core/src/contract.ts#L89)
+[contract.ts:89](https://github.com/windingtree/org.id-sdk/blob/31570ea/packages/core/src/contract.ts#L89)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[contract.ts:67](https://github.com/windingtree/org.id-sdk/blob/5937473/packages/core/src/contract.ts#L67)
+[contract.ts:67](https://github.com/windingtree/org.id-sdk/blob/31570ea/packages/core/src/contract.ts#L67)
 
 ___
 
@@ -198,4 +198,4 @@ ___
 
 #### Defined in
 
-[contract.ts:78](https://github.com/windingtree/org.id-sdk/blob/5937473/packages/core/src/contract.ts#L78)
+[contract.ts:78](https://github.com/windingtree/org.id-sdk/blob/31570ea/packages/core/src/contract.ts#L78)
