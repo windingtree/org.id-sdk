@@ -6,4 +6,4 @@
 
 ## Indexable
 
-▪ [header: *string*]: *string*
+▪ [header: `string`]: `string`

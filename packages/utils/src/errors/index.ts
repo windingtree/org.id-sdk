@@ -19,7 +19,10 @@ export interface HttpError {
 export class HttpError extends Error {
   constructor (...args: ErrorArgs) {
     super(args[0]);
-    this.code = HTTP_STATUS_CODES[args[1]] || HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR;
-    this.status = args[1];
+
+    if (args[1]) {
+      this.code = HTTP_STATUS_CODES[args[1]] || HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR;
+      this.status = args[1];
+    }
   }
 }

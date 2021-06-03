@@ -13,7 +13,7 @@
 
 ### simpleUid
 
-▸ `Const` **simpleUid**(`length?`: *number*): *string*
+▸ `Const` **simpleUid**(`length?`): `string`
 
 Simple unique ID generator
 
@@ -27,23 +27,31 @@ simpleUid(5); // returns a string like 'jedpr'
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `length` | *number* | 11 |
+| `length` | `number` | 11 |
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/uid/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/uid/index.ts#L8)
+`string`
+
+#### Defined in
+
+[src/uid/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/uid/index.ts#L8)
 
 ___
 
 ### uuid4
 
-▸ `Const` **uuid4**(): *string*
+▸ `Const` **uuid4**(): `string`
 
 UUID v4
 
 **`example`**
 uuid4(); // 955a781f-f427-2d8e-e895-4ab3f87026c1
 
-**Returns:** *string*
+#### Returns
 
-Defined in: [src/uid/index.ts:24](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/uid/index.ts#L24)
+`string`
+
+#### Defined in
+
+[src/uid/index.ts:24](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/uid/index.ts#L24)

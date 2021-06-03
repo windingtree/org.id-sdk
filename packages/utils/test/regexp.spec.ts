@@ -1,5 +1,7 @@
 import * as rules from '../src/regexp';
 
+type TestInput = any;
+
 describe('Regular expressions', () => {
 
   describe('Common', () => {
@@ -131,7 +133,7 @@ describe('Regular expressions', () => {
         validIds.forEach((s: any) => {
           const string = Object.keys(s)[0];
           const values = s[string];
-          const result = rules.blockchainAccountIdGrouped.exec(string).groups;
+          const result = (rules.blockchainAccountIdGrouped.exec(string) as TestInput).groups;
           expect(result.accountId).toBe(values.accountId);
           expect(result.blockchainType).toBe(values.blockchainType);
           expect(result.blockchainId).toBe(values.blockchainId);
@@ -281,7 +283,7 @@ describe('Regular expressions', () => {
       ];
       valid.forEach((s: any) => {
         const variant: string = Object.keys(s)[0];
-        const result: RegExpExecArray | null = rules.didGrouped.exec(variant);
+        const result: TestInput = rules.didGrouped.exec(variant);
         expect(result).not.toBeNull();
         expect(result.groups.did).toBe(s[variant].did);
         expect(result.groups.method).toBe(s[variant].method);

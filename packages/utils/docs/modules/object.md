@@ -12,15 +12,19 @@
 
 ### getDeepValue
 
-▸ `Const` **getDeepValue**(`obj`: *Record*<string, unknown\>, `path`: *string*): *any*
+▸ `Const` **getDeepValue**(`obj`, `path`): `any`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `obj` | *Record*<string, unknown\> |
-| `path` | *string* |
+| `obj` | `Record`<string, unknown\> |
+| `path` | `string` |
 
-**Returns:** *any*
+#### Returns
 
-Defined in: src/object/index.ts:3
+`any`
+
+#### Defined in
+
+[src/object/index.ts:3](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/object/index.ts#L3)

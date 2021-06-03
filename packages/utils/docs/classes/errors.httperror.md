@@ -11,7 +11,7 @@ new HttpError('Cannot find you in the list', 'FORBIDDEN');
 
 ## Hierarchy
 
-- *Error*
+- `Error`
 
   ↳ **HttpError**
 
@@ -39,63 +39,73 @@ new HttpError('Cannot find you in the list', 'FORBIDDEN');
 
 ### constructor
 
-\+ **new HttpError**(...`args`: [*ErrorArgs*](../modules/errors.md#errorargs)): [*HttpError*](errors.httperror.md)
+• **new HttpError**(...`args`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `...args` | [*ErrorArgs*](../modules/errors.md#errorargs) |
+| `...args` | [ErrorArgs](../modules/errors.md#errorargs) |
 
-**Returns:** [*HttpError*](errors.httperror.md)
+#### Defined in
 
-Defined in: [src/errors/index.ts:19](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/errors/index.ts#L19)
+[src/errors/index.ts:19](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/errors/index.ts#L19)
 
 ## Properties
 
 ### code
 
-• **code**: [*Code*](../modules/http.md#code)
+• **code**: [Code](../modules/http.md#code)
 
-Defined in: [src/errors/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/errors/index.ts#L10)
+#### Defined in
+
+[src/errors/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/errors/index.ts#L10)
 
 ___
 
 ### message
 
-• **message**: *string*
+• **message**: `string`
 
-Defined in: node_modules/typescript/lib/lib.es5.d.ts:974
+#### Defined in
+
+node_modules/typescript/lib/lib.es5.d.ts:974
 
 ___
 
 ### name
 
-• **name**: *string*
+• **name**: `string`
 
-Defined in: node_modules/typescript/lib/lib.es5.d.ts:973
+#### Defined in
+
+node_modules/typescript/lib/lib.es5.d.ts:973
 
 ___
 
 ### stack
 
-• `Optional` **stack**: *string*
+• `Optional` **stack**: `string`
 
-Defined in: node_modules/typescript/lib/lib.es5.d.ts:975
+#### Defined in
+
+node_modules/typescript/lib/lib.es5.d.ts:975
 
 ___
 
 ### status
 
-• **status**: [*Status*](../modules/http.md#status)
+• **status**: [Status](../modules/http.md#status)
 
-Defined in: [src/errors/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/783317d/packages/utils/src/errors/index.ts#L11)
+#### Defined in
+
+[src/errors/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/errors/index.ts#L11)
 
 ___
 
 ### prepareStackTrace
 
-▪ `Static` `Optional` **prepareStackTrace**: (`err`: Error, `stackTraces`: CallSite[]) => *any*
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any`
 
 Optional override for formatting stack traces
 
@@ -103,32 +113,38 @@ Optional override for formatting stack traces
 
 #### Type declaration
 
-▸ (`err`: Error, `stackTraces`: CallSite[]): *any*
+▸ (`err`, `stackTraces`): `any`
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `err` | Error |
-| `stackTraces` | CallSite[] |
+| `err` | `Error` |
+| `stackTraces` | `CallSite`[] |
 
-**Returns:** *any*
+##### Returns
 
-Defined in: node_modules/@types/node/globals.d.ts:11
+`any`
+
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:11
 
 ___
 
 ### stackTraceLimit
 
-▪ `Static` **stackTraceLimit**: *number*
+▪ `Static` **stackTraceLimit**: `number`
 
-Defined in: node_modules/@types/node/globals.d.ts:13
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:13
 
 ## Methods
 
 ### captureStackTrace
 
-▸ `Static` **captureStackTrace**(`targetObject`: *object*, `constructorOpt?`: Function): *void*
+▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
 
 Create .stack property on a target object
 
@@ -136,9 +152,13 @@ Create .stack property on a target object
 
 | Name | Type |
 | :------ | :------ |
-| `targetObject` | *object* |
-| `constructorOpt?` | Function |
+| `targetObject` | `object` |
+| `constructorOpt?` | `Function` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/@types/node/globals.d.ts:4
+`void`
+
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:4

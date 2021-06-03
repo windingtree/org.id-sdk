@@ -6,6 +6,7 @@
 
 ### Namespaces
 
+- [common](modules/common.md)
 - [errors](modules/errors.md)
 - [http](modules/http.md)
 - [object](modules/object.md)
