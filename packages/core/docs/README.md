@@ -4,6 +4,6 @@
 
 ## Table of contents
 
-### Namespaces
+### Classes
 
-- [OrgIdContract](modules/orgidcontract.md)
+- [OrgIdContract](classes/orgidcontract.md)

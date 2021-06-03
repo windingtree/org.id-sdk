@@ -19,7 +19,7 @@ import { getOrgIdsCount } from './api/getOrgIdsCount';
 import { getOrgId } from './api/getOrgId';
 import { getOrgIds } from './api/getOrgIds';
 
-export default class OrgIdContract {
+export class OrgIdContract {
   address: string;
   web3: Web3;
   contract: Contract;
