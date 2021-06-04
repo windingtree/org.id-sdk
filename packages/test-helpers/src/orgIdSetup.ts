@@ -7,7 +7,9 @@ import {
   generateOrgIdHash
 } from '@windingtree/org.id-utils/dist/common';
 import { createVC } from '@windingtree/org.id-auth/dist/vc';
-import { createVerificationMethod } from '@windingtree/org.json-utils/dist/verificationMethod';
+import {
+  createVerificationMethodWithBlockchainAccountId
+} from '@windingtree/org.json-utils/dist/verificationMethod';
 import { OrgIdContract } from '@windingtree/org.id';
 import { ganache, DevelopmentServer } from './ganache';
 import { HttpFileServer, File } from './httpServer';
@@ -56,10 +58,10 @@ export const buildOrgJson = async (
   orgJson.created = new Date().toISOString();
   orgJson.updated = new Date().toISOString();
   orgJson.verificationMethod.push(
-    await createVerificationMethod(
+    await createVerificationMethodWithBlockchainAccountId(
       issuer,
       did,
-      keyPair.publicKey
+      owner
     )
   );
   const vc: SignedVC = await createVC(

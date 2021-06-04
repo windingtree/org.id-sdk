@@ -22,7 +22,9 @@ describe('Keys utilities', () => {
 
   beforeAll(async () => {
     keys = await Promise.all(
-      KeyTypes.map(async type => generateKeyPair(type))
+      KeyTypes
+        .filter(t => t !== 'EcdsaSecp256k1RecoveryMethod2020')
+        .map(async type => generateKeyPair(type))
     );
   });
 

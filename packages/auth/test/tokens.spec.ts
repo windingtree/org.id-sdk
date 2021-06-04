@@ -33,6 +33,7 @@ describe('Tokens', () => {
       publicKey = importKeyPublicPem(publicPem);
       keyPairs = await Promise.all(
         KeyTypes
+          .filter(t => t !== 'EcdsaSecp256k1RecoveryMethod2020')
           .filter(type => keyTypeConfig[type].jws) // exclude key types not supported by JWS
           .map(async type => generateKeyPair(type))
       );

@@ -32,7 +32,7 @@ When proof was created
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/dist/index.d.ts:313
+node_modules/@windingtree/org.json-schema/dist/index.d.ts:314
 
 ___
 
@@ -44,7 +44,7 @@ The digital signature value
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/dist/index.d.ts:325
+node_modules/@windingtree/org.json-schema/dist/index.d.ts:326
 
 ___
 
@@ -56,19 +56,17 @@ Purpose of the proof
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/dist/index.d.ts:317
+node_modules/@windingtree/org.json-schema/dist/index.d.ts:318
 
 ___
 
 ### type
 
-• **type**: ``"JsonWebKey2020"`` \| ``"EcdsaSecp256k1VerificationKey2019"`` \| ``"Ed25519VerificationKey2018"`` \| ``"RsaVerificationKey2018"`` \| ``"X25519KeyAgreementKey2019"``
-
-The cryptographic signature suite that was used to generate the signature
+• **type**: `CryptographicSignatureSuiteReference`
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/dist/index.d.ts:304
+node_modules/@windingtree/org.json-schema/dist/index.d.ts:310
 
 ___
 
@@ -80,4 +78,4 @@ The DID subject is denoted by the id property. The DID subject is the entity tha
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/dist/index.d.ts:321
+node_modules/@windingtree/org.json-schema/dist/index.d.ts:322

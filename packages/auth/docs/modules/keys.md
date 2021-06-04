@@ -25,6 +25,7 @@
 - [KeyTypes](keys.md#keytypes)
 - [keyTypeConfig](keys.md#keytypeconfig)
 - [keyTypeMap](keys.md#keytypemap)
+- [signatureTypeMap](keys.md#signaturetypemap)
 
 ### Functions
 
@@ -34,6 +35,7 @@
 - [importKeyPrivatePem](keys.md#importkeyprivatepem)
 - [importKeyPublicPem](keys.md#importkeypublicpem)
 - [keyTypeFromJWK](keys.md#keytypefromjwk)
+- [signatureTypeFromJWK](keys.md#signaturetypefromjwk)
 
 ## Type aliases
 
@@ -53,7 +55,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:29](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/keys.ts#L29)
+[src/keys.ts:30](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L30)
 
 ___
 
@@ -63,7 +65,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:31](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/keys.ts#L31)
+[src/keys.ts:32](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L32)
 
 ___
 
@@ -79,11 +81,12 @@ ___
 | `crv?` | `string` |
 | `jws` | `boolean` |
 | `modulusLength?` | `number` |
+| `signatureType?` | `CryptographicSignatureSuiteReference` |
 | `type` | `string` |
 
 #### Defined in
 
-[src/keys.ts:37](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/keys.ts#L37)
+[src/keys.ts:38](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L38)
 
 ___
 
@@ -93,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:35](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/keys.ts#L35)
+[src/keys.ts:36](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L36)
 
 ## Variables
 
@@ -103,7 +106,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:45](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/keys.ts#L45)
+[src/keys.ts:47](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L47)
 
 ___
 
@@ -117,7 +120,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:52](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/keys.ts#L52)
+[src/keys.ts:55](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L55)
 
 ___
 
@@ -131,7 +134,21 @@ ___
 
 #### Defined in
 
-[src/keys.ts:80](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/keys.ts#L80)
+[src/keys.ts:83](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L83)
+
+___
+
+### signatureTypeMap
+
+• `Const` **signatureTypeMap**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: `CryptographicSignatureSuiteReference`
+
+#### Defined in
+
+[src/keys.ts:92](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L92)
 
 ## Functions
 
@@ -151,7 +168,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:190](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/keys.ts#L190)
+[src/keys.ts:230](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L230)
 
 ___
 
@@ -172,7 +189,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:157](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/keys.ts#L157)
+[src/keys.ts:197](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L197)
 
 ___
 
@@ -193,7 +210,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:120](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/keys.ts#L120)
+[src/keys.ts:160](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L160)
 
 ___
 
@@ -214,7 +231,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:193](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/keys.ts#L193)
+[src/keys.ts:233](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L233)
 
 ___
 
@@ -234,13 +251,13 @@ ___
 
 #### Defined in
 
-[src/keys.ts:211](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/keys.ts#L211)
+[src/keys.ts:251](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L251)
 
 ___
 
 ### keyTypeFromJWK
 
-▸ `Const` **keyTypeFromJWK**(`key`): ``"JsonWebKey2020"`` \| ``"EcdsaSecp256k1VerificationKey2019"`` \| ``"Ed25519VerificationKey2018"`` \| ``"RsaVerificationKey2018"`` \| ``"X25519KeyAgreementKey2019"``
+▸ `Const` **keyTypeFromJWK**(`key`): ``"JsonWebKey2020"`` \| ``"EcdsaSecp256k1VerificationKey2019"`` \| ``"Ed25519VerificationKey2018"`` \| ``"RsaVerificationKey2018"`` \| ``"X25519KeyAgreementKey2019"`` \| ``"EcdsaSecp256k1RecoveryMethod2020"``
 
 #### Parameters
 
@@ -250,8 +267,28 @@ ___
 
 #### Returns
 
-``"JsonWebKey2020"`` \| ``"EcdsaSecp256k1VerificationKey2019"`` \| ``"Ed25519VerificationKey2018"`` \| ``"RsaVerificationKey2018"`` \| ``"X25519KeyAgreementKey2019"``
+``"JsonWebKey2020"`` \| ``"EcdsaSecp256k1VerificationKey2019"`` \| ``"Ed25519VerificationKey2018"`` \| ``"RsaVerificationKey2018"`` \| ``"X25519KeyAgreementKey2019"`` \| ``"EcdsaSecp256k1RecoveryMethod2020"``
 
 #### Defined in
 
-[src/keys.ts:90](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/keys.ts#L90)
+[src/keys.ts:101](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L101)
+
+___
+
+### signatureTypeFromJWK
+
+▸ `Const` **signatureTypeFromJWK**(`key`): `CryptographicSignatureSuiteReference`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | [JWK](../interfaces/keys.jwk.md) |
+
+#### Returns
+
+`CryptographicSignatureSuiteReference`
+
+#### Defined in
+
+[src/keys.ts:130](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L130)

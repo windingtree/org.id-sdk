@@ -14,6 +14,10 @@
 - [VCProofReference](../interfaces/vc.vcproofreference.md)
 - [VCTypedHolderReference](../interfaces/vc.vctypedholderreference.md)
 
+### Type aliases
+
+- [WebProvider](vc.md#webprovider)
+
 ### Functions
 
 - [buildHolderUtil](vc.md#buildholderutil)
@@ -22,7 +26,18 @@
 - [createVC](vc.md#createvc)
 - [isExpired](vc.md#isexpired)
 - [isValidFromUntil](vc.md#isvalidfromuntil)
+- [signWithWeb3Provider](vc.md#signwithweb3provider)
 - [verifyVC](vc.md#verifyvc)
+
+## Type aliases
+
+### WebProvider
+
+Ƭ **WebProvider**: `HttpProvider` \| `WebsocketProvider` \| `IpcProvider`
+
+#### Defined in
+
+[src/vc.ts:39](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L39)
 
 ## Functions
 
@@ -43,7 +58,7 @@
 
 #### Defined in
 
-[src/vc.ts:69](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L69)
+[src/vc.ts:148](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L148)
 
 ___
 
@@ -56,7 +71,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `jws` | `string` |
-| `type` | ``"JsonWebKey2020"`` \| ``"EcdsaSecp256k1VerificationKey2019"`` \| ``"Ed25519VerificationKey2018"`` \| ``"RsaVerificationKey2018"`` \| ``"X25519KeyAgreementKey2019"`` |
+| `type` | `CryptographicSignatureSuiteReference` |
 | `verificationMethod` | `string` |
 
 #### Returns
@@ -65,7 +80,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:100](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L100)
+[src/vc.ts:179](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L179)
 
 ___
 
@@ -85,7 +100,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:88](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L88)
+[src/vc.ts:167](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L167)
 
 ___
 
@@ -106,7 +121,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:120](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L120)
+[src/vc.ts:199](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L199)
 
 ___
 
@@ -126,7 +141,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:395](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L395)
+[src/vc.ts:508](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L508)
 
 ___
 
@@ -146,7 +161,30 @@ ___
 
 #### Defined in
 
-[src/vc.ts:402](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L402)
+[src/vc.ts:515](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L515)
+
+___
+
+### signWithWeb3Provider
+
+▸ `Const` **signWithWeb3Provider**(`web3Provider`, `from`, `verificationMethod`, `payload`): `Promise`<string\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `web3Provider` | [WebProvider](vc.md#webprovider) |
+| `from` | `string` |
+| `verificationMethod` | `string` |
+| `payload` | `string` \| { [k: string]: `unknown`;  } |
+
+#### Returns
+
+`Promise`<string\>
+
+#### Defined in
+
+[src/vc.ts:83](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L83)
 
 ___
 
@@ -167,4 +205,4 @@ ___
 
 #### Defined in
 
-[src/vc.ts:355](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L355)
+[src/vc.ts:468](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L468)

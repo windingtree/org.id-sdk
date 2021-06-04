@@ -29,7 +29,7 @@ The DID subject is denoted by the id property. The DID subject is the entity tha
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/dist/index.d.ts:294
+node_modules/@windingtree/org.json-schema/dist/index.d.ts:303
 
 ___
 
@@ -41,4 +41,4 @@ A type of activity during which the issuer permits to own the credential
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/dist/index.d.ts:290
+node_modules/@windingtree/org.json-schema/dist/index.d.ts:299

@@ -14,6 +14,7 @@
 - [setValidFrom](vc.vcbuilderchain.md#setvalidfrom)
 - [setValidUntil](vc.vcbuilderchain.md#setvaliduntil)
 - [sign](vc.vcbuilderchain.md#sign)
+- [signWithWeb3Provider](vc.vcbuilderchain.md#signwithweb3provider)
 
 ## Methods
 
@@ -33,7 +34,7 @@
 
 #### Defined in
 
-[src/vc.ts:55](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L55)
+[src/vc.ts:66](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L66)
 
 ___
 
@@ -53,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:52](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L52)
+[src/vc.ts:63](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L63)
 
 ___
 
@@ -74,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:42](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L42)
+[src/vc.ts:53](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L53)
 
 ___
 
@@ -94,7 +95,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:46](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L46)
+[src/vc.ts:57](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L57)
 
 ___
 
@@ -114,7 +115,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:49](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L49)
+[src/vc.ts:60](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L60)
 
 ___
 
@@ -134,4 +135,25 @@ ___
 
 #### Defined in
 
-[src/vc.ts:58](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L58)
+[src/vc.ts:69](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L69)
+
+___
+
+### signWithWeb3Provider
+
+▸ **signWithWeb3Provider**(`web3Provider`, `ownerAddress`): `Promise`<[SignedVC](vc.signedvc.md)\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `web3Provider` | [WebProvider](../modules/vc.md#webprovider) |
+| `ownerAddress` | `string` |
+
+#### Returns
+
+`Promise`<[SignedVC](vc.signedvc.md)\>
+
+#### Defined in
+
+[src/vc.ts:72](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L72)

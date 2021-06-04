@@ -9,7 +9,8 @@ import type {
   JWK
 } from 'jose/jwk/from_key_like';
 import type {
-  VerificationMethodReference
+  VerificationMethodReference,
+  CryptographicSignatureSuiteReference
 } from '@windingtree/org.json-schema';
 import {
   generateKeyPair as generate
@@ -39,7 +40,8 @@ export type KeysAlgConfig = {
     type: string,
     jws: boolean,
     crv?: string,
-    modulusLength?: number
+    modulusLength?: number,
+    signatureType?: CryptographicSignatureSuiteReference
 };
 
 export const KeyTypes: VerificationMethodType[] = [
@@ -84,7 +86,15 @@ export const keyTypeMap: {
   'secp256k1': 'EcdsaSecp256k1VerificationKey2019',
   'Ed25519': 'Ed25519VerificationKey2018',
   'RSA': 'RsaVerificationKey2018',
-  'X25519': 'X25519KeyAgreementKey2019'
+  'X25519': 'X25519KeyAgreementKey2019',
+};
+
+export const signatureTypeMap: {
+  [key: string]: CryptographicSignatureSuiteReference
+} = {
+  'secp256k1': 'EcdsaSecp256k1Signature2019',
+  'Ed25519': 'Ed25519Signature2018',
+  'RSA': 'RsaSignature2018',
 };
 
 // Get a key type from the JWK
@@ -115,6 +125,35 @@ export const keyTypeFromJWK = (key: JWK): VerificationMethodType => {
   }
 
   return keyType;
+};
+
+export const signatureTypeFromJWK = (key: JWK): CryptographicSignatureSuiteReference => {
+
+  if (!key.kty) {
+    throw new Error('Broken JWK: key type not found');
+  }
+
+  let signatureType: CryptographicSignatureSuiteReference | undefined;
+
+  switch (key.kty.toLocaleLowerCase()) {
+    case 'ec':
+    case 'okp':
+      if (!key.crv) {
+        throw new Error('Broken JWK: key curve type not found');
+      }
+      signatureType = signatureTypeMap[key.crv];
+      break;
+    case 'rsa':
+      signatureType = signatureTypeMap['RSA'];
+      break;
+    default:
+  }
+
+  if (!signatureType) {
+    throw new Error(`Unsupported signature type: ${key.kty}`);
+  }
+
+  return signatureType;
 };
 
 // Get key algorithm from the JWK

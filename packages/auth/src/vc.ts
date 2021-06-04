@@ -1,13 +1,13 @@
 import type {
   KeyLike,
   KeyObject,
-  JWK,
-  VerificationMethodType
+  JWK
 } from './keys';
 import type {
   VCTypedHolderReference,
   CredentialReference,
-  VCProofReference
+  VCProofReference,
+  CryptographicSignatureSuiteReference
 } from '@windingtree/org.json-schema';
 import type {
   HttpProvider,
@@ -16,7 +16,7 @@ import type {
 }  from 'web3-core';
 import {
   getAlgFromJWK,
-  keyTypeFromJWK,
+  signatureTypeFromJWK,
   createJWK
 } from './keys';
 import {
@@ -178,7 +178,7 @@ export const checkDateUtil = (
 // Utility for creation of valid proof data
 export const buildProofUtil = (
   jws: string,
-  type: VerificationMethodType,
+  type: CryptographicSignatureSuiteReference,
   verificationMethod: string
 ): VCProofReference => {
 
@@ -224,7 +224,7 @@ export const createVC = (
 
   if (!fragment) {
     throw new Error(
-      `Key identifier must be provided as fragment in the DID: ${issuer} #??????`
+      `Key identifier must be provided as fragment in the DID: ${issuer} #fragment`
     );
   }
 
@@ -251,12 +251,57 @@ export const createVC = (
     );
   }
 
-  let vcHolder: string | VCTypedHolderReference | undefined;
   const vcIssuanceDate = DateTime.now();
+  let vcHolder: string | VCTypedHolderReference | undefined;
   let vcExpirationDate: DateTime | undefined;
   let vcValidFrom: DateTime | undefined;
   let vcValidUntil: DateTime | undefined;
   let vcSubject: CredentialSubject;
+  let unsignedVS: CredentialReference;
+
+  const buildUnsignedVC = (): void => {
+    // Creation of unsigned VC object
+    unsignedVS = {
+      '@context': [
+        'https://www.w3.org/2018/credentials/v1'
+      ],
+      id: uid.uuid4(),
+      type: vcType,
+      issuer: did,
+      issuanceDate: vcIssuanceDate.toISO(),
+      ...(
+        vcHolder
+          ? {
+            holder: vcHolder
+          }
+          : {}
+      ),
+      ...(
+        vcValidFrom
+          ? {
+            validFrom: vcValidFrom.toISO()
+          }
+          : {}
+      ),
+      ...(
+        vcValidUntil
+          ? {
+            validUntil: vcValidUntil.toISO()
+          }
+          : {}
+      ),
+      ...(
+        vcExpirationDate
+          ? {
+            expirationDate: vcExpirationDate.toISO()
+          }
+          : {}
+      ),
+      credentialSubject: vcSubject
+    };
+
+    // @todo Add validation of the VC object with existed JSON schema
+  };
 
   // Chained methods that implements VC creation
   const chain: VCBuilderChain = {
@@ -330,6 +375,10 @@ export const createVC = (
     // Adds subject data to VC (`credentialSubject` is mandatory property)
     setCredentialSubject: subject => {
 
+      if (vcSubject) {
+        throw new Error('Credential subject can be set only once');
+      }
+
       if (typeof subject !== 'object' || Object.keys(subject).length === 0) {
         throw new Error(
           `Credential subject must be a valid object and cannot be empty`
@@ -342,56 +391,15 @@ export const createVC = (
 
     // Sign VC with private token
     sign: async privateKey => {
-
-      // Creation of unsigned VC object
-      const unsignedVS: CredentialReference = {
-        '@context': [
-          'https://www.w3.org/2018/credentials/v1'
-        ],
-        id: uid.uuid4(),
-        type: vcType,
-        issuer: did,
-        ...(
-          vcHolder
-            ? {
-              holder: vcHolder
-            }
-            : {}
-        ),
-        issuanceDate: vcIssuanceDate.toISO(),
-        ...(
-          vcValidFrom
-            ? {
-              validFrom: vcValidFrom.toISO()
-            }
-            : {}
-        ),
-        ...(
-          vcValidUntil
-            ? {
-              validUntil: vcValidUntil.toISO()
-            }
-            : {}
-        ),
-        ...(
-          vcExpirationDate
-            ? {
-              expirationDate: vcExpirationDate.toISO()
-            }
-            : {}
-        ),
-        credentialSubject: vcSubject
-      };
-
-      // @todo Add validation of the VC object with existed JSON schema
+      buildUnsignedVC();
 
       let alg: string;
-      let keySuiteType: VerificationMethodType;
+      let signatureType: CryptographicSignatureSuiteReference;
 
       if ((privateKey as JWK).kty) {
         // Use raw JWK
         alg = getAlgFromJWK(privateKey as JWK);
-        keySuiteType = keyTypeFromJWK(privateKey as JWK);
+        signatureType = signatureTypeFromJWK(privateKey as JWK);
         privateKey = await parseJwk(privateKey as JWK);
       } else {
         // Try to use key in KeyLike format
@@ -403,7 +411,7 @@ export const createVC = (
         }
 
         const privateKeyJWK: JWK = await createJWK(privateKey as KeyObject);
-        keySuiteType = keyTypeFromJWK(privateKeyJWK);
+        signatureType = signatureTypeFromJWK(privateKeyJWK);
         alg = getAlgFromJWK(privateKeyJWK, true);
       }
 
@@ -418,7 +426,33 @@ export const createVC = (
         )
         .sign(privateKey as KeyObject);
 
-      const vcProof = buildProofUtil(jws, keySuiteType, issuer);
+      const vcProof = buildProofUtil(jws, signatureType, issuer);
+
+      return {
+        ...unsignedVS,
+        proof: vcProof
+      };
+    },
+
+    // Sign VC with Web3 provider
+    signWithWeb3Provider: async (
+      web3Provider,
+      ownerAddress
+    ) => {
+      buildUnsignedVC();
+
+      const jws = await signWithWeb3Provider(
+        web3Provider,
+        ownerAddress,
+        issuer,
+        unsignedVS
+      );
+
+      const vcProof = buildProofUtil(
+        jws,
+        'EcdsaSecp256k1RecoverySignature2020',
+        issuer
+      );
 
       return {
         ...unsignedVS,

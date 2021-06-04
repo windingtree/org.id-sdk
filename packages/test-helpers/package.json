@@ -44,8 +44,8 @@
     "@windingtree/org.id": "2.0.0",
     "@windingtree/org.id-auth": "0.2.3",
     "@windingtree/org.id-utils": "0.2.12",
-    "@windingtree/org.json-utils": "0.1.0",
-    "@windingtree/org.json-schema": "0.5.5-beta"
+    "@windingtree/org.json-utils": "0.2.0",
+    "@windingtree/org.json-schema": "0.5.6-beta"
   },
   "devDependencies": {
     "jest": "27.0.3",
