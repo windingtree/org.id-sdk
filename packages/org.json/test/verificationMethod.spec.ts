@@ -4,7 +4,7 @@ import {
   createJWK
 } from '@windingtree/org.id-auth/dist/keys';
 import {
-  createVerificationMethod
+  createVerificationMethodWithKey
 } from '../src/verificationMethod';
 import type {
   KeyLike,
@@ -41,7 +41,7 @@ describe('DID utilities', () => {
     test('should create verification method from KeyLike', async () => {
       const methods: DidVerificationMethod[] = await Promise.all(
         keyPairs.map(
-          k => createVerificationMethod(
+          k => createVerificationMethodWithKey(
             id,
             controller,
             k.publicKey
@@ -59,7 +59,7 @@ describe('DID utilities', () => {
     test('should create verification method from JWK', async () => {
       const methods: DidVerificationMethod[] = await Promise.all(
         keyJWK.map(
-          k => createVerificationMethod(
+          k => createVerificationMethodWithKey(
             id,
             controller,
             k.publicKey
