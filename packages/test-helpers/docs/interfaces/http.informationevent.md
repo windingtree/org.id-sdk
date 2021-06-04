@@ -20,54 +20,68 @@
 
 ### headers
 
-• **headers**: [*IncomingHttpHeaders*](http.incominghttpheaders.md)
+• **headers**: [IncomingHttpHeaders](http.incominghttpheaders.md)
 
-Defined in: node_modules/@types/node/http.d.ts:211
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:211
 
 ___
 
 ### httpVersion
 
-• **httpVersion**: *string*
+• **httpVersion**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:208
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:208
 
 ___
 
 ### httpVersionMajor
 
-• **httpVersionMajor**: *number*
+• **httpVersionMajor**: `number`
 
-Defined in: node_modules/@types/node/http.d.ts:209
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:209
 
 ___
 
 ### httpVersionMinor
 
-• **httpVersionMinor**: *number*
+• **httpVersionMinor**: `number`
 
-Defined in: node_modules/@types/node/http.d.ts:210
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:210
 
 ___
 
 ### rawHeaders
 
-• **rawHeaders**: *string*[]
+• **rawHeaders**: `string`[]
 
-Defined in: node_modules/@types/node/http.d.ts:212
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:212
 
 ___
 
 ### statusCode
 
-• **statusCode**: *number*
+• **statusCode**: `number`
 
-Defined in: node_modules/@types/node/http.d.ts:206
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:206
 
 ___
 
 ### statusMessage
 
-• **statusMessage**: *string*
+• **statusMessage**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:207
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:207

@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- *Dict*<string \| string[]\>
+- `Dict`<string \| string[]\>
 
   ↳ **IncomingHttpHeaders**
 
@@ -82,502 +82,628 @@
 
 ### accept
 
-• `Optional` **accept**: *string*
+• `Optional` **accept**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:7
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:7
 
 ___
 
 ### accept-language
 
-• `Optional` **accept-language**: *string*
+• `Optional` **accept-language**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:8
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:8
 
 ___
 
 ### accept-patch
 
-• `Optional` **accept-patch**: *string*
+• `Optional` **accept-patch**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:9
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:9
 
 ___
 
 ### accept-ranges
 
-• `Optional` **accept-ranges**: *string*
+• `Optional` **accept-ranges**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:10
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:10
 
 ___
 
 ### access-control-allow-credentials
 
-• `Optional` **access-control-allow-credentials**: *string*
+• `Optional` **access-control-allow-credentials**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:11
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:11
 
 ___
 
 ### access-control-allow-headers
 
-• `Optional` **access-control-allow-headers**: *string*
+• `Optional` **access-control-allow-headers**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:12
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:12
 
 ___
 
 ### access-control-allow-methods
 
-• `Optional` **access-control-allow-methods**: *string*
+• `Optional` **access-control-allow-methods**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:13
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:13
 
 ___
 
 ### access-control-allow-origin
 
-• `Optional` **access-control-allow-origin**: *string*
+• `Optional` **access-control-allow-origin**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:14
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:14
 
 ___
 
 ### access-control-expose-headers
 
-• `Optional` **access-control-expose-headers**: *string*
+• `Optional` **access-control-expose-headers**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:15
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:15
 
 ___
 
 ### access-control-max-age
 
-• `Optional` **access-control-max-age**: *string*
+• `Optional` **access-control-max-age**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:16
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:16
 
 ___
 
 ### access-control-request-headers
 
-• `Optional` **access-control-request-headers**: *string*
+• `Optional` **access-control-request-headers**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:17
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:17
 
 ___
 
 ### access-control-request-method
 
-• `Optional` **access-control-request-method**: *string*
+• `Optional` **access-control-request-method**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:18
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:18
 
 ___
 
 ### age
 
-• `Optional` **age**: *string*
+• `Optional` **age**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:19
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:19
 
 ___
 
 ### allow
 
-• `Optional` **allow**: *string*
+• `Optional` **allow**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:20
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:20
 
 ___
 
 ### alt-svc
 
-• `Optional` **alt-svc**: *string*
+• `Optional` **alt-svc**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:21
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:21
 
 ___
 
 ### authorization
 
-• `Optional` **authorization**: *string*
+• `Optional` **authorization**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:22
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:22
 
 ___
 
 ### cache-control
 
-• `Optional` **cache-control**: *string*
+• `Optional` **cache-control**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:23
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:23
 
 ___
 
 ### connection
 
-• `Optional` **connection**: *string*
+• `Optional` **connection**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:24
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:24
 
 ___
 
 ### content-disposition
 
-• `Optional` **content-disposition**: *string*
+• `Optional` **content-disposition**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:25
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:25
 
 ___
 
 ### content-encoding
 
-• `Optional` **content-encoding**: *string*
+• `Optional` **content-encoding**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:26
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:26
 
 ___
 
 ### content-language
 
-• `Optional` **content-language**: *string*
+• `Optional` **content-language**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:27
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:27
 
 ___
 
 ### content-length
 
-• `Optional` **content-length**: *string*
+• `Optional` **content-length**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:28
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:28
 
 ___
 
 ### content-location
 
-• `Optional` **content-location**: *string*
+• `Optional` **content-location**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:29
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:29
 
 ___
 
 ### content-range
 
-• `Optional` **content-range**: *string*
+• `Optional` **content-range**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:30
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:30
 
 ___
 
 ### content-type
 
-• `Optional` **content-type**: *string*
+• `Optional` **content-type**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:31
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:31
 
 ___
 
 ### cookie
 
-• `Optional` **cookie**: *string*
+• `Optional` **cookie**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:32
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:32
 
 ___
 
 ### date
 
-• `Optional` **date**: *string*
+• `Optional` **date**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:33
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:33
 
 ___
 
 ### etag
 
-• `Optional` **etag**: *string*
+• `Optional` **etag**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:34
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:34
 
 ___
 
 ### expect
 
-• `Optional` **expect**: *string*
+• `Optional` **expect**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:35
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:35
 
 ___
 
 ### expires
 
-• `Optional` **expires**: *string*
+• `Optional` **expires**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:36
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:36
 
 ___
 
 ### forwarded
 
-• `Optional` **forwarded**: *string*
+• `Optional` **forwarded**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:37
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:37
 
 ___
 
 ### from
 
-• `Optional` **from**: *string*
+• `Optional` **from**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:38
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:38
 
 ___
 
 ### host
 
-• `Optional` **host**: *string*
+• `Optional` **host**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:39
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:39
 
 ___
 
 ### if-match
 
-• `Optional` **if-match**: *string*
+• `Optional` **if-match**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:40
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:40
 
 ___
 
 ### if-modified-since
 
-• `Optional` **if-modified-since**: *string*
+• `Optional` **if-modified-since**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:41
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:41
 
 ___
 
 ### if-none-match
 
-• `Optional` **if-none-match**: *string*
+• `Optional` **if-none-match**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:42
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:42
 
 ___
 
 ### if-unmodified-since
 
-• `Optional` **if-unmodified-since**: *string*
+• `Optional` **if-unmodified-since**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:43
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:43
 
 ___
 
 ### last-modified
 
-• `Optional` **last-modified**: *string*
+• `Optional` **last-modified**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:44
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:44
 
 ___
 
 ### location
 
-• `Optional` **location**: *string*
+• `Optional` **location**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:45
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:45
 
 ___
 
 ### origin
 
-• `Optional` **origin**: *string*
+• `Optional` **origin**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:46
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:46
 
 ___
 
 ### pragma
 
-• `Optional` **pragma**: *string*
+• `Optional` **pragma**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:47
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:47
 
 ___
 
 ### proxy-authenticate
 
-• `Optional` **proxy-authenticate**: *string*
+• `Optional` **proxy-authenticate**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:48
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:48
 
 ___
 
 ### proxy-authorization
 
-• `Optional` **proxy-authorization**: *string*
+• `Optional` **proxy-authorization**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:49
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:49
 
 ___
 
 ### public-key-pins
 
-• `Optional` **public-key-pins**: *string*
+• `Optional` **public-key-pins**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:50
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:50
 
 ___
 
 ### range
 
-• `Optional` **range**: *string*
+• `Optional` **range**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:51
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:51
 
 ___
 
 ### referer
 
-• `Optional` **referer**: *string*
+• `Optional` **referer**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:52
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:52
 
 ___
 
 ### retry-after
 
-• `Optional` **retry-after**: *string*
+• `Optional` **retry-after**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:53
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:53
 
 ___
 
 ### sec-websocket-accept
 
-• `Optional` **sec-websocket-accept**: *string*
+• `Optional` **sec-websocket-accept**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:54
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:54
 
 ___
 
 ### sec-websocket-extensions
 
-• `Optional` **sec-websocket-extensions**: *string*
+• `Optional` **sec-websocket-extensions**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:55
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:55
 
 ___
 
 ### sec-websocket-key
 
-• `Optional` **sec-websocket-key**: *string*
+• `Optional` **sec-websocket-key**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:56
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:56
 
 ___
 
 ### sec-websocket-protocol
 
-• `Optional` **sec-websocket-protocol**: *string*
+• `Optional` **sec-websocket-protocol**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:57
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:57
 
 ___
 
 ### sec-websocket-version
 
-• `Optional` **sec-websocket-version**: *string*
+• `Optional` **sec-websocket-version**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:58
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:58
 
 ___
 
 ### set-cookie
 
-• `Optional` **set-cookie**: *string*[]
+• `Optional` **set-cookie**: `string`[]
 
-Defined in: node_modules/@types/node/http.d.ts:59
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:59
 
 ___
 
 ### strict-transport-security
 
-• `Optional` **strict-transport-security**: *string*
+• `Optional` **strict-transport-security**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:60
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:60
 
 ___
 
 ### tk
 
-• `Optional` **tk**: *string*
+• `Optional` **tk**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:61
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:61
 
 ___
 
 ### trailer
 
-• `Optional` **trailer**: *string*
+• `Optional` **trailer**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:62
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:62
 
 ___
 
 ### transfer-encoding
 
-• `Optional` **transfer-encoding**: *string*
+• `Optional` **transfer-encoding**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:63
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:63
 
 ___
 
 ### upgrade
 
-• `Optional` **upgrade**: *string*
+• `Optional` **upgrade**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:64
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:64
 
 ___
 
 ### user-agent
 
-• `Optional` **user-agent**: *string*
+• `Optional` **user-agent**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:65
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:65
 
 ___
 
 ### vary
 
-• `Optional` **vary**: *string*
+• `Optional` **vary**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:66
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:66
 
 ___
 
 ### via
 
-• `Optional` **via**: *string*
+• `Optional` **via**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:67
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:67
 
 ___
 
 ### warning
 
-• `Optional` **warning**: *string*
+• `Optional` **warning**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:68
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:68
 
 ___
 
 ### www-authenticate
 
-• `Optional` **www-authenticate**: *string*
+• `Optional` **www-authenticate**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:69
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:69

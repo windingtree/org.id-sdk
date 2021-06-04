@@ -9,11 +9,14 @@
 - [accounts](orgidsetup.md#accounts)
 - [address](orgidsetup.md#address)
 - [httpServer](orgidsetup.md#httpserver)
+- [keyPairs](orgidsetup.md#keypairs)
 - [owner](orgidsetup.md#owner)
+- [salts](orgidsetup.md#salts)
 - [server](orgidsetup.md#server)
 
 ### Methods
 
+- [buildOrgJson](orgidsetup.md#buildorgjson)
 - [close](orgidsetup.md#close)
 - [registerOrgId](orgidsetup.md#registerorgid)
 
@@ -21,64 +24,123 @@
 
 ### accounts
 
-• **accounts**: *string*[]
+• **accounts**: `string`[]
 
-Defined in: [src/orgIdSetup.ts:8](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/orgIdSetup.ts#L8)
+#### Defined in
+
+[test-helpers/src/orgIdSetup.ts:22](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L22)
 
 ___
 
 ### address
 
-• **address**: *string*
+• **address**: `string`
 
-Defined in: [src/orgIdSetup.ts:10](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/orgIdSetup.ts#L10)
+#### Defined in
+
+[test-helpers/src/orgIdSetup.ts:26](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L26)
 
 ___
 
 ### httpServer
 
-• **httpServer**: [*HttpFileServer*](../classes/httpfileserver.md)
+• **httpServer**: [HttpFileServer](../classes/httpfileserver.md)
 
-Defined in: [src/orgIdSetup.ts:12](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/orgIdSetup.ts#L12)
+#### Defined in
+
+[test-helpers/src/orgIdSetup.ts:28](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L28)
+
+___
+
+### keyPairs
+
+• **keyPairs**: `KeyPair`[]
+
+#### Defined in
+
+[test-helpers/src/orgIdSetup.ts:24](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L24)
 
 ___
 
 ### owner
 
-• **owner**: *string*
+• **owner**: `string`
 
-Defined in: [src/orgIdSetup.ts:9](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/orgIdSetup.ts#L9)
+#### Defined in
+
+[test-helpers/src/orgIdSetup.ts:25](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L25)
+
+___
+
+### salts
+
+• **salts**: `string`[]
+
+#### Defined in
+
+[test-helpers/src/orgIdSetup.ts:23](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L23)
 
 ___
 
 ### server
 
-• **server**: [*DevelopmentServer*](../classes/developmentserver.md)
+• **server**: [DevelopmentServer](../classes/developmentserver.md)
 
-Defined in: [src/orgIdSetup.ts:11](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/orgIdSetup.ts#L11)
+#### Defined in
+
+[test-helpers/src/orgIdSetup.ts:27](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L27)
 
 ## Methods
 
-### close
+### buildOrgJson
 
-▸ **close**(): *Promise*<void\>
-
-**Returns:** *Promise*<void\>
-
-Defined in: [src/orgIdSetup.ts:14](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/orgIdSetup.ts#L14)
-
-___
-
-### registerOrgId
-
-▸ **registerOrgId**(`orgIdOwner`: *string*): *Promise*<string\>
+▸ **buildOrgJson**(`did`, `keyPair`): `Promise`<ORGJSON\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `orgIdOwner` | *string* |
+| `did` | `string` |
+| `keyPair` | `KeyPair` |
 
-**Returns:** *Promise*<string\>
+#### Returns
 
-Defined in: [src/orgIdSetup.ts:13](https://github.com/windingtree/org.id-sdk/blob/c4e7118/packages/test-helpers/src/orgIdSetup.ts#L13)
+`Promise`<ORGJSON\>
+
+#### Defined in
+
+[test-helpers/src/orgIdSetup.ts:30](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L30)
+
+___
+
+### close
+
+▸ **close**(): `Promise`<void\>
+
+#### Returns
+
+`Promise`<void\>
+
+#### Defined in
+
+[test-helpers/src/orgIdSetup.ts:34](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L34)
+
+___
+
+### registerOrgId
+
+▸ **registerOrgId**(`orgIdOwner`): `Promise`<string\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `orgIdOwner` | `string` |
+
+#### Returns
+
+`Promise`<string\>
+
+#### Defined in
+
+[test-helpers/src/orgIdSetup.ts:29](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L29)

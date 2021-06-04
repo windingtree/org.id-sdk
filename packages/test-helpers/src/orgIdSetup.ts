@@ -1,13 +1,14 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const contract = require('@truffle/contract');
-import { OrgIdContract } from '@windingtree/org.id';
 import type { ORGJSON } from '@windingtree/org.json-schema';
+import type { KeyPair } from '@windingtree/org.id-auth/dist/keys';
 import {
   generateSalt,
   generateOrgIdHash
 } from '@windingtree/org.id-utils/dist/common';
-import { generateKeyPair, KeyLike } from '@windingtree/org.id-auth/dist/keys';
+import { generateKeyPair } from '@windingtree/org.id-auth/dist/keys';
 import { createVerificationMethod } from '@windingtree/org.json-utils/dist/verificationMethod';
+import { OrgIdContract } from '@windingtree/org.id';
 import { ganache, DevelopmentServer } from './ganache';
 import { HttpFileServer, File } from './httpServer';
 import orgJsonTemplate from './data/legal-entity.json';
@@ -16,11 +17,6 @@ export {
   generateSalt,
   generateOrgIdHash
 }
-
-export type KeyLikeType = 'privateKey' | 'publicKey';
-export type KeyPair = {
-  [k in KeyLikeType]: KeyLike;
-};
 
 export interface OrgIdSetup {
   accounts: string[];

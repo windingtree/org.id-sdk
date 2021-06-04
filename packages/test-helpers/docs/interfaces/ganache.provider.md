@@ -22,102 +22,126 @@
 
 ### close
 
-• **close**: (`callback`: Function) => *void*
+• **close**: (`callback`: `Function`) => `void`
 
 #### Type declaration
 
-▸ (`callback`: Function): *void*
+▸ (`callback`): `void`
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | Function |
+| `callback` | `Function` |
 
-**Returns:** *void*
+##### Returns
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:75
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:75
 
 ## Methods
 
 ### on
 
-▸ **on**(`type`: *string*, `callback`: () => *void*): *void*
+▸ **on**(`type`, `callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `type` | *string* |
-| `callback` | () => *void* |
+| `type` | `string` |
+| `callback` | () => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:67
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:67
 
 ___
 
 ### once
 
-▸ **once**(`type`: *string*, `callback`: () => *void*): *void*
+▸ **once**(`type`, `callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `type` | *string* |
-| `callback` | () => *void* |
+| `type` | `string` |
+| `callback` | () => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:69
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:69
 
 ___
 
 ### removeAllListeners
 
-▸ **removeAllListeners**(`type`: *string*): *void*
+▸ **removeAllListeners**(`type`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `type` | *string* |
+| `type` | `string` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:73
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:73
 
 ___
 
 ### removeListener
 
-▸ **removeListener**(`type`: *string*, `callback`: () => *void*): *void*
+▸ **removeListener**(`type`, `callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `type` | *string* |
-| `callback` | () => *void* |
+| `type` | `string` |
+| `callback` | () => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:71
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:71
 
 ___
 
 ### send
 
-▸ **send**(`payload`: JsonRpcPayload, `callback`: (`error`: Error, `result?`: JsonRpcResponse) => *void*): *void*
+▸ **send**(`payload`, `callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `payload` | JsonRpcPayload |
-| `callback` | (`error`: Error, `result?`: JsonRpcResponse) => *void* |
+| `payload` | `JsonRpcPayload` |
+| `callback` | (`error`: ``null`` \| `Error`, `result?`: `JsonRpcResponse`) => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:62
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:62

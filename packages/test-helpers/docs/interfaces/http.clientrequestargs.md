@@ -8,7 +8,7 @@
 
 - **ClientRequestArgs**
 
-  ↳ [*RequestOptions*](http.requestoptions.md)
+  ↳ [RequestOptions](http.requestoptions.md)
 
 ## Table of contents
 
@@ -38,165 +38,205 @@
 
 ### \_defaultAgent
 
-• `Optional` **\_defaultAgent**: [*Agent*](../classes/http.agent.md)
+• `Optional` **\_defaultAgent**: [Agent](../classes/http.agent.md)
 
-Defined in: node_modules/@types/node/http.d.ts:98
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:98
 
 ___
 
 ### abort
 
-• `Optional` **abort**: AbortSignal
+• `Optional` **abort**: `AbortSignal`
 
-Defined in: node_modules/@types/node/http.d.ts:80
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:80
 
 ___
 
 ### agent
 
-• `Optional` **agent**: *boolean* \| [*Agent*](../classes/http.agent.md)
+• `Optional` **agent**: `boolean` \| [Agent](../classes/http.agent.md)
 
-Defined in: node_modules/@types/node/http.d.ts:97
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:97
 
 ___
 
 ### auth
 
-• `Optional` **auth**: *string*
+• `Optional` **auth**: ``null`` \| `string`
 
-Defined in: node_modules/@types/node/http.d.ts:96
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:96
 
 ___
 
 ### createConnection
 
-• `Optional` **createConnection**: (`options`: [*ClientRequestArgs*](http.clientrequestargs.md), `oncreate`: (`err`: Error, `socket`: *Socket*) => *void*) => *Socket*
+• `Optional` **createConnection**: (`options`: [ClientRequestArgs](http.clientrequestargs.md), `oncreate`: (`err`: `Error`, `socket`: `Socket`) => `void`) => `Socket`
 
 #### Type declaration
 
-▸ (`options`: [*ClientRequestArgs*](http.clientrequestargs.md), `oncreate`: (`err`: Error, `socket`: *Socket*) => *void*): *Socket*
+▸ (`options`, `oncreate`): `Socket`
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [*ClientRequestArgs*](http.clientrequestargs.md) |
-| `oncreate` | (`err`: Error, `socket`: *Socket*) => *void* |
+| `options` | [ClientRequestArgs](http.clientrequestargs.md) |
+| `oncreate` | (`err`: `Error`, `socket`: `Socket`) => `void` |
 
-**Returns:** *Socket*
+##### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:102
+`Socket`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:102
 
 ___
 
 ### defaultPort
 
-• `Optional` **defaultPort**: *string* \| *number*
+• `Optional` **defaultPort**: `string` \| `number`
 
-Defined in: node_modules/@types/node/http.d.ts:86
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:86
 
 ___
 
 ### family
 
-• `Optional` **family**: *number*
+• `Optional` **family**: `number`
 
-Defined in: node_modules/@types/node/http.d.ts:84
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:84
 
 ___
 
 ### headers
 
-• `Optional` **headers**: [*OutgoingHttpHeaders*](http.outgoinghttpheaders.md)
+• `Optional` **headers**: [OutgoingHttpHeaders](http.outgoinghttpheaders.md)
 
-Defined in: node_modules/@types/node/http.d.ts:95
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:95
 
 ___
 
 ### host
 
-• `Optional` **host**: *string*
+• `Optional` **host**: ``null`` \| `string`
 
-Defined in: node_modules/@types/node/http.d.ts:82
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:82
 
 ___
 
 ### hostname
 
-• `Optional` **hostname**: *string*
+• `Optional` **hostname**: ``null`` \| `string`
 
-Defined in: node_modules/@types/node/http.d.ts:83
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:83
 
 ___
 
 ### localAddress
 
-• `Optional` **localAddress**: *string*
+• `Optional` **localAddress**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:87
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:87
 
 ___
 
 ### maxHeaderSize
 
-• `Optional` **maxHeaderSize**: *number*
+• `Optional` **maxHeaderSize**: `number`
 
 **`default`** 8192
 
-Defined in: node_modules/@types/node/http.d.ts:92
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:92
 
 ___
 
 ### method
 
-• `Optional` **method**: *string*
+• `Optional` **method**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:93
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:93
 
 ___
 
 ### path
 
-• `Optional` **path**: *string*
+• `Optional` **path**: ``null`` \| `string`
 
-Defined in: node_modules/@types/node/http.d.ts:94
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:94
 
 ___
 
 ### port
 
-• `Optional` **port**: *string* \| *number*
+• `Optional` **port**: ``null`` \| `string` \| `number`
 
-Defined in: node_modules/@types/node/http.d.ts:85
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:85
 
 ___
 
 ### protocol
 
-• `Optional` **protocol**: *string*
+• `Optional` **protocol**: ``null`` \| `string`
 
-Defined in: node_modules/@types/node/http.d.ts:81
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:81
 
 ___
 
 ### setHost
 
-• `Optional` **setHost**: *boolean*
+• `Optional` **setHost**: `boolean`
 
-Defined in: node_modules/@types/node/http.d.ts:100
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:100
 
 ___
 
 ### socketPath
 
-• `Optional` **socketPath**: *string*
+• `Optional` **socketPath**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:88
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:88
 
 ___
 
 ### timeout
 
-• `Optional` **timeout**: *number*
+• `Optional` **timeout**: `number`
 
-Defined in: node_modules/@types/node/http.d.ts:99
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:99

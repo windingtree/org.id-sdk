@@ -6,13 +6,13 @@
 
 ## Hierarchy
 
-- *Writable*
+- `Writable`
 
   ↳ **OutgoingMessage**
 
-  ↳↳ [*ServerResponse*](http.serverresponse.md)
+  ↳↳ [ServerResponse](http.serverresponse.md)
 
-  ↳↳ [*ClientRequest*](http.clientrequest.md)
+  ↳↳ [ClientRequest](http.clientrequest.md)
 
 ## Table of contents
 
@@ -91,207 +91,271 @@
 
 ### constructor
 
-\+ **new OutgoingMessage**(): [*OutgoingMessage*](http.outgoingmessage.md)
+• **new OutgoingMessage**()
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Overrides
 
-Overrides: stream.Writable.constructor
+stream.Writable.constructor
 
-Defined in: node_modules/@types/node/http.d.ts:173
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:173
 
 ## Properties
 
 ### chunkedEncoding
 
-• **chunkedEncoding**: *boolean*
+• **chunkedEncoding**: `boolean`
 
-Defined in: node_modules/@types/node/http.d.ts:160
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:160
 
 ___
 
 ### connection
 
-• **connection**: *Socket*
+• **connection**: ``null`` \| `Socket`
 
-**`deprecate`** Use `socket` instead.
+**`deprecated`** Use `socket` instead.
 
-Defined in: node_modules/@types/node/http.d.ts:172
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:172
 
 ___
 
 ### destroyed
 
-• **destroyed**: *boolean*
+• **destroyed**: `boolean`
 
-Inherited from: stream.Writable.destroyed
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:150
+stream.Writable.destroyed
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:150
 
 ___
 
 ### finished
 
-• **finished**: *boolean*
+• **finished**: `boolean`
 
 **`deprecated`** Use `writableEnded` instead.
 
-Defined in: node_modules/@types/node/http.d.ts:167
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:167
 
 ___
 
 ### headersSent
 
-• **headersSent**: *boolean*
+• **headersSent**: `boolean`
 
-Defined in: node_modules/@types/node/http.d.ts:168
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:168
 
 ___
 
 ### sendDate
 
-• **sendDate**: *boolean*
+• **sendDate**: `boolean`
 
-Defined in: node_modules/@types/node/http.d.ts:163
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:163
 
 ___
 
 ### shouldKeepAlive
 
-• **shouldKeepAlive**: *boolean*
+• **shouldKeepAlive**: `boolean`
 
-Defined in: node_modules/@types/node/http.d.ts:161
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:161
 
 ___
 
 ### socket
 
-• **socket**: *Socket*
+• **socket**: ``null`` \| `Socket`
 
-Defined in: node_modules/@types/node/http.d.ts:173
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:173
 
 ___
 
 ### upgrading
 
-• **upgrading**: *boolean*
+• **upgrading**: `boolean`
 
-Defined in: node_modules/@types/node/http.d.ts:159
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:159
 
 ___
 
 ### useChunkedEncodingByDefault
 
-• **useChunkedEncodingByDefault**: *boolean*
+• **useChunkedEncodingByDefault**: `boolean`
 
-Defined in: node_modules/@types/node/http.d.ts:162
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:162
 
 ___
 
 ### writable
 
-• `Readonly` **writable**: *boolean*
+• `Readonly` **writable**: `boolean`
 
-Inherited from: stream.Writable.writable
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:143
+stream.Writable.writable
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:143
 
 ___
 
 ### writableCorked
 
-• `Readonly` **writableCorked**: *number*
+• `Readonly` **writableCorked**: `number`
 
-Inherited from: stream.Writable.writableCorked
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:149
+stream.Writable.writableCorked
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:149
 
 ___
 
 ### writableEnded
 
-• `Readonly` **writableEnded**: *boolean*
+• `Readonly` **writableEnded**: `boolean`
 
-Inherited from: stream.Writable.writableEnded
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:144
+stream.Writable.writableEnded
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:144
 
 ___
 
 ### writableFinished
 
-• `Readonly` **writableFinished**: *boolean*
+• `Readonly` **writableFinished**: `boolean`
 
-Inherited from: stream.Writable.writableFinished
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:145
+stream.Writable.writableFinished
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:145
 
 ___
 
 ### writableHighWaterMark
 
-• `Readonly` **writableHighWaterMark**: *number*
+• `Readonly` **writableHighWaterMark**: `number`
 
-Inherited from: stream.Writable.writableHighWaterMark
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:146
+stream.Writable.writableHighWaterMark
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:146
 
 ___
 
 ### writableLength
 
-• `Readonly` **writableLength**: *number*
+• `Readonly` **writableLength**: `number`
 
-Inherited from: stream.Writable.writableLength
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:147
+stream.Writable.writableLength
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:147
 
 ___
 
 ### writableObjectMode
 
-• `Readonly` **writableObjectMode**: *boolean*
+• `Readonly` **writableObjectMode**: `boolean`
 
-Inherited from: stream.Writable.writableObjectMode
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:148
+stream.Writable.writableObjectMode
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:148
 
 ___
 
 ### captureRejectionSymbol
 
-▪ `Static` `Readonly` **captureRejectionSymbol**: *typeof* [*captureRejectionSymbol*](http.server.md#capturerejectionsymbol)
+▪ `Static` `Readonly` **captureRejectionSymbol**: typeof [captureRejectionSymbol](http.server.md#capturerejectionsymbol)
 
-Inherited from: stream.Writable.captureRejectionSymbol
+#### Inherited from
 
-Defined in: node_modules/@types/node/events.d.ts:46
+stream.Writable.captureRejectionSymbol
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:46
 
 ___
 
 ### captureRejections
 
-▪ `Static` **captureRejections**: *boolean*
+▪ `Static` **captureRejections**: `boolean`
 
 Sets or gets the default captureRejection value for all emitters.
 
-Inherited from: stream.Writable.captureRejections
+#### Inherited from
 
-Defined in: node_modules/@types/node/events.d.ts:52
+stream.Writable.captureRejections
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:52
 
 ___
 
 ### defaultMaxListeners
 
-▪ `Static` **defaultMaxListeners**: *number*
+▪ `Static` **defaultMaxListeners**: `number`
 
-Inherited from: stream.Writable.defaultMaxListeners
+#### Inherited from
 
-Defined in: node_modules/@types/node/events.d.ts:53
+stream.Writable.defaultMaxListeners
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:53
 
 ___
 
 ### errorMonitor
 
-▪ `Static` `Readonly` **errorMonitor**: *typeof* [*errorMonitor*](http.server.md#errormonitor)
+▪ `Static` `Readonly` **errorMonitor**: typeof [errorMonitor](http.server.md#errormonitor)
 
 This symbol shall be used to install a listener for only monitoring `'error'`
 events. Listeners installed using this symbol are called before the regular
@@ -301,109 +365,143 @@ Installing a listener using this symbol does not change the behavior once an
 `'error'` event is emitted, therefore the process will still crash if no
 regular `'error'` listener is installed.
 
-Inherited from: stream.Writable.errorMonitor
+#### Inherited from
 
-Defined in: node_modules/@types/node/events.d.ts:45
+stream.Writable.errorMonitor
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:45
 
 ## Methods
 
 ### \_construct
 
-▸ `Optional` **_construct**(`callback`: (`error?`: Error) => *void*): *void*
+▸ `Optional` **_construct**(`callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | (`error?`: Error) => *void* |
+| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: stream.Writable.\_construct
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:154
+#### Inherited from
+
+stream.Writable.\_construct
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:154
 
 ___
 
 ### \_destroy
 
-▸ **_destroy**(`error`: Error, `callback`: (`error?`: Error) => *void*): *void*
+▸ **_destroy**(`error`, `callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `error` | Error |
-| `callback` | (`error?`: Error) => *void* |
+| `error` | ``null`` \| `Error` |
+| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: stream.Writable.\_destroy
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:155
+#### Inherited from
+
+stream.Writable.\_destroy
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:155
 
 ___
 
 ### \_final
 
-▸ **_final**(`callback`: (`error?`: Error) => *void*): *void*
+▸ **_final**(`callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | (`error?`: Error) => *void* |
+| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: stream.Writable.\_final
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:156
+#### Inherited from
+
+stream.Writable.\_final
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:156
 
 ___
 
 ### \_write
 
-▸ **_write**(`chunk`: *any*, `encoding`: BufferEncoding, `callback`: (`error?`: Error) => *void*): *void*
+▸ **_write**(`chunk`, `encoding`, `callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `chunk` | *any* |
-| `encoding` | BufferEncoding |
-| `callback` | (`error?`: Error) => *void* |
+| `chunk` | `any` |
+| `encoding` | `BufferEncoding` |
+| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: stream.Writable.\_write
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:152
+#### Inherited from
+
+stream.Writable.\_write
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:152
 
 ___
 
 ### \_writev
 
-▸ `Optional` **_writev**(`chunks`: { `chunk`: *any* ; `encoding`: BufferEncoding  }[], `callback`: (`error?`: Error) => *void*): *void*
+▸ `Optional` **_writev**(`chunks`, `callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `chunks` | { `chunk`: *any* ; `encoding`: BufferEncoding  }[] |
-| `callback` | (`error?`: Error) => *void* |
+| `chunks` | { `chunk`: `any` ; `encoding`: `BufferEncoding`  }[] |
+| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: stream.Writable.\_writev
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:153
+#### Inherited from
+
+stream.Writable.\_writev
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:153
 
 ___
 
 ### addListener
 
-▸ **addListener**(`event`: ``"close"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+▸ **addListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 Event emitter
 The defined events on documents including:
@@ -419,155 +517,213 @@ The defined events on documents including:
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.addListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:177
+#### Inherited from
 
-▸ **addListener**(`event`: ``"drain"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:177
+
+▸ **addListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"drain"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.addListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:178
+#### Inherited from
 
-▸ **addListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:178
+
+▸ **addListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.addListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:179
+#### Inherited from
 
-▸ **addListener**(`event`: ``"finish"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:179
+
+▸ **addListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"finish"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.addListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:180
+#### Inherited from
 
-▸ **addListener**(`event`: ``"pipe"``, `listener`: (`src`: *Readable*) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:180
+
+▸ **addListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.addListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:181
+#### Inherited from
 
-▸ **addListener**(`event`: ``"unpipe"``, `listener`: (`src`: *Readable*) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:181
+
+▸ **addListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.addListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:182
+#### Inherited from
 
-▸ **addListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:182
+
+▸ **addListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.addListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:183
+#### Inherited from
+
+stream.Writable.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:183
 
 ___
 
 ### addTrailers
 
-▸ **addTrailers**(`headers`: [*OutgoingHttpHeaders*](../interfaces/http.outgoinghttpheaders.md) \| readonly [*string*, *string*][]): *void*
+▸ **addTrailers**(`headers`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `headers` | [*OutgoingHttpHeaders*](../interfaces/http.outgoinghttpheaders.md) \| readonly [*string*, *string*][] |
+| `headers` | [OutgoingHttpHeaders](../interfaces/http.outgoinghttpheaders.md) \| readonly [`string`, `string`][] |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:184
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:184
 
 ___
 
 ### cork
 
-▸ **cork**(): *void*
+▸ **cork**(): `void`
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: stream.Writable.cork
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:163
+#### Inherited from
+
+stream.Writable.cork
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:163
 
 ___
 
 ### destroy
 
-▸ **destroy**(`error?`: Error): *void*
+▸ **destroy**(`error?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `error?` | Error |
+| `error?` | `Error` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: stream.Writable.destroy
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:165
+#### Inherited from
+
+stream.Writable.destroy
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:165
 
 ___
 
 ### emit
 
-▸ **emit**(`event`: ``"close"``): *boolean*
+▸ **emit**(`event`): `boolean`
 
 #### Parameters
 
@@ -575,13 +731,19 @@ ___
 | :------ | :------ |
 | `event` | ``"close"`` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: stream.Writable.emit
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:185
+#### Inherited from
 
-▸ **emit**(`event`: ``"drain"``): *boolean*
+stream.Writable.emit
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:185
+
+▸ **emit**(`event`): `boolean`
 
 #### Parameters
 
@@ -589,28 +751,40 @@ Defined in: node_modules/@types/node/stream.d.ts:185
 | :------ | :------ |
 | `event` | ``"drain"`` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: stream.Writable.emit
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:186
+#### Inherited from
 
-▸ **emit**(`event`: ``"error"``, `err`: Error): *boolean*
+stream.Writable.emit
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:186
+
+▸ **emit**(`event`, `err`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `err` | Error |
+| `err` | `Error` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: stream.Writable.emit
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:187
+#### Inherited from
 
-▸ **emit**(`event`: ``"finish"``): *boolean*
+stream.Writable.emit
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:187
+
+▸ **emit**(`event`): `boolean`
 
 #### Parameters
 
@@ -618,992 +792,1354 @@ Defined in: node_modules/@types/node/stream.d.ts:187
 | :------ | :------ |
 | `event` | ``"finish"`` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: stream.Writable.emit
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:188
+#### Inherited from
 
-▸ **emit**(`event`: ``"pipe"``, `src`: *Readable*): *boolean*
+stream.Writable.emit
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:188
+
+▸ **emit**(`event`, `src`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `src` | *Readable* |
+| `src` | `Readable` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: stream.Writable.emit
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:189
+#### Inherited from
 
-▸ **emit**(`event`: ``"unpipe"``, `src`: *Readable*): *boolean*
+stream.Writable.emit
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:189
+
+▸ **emit**(`event`, `src`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `src` | *Readable* |
+| `src` | `Readable` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: stream.Writable.emit
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:190
+#### Inherited from
 
-▸ **emit**(`event`: *string* \| *symbol*, ...`args`: *any*[]): *boolean*
+stream.Writable.emit
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:190
+
+▸ **emit**(`event`, ...`args`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `...args` | *any*[] |
+| `event` | `string` \| `symbol` |
+| `...args` | `any`[] |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: stream.Writable.emit
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:191
+#### Inherited from
+
+stream.Writable.emit
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:191
 
 ___
 
 ### end
 
-▸ **end**(`cb?`: () => *void*): *void*
+▸ **end**(`cb?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `cb?` | () => *void* |
+| `cb?` | () => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: stream.Writable.end
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:160
+#### Inherited from
 
-▸ **end**(`chunk`: *any*, `cb?`: () => *void*): *void*
+stream.Writable.end
 
-#### Parameters
+#### Defined in
 
-| Name | Type |
-| :------ | :------ |
-| `chunk` | *any* |
-| `cb?` | () => *void* |
+test-helpers/node_modules/@types/node/stream.d.ts:160
 
-**Returns:** *void*
-
-Inherited from: stream.Writable.end
-
-Defined in: node_modules/@types/node/stream.d.ts:161
-
-▸ **end**(`chunk`: *any*, `encoding`: BufferEncoding, `cb?`: () => *void*): *void*
+▸ **end**(`chunk`, `cb?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `chunk` | *any* |
-| `encoding` | BufferEncoding |
-| `cb?` | () => *void* |
+| `chunk` | `any` |
+| `cb?` | () => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: stream.Writable.end
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:162
+#### Inherited from
+
+stream.Writable.end
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:161
+
+▸ **end**(`chunk`, `encoding`, `cb?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `chunk` | `any` |
+| `encoding` | `BufferEncoding` |
+| `cb?` | () => `void` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+stream.Writable.end
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:162
 
 ___
 
 ### eventNames
 
-▸ **eventNames**(): (*string* \| *symbol*)[]
+▸ **eventNames**(): (`string` \| `symbol`)[]
 
-**Returns:** (*string* \| *symbol*)[]
+#### Returns
 
-Inherited from: stream.Writable.eventNames
+(`string` \| `symbol`)[]
 
-Defined in: node_modules/@types/node/events.d.ts:87
+#### Inherited from
+
+stream.Writable.eventNames
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:87
 
 ___
 
 ### flushHeaders
 
-▸ **flushHeaders**(): *void*
+▸ **flushHeaders**(): `void`
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:185
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:185
 
 ___
 
 ### getHeader
 
-▸ **getHeader**(`name`: *string*): *string* \| *number* \| *string*[]
+▸ **getHeader**(`name`): `undefined` \| `string` \| `number` \| `string`[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | *string* |
+| `name` | `string` |
 
-**Returns:** *string* \| *number* \| *string*[]
+#### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:179
+`undefined` \| `string` \| `number` \| `string`[]
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:179
 
 ___
 
 ### getHeaderNames
 
-▸ **getHeaderNames**(): *string*[]
+▸ **getHeaderNames**(): `string`[]
 
-**Returns:** *string*[]
+#### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:181
+`string`[]
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:181
 
 ___
 
 ### getHeaders
 
-▸ **getHeaders**(): [*OutgoingHttpHeaders*](../interfaces/http.outgoinghttpheaders.md)
+▸ **getHeaders**(): [OutgoingHttpHeaders](../interfaces/http.outgoinghttpheaders.md)
 
-**Returns:** [*OutgoingHttpHeaders*](../interfaces/http.outgoinghttpheaders.md)
+#### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:180
+[OutgoingHttpHeaders](../interfaces/http.outgoinghttpheaders.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:180
 
 ___
 
 ### getMaxListeners
 
-▸ **getMaxListeners**(): *number*
+▸ **getMaxListeners**(): `number`
 
-**Returns:** *number*
+#### Returns
 
-Inherited from: stream.Writable.getMaxListeners
+`number`
 
-Defined in: node_modules/@types/node/events.d.ts:79
+#### Inherited from
+
+stream.Writable.getMaxListeners
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:79
 
 ___
 
 ### hasHeader
 
-▸ **hasHeader**(`name`: *string*): *boolean*
+▸ **hasHeader**(`name`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | *string* |
+| `name` | `string` |
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:182
+`boolean`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:182
 
 ___
 
 ### listenerCount
 
-▸ **listenerCount**(`event`: *string* \| *symbol*): *number*
+▸ **listenerCount**(`event`): `number`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** *number*
+#### Returns
 
-Inherited from: stream.Writable.listenerCount
+`number`
 
-Defined in: node_modules/@types/node/events.d.ts:83
+#### Inherited from
+
+stream.Writable.listenerCount
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:83
 
 ___
 
 ### listeners
 
-▸ **listeners**(`event`: *string* \| *symbol*): Function[]
+▸ **listeners**(`event`): `Function`[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** Function[]
+#### Returns
 
-Inherited from: stream.Writable.listeners
+`Function`[]
 
-Defined in: node_modules/@types/node/events.d.ts:80
+#### Inherited from
+
+stream.Writable.listeners
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:80
 
 ___
 
 ### off
 
-▸ **off**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+▸ **off**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.off
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/events.d.ts:76
+#### Inherited from
+
+stream.Writable.off
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:76
 
 ___
 
 ### on
 
-▸ **on**(`event`: ``"close"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+▸ **on**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.on
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:193
+#### Inherited from
 
-▸ **on**(`event`: ``"drain"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:193
+
+▸ **on**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"drain"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.on
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:194
+#### Inherited from
 
-▸ **on**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:194
+
+▸ **on**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.on
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:195
+#### Inherited from
 
-▸ **on**(`event`: ``"finish"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:195
+
+▸ **on**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"finish"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.on
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:196
+#### Inherited from
 
-▸ **on**(`event`: ``"pipe"``, `listener`: (`src`: *Readable*) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:196
+
+▸ **on**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.on
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:197
+#### Inherited from
 
-▸ **on**(`event`: ``"unpipe"``, `listener`: (`src`: *Readable*) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:197
+
+▸ **on**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.on
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:198
+#### Inherited from
 
-▸ **on**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:198
+
+▸ **on**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.on
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:199
+#### Inherited from
+
+stream.Writable.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:199
 
 ___
 
 ### once
 
-▸ **once**(`event`: ``"close"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+▸ **once**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.once
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:201
+#### Inherited from
 
-▸ **once**(`event`: ``"drain"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:201
+
+▸ **once**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"drain"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.once
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:202
+#### Inherited from
 
-▸ **once**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:202
+
+▸ **once**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.once
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:203
+#### Inherited from
 
-▸ **once**(`event`: ``"finish"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:203
+
+▸ **once**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"finish"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.once
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:204
+#### Inherited from
 
-▸ **once**(`event`: ``"pipe"``, `listener`: (`src`: *Readable*) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:204
+
+▸ **once**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.once
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:205
+#### Inherited from
 
-▸ **once**(`event`: ``"unpipe"``, `listener`: (`src`: *Readable*) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:205
+
+▸ **once**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.once
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:206
+#### Inherited from
 
-▸ **once**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:206
+
+▸ **once**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.once
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:207
+#### Inherited from
+
+stream.Writable.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:207
 
 ___
 
 ### pipe
 
-▸ **pipe**<T\>(`destination`: T, `options?`: { `end?`: *boolean*  }): T
+▸ **pipe**<T\>(`destination`, `options?`): `T`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | *WritableStream*<T\> |
+| `T` | `T`: `WritableStream`<T\> |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `destination` | T |
-| `options?` | *object* |
-| `options.end?` | *boolean* |
+| `destination` | `T` |
+| `options?` | `Object` |
+| `options.end?` | `boolean` |
 
-**Returns:** T
+#### Returns
 
-Inherited from: stream.Writable.pipe
+`T`
 
-Defined in: node_modules/@types/node/stream.d.ts:6
+#### Inherited from
+
+stream.Writable.pipe
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:6
 
 ___
 
 ### prependListener
 
-▸ **prependListener**(`event`: ``"close"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+▸ **prependListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:209
+#### Inherited from
 
-▸ **prependListener**(`event`: ``"drain"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:209
+
+▸ **prependListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"drain"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:210
+#### Inherited from
 
-▸ **prependListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:210
+
+▸ **prependListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:211
+#### Inherited from
 
-▸ **prependListener**(`event`: ``"finish"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:211
+
+▸ **prependListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"finish"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:212
+#### Inherited from
 
-▸ **prependListener**(`event`: ``"pipe"``, `listener`: (`src`: *Readable*) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:212
+
+▸ **prependListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:213
+#### Inherited from
 
-▸ **prependListener**(`event`: ``"unpipe"``, `listener`: (`src`: *Readable*) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:213
+
+▸ **prependListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:214
+#### Inherited from
 
-▸ **prependListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:214
+
+▸ **prependListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:215
+#### Inherited from
+
+stream.Writable.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:215
 
 ___
 
 ### prependOnceListener
 
-▸ **prependOnceListener**(`event`: ``"close"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+▸ **prependOnceListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependOnceListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:217
+#### Inherited from
 
-▸ **prependOnceListener**(`event`: ``"drain"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:217
+
+▸ **prependOnceListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"drain"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependOnceListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:218
+#### Inherited from
 
-▸ **prependOnceListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:218
+
+▸ **prependOnceListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependOnceListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:219
+#### Inherited from
 
-▸ **prependOnceListener**(`event`: ``"finish"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:219
+
+▸ **prependOnceListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"finish"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependOnceListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:220
+#### Inherited from
 
-▸ **prependOnceListener**(`event`: ``"pipe"``, `listener`: (`src`: *Readable*) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:220
+
+▸ **prependOnceListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependOnceListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:221
+#### Inherited from
 
-▸ **prependOnceListener**(`event`: ``"unpipe"``, `listener`: (`src`: *Readable*) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:221
+
+▸ **prependOnceListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependOnceListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:222
+#### Inherited from
 
-▸ **prependOnceListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:222
+
+▸ **prependOnceListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.prependOnceListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:223
+#### Inherited from
+
+stream.Writable.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:223
 
 ___
 
 ### rawListeners
 
-▸ **rawListeners**(`event`: *string* \| *symbol*): Function[]
+▸ **rawListeners**(`event`): `Function`[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** Function[]
+#### Returns
 
-Inherited from: stream.Writable.rawListeners
+`Function`[]
 
-Defined in: node_modules/@types/node/events.d.ts:81
+#### Inherited from
+
+stream.Writable.rawListeners
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:81
 
 ___
 
 ### removeAllListeners
 
-▸ **removeAllListeners**(`event?`: *string* \| *symbol*): [*OutgoingMessage*](http.outgoingmessage.md)
+▸ **removeAllListeners**(`event?`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event?` | *string* \| *symbol* |
+| `event?` | `string` \| `symbol` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.removeAllListeners
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/events.d.ts:77
+#### Inherited from
+
+stream.Writable.removeAllListeners
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:77
 
 ___
 
 ### removeHeader
 
-▸ **removeHeader**(`name`: *string*): *void*
+▸ **removeHeader**(`name`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | *string* |
+| `name` | `string` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:183
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:183
 
 ___
 
 ### removeListener
 
-▸ **removeListener**(`event`: ``"close"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+▸ **removeListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.removeListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:225
+#### Inherited from
 
-▸ **removeListener**(`event`: ``"drain"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.removeListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:225
+
+▸ **removeListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"drain"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.removeListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:226
+#### Inherited from
 
-▸ **removeListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.removeListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:226
+
+▸ **removeListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.removeListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:227
+#### Inherited from
 
-▸ **removeListener**(`event`: ``"finish"``, `listener`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.removeListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:227
+
+▸ **removeListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"finish"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.removeListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:228
+#### Inherited from
 
-▸ **removeListener**(`event`: ``"pipe"``, `listener`: (`src`: *Readable*) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.removeListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:228
+
+▸ **removeListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.removeListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:229
+#### Inherited from
 
-▸ **removeListener**(`event`: ``"unpipe"``, `listener`: (`src`: *Readable*) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.removeListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:229
+
+▸ **removeListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.removeListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:230
+#### Inherited from
 
-▸ **removeListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+stream.Writable.removeListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:230
+
+▸ **removeListener**(`event`, `listener`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.removeListener
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:231
+#### Inherited from
+
+stream.Writable.removeListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:231
 
 ___
 
 ### setDefaultEncoding
 
-▸ **setDefaultEncoding**(`encoding`: BufferEncoding): [*OutgoingMessage*](http.outgoingmessage.md)
+▸ **setDefaultEncoding**(`encoding`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `encoding` | BufferEncoding |
+| `encoding` | `BufferEncoding` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.setDefaultEncoding
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:159
+#### Inherited from
+
+stream.Writable.setDefaultEncoding
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:159
 
 ___
 
 ### setHeader
 
-▸ **setHeader**(`name`: *string*, `value`: *string* \| *number* \| readonly *string*[]): [*OutgoingMessage*](http.outgoingmessage.md)
+▸ **setHeader**(`name`, `value`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | *string* |
-| `value` | *string* \| *number* \| readonly *string*[] |
+| `name` | `string` |
+| `value` | `string` \| `number` \| readonly `string`[] |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:178
+[OutgoingMessage](http.outgoingmessage.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:178
 
 ___
 
 ### setMaxListeners
 
-▸ **setMaxListeners**(`n`: *number*): [*OutgoingMessage*](http.outgoingmessage.md)
+▸ **setMaxListeners**(`n`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `n` | *number* |
+| `n` | `number` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Inherited from: stream.Writable.setMaxListeners
+[OutgoingMessage](http.outgoingmessage.md)
 
-Defined in: node_modules/@types/node/events.d.ts:78
+#### Inherited from
+
+stream.Writable.setMaxListeners
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:78
 
 ___
 
 ### setTimeout
 
-▸ **setTimeout**(`msecs`: *number*, `callback?`: () => *void*): [*OutgoingMessage*](http.outgoingmessage.md)
+▸ **setTimeout**(`msecs`, `callback?`): [OutgoingMessage](http.outgoingmessage.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `msecs` | *number* |
-| `callback?` | () => *void* |
+| `msecs` | `number` |
+| `callback?` | () => `void` |
 
-**Returns:** [*OutgoingMessage*](http.outgoingmessage.md)
+#### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:177
+[OutgoingMessage](http.outgoingmessage.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:177
 
 ___
 
 ### uncork
 
-▸ **uncork**(): *void*
+▸ **uncork**(): `void`
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: stream.Writable.uncork
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:164
+#### Inherited from
+
+stream.Writable.uncork
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:164
 
 ___
 
 ### write
 
-▸ **write**(`chunk`: *any*, `cb?`: (`error`: Error) => *void*): *boolean*
+▸ **write**(`chunk`, `cb?`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `chunk` | *any* |
-| `cb?` | (`error`: Error) => *void* |
+| `chunk` | `any` |
+| `cb?` | (`error`: `undefined` \| ``null`` \| `Error`) => `void` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: stream.Writable.write
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:157
+#### Inherited from
 
-▸ **write**(`chunk`: *any*, `encoding`: BufferEncoding, `cb?`: (`error`: Error) => *void*): *boolean*
+stream.Writable.write
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:157
+
+▸ **write**(`chunk`, `encoding`, `cb?`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `chunk` | *any* |
-| `encoding` | BufferEncoding |
-| `cb?` | (`error`: Error) => *void* |
+| `chunk` | `any` |
+| `encoding` | `BufferEncoding` |
+| `cb?` | (`error`: `undefined` \| ``null`` \| `Error`) => `void` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: stream.Writable.write
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:158
+#### Inherited from
+
+stream.Writable.write
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:158
 
 ___
 
 ### getEventListener
 
-▸ `Static` **getEventListener**(`emitter`: *EventEmitter* \| DOMEventTarget, `name`: *string* \| *symbol*): Function[]
+▸ `Static` **getEventListener**(`emitter`, `name`): `Function`[]
 
 Returns a list listener for a specific emitter event name.
 
@@ -1611,20 +2147,26 @@ Returns a list listener for a specific emitter event name.
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | *EventEmitter* \| DOMEventTarget |
-| `name` | *string* \| *symbol* |
+| `emitter` | `EventEmitter` \| `DOMEventTarget` |
+| `name` | `string` \| `symbol` |
 
-**Returns:** Function[]
+#### Returns
 
-Inherited from: stream.Writable.getEventListener
+`Function`[]
 
-Defined in: node_modules/@types/node/events.d.ts:34
+#### Inherited from
+
+stream.Writable.getEventListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:34
 
 ___
 
 ### listenerCount
 
-▸ `Static` **listenerCount**(`emitter`: *EventEmitter*, `event`: *string* \| *symbol*): *number*
+▸ `Static` **listenerCount**(`emitter`, `event`): `number`
 
 **`deprecated`** since v4.0.0
 
@@ -1632,67 +2174,91 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | *EventEmitter* |
-| `event` | *string* \| *symbol* |
+| `emitter` | `EventEmitter` |
+| `event` | `string` \| `symbol` |
 
-**Returns:** *number*
+#### Returns
 
-Inherited from: stream.Writable.listenerCount
+`number`
 
-Defined in: node_modules/@types/node/events.d.ts:30
+#### Inherited from
+
+stream.Writable.listenerCount
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:30
 
 ___
 
 ### on
 
-▸ `Static` **on**(`emitter`: *EventEmitter*, `event`: *string*, `options?`: StaticEventEmitterOptions): *AsyncIterableIterator*<any\>
+▸ `Static` **on**(`emitter`, `event`, `options?`): `AsyncIterableIterator`<any\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | *EventEmitter* |
-| `event` | *string* |
-| `options?` | StaticEventEmitterOptions |
+| `emitter` | `EventEmitter` |
+| `event` | `string` |
+| `options?` | `StaticEventEmitterOptions` |
 
-**Returns:** *AsyncIterableIterator*<any\>
+#### Returns
 
-Inherited from: stream.Writable.on
+`AsyncIterableIterator`<any\>
 
-Defined in: node_modules/@types/node/events.d.ts:27
+#### Inherited from
+
+stream.Writable.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:27
 
 ___
 
 ### once
 
-▸ `Static` **once**(`emitter`: *NodeEventTarget*, `event`: *string* \| *symbol*, `options?`: StaticEventEmitterOptions): *Promise*<any[]\>
+▸ `Static` **once**(`emitter`, `event`, `options?`): `Promise`<any[]\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | *NodeEventTarget* |
-| `event` | *string* \| *symbol* |
-| `options?` | StaticEventEmitterOptions |
+| `emitter` | `NodeEventTarget` |
+| `event` | `string` \| `symbol` |
+| `options?` | `StaticEventEmitterOptions` |
 
-**Returns:** *Promise*<any[]\>
+#### Returns
 
-Inherited from: stream.Writable.once
+`Promise`<any[]\>
 
-Defined in: node_modules/@types/node/events.d.ts:25
+#### Inherited from
 
-▸ `Static` **once**(`emitter`: DOMEventTarget, `event`: *string*, `options?`: StaticEventEmitterOptions): *Promise*<any[]\>
+stream.Writable.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:25
+
+▸ `Static` **once**(`emitter`, `event`, `options?`): `Promise`<any[]\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | DOMEventTarget |
-| `event` | *string* |
-| `options?` | StaticEventEmitterOptions |
+| `emitter` | `DOMEventTarget` |
+| `event` | `string` |
+| `options?` | `StaticEventEmitterOptions` |
 
-**Returns:** *Promise*<any[]\>
+#### Returns
 
-Inherited from: stream.Writable.once
+`Promise`<any[]\>
 
-Defined in: node_modules/@types/node/events.d.ts:26
+#### Inherited from
+
+stream.Writable.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:26

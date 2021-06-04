@@ -11,6 +11,7 @@ describe('OrgId setup', () => {
 
   beforeAll(async () => {
     setup = await orgIdSetup();
+    console.log(setup);
   });
 
   afterAll(async () => {

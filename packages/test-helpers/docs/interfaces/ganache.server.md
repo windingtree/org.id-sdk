@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- [*Server*](../classes/http.server.md)
+- [Server](../classes/http.server.md)
 
   ↳ **Server**
 
@@ -53,110 +53,144 @@
 
 ### connections
 
-• **connections**: *number*
+• **connections**: `number`
 
-Inherited from: [Server](../classes/http.server.md).[connections](../classes/http.server.md#connections)
+#### Inherited from
 
-Defined in: node_modules/@types/node/net.d.ts:219
+[Server](../classes/http.server.md).[connections](../classes/http.server.md#connections)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:219
 
 ___
 
 ### headersTimeout
 
-• **headersTimeout**: *number*
+• **headersTimeout**: `number`
 
 Limit the amount of time the parser will wait to receive the complete HTTP headers.
 
 **`default`** 60000
 [https://nodejs.org/api/http.html#http_server_headerstimeout](https://nodejs.org/api/http.html#http_server_headerstimeout)
 
-Inherited from: [Server](../classes/http.server.md).[headersTimeout](../classes/http.server.md#headerstimeout)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:141
+[Server](../classes/http.server.md).[headersTimeout](../classes/http.server.md#headerstimeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:141
 
 ___
 
 ### keepAliveTimeout
 
-• **keepAliveTimeout**: *number*
+• **keepAliveTimeout**: `number`
 
-Inherited from: [Server](../classes/http.server.md).[keepAliveTimeout](../classes/http.server.md#keepalivetimeout)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:142
+[Server](../classes/http.server.md).[keepAliveTimeout](../classes/http.server.md#keepalivetimeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:142
 
 ___
 
 ### listening
 
-• **listening**: *boolean*
+• **listening**: `boolean`
 
-Inherited from: [Server](../classes/http.server.md).[listening](../classes/http.server.md#listening)
+#### Inherited from
 
-Defined in: node_modules/@types/node/net.d.ts:220
+[Server](../classes/http.server.md).[listening](../classes/http.server.md#listening)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:220
 
 ___
 
 ### maxConnections
 
-• **maxConnections**: *number*
+• **maxConnections**: `number`
 
-Inherited from: [Server](../classes/http.server.md).[maxConnections](../classes/http.server.md#maxconnections)
+#### Inherited from
 
-Defined in: node_modules/@types/node/net.d.ts:218
+[Server](../classes/http.server.md).[maxConnections](../classes/http.server.md#maxconnections)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:218
 
 ___
 
 ### maxHeadersCount
 
-• **maxHeadersCount**: *number*
+• **maxHeadersCount**: ``null`` \| `number`
 
 Limits maximum incoming headers count. If set to 0, no limit will be applied.
 
 **`default`** 2000
 [https://nodejs.org/api/http.html#http_server_maxheaderscount](https://nodejs.org/api/http.html#http_server_maxheaderscount)
 
-Inherited from: [Server](../classes/http.server.md).[maxHeadersCount](../classes/http.server.md#maxheaderscount)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:134
+[Server](../classes/http.server.md).[maxHeadersCount](../classes/http.server.md#maxheaderscount)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:134
 
 ___
 
 ### provider
 
-• **provider**: [*Provider*](ganache.provider.md)
+• **provider**: [Provider](ganache.provider.md)
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:58
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:58
 
 ___
 
 ### requestTimeout
 
-• **requestTimeout**: *number*
+• **requestTimeout**: `number`
 
 Sets the timeout value in milliseconds for receiving the entire request from the client.
 
 **`default`** 0
 [https://nodejs.org/api/http.html#http_server_requesttimeout](https://nodejs.org/api/http.html#http_server_requesttimeout)
 
-Inherited from: [Server](../classes/http.server.md).[requestTimeout](../classes/http.server.md#requesttimeout)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:148
+[Server](../classes/http.server.md).[requestTimeout](../classes/http.server.md#requesttimeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:148
 
 ___
 
 ### timeout
 
-• **timeout**: *number*
+• **timeout**: `number`
 
-Inherited from: [Server](../classes/http.server.md).[timeout](../classes/http.server.md#timeout)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:135
+[Server](../classes/http.server.md).[timeout](../classes/http.server.md#timeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:135
 
 ## Methods
 
 ### addListener
 
-▸ **addListener**(`event`: *string*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](ganache.server.md)
+▸ **addListener**(`event`, `listener`): [Server](ganache.server.md)
 
 events.EventEmitter
   1. close
@@ -168,125 +202,173 @@ events.EventEmitter
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:229
+#### Inherited from
 
-▸ **addListener**(`event`: ``"close"``, `listener`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[addListener](../classes/http.server.md#addlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:229
+
+▸ **addListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:230
+#### Inherited from
 
-▸ **addListener**(`event`: ``"connection"``, `listener`: (`socket`: *Socket*) => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[addListener](../classes/http.server.md#addlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:230
+
+▸ **addListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connection"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:231
+#### Inherited from
 
-▸ **addListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[addListener](../classes/http.server.md#addlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:231
+
+▸ **addListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:232
+#### Inherited from
 
-▸ **addListener**(`event`: ``"listening"``, `listener`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[addListener](../classes/http.server.md#addlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:232
+
+▸ **addListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"listening"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:233
+#### Inherited from
+
+[Server](../classes/http.server.md).[addListener](../classes/http.server.md#addlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:233
 
 ___
 
 ### address
 
-▸ **address**(): *string* \| AddressInfo
+▸ **address**(): ``null`` \| `string` \| `AddressInfo`
 
-**Returns:** *string* \| AddressInfo
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+``null`` \| `string` \| `AddressInfo`
 
-Defined in: node_modules/@types/node/net.d.ts:214
+#### Inherited from
+
+[Server](../classes/http.server.md).[address](../classes/http.server.md#address)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:214
 
 ___
 
 ### close
 
-▸ **close**(`callback?`: (`err?`: Error) => *void*): [*Server*](ganache.server.md)
+▸ **close**(`callback?`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `callback?` | (`err?`: Error) => *void* |
+| `callback?` | (`err?`: `Error`) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:213
+#### Inherited from
+
+[Server](../classes/http.server.md).[close](../classes/http.server.md#close)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:213
 
 ___
 
 ### emit
 
-▸ **emit**(`event`: *string* \| *symbol*, ...`args`: *any*[]): *boolean*
+▸ **emit**(`event`, ...`args`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `...args` | *any*[] |
+| `event` | `string` \| `symbol` |
+| `...args` | `any`[] |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+`boolean`
 
-Defined in: node_modules/@types/node/net.d.ts:235
+#### Inherited from
 
-▸ **emit**(`event`: ``"close"``): *boolean*
+[Server](../classes/http.server.md).[emit](../classes/http.server.md#emit)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:235
+
+▸ **emit**(`event`): `boolean`
 
 #### Parameters
 
@@ -294,43 +376,61 @@ Defined in: node_modules/@types/node/net.d.ts:235
 | :------ | :------ |
 | `event` | ``"close"`` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+`boolean`
 
-Defined in: node_modules/@types/node/net.d.ts:236
+#### Inherited from
 
-▸ **emit**(`event`: ``"connection"``, `socket`: *Socket*): *boolean*
+[Server](../classes/http.server.md).[emit](../classes/http.server.md#emit)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:236
+
+▸ **emit**(`event`, `socket`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connection"`` |
-| `socket` | *Socket* |
+| `socket` | `Socket` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+`boolean`
 
-Defined in: node_modules/@types/node/net.d.ts:237
+#### Inherited from
 
-▸ **emit**(`event`: ``"error"``, `err`: Error): *boolean*
+[Server](../classes/http.server.md).[emit](../classes/http.server.md#emit)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:237
+
+▸ **emit**(`event`, `err`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `err` | Error |
+| `err` | `Error` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+`boolean`
 
-Defined in: node_modules/@types/node/net.d.ts:238
+#### Inherited from
 
-▸ **emit**(`event`: ``"listening"``): *boolean*
+[Server](../classes/http.server.md).[emit](../classes/http.server.md#emit)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:238
+
+▸ **emit**(`event`): `boolean`
 
 #### Parameters
 
@@ -338,696 +438,960 @@ Defined in: node_modules/@types/node/net.d.ts:238
 | :------ | :------ |
 | `event` | ``"listening"`` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+`boolean`
 
-Defined in: node_modules/@types/node/net.d.ts:239
+#### Inherited from
+
+[Server](../classes/http.server.md).[emit](../classes/http.server.md#emit)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:239
 
 ___
 
 ### eventNames
 
-▸ **eventNames**(): (*string* \| *symbol*)[]
+▸ **eventNames**(): (`string` \| `symbol`)[]
 
-**Returns:** (*string* \| *symbol*)[]
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+(`string` \| `symbol`)[]
 
-Defined in: node_modules/@types/node/events.d.ts:87
+#### Inherited from
+
+[Server](../classes/http.server.md).[eventNames](../classes/http.server.md#eventnames)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:87
 
 ___
 
 ### getConnections
 
-▸ **getConnections**(`cb`: (`error`: Error, `count`: *number*) => *void*): *void*
+▸ **getConnections**(`cb`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `cb` | (`error`: Error, `count`: *number*) => *void* |
+| `cb` | (`error`: ``null`` \| `Error`, `count`: `number`) => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+`void`
 
-Defined in: node_modules/@types/node/net.d.ts:215
+#### Inherited from
+
+[Server](../classes/http.server.md).[getConnections](../classes/http.server.md#getconnections)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:215
 
 ___
 
 ### getMaxListeners
 
-▸ **getMaxListeners**(): *number*
+▸ **getMaxListeners**(): `number`
 
-**Returns:** *number*
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+`number`
 
-Defined in: node_modules/@types/node/events.d.ts:79
+#### Inherited from
+
+[Server](../classes/http.server.md).[getMaxListeners](../classes/http.server.md#getmaxlisteners)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:79
 
 ___
 
 ### listen
 
-▸ **listen**(`port?`: *number*, `hostname?`: *string*, `backlog?`: *number*, `listeningListener?`: () => *void*): [*Server*](ganache.server.md)
+▸ **listen**(`port?`, `hostname?`, `backlog?`, `listeningListener?`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `port?` | *number* |
-| `hostname?` | *string* |
-| `backlog?` | *number* |
-| `listeningListener?` | () => *void* |
+| `port?` | `number` |
+| `hostname?` | `string` |
+| `backlog?` | `number` |
+| `listeningListener?` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:204
+#### Inherited from
 
-▸ **listen**(`port?`: *number*, `hostname?`: *string*, `listeningListener?`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[listen](../classes/http.server.md#listen)
 
-#### Parameters
+#### Defined in
 
-| Name | Type |
-| :------ | :------ |
-| `port?` | *number* |
-| `hostname?` | *string* |
-| `listeningListener?` | () => *void* |
+test-helpers/node_modules/@types/node/net.d.ts:204
 
-**Returns:** [*Server*](ganache.server.md)
-
-Inherited from: [Server](../classes/http.server.md)
-
-Defined in: node_modules/@types/node/net.d.ts:205
-
-▸ **listen**(`port?`: *number*, `backlog?`: *number*, `listeningListener?`: () => *void*): [*Server*](ganache.server.md)
+▸ **listen**(`port?`, `hostname?`, `listeningListener?`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `port?` | *number* |
-| `backlog?` | *number* |
-| `listeningListener?` | () => *void* |
+| `port?` | `number` |
+| `hostname?` | `string` |
+| `listeningListener?` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:206
+#### Inherited from
 
-▸ **listen**(`port?`: *number*, `listeningListener?`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[listen](../classes/http.server.md#listen)
 
-#### Parameters
+#### Defined in
 
-| Name | Type |
-| :------ | :------ |
-| `port?` | *number* |
-| `listeningListener?` | () => *void* |
+test-helpers/node_modules/@types/node/net.d.ts:205
 
-**Returns:** [*Server*](ganache.server.md)
-
-Inherited from: [Server](../classes/http.server.md)
-
-Defined in: node_modules/@types/node/net.d.ts:207
-
-▸ **listen**(`path`: *string*, `backlog?`: *number*, `listeningListener?`: () => *void*): [*Server*](ganache.server.md)
+▸ **listen**(`port?`, `backlog?`, `listeningListener?`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `path` | *string* |
-| `backlog?` | *number* |
-| `listeningListener?` | () => *void* |
+| `port?` | `number` |
+| `backlog?` | `number` |
+| `listeningListener?` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:208
+#### Inherited from
 
-▸ **listen**(`path`: *string*, `listeningListener?`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[listen](../classes/http.server.md#listen)
 
-#### Parameters
+#### Defined in
 
-| Name | Type |
-| :------ | :------ |
-| `path` | *string* |
-| `listeningListener?` | () => *void* |
+test-helpers/node_modules/@types/node/net.d.ts:206
 
-**Returns:** [*Server*](ganache.server.md)
-
-Inherited from: [Server](../classes/http.server.md)
-
-Defined in: node_modules/@types/node/net.d.ts:209
-
-▸ **listen**(`options`: ListenOptions, `listeningListener?`: () => *void*): [*Server*](ganache.server.md)
+▸ **listen**(`port?`, `listeningListener?`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | ListenOptions |
-| `listeningListener?` | () => *void* |
+| `port?` | `number` |
+| `listeningListener?` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:210
+#### Inherited from
 
-▸ **listen**(`handle`: *any*, `backlog?`: *number*, `listeningListener?`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[listen](../classes/http.server.md#listen)
 
-#### Parameters
+#### Defined in
 
-| Name | Type |
-| :------ | :------ |
-| `handle` | *any* |
-| `backlog?` | *number* |
-| `listeningListener?` | () => *void* |
+test-helpers/node_modules/@types/node/net.d.ts:207
 
-**Returns:** [*Server*](ganache.server.md)
-
-Inherited from: [Server](../classes/http.server.md)
-
-Defined in: node_modules/@types/node/net.d.ts:211
-
-▸ **listen**(`handle`: *any*, `listeningListener?`: () => *void*): [*Server*](ganache.server.md)
+▸ **listen**(`path`, `backlog?`, `listeningListener?`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `handle` | *any* |
-| `listeningListener?` | () => *void* |
+| `path` | `string` |
+| `backlog?` | `number` |
+| `listeningListener?` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:212
+#### Inherited from
+
+[Server](../classes/http.server.md).[listen](../classes/http.server.md#listen)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:208
+
+▸ **listen**(`path`, `listeningListener?`): [Server](ganache.server.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `path` | `string` |
+| `listeningListener?` | () => `void` |
+
+#### Returns
+
+[Server](ganache.server.md)
+
+#### Inherited from
+
+[Server](../classes/http.server.md).[listen](../classes/http.server.md#listen)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:209
+
+▸ **listen**(`options`, `listeningListener?`): [Server](ganache.server.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | `ListenOptions` |
+| `listeningListener?` | () => `void` |
+
+#### Returns
+
+[Server](ganache.server.md)
+
+#### Inherited from
+
+[Server](../classes/http.server.md).[listen](../classes/http.server.md#listen)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:210
+
+▸ **listen**(`handle`, `backlog?`, `listeningListener?`): [Server](ganache.server.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `handle` | `any` |
+| `backlog?` | `number` |
+| `listeningListener?` | () => `void` |
+
+#### Returns
+
+[Server](ganache.server.md)
+
+#### Inherited from
+
+[Server](../classes/http.server.md).[listen](../classes/http.server.md#listen)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:211
+
+▸ **listen**(`handle`, `listeningListener?`): [Server](ganache.server.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `handle` | `any` |
+| `listeningListener?` | () => `void` |
+
+#### Returns
+
+[Server](ganache.server.md)
+
+#### Inherited from
+
+[Server](../classes/http.server.md).[listen](../classes/http.server.md#listen)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:212
 
 ___
 
 ### listenerCount
 
-▸ **listenerCount**(`event`: *string* \| *symbol*): *number*
+▸ **listenerCount**(`event`): `number`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** *number*
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+`number`
 
-Defined in: node_modules/@types/node/events.d.ts:83
+#### Inherited from
+
+[Server](../classes/http.server.md).[listenerCount](../classes/http.server.md#listenercount)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:83
 
 ___
 
 ### listeners
 
-▸ **listeners**(`event`: *string* \| *symbol*): Function[]
+▸ **listeners**(`event`): `Function`[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** Function[]
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+`Function`[]
 
-Defined in: node_modules/@types/node/events.d.ts:80
+#### Inherited from
+
+[Server](../classes/http.server.md).[listeners](../classes/http.server.md#listeners)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:80
 
 ___
 
 ### off
 
-▸ **off**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](ganache.server.md)
+▸ **off**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/events.d.ts:76
+#### Inherited from
+
+[Server](../classes/http.server.md).[off](../classes/http.server.md#off)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:76
 
 ___
 
 ### on
 
-▸ **on**(`event`: *string*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](ganache.server.md)
+▸ **on**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:241
+#### Inherited from
 
-▸ **on**(`event`: ``"close"``, `listener`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[on](../classes/http.server.md#on)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:241
+
+▸ **on**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:242
+#### Inherited from
 
-▸ **on**(`event`: ``"connection"``, `listener`: (`socket`: *Socket*) => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[on](../classes/http.server.md#on)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:242
+
+▸ **on**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connection"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:243
+#### Inherited from
 
-▸ **on**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[on](../classes/http.server.md#on)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:243
+
+▸ **on**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:244
+#### Inherited from
 
-▸ **on**(`event`: ``"listening"``, `listener`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[on](../classes/http.server.md#on)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:244
+
+▸ **on**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"listening"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:245
+#### Inherited from
+
+[Server](../classes/http.server.md).[on](../classes/http.server.md#on)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:245
 
 ___
 
 ### once
 
-▸ **once**(`event`: *string*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](ganache.server.md)
+▸ **once**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:247
+#### Inherited from
 
-▸ **once**(`event`: ``"close"``, `listener`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[once](../classes/http.server.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:247
+
+▸ **once**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:248
+#### Inherited from
 
-▸ **once**(`event`: ``"connection"``, `listener`: (`socket`: *Socket*) => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[once](../classes/http.server.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:248
+
+▸ **once**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connection"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:249
+#### Inherited from
 
-▸ **once**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[once](../classes/http.server.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:249
+
+▸ **once**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:250
+#### Inherited from
 
-▸ **once**(`event`: ``"listening"``, `listener`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[once](../classes/http.server.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:250
+
+▸ **once**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"listening"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:251
+#### Inherited from
+
+[Server](../classes/http.server.md).[once](../classes/http.server.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:251
 
 ___
 
 ### prependListener
 
-▸ **prependListener**(`event`: *string*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](ganache.server.md)
+▸ **prependListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:253
+#### Inherited from
 
-▸ **prependListener**(`event`: ``"close"``, `listener`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[prependListener](../classes/http.server.md#prependlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:253
+
+▸ **prependListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:254
+#### Inherited from
 
-▸ **prependListener**(`event`: ``"connection"``, `listener`: (`socket`: *Socket*) => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[prependListener](../classes/http.server.md#prependlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:254
+
+▸ **prependListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connection"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:255
+#### Inherited from
 
-▸ **prependListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[prependListener](../classes/http.server.md#prependlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:255
+
+▸ **prependListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:256
+#### Inherited from
 
-▸ **prependListener**(`event`: ``"listening"``, `listener`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[prependListener](../classes/http.server.md#prependlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:256
+
+▸ **prependListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"listening"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:257
+#### Inherited from
+
+[Server](../classes/http.server.md).[prependListener](../classes/http.server.md#prependlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:257
 
 ___
 
 ### prependOnceListener
 
-▸ **prependOnceListener**(`event`: *string*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](ganache.server.md)
+▸ **prependOnceListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:259
+#### Inherited from
 
-▸ **prependOnceListener**(`event`: ``"close"``, `listener`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[prependOnceListener](../classes/http.server.md#prependoncelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:259
+
+▸ **prependOnceListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:260
+#### Inherited from
 
-▸ **prependOnceListener**(`event`: ``"connection"``, `listener`: (`socket`: *Socket*) => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[prependOnceListener](../classes/http.server.md#prependoncelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:260
+
+▸ **prependOnceListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connection"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:261
+#### Inherited from
 
-▸ **prependOnceListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[prependOnceListener](../classes/http.server.md#prependoncelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:261
+
+▸ **prependOnceListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:262
+#### Inherited from
 
-▸ **prependOnceListener**(`event`: ``"listening"``, `listener`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[prependOnceListener](../classes/http.server.md#prependoncelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:262
+
+▸ **prependOnceListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"listening"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:263
+#### Inherited from
+
+[Server](../classes/http.server.md).[prependOnceListener](../classes/http.server.md#prependoncelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:263
 
 ___
 
 ### rawListeners
 
-▸ **rawListeners**(`event`: *string* \| *symbol*): Function[]
+▸ **rawListeners**(`event`): `Function`[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** Function[]
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+`Function`[]
 
-Defined in: node_modules/@types/node/events.d.ts:81
+#### Inherited from
+
+[Server](../classes/http.server.md).[rawListeners](../classes/http.server.md#rawlisteners)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:81
 
 ___
 
 ### ref
 
-▸ **ref**(): [*Server*](ganache.server.md)
+▸ **ref**(): [Server](ganache.server.md)
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:216
+#### Inherited from
+
+[Server](../classes/http.server.md).[ref](../classes/http.server.md#ref)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:216
 
 ___
 
 ### removeAllListeners
 
-▸ **removeAllListeners**(`event?`: *string* \| *symbol*): [*Server*](ganache.server.md)
+▸ **removeAllListeners**(`event?`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event?` | *string* \| *symbol* |
+| `event?` | `string` \| `symbol` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/events.d.ts:77
+#### Inherited from
+
+[Server](../classes/http.server.md).[removeAllListeners](../classes/http.server.md#removealllisteners)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:77
 
 ___
 
 ### removeListener
 
-▸ **removeListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](ganache.server.md)
+▸ **removeListener**(`event`, `listener`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/events.d.ts:75
+#### Inherited from
+
+[Server](../classes/http.server.md).[removeListener](../classes/http.server.md#removelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:75
 
 ___
 
 ### setMaxListeners
 
-▸ **setMaxListeners**(`n`: *number*): [*Server*](ganache.server.md)
+▸ **setMaxListeners**(`n`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `n` | *number* |
+| `n` | `number` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/events.d.ts:78
+#### Inherited from
+
+[Server](../classes/http.server.md).[setMaxListeners](../classes/http.server.md#setmaxlisteners)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:78
 
 ___
 
 ### setTimeout
 
-▸ **setTimeout**(`msecs?`: *number*, `callback?`: () => *void*): [*Server*](ganache.server.md)
+▸ **setTimeout**(`msecs?`, `callback?`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `msecs?` | *number* |
-| `callback?` | () => *void* |
+| `msecs?` | `number` |
+| `callback?` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/http.d.ts:127
+#### Inherited from
 
-▸ **setTimeout**(`callback`: () => *void*): [*Server*](ganache.server.md)
+[Server](../classes/http.server.md).[setTimeout](../classes/http.server.md#settimeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:127
+
+▸ **setTimeout**(`callback`): [Server](ganache.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | () => *void* |
+| `callback` | () => `void` |
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/http.d.ts:128
+#### Inherited from
+
+[Server](../classes/http.server.md).[setTimeout](../classes/http.server.md#settimeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:128
 
 ___
 
 ### unref
 
-▸ **unref**(): [*Server*](ganache.server.md)
+▸ **unref**(): [Server](ganache.server.md)
 
-**Returns:** [*Server*](ganache.server.md)
+#### Returns
 
-Inherited from: [Server](../classes/http.server.md)
+[Server](ganache.server.md)
 
-Defined in: node_modules/@types/node/net.d.ts:217
+#### Inherited from
+
+[Server](../classes/http.server.md).[unref](../classes/http.server.md#unref)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:217

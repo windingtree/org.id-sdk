@@ -6,13 +6,13 @@
 
 ## Hierarchy
 
-- [*HttpBase*](../interfaces/http.httpbase.md)
+- [HttpBase](../interfaces/http.httpbase.md)
 
-- *NetServer*
+- `NetServer`
 
   ↳ **Server**
 
-  ↳↳ [*Server*](../interfaces/ganache.server.md)
+  ↳↳ [Server](../interfaces/ganache.server.md)
 
 ## Table of contents
 
@@ -68,155 +68,191 @@
 
 ### constructor
 
-\+ **new Server**(`requestListener?`: [*RequestListener*](../modules/http.md#requestlistener)): [*Server*](http.server.md)
+• **new Server**(`requestListener?`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `requestListener?` | [*RequestListener*](../modules/http.md#requestlistener) |
+| `requestListener?` | [RequestListener](../modules/http.md#requestlistener) |
 
-**Returns:** [*Server*](http.server.md)
+#### Inherited from
 
-Inherited from: HttpBase.constructor
+HttpBase.constructor
 
-Defined in: node_modules/@types/node/http.d.ts:152
+#### Defined in
 
-\+ **new Server**(`options`: [*ServerOptions*](../interfaces/http.serveroptions.md), `requestListener?`: [*RequestListener*](../modules/http.md#requestlistener)): [*Server*](http.server.md)
+test-helpers/node_modules/@types/node/http.d.ts:152
+
+• **new Server**(`options`, `requestListener?`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [*ServerOptions*](../interfaces/http.serveroptions.md) |
-| `requestListener?` | [*RequestListener*](../modules/http.md#requestlistener) |
+| `options` | [ServerOptions](../interfaces/http.serveroptions.md) |
+| `requestListener?` | [RequestListener](../modules/http.md#requestlistener) |
 
-**Returns:** [*Server*](http.server.md)
+#### Inherited from
 
-Inherited from: HttpBase.constructor
+HttpBase.constructor
 
-Defined in: node_modules/@types/node/http.d.ts:153
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:153
 
 ## Properties
 
 ### connections
 
-• **connections**: *number*
+• **connections**: `number`
 
-Defined in: node_modules/@types/node/net.d.ts:219
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:219
 
 ___
 
 ### headersTimeout
 
-• **headersTimeout**: *number*
+• **headersTimeout**: `number`
 
 Limit the amount of time the parser will wait to receive the complete HTTP headers.
 
 **`default`** 60000
 [https://nodejs.org/api/http.html#http_server_headerstimeout](https://nodejs.org/api/http.html#http_server_headerstimeout)
 
-Inherited from: [HttpBase](../interfaces/http.httpbase.md).[headersTimeout](../interfaces/http.httpbase.md#headerstimeout)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:141
+[HttpBase](../interfaces/http.httpbase.md).[headersTimeout](../interfaces/http.httpbase.md#headerstimeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:141
 
 ___
 
 ### keepAliveTimeout
 
-• **keepAliveTimeout**: *number*
+• **keepAliveTimeout**: `number`
 
-Inherited from: [HttpBase](../interfaces/http.httpbase.md).[keepAliveTimeout](../interfaces/http.httpbase.md#keepalivetimeout)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:142
+[HttpBase](../interfaces/http.httpbase.md).[keepAliveTimeout](../interfaces/http.httpbase.md#keepalivetimeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:142
 
 ___
 
 ### listening
 
-• **listening**: *boolean*
+• **listening**: `boolean`
 
-Defined in: node_modules/@types/node/net.d.ts:220
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:220
 
 ___
 
 ### maxConnections
 
-• **maxConnections**: *number*
+• **maxConnections**: `number`
 
-Defined in: node_modules/@types/node/net.d.ts:218
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:218
 
 ___
 
 ### maxHeadersCount
 
-• **maxHeadersCount**: *number*
+• **maxHeadersCount**: ``null`` \| `number`
 
 Limits maximum incoming headers count. If set to 0, no limit will be applied.
 
 **`default`** 2000
 [https://nodejs.org/api/http.html#http_server_maxheaderscount](https://nodejs.org/api/http.html#http_server_maxheaderscount)
 
-Inherited from: [HttpBase](../interfaces/http.httpbase.md).[maxHeadersCount](../interfaces/http.httpbase.md#maxheaderscount)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:134
+[HttpBase](../interfaces/http.httpbase.md).[maxHeadersCount](../interfaces/http.httpbase.md#maxheaderscount)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:134
 
 ___
 
 ### requestTimeout
 
-• **requestTimeout**: *number*
+• **requestTimeout**: `number`
 
 Sets the timeout value in milliseconds for receiving the entire request from the client.
 
 **`default`** 0
 [https://nodejs.org/api/http.html#http_server_requesttimeout](https://nodejs.org/api/http.html#http_server_requesttimeout)
 
-Inherited from: [HttpBase](../interfaces/http.httpbase.md).[requestTimeout](../interfaces/http.httpbase.md#requesttimeout)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:148
+[HttpBase](../interfaces/http.httpbase.md).[requestTimeout](../interfaces/http.httpbase.md#requesttimeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:148
 
 ___
 
 ### timeout
 
-• **timeout**: *number*
+• **timeout**: `number`
 
-Inherited from: [HttpBase](../interfaces/http.httpbase.md).[timeout](../interfaces/http.httpbase.md#timeout)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:135
+[HttpBase](../interfaces/http.httpbase.md).[timeout](../interfaces/http.httpbase.md#timeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:135
 
 ___
 
 ### captureRejectionSymbol
 
-▪ `Static` `Readonly` **captureRejectionSymbol**: *typeof* [*captureRejectionSymbol*](http.server.md#capturerejectionsymbol)
+▪ `Static` `Readonly` **captureRejectionSymbol**: typeof [captureRejectionSymbol](http.server.md#capturerejectionsymbol)
 
-Defined in: node_modules/@types/node/events.d.ts:46
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:46
 
 ___
 
 ### captureRejections
 
-▪ `Static` **captureRejections**: *boolean*
+▪ `Static` **captureRejections**: `boolean`
 
 Sets or gets the default captureRejection value for all emitters.
 
-Defined in: node_modules/@types/node/events.d.ts:52
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:52
 
 ___
 
 ### defaultMaxListeners
 
-▪ `Static` **defaultMaxListeners**: *number*
+▪ `Static` **defaultMaxListeners**: `number`
 
-Defined in: node_modules/@types/node/events.d.ts:53
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:53
 
 ___
 
 ### errorMonitor
 
-▪ `Static` `Readonly` **errorMonitor**: *typeof* [*errorMonitor*](http.server.md#errormonitor)
+▪ `Static` `Readonly` **errorMonitor**: typeof [errorMonitor](http.server.md#errormonitor)
 
 This symbol shall be used to install a listener for only monitoring `'error'`
 events. Listeners installed using this symbol are called before the regular
@@ -226,13 +262,15 @@ Installing a listener using this symbol does not change the behavior once an
 `'error'` event is emitted, therefore the process will still crash if no
 regular `'error'` listener is installed.
 
-Defined in: node_modules/@types/node/events.d.ts:45
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:45
 
 ## Methods
 
 ### addListener
 
-▸ **addListener**(`event`: *string*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](http.server.md)
+▸ **addListener**(`event`, `listener`): [Server](http.server.md)
 
 events.EventEmitter
   1. close
@@ -244,109 +282,141 @@ events.EventEmitter
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:229
+[Server](http.server.md)
 
-▸ **addListener**(`event`: ``"close"``, `listener`: () => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:229
+
+▸ **addListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:230
+[Server](http.server.md)
 
-▸ **addListener**(`event`: ``"connection"``, `listener`: (`socket`: *Socket*) => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:230
+
+▸ **addListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connection"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:231
+[Server](http.server.md)
 
-▸ **addListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:231
+
+▸ **addListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:232
+[Server](http.server.md)
 
-▸ **addListener**(`event`: ``"listening"``, `listener`: () => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:232
+
+▸ **addListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"listening"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:233
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:233
 
 ___
 
 ### address
 
-▸ **address**(): *string* \| AddressInfo
+▸ **address**(): ``null`` \| `string` \| `AddressInfo`
 
-**Returns:** *string* \| AddressInfo
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:214
+``null`` \| `string` \| `AddressInfo`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:214
 
 ___
 
 ### close
 
-▸ **close**(`callback?`: (`err?`: Error) => *void*): [*Server*](http.server.md)
+▸ **close**(`callback?`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `callback?` | (`err?`: Error) => *void* |
+| `callback?` | (`err?`: `Error`) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:213
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:213
 
 ___
 
 ### emit
 
-▸ **emit**(`event`: *string* \| *symbol*, ...`args`: *any*[]): *boolean*
+▸ **emit**(`event`, ...`args`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `...args` | *any*[] |
+| `event` | `string` \| `symbol` |
+| `...args` | `any`[] |
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:235
+`boolean`
 
-▸ **emit**(`event`: ``"close"``): *boolean*
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:235
+
+▸ **emit**(`event`): `boolean`
 
 #### Parameters
 
@@ -354,37 +424,49 @@ Defined in: node_modules/@types/node/net.d.ts:235
 | :------ | :------ |
 | `event` | ``"close"`` |
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:236
+`boolean`
 
-▸ **emit**(`event`: ``"connection"``, `socket`: *Socket*): *boolean*
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:236
+
+▸ **emit**(`event`, `socket`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connection"`` |
-| `socket` | *Socket* |
+| `socket` | `Socket` |
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:237
+`boolean`
 
-▸ **emit**(`event`: ``"error"``, `err`: Error): *boolean*
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:237
+
+▸ **emit**(`event`, `err`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `err` | Error |
+| `err` | `Error` |
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:238
+`boolean`
 
-▸ **emit**(`event`: ``"listening"``): *boolean*
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:238
+
+▸ **emit**(`event`): `boolean`
 
 #### Parameters
 
@@ -392,621 +474,801 @@ Defined in: node_modules/@types/node/net.d.ts:238
 | :------ | :------ |
 | `event` | ``"listening"`` |
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:239
+`boolean`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:239
 
 ___
 
 ### eventNames
 
-▸ **eventNames**(): (*string* \| *symbol*)[]
+▸ **eventNames**(): (`string` \| `symbol`)[]
 
-**Returns:** (*string* \| *symbol*)[]
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:87
+(`string` \| `symbol`)[]
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:87
 
 ___
 
 ### getConnections
 
-▸ **getConnections**(`cb`: (`error`: Error, `count`: *number*) => *void*): *void*
+▸ **getConnections**(`cb`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `cb` | (`error`: Error, `count`: *number*) => *void* |
+| `cb` | (`error`: ``null`` \| `Error`, `count`: `number`) => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:215
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:215
 
 ___
 
 ### getMaxListeners
 
-▸ **getMaxListeners**(): *number*
+▸ **getMaxListeners**(): `number`
 
-**Returns:** *number*
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:79
+`number`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:79
 
 ___
 
 ### listen
 
-▸ **listen**(`port?`: *number*, `hostname?`: *string*, `backlog?`: *number*, `listeningListener?`: () => *void*): [*Server*](http.server.md)
+▸ **listen**(`port?`, `hostname?`, `backlog?`, `listeningListener?`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `port?` | *number* |
-| `hostname?` | *string* |
-| `backlog?` | *number* |
-| `listeningListener?` | () => *void* |
+| `port?` | `number` |
+| `hostname?` | `string` |
+| `backlog?` | `number` |
+| `listeningListener?` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:204
+[Server](http.server.md)
 
-▸ **listen**(`port?`: *number*, `hostname?`: *string*, `listeningListener?`: () => *void*): [*Server*](http.server.md)
+#### Defined in
 
-#### Parameters
+test-helpers/node_modules/@types/node/net.d.ts:204
 
-| Name | Type |
-| :------ | :------ |
-| `port?` | *number* |
-| `hostname?` | *string* |
-| `listeningListener?` | () => *void* |
-
-**Returns:** [*Server*](http.server.md)
-
-Defined in: node_modules/@types/node/net.d.ts:205
-
-▸ **listen**(`port?`: *number*, `backlog?`: *number*, `listeningListener?`: () => *void*): [*Server*](http.server.md)
+▸ **listen**(`port?`, `hostname?`, `listeningListener?`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `port?` | *number* |
-| `backlog?` | *number* |
-| `listeningListener?` | () => *void* |
+| `port?` | `number` |
+| `hostname?` | `string` |
+| `listeningListener?` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:206
+[Server](http.server.md)
 
-▸ **listen**(`port?`: *number*, `listeningListener?`: () => *void*): [*Server*](http.server.md)
+#### Defined in
 
-#### Parameters
+test-helpers/node_modules/@types/node/net.d.ts:205
 
-| Name | Type |
-| :------ | :------ |
-| `port?` | *number* |
-| `listeningListener?` | () => *void* |
-
-**Returns:** [*Server*](http.server.md)
-
-Defined in: node_modules/@types/node/net.d.ts:207
-
-▸ **listen**(`path`: *string*, `backlog?`: *number*, `listeningListener?`: () => *void*): [*Server*](http.server.md)
+▸ **listen**(`port?`, `backlog?`, `listeningListener?`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `path` | *string* |
-| `backlog?` | *number* |
-| `listeningListener?` | () => *void* |
+| `port?` | `number` |
+| `backlog?` | `number` |
+| `listeningListener?` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:208
+[Server](http.server.md)
 
-▸ **listen**(`path`: *string*, `listeningListener?`: () => *void*): [*Server*](http.server.md)
+#### Defined in
 
-#### Parameters
+test-helpers/node_modules/@types/node/net.d.ts:206
 
-| Name | Type |
-| :------ | :------ |
-| `path` | *string* |
-| `listeningListener?` | () => *void* |
-
-**Returns:** [*Server*](http.server.md)
-
-Defined in: node_modules/@types/node/net.d.ts:209
-
-▸ **listen**(`options`: ListenOptions, `listeningListener?`: () => *void*): [*Server*](http.server.md)
+▸ **listen**(`port?`, `listeningListener?`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | ListenOptions |
-| `listeningListener?` | () => *void* |
+| `port?` | `number` |
+| `listeningListener?` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:210
+[Server](http.server.md)
 
-▸ **listen**(`handle`: *any*, `backlog?`: *number*, `listeningListener?`: () => *void*): [*Server*](http.server.md)
+#### Defined in
 
-#### Parameters
+test-helpers/node_modules/@types/node/net.d.ts:207
 
-| Name | Type |
-| :------ | :------ |
-| `handle` | *any* |
-| `backlog?` | *number* |
-| `listeningListener?` | () => *void* |
-
-**Returns:** [*Server*](http.server.md)
-
-Defined in: node_modules/@types/node/net.d.ts:211
-
-▸ **listen**(`handle`: *any*, `listeningListener?`: () => *void*): [*Server*](http.server.md)
+▸ **listen**(`path`, `backlog?`, `listeningListener?`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `handle` | *any* |
-| `listeningListener?` | () => *void* |
+| `path` | `string` |
+| `backlog?` | `number` |
+| `listeningListener?` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:212
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:208
+
+▸ **listen**(`path`, `listeningListener?`): [Server](http.server.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `path` | `string` |
+| `listeningListener?` | () => `void` |
+
+#### Returns
+
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:209
+
+▸ **listen**(`options`, `listeningListener?`): [Server](http.server.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | `ListenOptions` |
+| `listeningListener?` | () => `void` |
+
+#### Returns
+
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:210
+
+▸ **listen**(`handle`, `backlog?`, `listeningListener?`): [Server](http.server.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `handle` | `any` |
+| `backlog?` | `number` |
+| `listeningListener?` | () => `void` |
+
+#### Returns
+
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:211
+
+▸ **listen**(`handle`, `listeningListener?`): [Server](http.server.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `handle` | `any` |
+| `listeningListener?` | () => `void` |
+
+#### Returns
+
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:212
 
 ___
 
 ### listenerCount
 
-▸ **listenerCount**(`event`: *string* \| *symbol*): *number*
+▸ **listenerCount**(`event`): `number`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** *number*
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:83
+`number`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:83
 
 ___
 
 ### listeners
 
-▸ **listeners**(`event`: *string* \| *symbol*): Function[]
+▸ **listeners**(`event`): `Function`[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** Function[]
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:80
+`Function`[]
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:80
 
 ___
 
 ### off
 
-▸ **off**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](http.server.md)
+▸ **off**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:76
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:76
 
 ___
 
 ### on
 
-▸ **on**(`event`: *string*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](http.server.md)
+▸ **on**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:241
+[Server](http.server.md)
 
-▸ **on**(`event`: ``"close"``, `listener`: () => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:241
+
+▸ **on**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:242
+[Server](http.server.md)
 
-▸ **on**(`event`: ``"connection"``, `listener`: (`socket`: *Socket*) => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:242
+
+▸ **on**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connection"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:243
+[Server](http.server.md)
 
-▸ **on**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:243
+
+▸ **on**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:244
+[Server](http.server.md)
 
-▸ **on**(`event`: ``"listening"``, `listener`: () => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:244
+
+▸ **on**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"listening"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:245
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:245
 
 ___
 
 ### once
 
-▸ **once**(`event`: *string*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](http.server.md)
+▸ **once**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:247
+[Server](http.server.md)
 
-▸ **once**(`event`: ``"close"``, `listener`: () => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:247
+
+▸ **once**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:248
+[Server](http.server.md)
 
-▸ **once**(`event`: ``"connection"``, `listener`: (`socket`: *Socket*) => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:248
+
+▸ **once**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connection"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:249
+[Server](http.server.md)
 
-▸ **once**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:249
+
+▸ **once**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:250
+[Server](http.server.md)
 
-▸ **once**(`event`: ``"listening"``, `listener`: () => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:250
+
+▸ **once**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"listening"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:251
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:251
 
 ___
 
 ### prependListener
 
-▸ **prependListener**(`event`: *string*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](http.server.md)
+▸ **prependListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:253
+[Server](http.server.md)
 
-▸ **prependListener**(`event`: ``"close"``, `listener`: () => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:253
+
+▸ **prependListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:254
+[Server](http.server.md)
 
-▸ **prependListener**(`event`: ``"connection"``, `listener`: (`socket`: *Socket*) => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:254
+
+▸ **prependListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connection"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:255
+[Server](http.server.md)
 
-▸ **prependListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:255
+
+▸ **prependListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:256
+[Server](http.server.md)
 
-▸ **prependListener**(`event`: ``"listening"``, `listener`: () => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:256
+
+▸ **prependListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"listening"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:257
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:257
 
 ___
 
 ### prependOnceListener
 
-▸ **prependOnceListener**(`event`: *string*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](http.server.md)
+▸ **prependOnceListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:259
+[Server](http.server.md)
 
-▸ **prependOnceListener**(`event`: ``"close"``, `listener`: () => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:259
+
+▸ **prependOnceListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:260
+[Server](http.server.md)
 
-▸ **prependOnceListener**(`event`: ``"connection"``, `listener`: (`socket`: *Socket*) => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:260
+
+▸ **prependOnceListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connection"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:261
+[Server](http.server.md)
 
-▸ **prependOnceListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:261
+
+▸ **prependOnceListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:262
+[Server](http.server.md)
 
-▸ **prependOnceListener**(`event`: ``"listening"``, `listener`: () => *void*): [*Server*](http.server.md)
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:262
+
+▸ **prependOnceListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"listening"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:263
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:263
 
 ___
 
 ### rawListeners
 
-▸ **rawListeners**(`event`: *string* \| *symbol*): Function[]
+▸ **rawListeners**(`event`): `Function`[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** Function[]
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:81
+`Function`[]
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:81
 
 ___
 
 ### ref
 
-▸ **ref**(): [*Server*](http.server.md)
+▸ **ref**(): [Server](http.server.md)
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:216
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:216
 
 ___
 
 ### removeAllListeners
 
-▸ **removeAllListeners**(`event?`: *string* \| *symbol*): [*Server*](http.server.md)
+▸ **removeAllListeners**(`event?`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event?` | *string* \| *symbol* |
+| `event?` | `string` \| `symbol` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:77
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:77
 
 ___
 
 ### removeListener
 
-▸ **removeListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*Server*](http.server.md)
+▸ **removeListener**(`event`, `listener`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:75
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:75
 
 ___
 
 ### setMaxListeners
 
-▸ **setMaxListeners**(`n`: *number*): [*Server*](http.server.md)
+▸ **setMaxListeners**(`n`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `n` | *number* |
+| `n` | `number` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:78
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:78
 
 ___
 
 ### setTimeout
 
-▸ **setTimeout**(`msecs?`: *number*, `callback?`: () => *void*): [*Server*](http.server.md)
+▸ **setTimeout**(`msecs?`, `callback?`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `msecs?` | *number* |
-| `callback?` | () => *void* |
+| `msecs?` | `number` |
+| `callback?` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Inherited from: [HttpBase](../interfaces/http.httpbase.md)
+[Server](http.server.md)
 
-Defined in: node_modules/@types/node/http.d.ts:127
+#### Inherited from
 
-▸ **setTimeout**(`callback`: () => *void*): [*Server*](http.server.md)
+[HttpBase](../interfaces/http.httpbase.md).[setTimeout](../interfaces/http.httpbase.md#settimeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:127
+
+▸ **setTimeout**(`callback`): [Server](http.server.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | () => *void* |
+| `callback` | () => `void` |
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Inherited from: [HttpBase](../interfaces/http.httpbase.md)
+[Server](http.server.md)
 
-Defined in: node_modules/@types/node/http.d.ts:128
+#### Inherited from
+
+[HttpBase](../interfaces/http.httpbase.md).[setTimeout](../interfaces/http.httpbase.md#settimeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:128
 
 ___
 
 ### unref
 
-▸ **unref**(): [*Server*](http.server.md)
+▸ **unref**(): [Server](http.server.md)
 
-**Returns:** [*Server*](http.server.md)
+#### Returns
 
-Defined in: node_modules/@types/node/net.d.ts:217
+[Server](http.server.md)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/net.d.ts:217
 
 ___
 
 ### getEventListener
 
-▸ `Static` **getEventListener**(`emitter`: *EventEmitter* \| DOMEventTarget, `name`: *string* \| *symbol*): Function[]
+▸ `Static` **getEventListener**(`emitter`, `name`): `Function`[]
 
 Returns a list listener for a specific emitter event name.
 
@@ -1014,18 +1276,22 @@ Returns a list listener for a specific emitter event name.
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | *EventEmitter* \| DOMEventTarget |
-| `name` | *string* \| *symbol* |
+| `emitter` | `EventEmitter` \| `DOMEventTarget` |
+| `name` | `string` \| `symbol` |
 
-**Returns:** Function[]
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:34
+`Function`[]
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:34
 
 ___
 
 ### listenerCount
 
-▸ `Static` **listenerCount**(`emitter`: *EventEmitter*, `event`: *string* \| *symbol*): *number*
+▸ `Static` **listenerCount**(`emitter`, `event`): `number`
 
 **`deprecated`** since v4.0.0
 
@@ -1033,59 +1299,75 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | *EventEmitter* |
-| `event` | *string* \| *symbol* |
+| `emitter` | `EventEmitter` |
+| `event` | `string` \| `symbol` |
 
-**Returns:** *number*
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:30
+`number`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:30
 
 ___
 
 ### on
 
-▸ `Static` **on**(`emitter`: *EventEmitter*, `event`: *string*, `options?`: StaticEventEmitterOptions): *AsyncIterableIterator*<any\>
+▸ `Static` **on**(`emitter`, `event`, `options?`): `AsyncIterableIterator`<any\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | *EventEmitter* |
-| `event` | *string* |
-| `options?` | StaticEventEmitterOptions |
+| `emitter` | `EventEmitter` |
+| `event` | `string` |
+| `options?` | `StaticEventEmitterOptions` |
 
-**Returns:** *AsyncIterableIterator*<any\>
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:27
+`AsyncIterableIterator`<any\>
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:27
 
 ___
 
 ### once
 
-▸ `Static` **once**(`emitter`: *NodeEventTarget*, `event`: *string* \| *symbol*, `options?`: StaticEventEmitterOptions): *Promise*<any[]\>
+▸ `Static` **once**(`emitter`, `event`, `options?`): `Promise`<any[]\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | *NodeEventTarget* |
-| `event` | *string* \| *symbol* |
-| `options?` | StaticEventEmitterOptions |
+| `emitter` | `NodeEventTarget` |
+| `event` | `string` \| `symbol` |
+| `options?` | `StaticEventEmitterOptions` |
 
-**Returns:** *Promise*<any[]\>
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:25
+`Promise`<any[]\>
 
-▸ `Static` **once**(`emitter`: DOMEventTarget, `event`: *string*, `options?`: StaticEventEmitterOptions): *Promise*<any[]\>
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:25
+
+▸ `Static` **once**(`emitter`, `event`, `options?`): `Promise`<any[]\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | DOMEventTarget |
-| `event` | *string* |
-| `options?` | StaticEventEmitterOptions |
+| `emitter` | `DOMEventTarget` |
+| `event` | `string` |
+| `options?` | `StaticEventEmitterOptions` |
 
-**Returns:** *Promise*<any[]\>
+#### Returns
 
-Defined in: node_modules/@types/node/events.d.ts:26
+`Promise`<any[]\>
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:26

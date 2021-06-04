@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- [*IProviderOptions*](ganache.iprovideroptions.md)
+- [IProviderOptions](ganache.iprovideroptions.md)
 
   ↳ **IServerOptions**
 
@@ -47,121 +47,169 @@
 
 ### account\_keys\_path
 
-• `Optional` **account\_keys\_path**: *string*
+• `Optional` **account\_keys\_path**: `string`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[account_keys_path](ganache.iprovideroptions.md#account_keys_path)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:19
+[IProviderOptions](ganache.iprovideroptions.md).[account_keys_path](ganache.iprovideroptions.md#account_keys_path)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:19
 
 ___
 
 ### accounts
 
-• `Optional` **accounts**: *object*[]
+• `Optional` **accounts**: `object`[]
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[accounts](ganache.iprovideroptions.md#accounts)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:20
+[IProviderOptions](ganache.iprovideroptions.md).[accounts](ganache.iprovideroptions.md#accounts)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:20
 
 ___
 
 ### allowUnlimitedContractSize
 
-• `Optional` **allowUnlimitedContractSize**: *boolean*
+• `Optional` **allowUnlimitedContractSize**: `boolean`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[allowUnlimitedContractSize](ganache.iprovideroptions.md#allowunlimitedcontractsize)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:21
+[IProviderOptions](ganache.iprovideroptions.md).[allowUnlimitedContractSize](ganache.iprovideroptions.md#allowunlimitedcontractsize)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:21
 
 ___
 
 ### blockTime
 
-• `Optional` **blockTime**: *number*
+• `Optional` **blockTime**: `number`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[blockTime](ganache.iprovideroptions.md#blocktime)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:22
+[IProviderOptions](ganache.iprovideroptions.md).[blockTime](ganache.iprovideroptions.md#blocktime)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:22
 
 ___
 
 ### db\_path
 
-• `Optional` **db\_path**: *string*
+• `Optional` **db\_path**: `string`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[db_path](ganache.iprovideroptions.md#db_path)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:23
+[IProviderOptions](ganache.iprovideroptions.md).[db_path](ganache.iprovideroptions.md#db_path)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:23
 
 ___
 
 ### debug
 
-• `Optional` **debug**: *boolean*
+• `Optional` **debug**: `boolean`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[debug](ganache.iprovideroptions.md#debug)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:24
+[IProviderOptions](ganache.iprovideroptions.md).[debug](ganache.iprovideroptions.md#debug)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:24
 
 ___
 
 ### default\_balance\_ether
 
-• `Optional` **default\_balance\_ether**: *number*
+• `Optional` **default\_balance\_ether**: `number`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[default_balance_ether](ganache.iprovideroptions.md#default_balance_ether)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:25
+[IProviderOptions](ganache.iprovideroptions.md).[default_balance_ether](ganache.iprovideroptions.md#default_balance_ether)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:25
 
 ___
 
 ### fork
 
-• `Optional` **fork**: *string* \| *object*
+• `Optional` **fork**: `string` \| `object`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[fork](ganache.iprovideroptions.md#fork)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:26
+[IProviderOptions](ganache.iprovideroptions.md).[fork](ganache.iprovideroptions.md#fork)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:26
 
 ___
 
 ### forkCacheSize
 
-• `Optional` **forkCacheSize**: *number*
+• `Optional` **forkCacheSize**: `number`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[forkCacheSize](ganache.iprovideroptions.md#forkcachesize)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:28
+[IProviderOptions](ganache.iprovideroptions.md).[forkCacheSize](ganache.iprovideroptions.md#forkcachesize)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:28
 
 ___
 
 ### fork\_block\_number
 
-• `Optional` **fork\_block\_number**: *string* \| *number*
+• `Optional` **fork\_block\_number**: `string` \| `number`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[fork_block_number](ganache.iprovideroptions.md#fork_block_number)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:27
+[IProviderOptions](ganache.iprovideroptions.md).[fork_block_number](ganache.iprovideroptions.md#fork_block_number)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:27
 
 ___
 
 ### gasLimit
 
-• `Optional` **gasLimit**: *string* \| *number*
+• `Optional` **gasLimit**: `string` \| `number`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[gasLimit](ganache.iprovideroptions.md#gaslimit)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:29
+[IProviderOptions](ganache.iprovideroptions.md).[gasLimit](ganache.iprovideroptions.md#gaslimit)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:29
 
 ___
 
 ### gasPrice
 
-• `Optional` **gasPrice**: *string*
+• `Optional` **gasPrice**: `string`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[gasPrice](ganache.iprovideroptions.md#gasprice)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:30
+[IProviderOptions](ganache.iprovideroptions.md).[gasPrice](ganache.iprovideroptions.md#gasprice)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:30
 
 ___
 
@@ -169,160 +217,222 @@ ___
 
 • `Optional` **hardfork**: ``"byzantium"`` \| ``"constantinople"`` \| ``"petersburg"`` \| ``"istanbul"`` \| ``"muirGlacier"``
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[hardfork](ganache.iprovideroptions.md#hardfork)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:31
+[IProviderOptions](ganache.iprovideroptions.md).[hardfork](ganache.iprovideroptions.md#hardfork)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:31
 
 ___
 
 ### hd\_path
 
-• `Optional` **hd\_path**: *string*
+• `Optional` **hd\_path**: `string`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[hd_path](ganache.iprovideroptions.md#hd_path)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:32
+[IProviderOptions](ganache.iprovideroptions.md).[hd_path](ganache.iprovideroptions.md#hd_path)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:32
 
 ___
 
 ### keepAliveTimeout
 
-• `Optional` **keepAliveTimeout**: *number*
+• `Optional` **keepAliveTimeout**: `number`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:51
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:51
 
 ___
 
 ### locked
 
-• `Optional` **locked**: *boolean*
+• `Optional` **locked**: `boolean`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[locked](ganache.iprovideroptions.md#locked)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:33
+[IProviderOptions](ganache.iprovideroptions.md).[locked](ganache.iprovideroptions.md#locked)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:33
 
 ___
 
 ### logger
 
-• `Optional` **logger**: *object*
+• `Optional` **logger**: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `log` | (`msg`: *string*) => *void* |
+| `log` | (`msg`: `string`) => `void` |
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[logger](ganache.iprovideroptions.md#logger)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:34
+[IProviderOptions](ganache.iprovideroptions.md).[logger](ganache.iprovideroptions.md#logger)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:34
 
 ___
 
 ### mnemonic
 
-• `Optional` **mnemonic**: *string*
+• `Optional` **mnemonic**: `string`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[mnemonic](ganache.iprovideroptions.md#mnemonic)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:37
+[IProviderOptions](ganache.iprovideroptions.md).[mnemonic](ganache.iprovideroptions.md#mnemonic)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:37
 
 ___
 
 ### networkId
 
-• `Optional` **networkId**: *number*
+• `Optional` **networkId**: `number`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[networkId](ganache.iprovideroptions.md#networkid)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:39
+[IProviderOptions](ganache.iprovideroptions.md).[networkId](ganache.iprovideroptions.md#networkid)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:39
 
 ___
 
 ### network\_id
 
-• `Optional` **network\_id**: *number*
+• `Optional` **network\_id**: `number`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[network_id](ganache.iprovideroptions.md#network_id)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:38
+[IProviderOptions](ganache.iprovideroptions.md).[network_id](ganache.iprovideroptions.md#network_id)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:38
 
 ___
 
 ### port
 
-• `Optional` **port**: *number*
+• `Optional` **port**: `number`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[port](ganache.iprovideroptions.md#port)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:40
+[IProviderOptions](ganache.iprovideroptions.md).[port](ganache.iprovideroptions.md#port)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:40
 
 ___
 
 ### seed
 
-• `Optional` **seed**: *any*
+• `Optional` **seed**: `any`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[seed](ganache.iprovideroptions.md#seed)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:41
+[IProviderOptions](ganache.iprovideroptions.md).[seed](ganache.iprovideroptions.md#seed)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:41
 
 ___
 
 ### time
 
-• `Optional` **time**: Date
+• `Optional` **time**: `Date`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[time](ganache.iprovideroptions.md#time)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:42
+[IProviderOptions](ganache.iprovideroptions.md).[time](ganache.iprovideroptions.md#time)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:42
 
 ___
 
 ### total\_accounts
 
-• `Optional` **total\_accounts**: *number*
+• `Optional` **total\_accounts**: `number`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[total_accounts](ganache.iprovideroptions.md#total_accounts)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:43
+[IProviderOptions](ganache.iprovideroptions.md).[total_accounts](ganache.iprovideroptions.md#total_accounts)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:43
 
 ___
 
 ### unlocked\_accounts
 
-• `Optional` **unlocked\_accounts**: *string*[]
+• `Optional` **unlocked\_accounts**: `string`[]
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[unlocked_accounts](ganache.iprovideroptions.md#unlocked_accounts)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:44
+[IProviderOptions](ganache.iprovideroptions.md).[unlocked_accounts](ganache.iprovideroptions.md#unlocked_accounts)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:44
 
 ___
 
 ### verbose
 
-• `Optional` **verbose**: *boolean*
+• `Optional` **verbose**: `boolean`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[verbose](ganache.iprovideroptions.md#verbose)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:45
+[IProviderOptions](ganache.iprovideroptions.md).[verbose](ganache.iprovideroptions.md#verbose)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:45
 
 ___
 
 ### vmErrorsOnRPCResponse
 
-• `Optional` **vmErrorsOnRPCResponse**: *boolean*
+• `Optional` **vmErrorsOnRPCResponse**: `boolean`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[vmErrorsOnRPCResponse](ganache.iprovideroptions.md#vmerrorsonrpcresponse)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:46
+[IProviderOptions](ganache.iprovideroptions.md).[vmErrorsOnRPCResponse](ganache.iprovideroptions.md#vmerrorsonrpcresponse)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:46
 
 ___
 
 ### ws
 
-• `Optional` **ws**: *boolean*
+• `Optional` **ws**: `boolean`
 
-Inherited from: [IProviderOptions](ganache.iprovideroptions.md).[ws](ganache.iprovideroptions.md#ws)
+#### Inherited from
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:47
+[IProviderOptions](ganache.iprovideroptions.md).[ws](ganache.iprovideroptions.md#ws)
+
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:47

@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-test-helpers",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Core ORGiD Javascript library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -42,7 +42,7 @@
     "ganache-core": "2.13.2",
     "@truffle/contract": "4.3.18",
     "@windingtree/org.id": "2.0.0",
-    "@windingtree/org.id-auth": "0.2.2",
+    "@windingtree/org.id-auth": "0.2.3",
     "@windingtree/org.id-utils": "0.2.12",
     "@windingtree/org.json-utils": "0.1.0",
     "@windingtree/org.json-schema": "0.5.5-beta"

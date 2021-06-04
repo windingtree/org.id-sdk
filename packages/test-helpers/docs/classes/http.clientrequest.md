@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- [*OutgoingMessage*](http.outgoingmessage.md)
+- [OutgoingMessage](http.outgoingmessage.md)
 
   ↳ **ClientRequest**
 
@@ -96,272 +96,364 @@
 
 ### constructor
 
-\+ **new ClientRequest**(`url`: *string* \| [*ClientRequestArgs*](../interfaces/http.clientrequestargs.md) \| *URL*, `cb?`: (`res`: [*IncomingMessage*](http.incomingmessage.md)) => *void*): [*ClientRequest*](http.clientrequest.md)
+• **new ClientRequest**(`url`, `cb?`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `url` | *string* \| [*ClientRequestArgs*](../interfaces/http.clientrequestargs.md) \| *URL* |
-| `cb?` | (`res`: [*IncomingMessage*](http.incomingmessage.md)) => *void* |
+| `url` | `string` \| [ClientRequestArgs](../interfaces/http.clientrequestargs.md) \| `URL` |
+| `cb?` | (`res`: [IncomingMessage](http.incomingmessage.md)) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Overrides
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[OutgoingMessage](http.outgoingmessage.md).[constructor](http.outgoingmessage.md#constructor)
 
-Defined in: node_modules/@types/node/http.d.ts:219
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:219
 
 ## Properties
 
 ### aborted
 
-• **aborted**: *boolean*
+• **aborted**: `boolean`
 
-Defined in: node_modules/@types/node/http.d.ts:217
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:217
 
 ___
 
 ### chunkedEncoding
 
-• **chunkedEncoding**: *boolean*
+• **chunkedEncoding**: `boolean`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[chunkedEncoding](http.outgoingmessage.md#chunkedencoding)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:160
+[OutgoingMessage](http.outgoingmessage.md).[chunkedEncoding](http.outgoingmessage.md#chunkedencoding)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:160
 
 ___
 
 ### connection
 
-• **connection**: *Socket*
+• **connection**: ``null`` \| `Socket`
 
-**`deprecate`** Use `socket` instead.
+**`deprecated`** Use `socket` instead.
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[connection](http.outgoingmessage.md#connection)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:172
+[OutgoingMessage](http.outgoingmessage.md).[connection](http.outgoingmessage.md#connection)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:172
 
 ___
 
 ### destroyed
 
-• **destroyed**: *boolean*
+• **destroyed**: `boolean`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[destroyed](http.outgoingmessage.md#destroyed)
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:150
+[OutgoingMessage](http.outgoingmessage.md).[destroyed](http.outgoingmessage.md#destroyed)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:150
 
 ___
 
 ### finished
 
-• **finished**: *boolean*
+• **finished**: `boolean`
 
 **`deprecated`** Use `writableEnded` instead.
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[finished](http.outgoingmessage.md#finished)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:167
+[OutgoingMessage](http.outgoingmessage.md).[finished](http.outgoingmessage.md#finished)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:167
 
 ___
 
 ### headersSent
 
-• **headersSent**: *boolean*
+• **headersSent**: `boolean`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[headersSent](http.outgoingmessage.md#headerssent)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:168
+[OutgoingMessage](http.outgoingmessage.md).[headersSent](http.outgoingmessage.md#headerssent)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:168
 
 ___
 
 ### host
 
-• **host**: *string*
+• **host**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:218
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:218
 
 ___
 
 ### method
 
-• **method**: *string*
+• **method**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:223
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:223
 
 ___
 
 ### path
 
-• **path**: *string*
+• **path**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:224
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:224
 
 ___
 
 ### protocol
 
-• **protocol**: *string*
+• **protocol**: `string`
 
-Defined in: node_modules/@types/node/http.d.ts:219
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:219
 
 ___
 
 ### sendDate
 
-• **sendDate**: *boolean*
+• **sendDate**: `boolean`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[sendDate](http.outgoingmessage.md#senddate)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:163
+[OutgoingMessage](http.outgoingmessage.md).[sendDate](http.outgoingmessage.md#senddate)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:163
 
 ___
 
 ### shouldKeepAlive
 
-• **shouldKeepAlive**: *boolean*
+• **shouldKeepAlive**: `boolean`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[shouldKeepAlive](http.outgoingmessage.md#shouldkeepalive)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:161
+[OutgoingMessage](http.outgoingmessage.md).[shouldKeepAlive](http.outgoingmessage.md#shouldkeepalive)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:161
 
 ___
 
 ### socket
 
-• **socket**: *Socket*
+• **socket**: ``null`` \| `Socket`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[socket](http.outgoingmessage.md#socket)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:173
+[OutgoingMessage](http.outgoingmessage.md).[socket](http.outgoingmessage.md#socket)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:173
 
 ___
 
 ### upgrading
 
-• **upgrading**: *boolean*
+• **upgrading**: `boolean`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[upgrading](http.outgoingmessage.md#upgrading)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:159
+[OutgoingMessage](http.outgoingmessage.md).[upgrading](http.outgoingmessage.md#upgrading)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:159
 
 ___
 
 ### useChunkedEncodingByDefault
 
-• **useChunkedEncodingByDefault**: *boolean*
+• **useChunkedEncodingByDefault**: `boolean`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[useChunkedEncodingByDefault](http.outgoingmessage.md#usechunkedencodingbydefault)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:162
+[OutgoingMessage](http.outgoingmessage.md).[useChunkedEncodingByDefault](http.outgoingmessage.md#usechunkedencodingbydefault)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:162
 
 ___
 
 ### writable
 
-• `Readonly` **writable**: *boolean*
+• `Readonly` **writable**: `boolean`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[writable](http.outgoingmessage.md#writable)
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:143
+[OutgoingMessage](http.outgoingmessage.md).[writable](http.outgoingmessage.md#writable)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:143
 
 ___
 
 ### writableCorked
 
-• `Readonly` **writableCorked**: *number*
+• `Readonly` **writableCorked**: `number`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[writableCorked](http.outgoingmessage.md#writablecorked)
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:149
+[OutgoingMessage](http.outgoingmessage.md).[writableCorked](http.outgoingmessage.md#writablecorked)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:149
 
 ___
 
 ### writableEnded
 
-• `Readonly` **writableEnded**: *boolean*
+• `Readonly` **writableEnded**: `boolean`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[writableEnded](http.outgoingmessage.md#writableended)
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:144
+[OutgoingMessage](http.outgoingmessage.md).[writableEnded](http.outgoingmessage.md#writableended)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:144
 
 ___
 
 ### writableFinished
 
-• `Readonly` **writableFinished**: *boolean*
+• `Readonly` **writableFinished**: `boolean`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[writableFinished](http.outgoingmessage.md#writablefinished)
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:145
+[OutgoingMessage](http.outgoingmessage.md).[writableFinished](http.outgoingmessage.md#writablefinished)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:145
 
 ___
 
 ### writableHighWaterMark
 
-• `Readonly` **writableHighWaterMark**: *number*
+• `Readonly` **writableHighWaterMark**: `number`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[writableHighWaterMark](http.outgoingmessage.md#writablehighwatermark)
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:146
+[OutgoingMessage](http.outgoingmessage.md).[writableHighWaterMark](http.outgoingmessage.md#writablehighwatermark)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:146
 
 ___
 
 ### writableLength
 
-• `Readonly` **writableLength**: *number*
+• `Readonly` **writableLength**: `number`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[writableLength](http.outgoingmessage.md#writablelength)
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:147
+[OutgoingMessage](http.outgoingmessage.md).[writableLength](http.outgoingmessage.md#writablelength)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:147
 
 ___
 
 ### writableObjectMode
 
-• `Readonly` **writableObjectMode**: *boolean*
+• `Readonly` **writableObjectMode**: `boolean`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[writableObjectMode](http.outgoingmessage.md#writableobjectmode)
+#### Inherited from
 
-Defined in: node_modules/@types/node/stream.d.ts:148
+[OutgoingMessage](http.outgoingmessage.md).[writableObjectMode](http.outgoingmessage.md#writableobjectmode)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:148
 
 ___
 
 ### captureRejectionSymbol
 
-▪ `Static` `Readonly` **captureRejectionSymbol**: *typeof* [*captureRejectionSymbol*](http.server.md#capturerejectionsymbol)
+▪ `Static` `Readonly` **captureRejectionSymbol**: typeof [captureRejectionSymbol](http.server.md#capturerejectionsymbol)
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[captureRejectionSymbol](http.outgoingmessage.md#capturerejectionsymbol)
+#### Inherited from
 
-Defined in: node_modules/@types/node/events.d.ts:46
+[OutgoingMessage](http.outgoingmessage.md).[captureRejectionSymbol](http.outgoingmessage.md#capturerejectionsymbol)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:46
 
 ___
 
 ### captureRejections
 
-▪ `Static` **captureRejections**: *boolean*
+▪ `Static` **captureRejections**: `boolean`
 
 Sets or gets the default captureRejection value for all emitters.
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[captureRejections](http.outgoingmessage.md#capturerejections)
+#### Inherited from
 
-Defined in: node_modules/@types/node/events.d.ts:52
+[OutgoingMessage](http.outgoingmessage.md).[captureRejections](http.outgoingmessage.md#capturerejections)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:52
 
 ___
 
 ### defaultMaxListeners
 
-▪ `Static` **defaultMaxListeners**: *number*
+▪ `Static` **defaultMaxListeners**: `number`
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[defaultMaxListeners](http.outgoingmessage.md#defaultmaxlisteners)
+#### Inherited from
 
-Defined in: node_modules/@types/node/events.d.ts:53
+[OutgoingMessage](http.outgoingmessage.md).[defaultMaxListeners](http.outgoingmessage.md#defaultmaxlisteners)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:53
 
 ___
 
 ### errorMonitor
 
-▪ `Static` `Readonly` **errorMonitor**: *typeof* [*errorMonitor*](http.server.md#errormonitor)
+▪ `Static` `Readonly` **errorMonitor**: typeof [errorMonitor](http.server.md#errormonitor)
 
 This symbol shall be used to install a listener for only monitoring `'error'`
 events. Listeners installed using this symbol are called before the regular
@@ -371,398 +463,544 @@ Installing a listener using this symbol does not change the behavior once an
 `'error'` event is emitted, therefore the process will still crash if no
 regular `'error'` listener is installed.
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md).[errorMonitor](http.outgoingmessage.md#errormonitor)
+#### Inherited from
 
-Defined in: node_modules/@types/node/events.d.ts:45
+[OutgoingMessage](http.outgoingmessage.md).[errorMonitor](http.outgoingmessage.md#errormonitor)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:45
 
 ## Methods
 
 ### \_construct
 
-▸ `Optional` **_construct**(`callback`: (`error?`: Error) => *void*): *void*
+▸ `Optional` **_construct**(`callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | (`error?`: Error) => *void* |
+| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:154
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[_construct](http.outgoingmessage.md#_construct)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:154
 
 ___
 
 ### \_destroy
 
-▸ **_destroy**(`error`: Error, `callback`: (`error?`: Error) => *void*): *void*
+▸ **_destroy**(`error`, `callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `error` | Error |
-| `callback` | (`error?`: Error) => *void* |
+| `error` | ``null`` \| `Error` |
+| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:155
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[_destroy](http.outgoingmessage.md#_destroy)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:155
 
 ___
 
 ### \_final
 
-▸ **_final**(`callback`: (`error?`: Error) => *void*): *void*
+▸ **_final**(`callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `callback` | (`error?`: Error) => *void* |
+| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:156
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[_final](http.outgoingmessage.md#_final)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:156
 
 ___
 
 ### \_write
 
-▸ **_write**(`chunk`: *any*, `encoding`: BufferEncoding, `callback`: (`error?`: Error) => *void*): *void*
+▸ **_write**(`chunk`, `encoding`, `callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `chunk` | *any* |
-| `encoding` | BufferEncoding |
-| `callback` | (`error?`: Error) => *void* |
+| `chunk` | `any` |
+| `encoding` | `BufferEncoding` |
+| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:152
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[_write](http.outgoingmessage.md#_write)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:152
 
 ___
 
 ### \_writev
 
-▸ `Optional` **_writev**(`chunks`: { `chunk`: *any* ; `encoding`: BufferEncoding  }[], `callback`: (`error?`: Error) => *void*): *void*
+▸ `Optional` **_writev**(`chunks`, `callback`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `chunks` | { `chunk`: *any* ; `encoding`: BufferEncoding  }[] |
-| `callback` | (`error?`: Error) => *void* |
+| `chunks` | { `chunk`: `any` ; `encoding`: `BufferEncoding`  }[] |
+| `callback` | (`error?`: ``null`` \| `Error`) => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:153
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[_writev](http.outgoingmessage.md#_writev)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:153
 
 ___
 
 ### abort
 
-▸ **abort**(): *void*
+▸ **abort**(): `void`
 
 **`deprecated`** since v14.1.0 Use `request.destroy()` instead.
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:226
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:226
 
 ___
 
 ### addListener
 
-▸ **addListener**(`event`: ``"abort"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"abort"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:232
+#### Overrides
 
-▸ **addListener**(`event`: ``"connect"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[addListener](http.outgoingmessage.md#addlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:232
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connect"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md), `socket`: `Socket`, `head`: `Buffer`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:233
+#### Overrides
 
-▸ **addListener**(`event`: ``"continue"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[addListener](http.outgoingmessage.md#addlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:233
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"continue"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:234
+#### Overrides
 
-▸ **addListener**(`event`: ``"information"``, `listener`: (`info`: [*InformationEvent*](../interfaces/http.informationevent.md)) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[addListener](http.outgoingmessage.md#addlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:234
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"information"`` |
-| `listener` | (`info`: [*InformationEvent*](../interfaces/http.informationevent.md)) => *void* |
+| `listener` | (`info`: [InformationEvent](../interfaces/http.informationevent.md)) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:235
+#### Overrides
 
-▸ **addListener**(`event`: ``"response"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md)) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[addListener](http.outgoingmessage.md#addlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:235
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"response"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md)) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md)) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:236
+#### Overrides
 
-▸ **addListener**(`event`: ``"socket"``, `listener`: (`socket`: *Socket*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[addListener](http.outgoingmessage.md#addlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:236
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"socket"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:237
+#### Overrides
 
-▸ **addListener**(`event`: ``"timeout"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[addListener](http.outgoingmessage.md#addlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:237
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"timeout"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:238
+#### Overrides
 
-▸ **addListener**(`event`: ``"upgrade"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[addListener](http.outgoingmessage.md#addlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:238
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"upgrade"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md), `socket`: `Socket`, `head`: `Buffer`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.addListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:239
+#### Overrides
 
-▸ **addListener**(`event`: ``"close"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:239
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.addListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:240
+#### Overrides
 
-▸ **addListener**(`event`: ``"drain"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:240
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"drain"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.addListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:241
+#### Overrides
 
-▸ **addListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:241
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.addListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:242
+#### Overrides
 
-▸ **addListener**(`event`: ``"finish"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:242
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"finish"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.addListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:243
+#### Overrides
 
-▸ **addListener**(`event`: ``"pipe"``, `listener`: (`src`: *Readable*) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:243
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.addListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:244
+#### Overrides
 
-▸ **addListener**(`event`: ``"unpipe"``, `listener`: (`src`: *Readable*) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:244
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.addListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:245
+#### Overrides
 
-▸ **addListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:245
+
+▸ **addListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.addListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:246
+#### Overrides
+
+OutgoingMessage.addListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:246
 
 ___
 
 ### addTrailers
 
-▸ **addTrailers**(`headers`: [*OutgoingHttpHeaders*](../interfaces/http.outgoinghttpheaders.md) \| readonly [*string*, *string*][]): *void*
+▸ **addTrailers**(`headers`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `headers` | [*OutgoingHttpHeaders*](../interfaces/http.outgoinghttpheaders.md) \| readonly [*string*, *string*][] |
+| `headers` | [OutgoingHttpHeaders](../interfaces/http.outgoinghttpheaders.md) \| readonly [`string`, `string`][] |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`void`
 
-Defined in: node_modules/@types/node/http.d.ts:184
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[addTrailers](http.outgoingmessage.md#addtrailers)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:184
 
 ___
 
 ### cork
 
-▸ **cork**(): *void*
+▸ **cork**(): `void`
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:163
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[cork](http.outgoingmessage.md#cork)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:163
 
 ___
 
 ### destroy
 
-▸ **destroy**(`error?`: Error): *void*
+▸ **destroy**(`error?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `error?` | Error |
+| `error?` | `Error` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:165
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[destroy](http.outgoingmessage.md#destroy)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:165
 
 ___
 
 ### emit
 
-▸ **emit**(`event`: ``"close"``): *boolean*
+▸ **emit**(`event`): `boolean`
 
 #### Parameters
 
@@ -770,13 +1008,19 @@ ___
 | :------ | :------ |
 | `event` | ``"close"`` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:185
+#### Inherited from
 
-▸ **emit**(`event`: ``"drain"``): *boolean*
+[OutgoingMessage](http.outgoingmessage.md).[emit](http.outgoingmessage.md#emit)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:185
+
+▸ **emit**(`event`): `boolean`
 
 #### Parameters
 
@@ -784,28 +1028,40 @@ Defined in: node_modules/@types/node/stream.d.ts:185
 | :------ | :------ |
 | `event` | ``"drain"`` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:186
+#### Inherited from
 
-▸ **emit**(`event`: ``"error"``, `err`: Error): *boolean*
+[OutgoingMessage](http.outgoingmessage.md).[emit](http.outgoingmessage.md#emit)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:186
+
+▸ **emit**(`event`, `err`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `err` | Error |
+| `err` | `Error` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:187
+#### Inherited from
 
-▸ **emit**(`event`: ``"finish"``): *boolean*
+[OutgoingMessage](http.outgoingmessage.md).[emit](http.outgoingmessage.md#emit)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:187
+
+▸ **emit**(`event`): `boolean`
 
 #### Parameters
 
@@ -813,1537 +1069,2119 @@ Defined in: node_modules/@types/node/stream.d.ts:187
 | :------ | :------ |
 | `event` | ``"finish"`` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:188
+#### Inherited from
 
-▸ **emit**(`event`: ``"pipe"``, `src`: *Readable*): *boolean*
+[OutgoingMessage](http.outgoingmessage.md).[emit](http.outgoingmessage.md#emit)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:188
+
+▸ **emit**(`event`, `src`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `src` | *Readable* |
+| `src` | `Readable` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:189
+#### Inherited from
 
-▸ **emit**(`event`: ``"unpipe"``, `src`: *Readable*): *boolean*
+[OutgoingMessage](http.outgoingmessage.md).[emit](http.outgoingmessage.md#emit)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:189
+
+▸ **emit**(`event`, `src`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `src` | *Readable* |
+| `src` | `Readable` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:190
+#### Inherited from
 
-▸ **emit**(`event`: *string* \| *symbol*, ...`args`: *any*[]): *boolean*
+[OutgoingMessage](http.outgoingmessage.md).[emit](http.outgoingmessage.md#emit)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:190
+
+▸ **emit**(`event`, ...`args`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `...args` | *any*[] |
+| `event` | `string` \| `symbol` |
+| `...args` | `any`[] |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:191
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[emit](http.outgoingmessage.md#emit)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:191
 
 ___
 
 ### end
 
-▸ **end**(`cb?`: () => *void*): *void*
+▸ **end**(`cb?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `cb?` | () => *void* |
+| `cb?` | () => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:160
+#### Inherited from
 
-▸ **end**(`chunk`: *any*, `cb?`: () => *void*): *void*
+[OutgoingMessage](http.outgoingmessage.md).[end](http.outgoingmessage.md#end)
 
-#### Parameters
+#### Defined in
 
-| Name | Type |
-| :------ | :------ |
-| `chunk` | *any* |
-| `cb?` | () => *void* |
+test-helpers/node_modules/@types/node/stream.d.ts:160
 
-**Returns:** *void*
-
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
-
-Defined in: node_modules/@types/node/stream.d.ts:161
-
-▸ **end**(`chunk`: *any*, `encoding`: BufferEncoding, `cb?`: () => *void*): *void*
+▸ **end**(`chunk`, `cb?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `chunk` | *any* |
-| `encoding` | BufferEncoding |
-| `cb?` | () => *void* |
+| `chunk` | `any` |
+| `cb?` | () => `void` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:162
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[end](http.outgoingmessage.md#end)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:161
+
+▸ **end**(`chunk`, `encoding`, `cb?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `chunk` | `any` |
+| `encoding` | `BufferEncoding` |
+| `cb?` | () => `void` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[end](http.outgoingmessage.md#end)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:162
 
 ___
 
 ### eventNames
 
-▸ **eventNames**(): (*string* \| *symbol*)[]
+▸ **eventNames**(): (`string` \| `symbol`)[]
 
-**Returns:** (*string* \| *symbol*)[]
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+(`string` \| `symbol`)[]
 
-Defined in: node_modules/@types/node/events.d.ts:87
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[eventNames](http.outgoingmessage.md#eventnames)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:87
 
 ___
 
 ### flushHeaders
 
-▸ **flushHeaders**(): *void*
+▸ **flushHeaders**(): `void`
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`void`
 
-Defined in: node_modules/@types/node/http.d.ts:185
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[flushHeaders](http.outgoingmessage.md#flushheaders)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:185
 
 ___
 
 ### getHeader
 
-▸ **getHeader**(`name`: *string*): *string* \| *number* \| *string*[]
+▸ **getHeader**(`name`): `undefined` \| `string` \| `number` \| `string`[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | *string* |
+| `name` | `string` |
 
-**Returns:** *string* \| *number* \| *string*[]
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`undefined` \| `string` \| `number` \| `string`[]
 
-Defined in: node_modules/@types/node/http.d.ts:179
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[getHeader](http.outgoingmessage.md#getheader)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:179
 
 ___
 
 ### getHeaderNames
 
-▸ **getHeaderNames**(): *string*[]
+▸ **getHeaderNames**(): `string`[]
 
-**Returns:** *string*[]
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`string`[]
 
-Defined in: node_modules/@types/node/http.d.ts:181
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[getHeaderNames](http.outgoingmessage.md#getheadernames)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:181
 
 ___
 
 ### getHeaders
 
-▸ **getHeaders**(): [*OutgoingHttpHeaders*](../interfaces/http.outgoinghttpheaders.md)
+▸ **getHeaders**(): [OutgoingHttpHeaders](../interfaces/http.outgoinghttpheaders.md)
 
-**Returns:** [*OutgoingHttpHeaders*](../interfaces/http.outgoinghttpheaders.md)
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+[OutgoingHttpHeaders](../interfaces/http.outgoinghttpheaders.md)
 
-Defined in: node_modules/@types/node/http.d.ts:180
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[getHeaders](http.outgoingmessage.md#getheaders)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:180
 
 ___
 
 ### getMaxListeners
 
-▸ **getMaxListeners**(): *number*
+▸ **getMaxListeners**(): `number`
 
-**Returns:** *number*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`number`
 
-Defined in: node_modules/@types/node/events.d.ts:79
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[getMaxListeners](http.outgoingmessage.md#getmaxlisteners)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:79
 
 ___
 
 ### hasHeader
 
-▸ **hasHeader**(`name`: *string*): *boolean*
+▸ **hasHeader**(`name`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | *string* |
+| `name` | `string` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`boolean`
 
-Defined in: node_modules/@types/node/http.d.ts:182
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[hasHeader](http.outgoingmessage.md#hasheader)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:182
 
 ___
 
 ### listenerCount
 
-▸ **listenerCount**(`event`: *string* \| *symbol*): *number*
+▸ **listenerCount**(`event`): `number`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** *number*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`number`
 
-Defined in: node_modules/@types/node/events.d.ts:83
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[listenerCount](http.outgoingmessage.md#listenercount)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:83
 
 ___
 
 ### listeners
 
-▸ **listeners**(`event`: *string* \| *symbol*): Function[]
+▸ **listeners**(`event`): `Function`[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** Function[]
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`Function`[]
 
-Defined in: node_modules/@types/node/events.d.ts:80
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[listeners](http.outgoingmessage.md#listeners)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:80
 
 ___
 
 ### off
 
-▸ **off**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*ClientRequest*](http.clientrequest.md)
+▸ **off**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/events.d.ts:76
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[off](http.outgoingmessage.md#off)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:76
 
 ___
 
 ### on
 
-▸ **on**(`event`: ``"abort"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"abort"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:248
+#### Overrides
 
-▸ **on**(`event`: ``"connect"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[on](http.outgoingmessage.md#on)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:248
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connect"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md), `socket`: `Socket`, `head`: `Buffer`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:249
+#### Overrides
 
-▸ **on**(`event`: ``"continue"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[on](http.outgoingmessage.md#on)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:249
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"continue"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:250
+#### Overrides
 
-▸ **on**(`event`: ``"information"``, `listener`: (`info`: [*InformationEvent*](../interfaces/http.informationevent.md)) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[on](http.outgoingmessage.md#on)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:250
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"information"`` |
-| `listener` | (`info`: [*InformationEvent*](../interfaces/http.informationevent.md)) => *void* |
+| `listener` | (`info`: [InformationEvent](../interfaces/http.informationevent.md)) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:251
+#### Overrides
 
-▸ **on**(`event`: ``"response"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md)) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[on](http.outgoingmessage.md#on)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:251
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"response"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md)) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md)) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:252
+#### Overrides
 
-▸ **on**(`event`: ``"socket"``, `listener`: (`socket`: *Socket*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[on](http.outgoingmessage.md#on)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:252
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"socket"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:253
+#### Overrides
 
-▸ **on**(`event`: ``"timeout"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[on](http.outgoingmessage.md#on)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:253
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"timeout"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:254
+#### Overrides
 
-▸ **on**(`event`: ``"upgrade"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[on](http.outgoingmessage.md#on)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:254
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"upgrade"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md), `socket`: `Socket`, `head`: `Buffer`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.on
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:255
+#### Overrides
 
-▸ **on**(`event`: ``"close"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:255
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.on
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:256
+#### Overrides
 
-▸ **on**(`event`: ``"drain"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:256
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"drain"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.on
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:257
+#### Overrides
 
-▸ **on**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:257
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.on
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:258
+#### Overrides
 
-▸ **on**(`event`: ``"finish"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:258
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"finish"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.on
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:259
+#### Overrides
 
-▸ **on**(`event`: ``"pipe"``, `listener`: (`src`: *Readable*) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:259
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.on
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:260
+#### Overrides
 
-▸ **on**(`event`: ``"unpipe"``, `listener`: (`src`: *Readable*) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:260
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.on
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:261
+#### Overrides
 
-▸ **on**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:261
+
+▸ **on**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.on
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:262
+#### Overrides
+
+OutgoingMessage.on
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:262
 
 ___
 
 ### onSocket
 
-▸ **onSocket**(`socket`: *Socket*): *void*
+▸ **onSocket**(`socket`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `socket` | *Socket* |
+| `socket` | `Socket` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:227
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:227
 
 ___
 
 ### once
 
-▸ **once**(`event`: ``"abort"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"abort"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:264
+#### Overrides
 
-▸ **once**(`event`: ``"connect"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[once](http.outgoingmessage.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:264
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connect"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md), `socket`: `Socket`, `head`: `Buffer`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:265
+#### Overrides
 
-▸ **once**(`event`: ``"continue"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[once](http.outgoingmessage.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:265
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"continue"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:266
+#### Overrides
 
-▸ **once**(`event`: ``"information"``, `listener`: (`info`: [*InformationEvent*](../interfaces/http.informationevent.md)) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[once](http.outgoingmessage.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:266
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"information"`` |
-| `listener` | (`info`: [*InformationEvent*](../interfaces/http.informationevent.md)) => *void* |
+| `listener` | (`info`: [InformationEvent](../interfaces/http.informationevent.md)) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:267
+#### Overrides
 
-▸ **once**(`event`: ``"response"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md)) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[once](http.outgoingmessage.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:267
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"response"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md)) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md)) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:268
+#### Overrides
 
-▸ **once**(`event`: ``"socket"``, `listener`: (`socket`: *Socket*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[once](http.outgoingmessage.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:268
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"socket"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:269
+#### Overrides
 
-▸ **once**(`event`: ``"timeout"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[once](http.outgoingmessage.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:269
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"timeout"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:270
+#### Overrides
 
-▸ **once**(`event`: ``"upgrade"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[once](http.outgoingmessage.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:270
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"upgrade"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md), `socket`: `Socket`, `head`: `Buffer`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.once
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:271
+#### Overrides
 
-▸ **once**(`event`: ``"close"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:271
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.once
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:272
+#### Overrides
 
-▸ **once**(`event`: ``"drain"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:272
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"drain"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.once
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:273
+#### Overrides
 
-▸ **once**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:273
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.once
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:274
+#### Overrides
 
-▸ **once**(`event`: ``"finish"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:274
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"finish"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.once
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:275
+#### Overrides
 
-▸ **once**(`event`: ``"pipe"``, `listener`: (`src`: *Readable*) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:275
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.once
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:276
+#### Overrides
 
-▸ **once**(`event`: ``"unpipe"``, `listener`: (`src`: *Readable*) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:276
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.once
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:277
+#### Overrides
 
-▸ **once**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:277
+
+▸ **once**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.once
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:278
+#### Overrides
+
+OutgoingMessage.once
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:278
 
 ___
 
 ### pipe
 
-▸ **pipe**<T\>(`destination`: T, `options?`: { `end?`: *boolean*  }): T
+▸ **pipe**<T\>(`destination`, `options?`): `T`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | *WritableStream*<T\> |
+| `T` | `T`: `WritableStream`<T\> |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `destination` | T |
-| `options?` | *object* |
-| `options.end?` | *boolean* |
+| `destination` | `T` |
+| `options?` | `Object` |
+| `options.end?` | `boolean` |
 
-**Returns:** T
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`T`
 
-Defined in: node_modules/@types/node/stream.d.ts:6
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[pipe](http.outgoingmessage.md#pipe)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:6
 
 ___
 
 ### prependListener
 
-▸ **prependListener**(`event`: ``"abort"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"abort"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:280
+#### Overrides
 
-▸ **prependListener**(`event`: ``"connect"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependListener](http.outgoingmessage.md#prependlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:280
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connect"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md), `socket`: `Socket`, `head`: `Buffer`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:281
+#### Overrides
 
-▸ **prependListener**(`event`: ``"continue"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependListener](http.outgoingmessage.md#prependlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:281
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"continue"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:282
+#### Overrides
 
-▸ **prependListener**(`event`: ``"information"``, `listener`: (`info`: [*InformationEvent*](../interfaces/http.informationevent.md)) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependListener](http.outgoingmessage.md#prependlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:282
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"information"`` |
-| `listener` | (`info`: [*InformationEvent*](../interfaces/http.informationevent.md)) => *void* |
+| `listener` | (`info`: [InformationEvent](../interfaces/http.informationevent.md)) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:283
+#### Overrides
 
-▸ **prependListener**(`event`: ``"response"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md)) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependListener](http.outgoingmessage.md#prependlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:283
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"response"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md)) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md)) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:284
+#### Overrides
 
-▸ **prependListener**(`event`: ``"socket"``, `listener`: (`socket`: *Socket*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependListener](http.outgoingmessage.md#prependlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:284
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"socket"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:285
+#### Overrides
 
-▸ **prependListener**(`event`: ``"timeout"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependListener](http.outgoingmessage.md#prependlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:285
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"timeout"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:286
+#### Overrides
 
-▸ **prependListener**(`event`: ``"upgrade"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependListener](http.outgoingmessage.md#prependlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:286
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"upgrade"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md), `socket`: `Socket`, `head`: `Buffer`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:287
+#### Overrides
 
-▸ **prependListener**(`event`: ``"close"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:287
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:288
+#### Overrides
 
-▸ **prependListener**(`event`: ``"drain"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:288
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"drain"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:289
+#### Overrides
 
-▸ **prependListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:289
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:290
+#### Overrides
 
-▸ **prependListener**(`event`: ``"finish"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:290
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"finish"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:291
+#### Overrides
 
-▸ **prependListener**(`event`: ``"pipe"``, `listener`: (`src`: *Readable*) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:291
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:292
+#### Overrides
 
-▸ **prependListener**(`event`: ``"unpipe"``, `listener`: (`src`: *Readable*) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:292
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:293
+#### Overrides
 
-▸ **prependListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:293
+
+▸ **prependListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:294
+#### Overrides
+
+OutgoingMessage.prependListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:294
 
 ___
 
 ### prependOnceListener
 
-▸ **prependOnceListener**(`event`: ``"abort"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"abort"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:296
+#### Overrides
 
-▸ **prependOnceListener**(`event`: ``"connect"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependOnceListener](http.outgoingmessage.md#prependoncelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:296
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"connect"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md), `socket`: `Socket`, `head`: `Buffer`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:297
+#### Overrides
 
-▸ **prependOnceListener**(`event`: ``"continue"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependOnceListener](http.outgoingmessage.md#prependoncelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:297
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"continue"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:298
+#### Overrides
 
-▸ **prependOnceListener**(`event`: ``"information"``, `listener`: (`info`: [*InformationEvent*](../interfaces/http.informationevent.md)) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependOnceListener](http.outgoingmessage.md#prependoncelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:298
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"information"`` |
-| `listener` | (`info`: [*InformationEvent*](../interfaces/http.informationevent.md)) => *void* |
+| `listener` | (`info`: [InformationEvent](../interfaces/http.informationevent.md)) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:299
+#### Overrides
 
-▸ **prependOnceListener**(`event`: ``"response"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md)) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependOnceListener](http.outgoingmessage.md#prependoncelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:299
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"response"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md)) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md)) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:300
+#### Overrides
 
-▸ **prependOnceListener**(`event`: ``"socket"``, `listener`: (`socket`: *Socket*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependOnceListener](http.outgoingmessage.md#prependoncelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:300
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"socket"`` |
-| `listener` | (`socket`: *Socket*) => *void* |
+| `listener` | (`socket`: `Socket`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:301
+#### Overrides
 
-▸ **prependOnceListener**(`event`: ``"timeout"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependOnceListener](http.outgoingmessage.md#prependoncelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:301
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"timeout"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:302
+#### Overrides
 
-▸ **prependOnceListener**(`event`: ``"upgrade"``, `listener`: (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[prependOnceListener](http.outgoingmessage.md#prependoncelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:302
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"upgrade"`` |
-| `listener` | (`response`: [*IncomingMessage*](http.incomingmessage.md), `socket`: *Socket*, `head`: *Buffer*) => *void* |
+| `listener` | (`response`: [IncomingMessage](http.incomingmessage.md), `socket`: `Socket`, `head`: `Buffer`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependOnceListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:303
+#### Overrides
 
-▸ **prependOnceListener**(`event`: ``"close"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:303
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependOnceListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:304
+#### Overrides
 
-▸ **prependOnceListener**(`event`: ``"drain"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:304
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"drain"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependOnceListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:305
+#### Overrides
 
-▸ **prependOnceListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:305
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependOnceListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:306
+#### Overrides
 
-▸ **prependOnceListener**(`event`: ``"finish"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:306
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"finish"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependOnceListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:307
+#### Overrides
 
-▸ **prependOnceListener**(`event`: ``"pipe"``, `listener`: (`src`: *Readable*) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:307
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependOnceListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:308
+#### Overrides
 
-▸ **prependOnceListener**(`event`: ``"unpipe"``, `listener`: (`src`: *Readable*) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:308
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependOnceListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:309
+#### Overrides
 
-▸ **prependOnceListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*ClientRequest*](http.clientrequest.md)
+OutgoingMessage.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:309
+
+▸ **prependOnceListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: OutgoingMessage.prependOnceListener
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:310
+#### Overrides
+
+OutgoingMessage.prependOnceListener
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:310
 
 ___
 
 ### rawListeners
 
-▸ **rawListeners**(`event`: *string* \| *symbol*): Function[]
+▸ **rawListeners**(`event`): `Function`[]
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
+| `event` | `string` \| `symbol` |
 
-**Returns:** Function[]
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`Function`[]
 
-Defined in: node_modules/@types/node/events.d.ts:81
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[rawListeners](http.outgoingmessage.md#rawlisteners)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:81
 
 ___
 
 ### removeAllListeners
 
-▸ **removeAllListeners**(`event?`: *string* \| *symbol*): [*ClientRequest*](http.clientrequest.md)
+▸ **removeAllListeners**(`event?`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event?` | *string* \| *symbol* |
+| `event?` | `string` \| `symbol` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/events.d.ts:77
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[removeAllListeners](http.outgoingmessage.md#removealllisteners)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:77
 
 ___
 
 ### removeHeader
 
-▸ **removeHeader**(`name`: *string*): *void*
+▸ **removeHeader**(`name`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | *string* |
+| `name` | `string` |
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`void`
 
-Defined in: node_modules/@types/node/http.d.ts:183
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[removeHeader](http.outgoingmessage.md#removeheader)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:183
 
 ___
 
 ### removeListener
 
-▸ **removeListener**(`event`: ``"close"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+▸ **removeListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"close"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:225
+#### Inherited from
 
-▸ **removeListener**(`event`: ``"drain"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[removeListener](http.outgoingmessage.md#removelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:225
+
+▸ **removeListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"drain"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:226
+#### Inherited from
 
-▸ **removeListener**(`event`: ``"error"``, `listener`: (`err`: Error) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[removeListener](http.outgoingmessage.md#removelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:226
+
+▸ **removeListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"error"`` |
-| `listener` | (`err`: Error) => *void* |
+| `listener` | (`err`: `Error`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:227
+#### Inherited from
 
-▸ **removeListener**(`event`: ``"finish"``, `listener`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[removeListener](http.outgoingmessage.md#removelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:227
+
+▸ **removeListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"finish"`` |
-| `listener` | () => *void* |
+| `listener` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:228
+#### Inherited from
 
-▸ **removeListener**(`event`: ``"pipe"``, `listener`: (`src`: *Readable*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[removeListener](http.outgoingmessage.md#removelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:228
+
+▸ **removeListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"pipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:229
+#### Inherited from
 
-▸ **removeListener**(`event`: ``"unpipe"``, `listener`: (`src`: *Readable*) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[removeListener](http.outgoingmessage.md#removelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:229
+
+▸ **removeListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `event` | ``"unpipe"`` |
-| `listener` | (`src`: *Readable*) => *void* |
+| `listener` | (`src`: `Readable`) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:230
+#### Inherited from
 
-▸ **removeListener**(`event`: *string* \| *symbol*, `listener`: (...`args`: *any*[]) => *void*): [*ClientRequest*](http.clientrequest.md)
+[OutgoingMessage](http.outgoingmessage.md).[removeListener](http.outgoingmessage.md#removelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:230
+
+▸ **removeListener**(`event`, `listener`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `event` | *string* \| *symbol* |
-| `listener` | (...`args`: *any*[]) => *void* |
+| `event` | `string` \| `symbol` |
+| `listener` | (...`args`: `any`[]) => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:231
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[removeListener](http.outgoingmessage.md#removelistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:231
 
 ___
 
 ### setDefaultEncoding
 
-▸ **setDefaultEncoding**(`encoding`: BufferEncoding): [*ClientRequest*](http.clientrequest.md)
+▸ **setDefaultEncoding**(`encoding`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `encoding` | BufferEncoding |
+| `encoding` | `BufferEncoding` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/stream.d.ts:159
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[setDefaultEncoding](http.outgoingmessage.md#setdefaultencoding)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:159
 
 ___
 
 ### setHeader
 
-▸ **setHeader**(`name`: *string*, `value`: *string* \| *number* \| readonly *string*[]): [*ClientRequest*](http.clientrequest.md)
+▸ **setHeader**(`name`, `value`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `name` | *string* |
-| `value` | *string* \| *number* \| readonly *string*[] |
+| `name` | `string` |
+| `value` | `string` \| `number` \| readonly `string`[] |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:178
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[setHeader](http.outgoingmessage.md#setheader)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:178
 
 ___
 
 ### setMaxListeners
 
-▸ **setMaxListeners**(`n`: *number*): [*ClientRequest*](http.clientrequest.md)
+▸ **setMaxListeners**(`n`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `n` | *number* |
+| `n` | `number` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/events.d.ts:78
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[setMaxListeners](http.outgoingmessage.md#setmaxlisteners)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:78
 
 ___
 
 ### setNoDelay
 
-▸ **setNoDelay**(`noDelay?`: *boolean*): *void*
+▸ **setNoDelay**(`noDelay?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `noDelay?` | *boolean* |
+| `noDelay?` | `boolean` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:229
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:229
 
 ___
 
 ### setSocketKeepAlive
 
-▸ **setSocketKeepAlive**(`enable?`: *boolean*, `initialDelay?`: *number*): *void*
+▸ **setSocketKeepAlive**(`enable?`, `initialDelay?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `enable?` | *boolean* |
-| `initialDelay?` | *number* |
+| `enable?` | `boolean` |
+| `initialDelay?` | `number` |
 
-**Returns:** *void*
+#### Returns
 
-Defined in: node_modules/@types/node/http.d.ts:230
+`void`
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:230
 
 ___
 
 ### setTimeout
 
-▸ **setTimeout**(`timeout`: *number*, `callback?`: () => *void*): [*ClientRequest*](http.clientrequest.md)
+▸ **setTimeout**(`timeout`, `callback?`): [ClientRequest](http.clientrequest.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `timeout` | *number* |
-| `callback?` | () => *void* |
+| `timeout` | `number` |
+| `callback?` | () => `void` |
 
-**Returns:** [*ClientRequest*](http.clientrequest.md)
+#### Returns
 
-Overrides: [OutgoingMessage](http.outgoingmessage.md)
+[ClientRequest](http.clientrequest.md)
 
-Defined in: node_modules/@types/node/http.d.ts:228
+#### Overrides
+
+[OutgoingMessage](http.outgoingmessage.md).[setTimeout](http.outgoingmessage.md#settimeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:228
 
 ___
 
 ### uncork
 
-▸ **uncork**(): *void*
+▸ **uncork**(): `void`
 
-**Returns:** *void*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`void`
 
-Defined in: node_modules/@types/node/stream.d.ts:164
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[uncork](http.outgoingmessage.md#uncork)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:164
 
 ___
 
 ### write
 
-▸ **write**(`chunk`: *any*, `cb?`: (`error`: Error) => *void*): *boolean*
+▸ **write**(`chunk`, `cb?`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `chunk` | *any* |
-| `cb?` | (`error`: Error) => *void* |
+| `chunk` | `any` |
+| `cb?` | (`error`: `undefined` \| ``null`` \| `Error`) => `void` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:157
+#### Inherited from
 
-▸ **write**(`chunk`: *any*, `encoding`: BufferEncoding, `cb?`: (`error`: Error) => *void*): *boolean*
+[OutgoingMessage](http.outgoingmessage.md).[write](http.outgoingmessage.md#write)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:157
+
+▸ **write**(`chunk`, `encoding`, `cb?`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `chunk` | *any* |
-| `encoding` | BufferEncoding |
-| `cb?` | (`error`: Error) => *void* |
+| `chunk` | `any` |
+| `encoding` | `BufferEncoding` |
+| `cb?` | (`error`: `undefined` \| ``null`` \| `Error`) => `void` |
 
-**Returns:** *boolean*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`boolean`
 
-Defined in: node_modules/@types/node/stream.d.ts:158
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[write](http.outgoingmessage.md#write)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/stream.d.ts:158
 
 ___
 
 ### getEventListener
 
-▸ `Static` **getEventListener**(`emitter`: *EventEmitter* \| DOMEventTarget, `name`: *string* \| *symbol*): Function[]
+▸ `Static` **getEventListener**(`emitter`, `name`): `Function`[]
 
 Returns a list listener for a specific emitter event name.
 
@@ -2351,20 +3189,26 @@ Returns a list listener for a specific emitter event name.
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | *EventEmitter* \| DOMEventTarget |
-| `name` | *string* \| *symbol* |
+| `emitter` | `EventEmitter` \| `DOMEventTarget` |
+| `name` | `string` \| `symbol` |
 
-**Returns:** Function[]
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`Function`[]
 
-Defined in: node_modules/@types/node/events.d.ts:34
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[getEventListener](http.outgoingmessage.md#geteventlistener)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:34
 
 ___
 
 ### listenerCount
 
-▸ `Static` **listenerCount**(`emitter`: *EventEmitter*, `event`: *string* \| *symbol*): *number*
+▸ `Static` **listenerCount**(`emitter`, `event`): `number`
 
 **`deprecated`** since v4.0.0
 
@@ -2372,67 +3216,91 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | *EventEmitter* |
-| `event` | *string* \| *symbol* |
+| `emitter` | `EventEmitter` |
+| `event` | `string` \| `symbol` |
 
-**Returns:** *number*
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`number`
 
-Defined in: node_modules/@types/node/events.d.ts:30
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[listenerCount](http.outgoingmessage.md#listenercount)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:30
 
 ___
 
 ### on
 
-▸ `Static` **on**(`emitter`: *EventEmitter*, `event`: *string*, `options?`: StaticEventEmitterOptions): *AsyncIterableIterator*<any\>
+▸ `Static` **on**(`emitter`, `event`, `options?`): `AsyncIterableIterator`<any\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | *EventEmitter* |
-| `event` | *string* |
-| `options?` | StaticEventEmitterOptions |
+| `emitter` | `EventEmitter` |
+| `event` | `string` |
+| `options?` | `StaticEventEmitterOptions` |
 
-**Returns:** *AsyncIterableIterator*<any\>
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`AsyncIterableIterator`<any\>
 
-Defined in: node_modules/@types/node/events.d.ts:27
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[on](http.outgoingmessage.md#on)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:27
 
 ___
 
 ### once
 
-▸ `Static` **once**(`emitter`: *NodeEventTarget*, `event`: *string* \| *symbol*, `options?`: StaticEventEmitterOptions): *Promise*<any[]\>
+▸ `Static` **once**(`emitter`, `event`, `options?`): `Promise`<any[]\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | *NodeEventTarget* |
-| `event` | *string* \| *symbol* |
-| `options?` | StaticEventEmitterOptions |
+| `emitter` | `NodeEventTarget` |
+| `event` | `string` \| `symbol` |
+| `options?` | `StaticEventEmitterOptions` |
 
-**Returns:** *Promise*<any[]\>
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`Promise`<any[]\>
 
-Defined in: node_modules/@types/node/events.d.ts:25
+#### Inherited from
 
-▸ `Static` **once**(`emitter`: DOMEventTarget, `event`: *string*, `options?`: StaticEventEmitterOptions): *Promise*<any[]\>
+[OutgoingMessage](http.outgoingmessage.md).[once](http.outgoingmessage.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:25
+
+▸ `Static` **once**(`emitter`, `event`, `options?`): `Promise`<any[]\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `emitter` | DOMEventTarget |
-| `event` | *string* |
-| `options?` | StaticEventEmitterOptions |
+| `emitter` | `DOMEventTarget` |
+| `event` | `string` |
+| `options?` | `StaticEventEmitterOptions` |
 
-**Returns:** *Promise*<any[]\>
+#### Returns
 
-Inherited from: [OutgoingMessage](http.outgoingmessage.md)
+`Promise`<any[]\>
 
-Defined in: node_modules/@types/node/events.d.ts:26
+#### Inherited from
+
+[OutgoingMessage](http.outgoingmessage.md).[once](http.outgoingmessage.md#once)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/events.d.ts:26

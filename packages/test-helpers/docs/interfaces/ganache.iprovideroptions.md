@@ -8,7 +8,7 @@
 
 - **IProviderOptions**
 
-  ↳ [*IServerOptions*](ganache.iserveroptions.md)
+  ↳ [IServerOptions](ganache.iserveroptions.md)
 
 ## Table of contents
 
@@ -46,97 +46,121 @@
 
 ### account\_keys\_path
 
-• `Optional` **account\_keys\_path**: *string*
+• `Optional` **account\_keys\_path**: `string`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:19
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:19
 
 ___
 
 ### accounts
 
-• `Optional` **accounts**: *object*[]
+• `Optional` **accounts**: `object`[]
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:20
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:20
 
 ___
 
 ### allowUnlimitedContractSize
 
-• `Optional` **allowUnlimitedContractSize**: *boolean*
+• `Optional` **allowUnlimitedContractSize**: `boolean`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:21
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:21
 
 ___
 
 ### blockTime
 
-• `Optional` **blockTime**: *number*
+• `Optional` **blockTime**: `number`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:22
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:22
 
 ___
 
 ### db\_path
 
-• `Optional` **db\_path**: *string*
+• `Optional` **db\_path**: `string`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:23
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:23
 
 ___
 
 ### debug
 
-• `Optional` **debug**: *boolean*
+• `Optional` **debug**: `boolean`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:24
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:24
 
 ___
 
 ### default\_balance\_ether
 
-• `Optional` **default\_balance\_ether**: *number*
+• `Optional` **default\_balance\_ether**: `number`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:25
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:25
 
 ___
 
 ### fork
 
-• `Optional` **fork**: *string* \| *object*
+• `Optional` **fork**: `string` \| `object`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:26
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:26
 
 ___
 
 ### forkCacheSize
 
-• `Optional` **forkCacheSize**: *number*
+• `Optional` **forkCacheSize**: `number`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:28
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:28
 
 ___
 
 ### fork\_block\_number
 
-• `Optional` **fork\_block\_number**: *string* \| *number*
+• `Optional` **fork\_block\_number**: `string` \| `number`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:27
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:27
 
 ___
 
 ### gasLimit
 
-• `Optional` **gasLimit**: *string* \| *number*
+• `Optional` **gasLimit**: `string` \| `number`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:29
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:29
 
 ___
 
 ### gasPrice
 
-• `Optional` **gasPrice**: *string*
+• `Optional` **gasPrice**: `string`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:30
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:30
 
 ___
 
@@ -144,122 +168,152 @@ ___
 
 • `Optional` **hardfork**: ``"byzantium"`` \| ``"constantinople"`` \| ``"petersburg"`` \| ``"istanbul"`` \| ``"muirGlacier"``
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:31
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:31
 
 ___
 
 ### hd\_path
 
-• `Optional` **hd\_path**: *string*
+• `Optional` **hd\_path**: `string`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:32
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:32
 
 ___
 
 ### locked
 
-• `Optional` **locked**: *boolean*
+• `Optional` **locked**: `boolean`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:33
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:33
 
 ___
 
 ### logger
 
-• `Optional` **logger**: *object*
+• `Optional` **logger**: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `log` | (`msg`: *string*) => *void* |
+| `log` | (`msg`: `string`) => `void` |
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:34
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:34
 
 ___
 
 ### mnemonic
 
-• `Optional` **mnemonic**: *string*
+• `Optional` **mnemonic**: `string`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:37
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:37
 
 ___
 
 ### networkId
 
-• `Optional` **networkId**: *number*
+• `Optional` **networkId**: `number`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:39
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:39
 
 ___
 
 ### network\_id
 
-• `Optional` **network\_id**: *number*
+• `Optional` **network\_id**: `number`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:38
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:38
 
 ___
 
 ### port
 
-• `Optional` **port**: *number*
+• `Optional` **port**: `number`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:40
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:40
 
 ___
 
 ### seed
 
-• `Optional` **seed**: *any*
+• `Optional` **seed**: `any`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:41
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:41
 
 ___
 
 ### time
 
-• `Optional` **time**: Date
+• `Optional` **time**: `Date`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:42
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:42
 
 ___
 
 ### total\_accounts
 
-• `Optional` **total\_accounts**: *number*
+• `Optional` **total\_accounts**: `number`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:43
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:43
 
 ___
 
 ### unlocked\_accounts
 
-• `Optional` **unlocked\_accounts**: *string*[]
+• `Optional` **unlocked\_accounts**: `string`[]
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:44
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:44
 
 ___
 
 ### verbose
 
-• `Optional` **verbose**: *boolean*
+• `Optional` **verbose**: `boolean`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:45
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:45
 
 ___
 
 ### vmErrorsOnRPCResponse
 
-• `Optional` **vmErrorsOnRPCResponse**: *boolean*
+• `Optional` **vmErrorsOnRPCResponse**: `boolean`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:46
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:46
 
 ___
 
 ### ws
 
-• `Optional` **ws**: *boolean*
+• `Optional` **ws**: `boolean`
 
-Defined in: node_modules/ganache-core/typings/index.d.ts:47
+#### Defined in
+
+test-helpers/node_modules/ganache-core/typings/index.d.ts:47

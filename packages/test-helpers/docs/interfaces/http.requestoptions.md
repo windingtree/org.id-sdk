@@ -6,7 +6,7 @@
 
 ## Hierarchy
 
-- [*ClientRequestArgs*](http.clientrequestargs.md)
+- [ClientRequestArgs](http.clientrequestargs.md)
 
   ↳ **RequestOptions**
 
@@ -38,203 +38,281 @@
 
 ### \_defaultAgent
 
-• `Optional` **\_defaultAgent**: [*Agent*](../classes/http.agent.md)
+• `Optional` **\_defaultAgent**: [Agent](../classes/http.agent.md)
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[_defaultAgent](http.clientrequestargs.md#_defaultagent)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:98
+[ClientRequestArgs](http.clientrequestargs.md).[_defaultAgent](http.clientrequestargs.md#_defaultagent)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:98
 
 ___
 
 ### abort
 
-• `Optional` **abort**: AbortSignal
+• `Optional` **abort**: `AbortSignal`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[abort](http.clientrequestargs.md#abort)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:80
+[ClientRequestArgs](http.clientrequestargs.md).[abort](http.clientrequestargs.md#abort)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:80
 
 ___
 
 ### agent
 
-• `Optional` **agent**: *boolean* \| [*Agent*](../classes/http.agent.md)
+• `Optional` **agent**: `boolean` \| [Agent](../classes/http.agent.md)
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[agent](http.clientrequestargs.md#agent)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:97
+[ClientRequestArgs](http.clientrequestargs.md).[agent](http.clientrequestargs.md#agent)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:97
 
 ___
 
 ### auth
 
-• `Optional` **auth**: *string*
+• `Optional` **auth**: ``null`` \| `string`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[auth](http.clientrequestargs.md#auth)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:96
+[ClientRequestArgs](http.clientrequestargs.md).[auth](http.clientrequestargs.md#auth)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:96
 
 ___
 
 ### createConnection
 
-• `Optional` **createConnection**: (`options`: [*ClientRequestArgs*](http.clientrequestargs.md), `oncreate`: (`err`: Error, `socket`: *Socket*) => *void*) => *Socket*
+• `Optional` **createConnection**: (`options`: [ClientRequestArgs](http.clientrequestargs.md), `oncreate`: (`err`: `Error`, `socket`: `Socket`) => `void`) => `Socket`
 
 #### Type declaration
 
-▸ (`options`: [*ClientRequestArgs*](http.clientrequestargs.md), `oncreate`: (`err`: Error, `socket`: *Socket*) => *void*): *Socket*
+▸ (`options`, `oncreate`): `Socket`
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [*ClientRequestArgs*](http.clientrequestargs.md) |
-| `oncreate` | (`err`: Error, `socket`: *Socket*) => *void* |
+| `options` | [ClientRequestArgs](http.clientrequestargs.md) |
+| `oncreate` | (`err`: `Error`, `socket`: `Socket`) => `void` |
 
-**Returns:** *Socket*
+##### Returns
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[createConnection](http.clientrequestargs.md#createconnection)
+`Socket`
 
-Defined in: node_modules/@types/node/http.d.ts:102
+#### Inherited from
+
+[ClientRequestArgs](http.clientrequestargs.md).[createConnection](http.clientrequestargs.md#createconnection)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:102
 
 ___
 
 ### defaultPort
 
-• `Optional` **defaultPort**: *string* \| *number*
+• `Optional` **defaultPort**: `string` \| `number`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[defaultPort](http.clientrequestargs.md#defaultport)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:86
+[ClientRequestArgs](http.clientrequestargs.md).[defaultPort](http.clientrequestargs.md#defaultport)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:86
 
 ___
 
 ### family
 
-• `Optional` **family**: *number*
+• `Optional` **family**: `number`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[family](http.clientrequestargs.md#family)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:84
+[ClientRequestArgs](http.clientrequestargs.md).[family](http.clientrequestargs.md#family)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:84
 
 ___
 
 ### headers
 
-• `Optional` **headers**: [*OutgoingHttpHeaders*](http.outgoinghttpheaders.md)
+• `Optional` **headers**: [OutgoingHttpHeaders](http.outgoinghttpheaders.md)
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[headers](http.clientrequestargs.md#headers)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:95
+[ClientRequestArgs](http.clientrequestargs.md).[headers](http.clientrequestargs.md#headers)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:95
 
 ___
 
 ### host
 
-• `Optional` **host**: *string*
+• `Optional` **host**: ``null`` \| `string`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[host](http.clientrequestargs.md#host)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:82
+[ClientRequestArgs](http.clientrequestargs.md).[host](http.clientrequestargs.md#host)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:82
 
 ___
 
 ### hostname
 
-• `Optional` **hostname**: *string*
+• `Optional` **hostname**: ``null`` \| `string`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[hostname](http.clientrequestargs.md#hostname)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:83
+[ClientRequestArgs](http.clientrequestargs.md).[hostname](http.clientrequestargs.md#hostname)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:83
 
 ___
 
 ### localAddress
 
-• `Optional` **localAddress**: *string*
+• `Optional` **localAddress**: `string`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[localAddress](http.clientrequestargs.md#localaddress)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:87
+[ClientRequestArgs](http.clientrequestargs.md).[localAddress](http.clientrequestargs.md#localaddress)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:87
 
 ___
 
 ### maxHeaderSize
 
-• `Optional` **maxHeaderSize**: *number*
+• `Optional` **maxHeaderSize**: `number`
 
 **`default`** 8192
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[maxHeaderSize](http.clientrequestargs.md#maxheadersize)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:92
+[ClientRequestArgs](http.clientrequestargs.md).[maxHeaderSize](http.clientrequestargs.md#maxheadersize)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:92
 
 ___
 
 ### method
 
-• `Optional` **method**: *string*
+• `Optional` **method**: `string`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[method](http.clientrequestargs.md#method)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:93
+[ClientRequestArgs](http.clientrequestargs.md).[method](http.clientrequestargs.md#method)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:93
 
 ___
 
 ### path
 
-• `Optional` **path**: *string*
+• `Optional` **path**: ``null`` \| `string`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[path](http.clientrequestargs.md#path)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:94
+[ClientRequestArgs](http.clientrequestargs.md).[path](http.clientrequestargs.md#path)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:94
 
 ___
 
 ### port
 
-• `Optional` **port**: *string* \| *number*
+• `Optional` **port**: ``null`` \| `string` \| `number`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[port](http.clientrequestargs.md#port)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:85
+[ClientRequestArgs](http.clientrequestargs.md).[port](http.clientrequestargs.md#port)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:85
 
 ___
 
 ### protocol
 
-• `Optional` **protocol**: *string*
+• `Optional` **protocol**: ``null`` \| `string`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[protocol](http.clientrequestargs.md#protocol)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:81
+[ClientRequestArgs](http.clientrequestargs.md).[protocol](http.clientrequestargs.md#protocol)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:81
 
 ___
 
 ### setHost
 
-• `Optional` **setHost**: *boolean*
+• `Optional` **setHost**: `boolean`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[setHost](http.clientrequestargs.md#sethost)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:100
+[ClientRequestArgs](http.clientrequestargs.md).[setHost](http.clientrequestargs.md#sethost)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:100
 
 ___
 
 ### socketPath
 
-• `Optional` **socketPath**: *string*
+• `Optional` **socketPath**: `string`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[socketPath](http.clientrequestargs.md#socketpath)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:88
+[ClientRequestArgs](http.clientrequestargs.md).[socketPath](http.clientrequestargs.md#socketpath)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:88
 
 ___
 
 ### timeout
 
-• `Optional` **timeout**: *number*
+• `Optional` **timeout**: `number`
 
-Inherited from: [ClientRequestArgs](http.clientrequestargs.md).[timeout](http.clientrequestargs.md#timeout)
+#### Inherited from
 
-Defined in: node_modules/@types/node/http.d.ts:99
+[ClientRequestArgs](http.clientrequestargs.md).[timeout](http.clientrequestargs.md#timeout)
+
+#### Defined in
+
+test-helpers/node_modules/@types/node/http.d.ts:99
