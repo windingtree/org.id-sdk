@@ -1,17 +1,18 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const contract = require('@truffle/contract');
-import type { ORGJSON } from '@windingtree/org.json-schema';
 import type { KeyPair } from '@windingtree/org.id-auth/dist/keys';
+import type { SignedVC } from '@windingtree/org.id-auth/dist/vc';
 import {
   generateSalt,
   generateOrgIdHash
 } from '@windingtree/org.id-utils/dist/common';
-import { generateKeyPair } from '@windingtree/org.id-auth/dist/keys';
+import { createVC } from '@windingtree/org.id-auth/dist/vc';
 import { createVerificationMethod } from '@windingtree/org.json-utils/dist/verificationMethod';
 import { OrgIdContract } from '@windingtree/org.id';
 import { ganache, DevelopmentServer } from './ganache';
 import { HttpFileServer, File } from './httpServer';
 import orgJsonTemplate from './data/legal-entity.json';
+import Ganache from 'ganache-core';
 
 export {
   generateSalt,
@@ -20,17 +21,18 @@ export {
 
 export interface OrgIdSetup {
   accounts: string[];
-  salts: string[];
-  keyPairs: KeyPair[];
   owner: string;
   address: string;
   server: DevelopmentServer;
   httpServer: HttpFileServer;
-  registerOrgId(orgIdOwner: string): Promise<string>;
+  registerOrgId(
+    orgIdOwner: string
+  ): Promise<OrgIdRegistrationResult>;
   buildOrgJson(
     did: string,
-    keyPair: KeyPair
-  ): Promise<ORGJSON>;
+    web3Provider: Ganache.Provider,
+    owner: string
+  ): Promise<SignedVC>;
   close(): Promise<void>;
 }
 
@@ -38,33 +40,58 @@ export interface ContractObject {
   createOrgId(salt: string, arg1: string, arg2: { from: string; }): Promise<any>;
 }
 
+export type OrgIdRegistrationResult = {
+  orgIdHash: string;
+  orgJson: SignedVC;
+};
+
 export const buildOrgJson = async (
   did: string,
-  keyPair: KeyPair
-): Promise<ORGJSON> => {
-  const data = JSON.parse(JSON.stringify(orgJsonTemplate));
-  data.verificationMethod.push(
+  web3Provider: Ganache.Provider,
+  owner: string
+): Promise<SignedVC> => {
+  const orgJson = JSON.parse(JSON.stringify(orgJsonTemplate));
+  const issuer = `${did}#key-1`;
+  orgJson.id = did;
+  orgJson.created = new Date().toISOString();
+  orgJson.updated = new Date().toISOString();
+  orgJson.verificationMethod.push(
     await createVerificationMethod(
-      `${did}#key-1`,
+      issuer,
       did,
       keyPair.publicKey
     )
   );
-  return data;
+  const vc: SignedVC = await createVC(
+    issuer,
+    'ORG.JSON'
+  )
+    .setCredentialSubject(orgJson)
+    .signWithWeb3Provider(
+      web3Provider,
+      owner
+    );
+  return vc;
 };
 
 export const registerOrgId = async (
+  server: DevelopmentServer,
   contract: ContractObject,
   httpServer: HttpFileServer,
-  owner: string,
-  orgJsonFile?: File
-): Promise<string> => {
+  owner: string
+): Promise<OrgIdRegistrationResult> => {
   const salt = generateSalt();
-  const fileToAdd = orgJsonFile || {
+  const orgIdHash = generateOrgIdHash(owner, salt);
+  const orgJson = await buildOrgJson(
+    `did:orgid:test:${orgIdHash}`,
+    server.server.provider,
+    owner
+  );
+  const fileToAdd: File = {
     type: 'json',
-    path: `${salt}.json`,
-    content: '{"test":"test"}'
-  }
+    path: `${orgIdHash}.json`,
+    content: JSON.stringify(orgJson)
+  };
   const file = httpServer.addFile(fileToAdd);
   const result = await contract.createOrgId(
     salt,
@@ -74,7 +101,10 @@ export const registerOrgId = async (
     }
   );
   const event = result.logs.filter(e => e.event === 'OrgIdCreated')[0];
-  return event.args.orgId;
+  return {
+    orgIdHash: event.args.orgId,
+    orgJson
+  };
 }
 
 export const orgIdSetup = async (): Promise<OrgIdSetup> => {
@@ -93,27 +123,18 @@ export const orgIdSetup = async (): Promise<OrgIdSetup> => {
     from: owner
   });
 
-  const salts = accounts.map(_ => generateSalt());
-
-  const keyPairs = await Promise.all(
-    accounts.map(_ => generateKeyPair(
-      'EcdsaSecp256k1VerificationKey2019'
-    ))
-  );
-
   // Set up Http server
   const httpServer = new HttpFileServer();
   httpServer.start();
 
   return {
     accounts,
-    salts,
-    keyPairs,
     owner,
     address: orgIdContract.address,
     server,
     httpServer,
     registerOrgId: orgIdOwner => registerOrgId(
+      server,
       orgIdContract,
       httpServer,
       orgIdOwner

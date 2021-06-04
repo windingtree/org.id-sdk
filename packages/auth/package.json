@@ -40,9 +40,11 @@
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/auth#readme",
   "dependencies": {
     "jose": "3.12.3",
-    "@windingtree/org.id-utils": "0.2.11",
-    "@windingtree/org.json-schema": "0.5.5-beta",
-    "luxon": "1.27.0"
+    "@windingtree/org.id-utils": "0.2.12",
+    "@windingtree/org.json-schema": "0.5.6-beta",
+    "luxon": "1.27.0",
+    "web3": "1.3.6",
+    "base64-js": "1.5.1"
   },
   "devDependencies": {
     "@types/jest": "26.0.23",

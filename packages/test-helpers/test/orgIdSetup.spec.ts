@@ -11,7 +11,6 @@ describe('OrgId setup', () => {
 
   beforeAll(async () => {
     setup = await orgIdSetup();
-    console.log(setup);
   });
 
   afterAll(async () => {
@@ -46,8 +45,12 @@ describe('OrgId setup', () => {
 
       test('should register new orgId', async () => {
         const owner = setup.accounts[2];
-        const orgIdHash = await setup.registerOrgId(owner);
+        const {
+          orgIdHash,
+          orgJson
+        } = await setup.registerOrgId(owner);
         expect(/^0x[a-fA-F0-9]{64}$/.exec(orgIdHash)).not.toBeNull();
+        console.log(JSON.stringify(orgJson, null, 2));
       });
     });
   });

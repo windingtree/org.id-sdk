@@ -27,13 +27,10 @@ export interface DidVerificationMethod {
   note?: string;
 }
 
-export const createVerificationMethod = async (
+export const validateIdAndController = (
   id: string,
-  controller: string,
-  key: KeyLike | JWK,
-  note?: string
-): Promise<DidVerificationMethod> => {
-
+  controller: string
+): void => {
   if (!regexp.did.exec(id)) {
     throw new Error(`Wrong DID format: ${id}`);
   }
@@ -47,6 +44,44 @@ export const createVerificationMethod = async (
   if (!regexp.did.exec(controller)) {
     throw new Error(`Wrong controllers' DID format: ${controller}`);
   }
+};
+
+export const createVerificationMethodWithBlockchainAccountId = async (
+  id: string,
+  controller: string,
+  blockchainAccountId: string,
+  note?: string
+): Promise<DidVerificationMethod> => {
+  validateIdAndController(id, controller);
+
+  if (!regexp.blockchainAccountId.exec(blockchainAccountId)) {
+    throw new Error(
+      `Blockchain account Id has wrong format: ${blockchainAccountId}`
+    );
+  }
+
+  return {
+    id,
+    controller,
+    type: 'EcdsaSecp256k1RecoveryMethod2020',
+    blockchainAccountId,
+    ...(
+      note
+        ? {
+          note
+        }
+        : {}
+    )
+  };
+};
+
+export const createVerificationMethodWithKey = async (
+  id: string,
+  controller: string,
+  key: KeyLike | JWK,
+  note?: string
+): Promise<DidVerificationMethod> => {
+  validateIdAndController(id, controller);
 
   let type: string;
   let publicKeyJwk: JWK;

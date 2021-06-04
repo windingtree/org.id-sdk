@@ -40,13 +40,14 @@ export type KeysAlgConfig = {
     jws: boolean,
     crv?: string,
     modulusLength?: number
-}
+};
 
 export const KeyTypes: VerificationMethodType[] = [
   'EcdsaSecp256k1VerificationKey2019',
   'Ed25519VerificationKey2018',
   'RsaVerificationKey2018',
   'X25519KeyAgreementKey2019',
+  'EcdsaSecp256k1RecoveryMethod2020',
 ];
 
 export const keyTypeConfig: {

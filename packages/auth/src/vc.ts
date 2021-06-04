@@ -4,16 +4,21 @@ import type {
   JWK,
   VerificationMethodType
 } from './keys';
-import {
-  getAlgFromJWK,
-  keyTypeFromJWK,
-  createJWK
-} from './keys';
 import type {
   VCTypedHolderReference,
   CredentialReference,
   VCProofReference
 } from '@windingtree/org.json-schema';
+import type {
+  HttpProvider,
+  WebsocketProvider,
+  IpcProvider
+}  from 'web3-core';
+import {
+  getAlgFromJWK,
+  keyTypeFromJWK,
+  createJWK
+} from './keys';
 import {
   regexp,
   uid,
@@ -23,12 +28,18 @@ import { DateTime } from  'luxon';
 import { parseJwk } from 'jose/jwk/parse';
 import { CompactSign } from 'jose/jws/compact/sign';
 import { compactVerify } from 'jose/jws/compact/verify';
+import base64 from 'base64-js';
 
 export type {
   VCTypedHolderReference,
   CredentialReference,
   VCProofReference
 }
+
+export type WebProvider =
+  | HttpProvider
+  | WebsocketProvider
+  | IpcProvider;
 
 export interface SignedVC extends CredentialReference {
   proof: VCProofReference
@@ -58,11 +69,79 @@ export interface VCBuilderChain {
   sign(
     privateKey: KeyLike | JWK
   ): Promise<SignedVC>;
+  signWithWeb3Provider(
+    web3Provider: WebProvider,
+    ownerAddress: string
+  ): Promise<SignedVC>;
 }
 
 export interface DidGroupedCheckResult {
   did?: string;
   fragment?: string;
+}
+
+export const signWithWeb3Provider = async (
+  web3Provider: WebProvider,
+  from: string,
+  verificationMethod: string,
+  payload: string | { [k: string]: unknown }
+): Promise<string> => {
+  const encoder = new TextEncoder();
+
+  const encodedHeader = encoder.encode(
+    JSON.stringify({
+      alg: 'ES256K',
+      kid: verificationMethod,
+      typ: 'JWS'
+    })
+  );
+
+  const encodedPayload = encoder.encode(
+    typeof payload === 'object'
+      ? JSON.stringify(payload)
+      : payload
+  );
+
+  const unsignedData =
+    `${base64.fromByteArray(encodedHeader)}.${base64.fromByteArray(encodedPayload)}`;
+
+  const params = [
+    unsignedData,
+    from
+  ];
+
+  const signature: string = await new Promise((resolve, reject) => {
+    web3Provider.send(
+      {
+        jsonrpc: '2.0',
+        method: 'personal_sign',
+        params,
+        id: new Date().getTime()
+      },
+      (error: Error | null, result) => {
+        if (error) {
+          return reject(error);
+        }
+        if (typeof result === 'undefined') {
+          throw new Error('Unable to get a signature');
+        }
+        if (result.error) {
+          throw new Error(result.error);
+        }
+        resolve(result.result);
+      }
+    );
+  });
+
+  let signatureString = '';
+
+  for (let i = 2; i < signature.length; i += 2) {
+    signatureString += String.fromCharCode(parseInt(signature.substring(i, i + 2), 16))
+  }
+
+  const encodedSignature = encoder.encode(signatureString);
+
+  return `${unsignedData}.${base64.fromByteArray(encodedSignature)}`;
 }
 
 // Utility that used for creation of the holder data
