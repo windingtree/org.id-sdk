@@ -1070,12 +1070,34 @@
     "@typescript-eslint/types" "4.26.0"
     eslint-visitor-keys "^2.0.0"
 
+"@windingtree/org.id-auth@0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-auth/-/org.id-auth-0.2.2.tgz#60fa05c572d254193cfd8b3cc3f12e8a060ee33a"
+  integrity sha512-8kmEzBEC3Hfh4UR5BtgA6bXJq8tPwEWhkT2A8GbRorDFgu7yq7NlSheWJ/H0ylXVkWyTsWpePjB35iLlmNz4fQ==
+  dependencies:
+    "@windingtree/org.id-utils" "0.2.11"
+    "@windingtree/org.json-schema" "0.5.5-beta"
+    jose "3.12.3"
+    luxon "1.27.0"
+
+"@windingtree/org.id-utils@0.2.11":
+  version "0.2.11"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-utils/-/org.id-utils-0.2.11.tgz#c428f1fb1f891e7a1c83b0c64004b852d6117619"
+  integrity sha512-dDHwNvTQbjL1lzxTNTSBR6rlsWkHdUnZdwIQ6Hd3UATtE9Q5B5+3hs1rSurA3e1f90cRe1HOZFz0nc5J7V8rNw==
+  dependencies:
+    axios "0.21.1"
+
 "@windingtree/org.id@2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@windingtree/org.id/-/org.id-2.0.0.tgz#886d4e9175fcf5a8900670ab6f7944e62f21e7e5"
   integrity sha512-8KrHXlMOqMl1mu7SYJnDAsAR5EuJsNUHLlbEJhZk3A9vTMLIeT9BlQi3KCxo1Qrkd4Ix/Cq13VI3OZKXqpOI3Q==
   dependencies:
     "@openzeppelin/contracts" "2.5.0"
+
+"@windingtree/org.json-schema@0.5.5-beta":
+  version "0.5.5-beta"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.5-beta.tgz#96ffcc89a394558b0f2dd90299bb8564c7ece208"
+  integrity sha512-zqybo/WsLVWCEa2Rkn7MqicdilP2DOaHYSbtaTe+mVidSP7o5RSOxBRQ3nJSFmdxcVxnj/jr5ia4NFaDhNvMQQ==
 
 "@yarnpkg/lockfile@^1.1.0":
   version "1.1.0"
@@ -5503,6 +5525,11 @@ jest@27.0.3:
     import-local "^3.0.2"
     jest-cli "^27.0.3"
 
+jose@3.12.3:
+  version "3.12.3"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-3.12.3.tgz#9101a95d91b5ddb995e9f4033d3f4a20ff720d01"
+  integrity sha512-PtT5I/omolkItXxKu+BhyrBhoYpmJAIPiG+W00BwZ4I3gT9rl8pLnK5cs2ha0LAknMxLVvM3UexcuYwNUkQ7aw==
+
 js-sha3@0.5.7, js-sha3@^0.5.7:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/js-sha3/-/js-sha3-0.5.7.tgz#0d4ffd8002d5333aabaf4a23eed2f6374c9f28e7"
@@ -6009,6 +6036,11 @@ lunr@^2.3.9:
   version "2.3.9"
   resolved "https://registry.yarnpkg.com/lunr/-/lunr-2.3.9.tgz#18b123142832337dd6e964df1a5a7707b25d35e1"
   integrity sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==
+
+luxon@1.27.0:
+  version "1.27.0"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.27.0.tgz#ae10c69113d85dab8f15f5e8390d0cbeddf4f00f"
+  integrity sha512-VKsFsPggTA0DvnxtJdiExAucKdAnwbCCNlMM5ENvHlxubqWd0xhZcdb4XgZ7QFNhaRhilXCFxHuoObP5BNA4PA==
 
 make-dir@^3.0.0:
   version "3.1.0"

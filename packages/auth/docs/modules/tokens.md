@@ -17,38 +17,46 @@
 
 ### createAuthJWT
 
-▸ `Const` **createAuthJWT**(`privateKey`: [*JWK*](../interfaces/keys.jwk.md) \| [*KeyLike*](keys.md#keylike), `issuer`: *string*, `audience`: *string*, `scope?`: *string* \| *string*[], `expiration?`: *string*): *Promise*<string\>
+▸ `Const` **createAuthJWT**(`privateKey`, `issuer`, `audience`, `scope?`, `expiration?`): `Promise`<string\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `privateKey` | [*JWK*](../interfaces/keys.jwk.md) \| [*KeyLike*](keys.md#keylike) |
-| `issuer` | *string* |
-| `audience` | *string* |
-| `scope?` | *string* \| *string*[] |
-| `expiration?` | *string* |
+| `privateKey` | [JWK](../interfaces/keys.jwk.md) \| [KeyLike](keys.md#keylike) |
+| `issuer` | `string` |
+| `audience` | `string` |
+| `scope?` | `string` \| `string`[] |
+| `expiration?` | `string` |
 
-**Returns:** *Promise*<string\>
+#### Returns
 
-Defined in: [src/tokens.ts:25](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/tokens.ts#L25)
+`Promise`<string\>
+
+#### Defined in
+
+[src/tokens.ts:25](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/tokens.ts#L25)
 
 ___
 
 ### verifyAuthJWT
 
-▸ `Const` **verifyAuthJWT**(`jwt`: *string*, `publicKey`: [*JWK*](../interfaces/keys.jwk.md) \| [*KeyLike*](keys.md#keylike), `issuer`: *string*, `audience`: *string*, `scope?`: *string* \| *string*[]): *Promise*<[*JWTVerifyResult*](../interfaces/tokens.jwtverifyresult.md)\>
+▸ `Const` **verifyAuthJWT**(`jwt`, `publicKey`, `issuer`, `audience`, `scope?`): `Promise`<[JWTVerifyResult](../interfaces/tokens.jwtverifyresult.md)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `jwt` | *string* |
-| `publicKey` | [*JWK*](../interfaces/keys.jwk.md) \| [*KeyLike*](keys.md#keylike) |
-| `issuer` | *string* |
-| `audience` | *string* |
-| `scope?` | *string* \| *string*[] |
+| `jwt` | `string` |
+| `publicKey` | [JWK](../interfaces/keys.jwk.md) \| [KeyLike](keys.md#keylike) |
+| `issuer` | `string` |
+| `audience` | `string` |
+| `scope?` | `string` \| `string`[] |
 
-**Returns:** *Promise*<[*JWTVerifyResult*](../interfaces/tokens.jwtverifyresult.md)\>
+#### Returns
 
-Defined in: [src/tokens.ts:98](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/tokens.ts#L98)
+`Promise`<[JWTVerifyResult](../interfaces/tokens.jwtverifyresult.md)\>
+
+#### Defined in
+
+[src/tokens.ts:102](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/tokens.ts#L102)

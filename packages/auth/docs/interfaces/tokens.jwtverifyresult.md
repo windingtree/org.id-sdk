@@ -15,14 +15,18 @@
 
 ### payload
 
-• **payload**: JWTPayload
+• **payload**: `JWTPayload`
 
-Defined in: [src/tokens.ts:20](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/tokens.ts#L20)
+#### Defined in
+
+[src/tokens.ts:20](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/tokens.ts#L20)
 
 ___
 
 ### protectedHeader
 
-• **protectedHeader**: JWSHeaderParameters
+• **protectedHeader**: `JWSHeaderParameters`
 
-Defined in: [src/tokens.ts:21](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/tokens.ts#L21)
+#### Defined in
+
+[src/tokens.ts:21](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/tokens.ts#L21)

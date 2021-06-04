@@ -26,6 +26,12 @@ export type {
   JWK
 }
 
+export type KeyLikeType = 'privateKey' | 'publicKey';
+
+export type KeyPair = {
+  [k in KeyLikeType]: KeyLike;
+};
+
 export type VerificationMethodType = VerificationMethodReference['type'];
 
 export type KeysAlgConfig = {
@@ -151,10 +157,7 @@ export const getAlgFromJWK = (
 export const generateKeyPair = (
   type: string,
   options: GenerateKeyPairOptions = {},
-): Promise<{
-  privateKey: KeyLike,
-  publicKey: KeyLike,
-}> => {
+): Promise<KeyPair> => {
   const algConfig: KeysAlgConfig = keyTypeConfig[type];
 
   if (!algConfig) {

@@ -6,8 +6,13 @@
 
 ### Interfaces
 
+- [CredentialReference](../interfaces/vc.credentialreference.md)
+- [CredentialSubject](../interfaces/vc.credentialsubject.md)
+- [DidGroupedCheckResult](../interfaces/vc.didgroupedcheckresult.md)
 - [SignedVC](../interfaces/vc.signedvc.md)
 - [VCBuilderChain](../interfaces/vc.vcbuilderchain.md)
+- [VCProofReference](../interfaces/vc.vcproofreference.md)
+- [VCTypedHolderReference](../interfaces/vc.vctypedholderreference.md)
 
 ### Functions
 
@@ -23,115 +28,143 @@
 
 ### buildHolderUtil
 
-▸ `Const` **buildHolderUtil**(`holder`: *string*, `type?`: *string*): *string* \| VCTypedHolderReference
+▸ `Const` **buildHolderUtil**(`holder`, `type?`): `string` \| [VCTypedHolderReference](../interfaces/vc.vctypedholderreference.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `holder` | *string* |
-| `type?` | *string* |
+| `holder` | `string` |
+| `type?` | `string` |
 
-**Returns:** *string* \| VCTypedHolderReference
+#### Returns
 
-Defined in: [src/vc.ts:55](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/vc.ts#L55)
+`string` \| [VCTypedHolderReference](../interfaces/vc.vctypedholderreference.md)
+
+#### Defined in
+
+[src/vc.ts:69](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L69)
 
 ___
 
 ### buildProofUtil
 
-▸ `Const` **buildProofUtil**(`jws`: *string*, `type`: ``"JsonWebKey2020"`` \| ``"EcdsaSecp256k1VerificationKey2019"`` \| ``"Ed25519VerificationKey2018"`` \| ``"RsaVerificationKey2018"`` \| ``"X25519KeyAgreementKey2019"``, `verificationMethod`: *string*): VCProofReference
+▸ `Const` **buildProofUtil**(`jws`, `type`, `verificationMethod`): [VCProofReference](../interfaces/vc.vcproofreference.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `jws` | *string* |
+| `jws` | `string` |
 | `type` | ``"JsonWebKey2020"`` \| ``"EcdsaSecp256k1VerificationKey2019"`` \| ``"Ed25519VerificationKey2018"`` \| ``"RsaVerificationKey2018"`` \| ``"X25519KeyAgreementKey2019"`` |
-| `verificationMethod` | *string* |
+| `verificationMethod` | `string` |
 
-**Returns:** VCProofReference
+#### Returns
 
-Defined in: [src/vc.ts:86](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/vc.ts#L86)
+[VCProofReference](../interfaces/vc.vcproofreference.md)
+
+#### Defined in
+
+[src/vc.ts:100](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L100)
 
 ___
 
 ### checkDateUtil
 
-▸ `Const` **checkDateUtil**(`date`: *string*): *DateTime*
+▸ `Const` **checkDateUtil**(`date`): `DateTime`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `date` | *string* |
+| `date` | `string` |
 
-**Returns:** *DateTime*
+#### Returns
 
-Defined in: [src/vc.ts:74](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/vc.ts#L74)
+`DateTime`
+
+#### Defined in
+
+[src/vc.ts:88](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L88)
 
 ___
 
 ### createVC
 
-▸ `Const` **createVC**(`issuer`: *string*, `type`: *string* \| *string*[]): [*VCBuilderChain*](../interfaces/vc.vcbuilderchain.md)
+▸ `Const` **createVC**(`issuer`, `type`): [VCBuilderChain](../interfaces/vc.vcbuilderchain.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `issuer` | *string* |
-| `type` | *string* \| *string*[] |
+| `issuer` | `string` |
+| `type` | `undefined` \| `string` \| `string`[] |
 
-**Returns:** [*VCBuilderChain*](../interfaces/vc.vcbuilderchain.md)
+#### Returns
 
-Defined in: [src/vc.ts:106](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/vc.ts#L106)
+[VCBuilderChain](../interfaces/vc.vcbuilderchain.md)
+
+#### Defined in
+
+[src/vc.ts:120](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L120)
 
 ___
 
 ### isExpired
 
-▸ `Const` **isExpired**(`vc`: CredentialReference): *boolean*
+▸ `Const` **isExpired**(`vc`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `vc` | CredentialReference |
+| `vc` | [CredentialReference](../interfaces/vc.credentialreference.md) |
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: [src/vc.ts:375](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/vc.ts#L375)
+`boolean`
+
+#### Defined in
+
+[src/vc.ts:395](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L395)
 
 ___
 
 ### isValidFromUntil
 
-▸ `Const` **isValidFromUntil**(`vc`: CredentialReference): *boolean*
+▸ `Const` **isValidFromUntil**(`vc`): `boolean`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `vc` | CredentialReference |
+| `vc` | [CredentialReference](../interfaces/vc.credentialreference.md) |
 
-**Returns:** *boolean*
+#### Returns
 
-Defined in: [src/vc.ts:382](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/vc.ts#L382)
+`boolean`
+
+#### Defined in
+
+[src/vc.ts:402](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L402)
 
 ___
 
 ### verifyVC
 
-▸ `Const` **verifyVC**(`vc`: [*SignedVC*](../interfaces/vc.signedvc.md), `publicKey`: [*JWK*](../interfaces/keys.jwk.md) \| [*KeyLike*](keys.md#keylike)): *Promise*<CredentialReference\>
+▸ `Const` **verifyVC**(`vc`, `publicKey`): `Promise`<[CredentialReference](../interfaces/vc.credentialreference.md)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `vc` | [*SignedVC*](../interfaces/vc.signedvc.md) |
-| `publicKey` | [*JWK*](../interfaces/keys.jwk.md) \| [*KeyLike*](keys.md#keylike) |
+| `vc` | [SignedVC](../interfaces/vc.signedvc.md) |
+| `publicKey` | [JWK](../interfaces/keys.jwk.md) \| [KeyLike](keys.md#keylike) |
 
-**Returns:** *Promise*<CredentialReference\>
+#### Returns
 
-Defined in: [src/vc.ts:335](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/vc.ts#L335)
+`Promise`<[CredentialReference](../interfaces/vc.credentialreference.md)\>
+
+#### Defined in
+
+[src/vc.ts:355](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L355)

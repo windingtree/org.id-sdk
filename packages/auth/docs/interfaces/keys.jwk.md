@@ -36,182 +36,228 @@
 
 ### alg
 
-• `Optional` **alg**: *string*
+• `Optional` **alg**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:4
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:4
 
 ___
 
 ### crv
 
-• `Optional` **crv**: *string*
+• `Optional` **crv**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:5
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:5
 
 ___
 
 ### d
 
-• `Optional` **d**: *string*
+• `Optional` **d**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:6
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:6
 
 ___
 
 ### dp
 
-• `Optional` **dp**: *string*
+• `Optional` **dp**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:7
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:7
 
 ___
 
 ### dq
 
-• `Optional` **dq**: *string*
+• `Optional` **dq**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:8
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:8
 
 ___
 
 ### e
 
-• `Optional` **e**: *string*
+• `Optional` **e**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:9
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:9
 
 ___
 
 ### ext
 
-• `Optional` **ext**: *boolean*
+• `Optional` **ext**: `boolean`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:10
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:10
 
 ___
 
 ### k
 
-• `Optional` **k**: *string*
+• `Optional` **k**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:11
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:11
 
 ___
 
 ### key\_ops
 
-• `Optional` **key\_ops**: *string*[]
+• `Optional` **key\_ops**: `string`[]
 
-Defined in: node_modules/jose/dist/types/types.d.ts:12
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:12
 
 ___
 
 ### kid
 
-• `Optional` **kid**: *string*
+• `Optional` **kid**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:13
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:13
 
 ___
 
 ### kty
 
-• `Optional` **kty**: *string*
+• `Optional` **kty**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:14
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:14
 
 ___
 
 ### n
 
-• `Optional` **n**: *string*
+• `Optional` **n**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:15
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:15
 
 ___
 
 ### oth
 
-• `Optional` **oth**: { `d?`: *string* ; `r?`: *string* ; `t?`: *string*  }[]
+• `Optional` **oth**: { `d?`: `string` ; `r?`: `string` ; `t?`: `string`  }[]
 
-Defined in: node_modules/jose/dist/types/types.d.ts:16
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:16
 
 ___
 
 ### p
 
-• `Optional` **p**: *string*
+• `Optional` **p**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:21
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:21
 
 ___
 
 ### q
 
-• `Optional` **q**: *string*
+• `Optional` **q**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:22
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:22
 
 ___
 
 ### qi
 
-• `Optional` **qi**: *string*
+• `Optional` **qi**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:23
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:23
 
 ___
 
 ### use
 
-• `Optional` **use**: *string*
+• `Optional` **use**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:24
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:24
 
 ___
 
 ### x
 
-• `Optional` **x**: *string*
+• `Optional` **x**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:25
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:25
 
 ___
 
 ### x5c
 
-• `Optional` **x5c**: *string*[]
+• `Optional` **x5c**: `string`[]
 
-Defined in: node_modules/jose/dist/types/types.d.ts:27
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:27
 
 ___
 
 ### x5t
 
-• `Optional` **x5t**: *string*
+• `Optional` **x5t**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:28
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:28
 
 ___
 
 ### x5t#S256
 
-• `Optional` **x5t#S256**: *string*
+• `Optional` **x5t#S256**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:28
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:28
 
 ___
 
 ### x5u
 
-• `Optional` **x5u**: *string*
+• `Optional` **x5u**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:30
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:30
 
 ___
 
 ### y
 
-• `Optional` **y**: *string*
+• `Optional` **y**: `string`
 
-Defined in: node_modules/jose/dist/types/types.d.ts:26
+#### Defined in
+
+node_modules/jose/dist/types/types.d.ts:26

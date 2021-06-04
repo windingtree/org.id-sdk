@@ -25,71 +25,87 @@
 
 ### constructor
 
-\+ `Private` **new KeyObject**(): [*KeyObject*](keys.keyobject.md)
+• `Private` **new KeyObject**()
 
-**Returns:** [*KeyObject*](keys.keyobject.md)
+#### Defined in
 
-Defined in: node_modules/@types/node/crypto.d.ts:200
+node_modules/@types/node/crypto.d.ts:200
 
 ## Properties
 
 ### asymmetricKeySize
 
-• `Optional` **asymmetricKeySize**: *number*
+• `Optional` **asymmetricKeySize**: `number`
 
 For asymmetric keys, this property represents the size of the embedded key in
 bytes. This property is `undefined` for symmetric keys.
 
-Defined in: node_modules/@types/node/crypto.d.ts:207
+#### Defined in
+
+node_modules/@types/node/crypto.d.ts:207
 
 ___
 
 ### asymmetricKeyType
 
-• `Optional` **asymmetricKeyType**: KeyType
+• `Optional` **asymmetricKeyType**: `KeyType`
 
-Defined in: node_modules/@types/node/crypto.d.ts:202
+#### Defined in
+
+node_modules/@types/node/crypto.d.ts:202
 
 ___
 
 ### symmetricKeySize
 
-• `Optional` **symmetricKeySize**: *number*
+• `Optional` **symmetricKeySize**: `number`
 
-Defined in: node_modules/@types/node/crypto.d.ts:210
+#### Defined in
+
+node_modules/@types/node/crypto.d.ts:210
 
 ___
 
 ### type
 
-• **type**: KeyObjectType
+• **type**: `KeyObjectType`
 
-Defined in: node_modules/@types/node/crypto.d.ts:211
+#### Defined in
+
+node_modules/@types/node/crypto.d.ts:211
 
 ## Methods
 
 ### export
 
-▸ **export**(`options`: *KeyExportOptions*<``"pem"``\>): *string* \| *Buffer*
+▸ **export**(`options`): `string` \| `Buffer`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | *KeyExportOptions*<``"pem"``\> |
+| `options` | `KeyExportOptions`<``"pem"``\> |
 
-**Returns:** *string* \| *Buffer*
+#### Returns
 
-Defined in: node_modules/@types/node/crypto.d.ts:208
+`string` \| `Buffer`
 
-▸ **export**(`options?`: *KeyExportOptions*<``"der"``\>): *Buffer*
+#### Defined in
+
+node_modules/@types/node/crypto.d.ts:208
+
+▸ **export**(`options?`): `Buffer`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options?` | *KeyExportOptions*<``"der"``\> |
+| `options?` | `KeyExportOptions`<``"der"``\> |
 
-**Returns:** *Buffer*
+#### Returns
 
-Defined in: node_modules/@types/node/crypto.d.ts:209
+`Buffer`
+
+#### Defined in
+
+node_modules/@types/node/crypto.d.ts:209

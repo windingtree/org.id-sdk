@@ -1,17 +1,40 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const contract = require('@truffle/contract');
-import Web3 from 'web3';
 import { OrgIdContract } from '@windingtree/org.id';
+import type { ORGJSON } from '@windingtree/org.json-schema';
+import {
+  generateSalt,
+  generateOrgIdHash
+} from '@windingtree/org.id-utils/dist/common';
+import { generateKeyPair, KeyLike } from '@windingtree/org.id-auth/dist/keys';
+import { createVerificationMethod } from '@windingtree/org.json-utils/dist/verificationMethod';
 import { ganache, DevelopmentServer } from './ganache';
 import { HttpFileServer, File } from './httpServer';
+import orgJsonTemplate from './data/legal-entity.json';
+
+export {
+  generateSalt,
+  generateOrgIdHash
+}
+
+export type KeyLikeType = 'privateKey' | 'publicKey';
+export type KeyPair = {
+  [k in KeyLikeType]: KeyLike;
+};
 
 export interface OrgIdSetup {
   accounts: string[];
+  salts: string[];
+  keyPairs: KeyPair[];
   owner: string;
   address: string;
   server: DevelopmentServer;
   httpServer: HttpFileServer;
   registerOrgId(orgIdOwner: string): Promise<string>;
+  buildOrgJson(
+    did: string,
+    keyPair: KeyPair
+  ): Promise<ORGJSON>;
   close(): Promise<void>;
 }
 
@@ -19,9 +42,22 @@ export interface ContractObject {
   createOrgId(salt: string, arg1: string, arg2: { from: string; }): Promise<any>;
 }
 
-export const generateSalt = (): string => Web3.utils.keccak256(Math.random().toString());
+export const buildOrgJson = async (
+  did: string,
+  keyPair: KeyPair
+): Promise<ORGJSON> => {
+  const data = JSON.parse(JSON.stringify(orgJsonTemplate));
+  data.verificationMethod.push(
+    await createVerificationMethod(
+      `${did}#key-1`,
+      did,
+      keyPair.publicKey
+    )
+  );
+  return data;
+};
 
-const registerOrgId = async (
+export const registerOrgId = async (
   contract: ContractObject,
   httpServer: HttpFileServer,
   owner: string,
@@ -61,12 +97,22 @@ export const orgIdSetup = async (): Promise<OrgIdSetup> => {
     from: owner
   });
 
+  const salts = accounts.map(_ => generateSalt());
+
+  const keyPairs = await Promise.all(
+    accounts.map(_ => generateKeyPair(
+      'EcdsaSecp256k1VerificationKey2019'
+    ))
+  );
+
   // Set up Http server
   const httpServer = new HttpFileServer();
   httpServer.start();
 
   return {
     accounts,
+    salts,
+    keyPairs,
     owner,
     address: orgIdContract.address,
     server,
@@ -76,6 +122,7 @@ export const orgIdSetup = async (): Promise<OrgIdSetup> => {
       httpServer,
       orgIdOwner
     ),
+    buildOrgJson,
     close: async () => {
       httpServer.close();
       await server.close();

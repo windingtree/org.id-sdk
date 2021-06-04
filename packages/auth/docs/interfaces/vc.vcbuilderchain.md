@@ -19,95 +19,119 @@
 
 ### setCredentialSubject
 
-▸ **setCredentialSubject**(`subject`: *unknown*): [*VCBuilderChain*](vc.vcbuilderchain.md)
+▸ **setCredentialSubject**(`subject`): [VCBuilderChain](vc.vcbuilderchain.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `subject` | *unknown* |
+| `subject` | [CredentialSubject](vc.credentialsubject.md) |
 
-**Returns:** [*VCBuilderChain*](vc.vcbuilderchain.md)
+#### Returns
 
-Defined in: [src/vc.ts:46](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/vc.ts#L46)
+[VCBuilderChain](vc.vcbuilderchain.md)
+
+#### Defined in
+
+[src/vc.ts:55](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L55)
 
 ___
 
 ### setExpirationDate
 
-▸ **setExpirationDate**(`expire`: *string*): [*VCBuilderChain*](vc.vcbuilderchain.md)
+▸ **setExpirationDate**(`expire`): [VCBuilderChain](vc.vcbuilderchain.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `expire` | *string* |
+| `expire` | `string` |
 
-**Returns:** [*VCBuilderChain*](vc.vcbuilderchain.md)
+#### Returns
 
-Defined in: [src/vc.ts:43](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/vc.ts#L43)
+[VCBuilderChain](vc.vcbuilderchain.md)
+
+#### Defined in
+
+[src/vc.ts:52](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L52)
 
 ___
 
 ### setHolder
 
-▸ **setHolder**(`holder`: *string*, `type?`: *string*): [*VCBuilderChain*](vc.vcbuilderchain.md)
+▸ **setHolder**(`holder`, `type?`): [VCBuilderChain](vc.vcbuilderchain.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `holder` | *string* |
-| `type?` | *string* |
+| `holder` | `string` |
+| `type?` | `string` |
 
-**Returns:** [*VCBuilderChain*](vc.vcbuilderchain.md)
+#### Returns
 
-Defined in: [src/vc.ts:33](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/vc.ts#L33)
+[VCBuilderChain](vc.vcbuilderchain.md)
+
+#### Defined in
+
+[src/vc.ts:42](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L42)
 
 ___
 
 ### setValidFrom
 
-▸ **setValidFrom**(`date`: *string*): [*VCBuilderChain*](vc.vcbuilderchain.md)
+▸ **setValidFrom**(`date`): [VCBuilderChain](vc.vcbuilderchain.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `date` | *string* |
+| `date` | `string` |
 
-**Returns:** [*VCBuilderChain*](vc.vcbuilderchain.md)
+#### Returns
 
-Defined in: [src/vc.ts:37](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/vc.ts#L37)
+[VCBuilderChain](vc.vcbuilderchain.md)
+
+#### Defined in
+
+[src/vc.ts:46](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L46)
 
 ___
 
 ### setValidUntil
 
-▸ **setValidUntil**(`date`: *string*): [*VCBuilderChain*](vc.vcbuilderchain.md)
+▸ **setValidUntil**(`date`): [VCBuilderChain](vc.vcbuilderchain.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `date` | *string* |
+| `date` | `string` |
 
-**Returns:** [*VCBuilderChain*](vc.vcbuilderchain.md)
+#### Returns
 
-Defined in: [src/vc.ts:40](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/vc.ts#L40)
+[VCBuilderChain](vc.vcbuilderchain.md)
+
+#### Defined in
+
+[src/vc.ts:49](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L49)
 
 ___
 
 ### sign
 
-▸ **sign**(`privateKey`: [*JWK*](keys.jwk.md) \| [*KeyLike*](../modules/keys.md#keylike)): *any*
+▸ **sign**(`privateKey`): `Promise`<[SignedVC](vc.signedvc.md)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `privateKey` | [*JWK*](keys.jwk.md) \| [*KeyLike*](../modules/keys.md#keylike) |
+| `privateKey` | [JWK](keys.jwk.md) \| [KeyLike](../modules/keys.md#keylike) |
 
-**Returns:** *any*
+#### Returns
 
-Defined in: [src/vc.ts:49](https://github.com/windingtree/org.id-sdk/blob/cc06f59/packages/auth/src/vc.ts#L49)
+`Promise`<[SignedVC](vc.signedvc.md)\>
+
+#### Defined in
+
+[src/vc.ts:58](https://github.com/windingtree/org.id-sdk/blob/86e41b1/packages/auth/src/vc.ts#L58)
