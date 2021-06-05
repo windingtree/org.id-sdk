@@ -958,6 +958,14 @@
     "@typescript-eslint/types" "4.26.0"
     eslint-visitor-keys "^2.0.0"
 
+"@windingtree/org.id-utils@0.2.12":
+  version "0.2.12"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-utils/-/org.id-utils-0.2.12.tgz#a5d6a69d7acbf2a3e92db10e36e892b72a850617"
+  integrity sha512-xe5+ReTseX9BQ/LVeOJccqqsOTxYB5BP2CmhvGzlUSIf+7LN7vqFkdCBvKApCDdu6+m7aDJ8L3jaYYEDoBtILg==
+  dependencies:
+    axios "0.21.1"
+    web3 "1.3.6"
+
 "@windingtree/org.json-schema@0.5.7-beta":
   version "0.5.7-beta"
   resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.7-beta.tgz#c1a63088bee810fab819ed252c35dcc5e780d7b1"
@@ -1148,6 +1156,13 @@ aws4@^1.8.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.11.0.tgz#d61f46d83b2519250e2784daf5b09479a8b41c59"
   integrity sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
+
+axios@0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
+  dependencies:
+    follow-redirects "^1.10.0"
 
 babel-jest@^27.0.2:
   version "27.0.2"
@@ -2473,6 +2488,11 @@ flatted@^3.1.0:
   version "3.1.1"
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.1.1.tgz"
   integrity sha512-zAoAQiudy+r5SvnSw3KJy5os/oRJYHzrzja/tBDqrZtNhUw8bt6y8OBzMWcjWr+8liV8Eb6yOhw8WZ7VFZ5ZzA==
+
+follow-redirects@^1.10.0:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.1.tgz#d9114ded0a1cfdd334e164e6662ad02bfd91ff43"
+  integrity sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==
 
 foreach@^2.0.5:
   version "2.0.5"

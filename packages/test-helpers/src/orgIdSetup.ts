@@ -1,7 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const contract = require('@truffle/contract');
-import type { KeyPair } from '@windingtree/org.id-auth/dist/keys';
-import type { SignedVC } from '@windingtree/org.id-auth/dist/vc';
+import type {
+  WebProvider,
+  SignedVC
+} from '@windingtree/org.id-auth/dist/vc';
 import {
   generateSalt,
   generateOrgIdHash
@@ -70,7 +72,7 @@ export const buildOrgJson = async (
   )
     .setCredentialSubject(orgJson)
     .signWithWeb3Provider(
-      web3Provider,
+      (web3Provider as unknown as WebProvider),
       owner
     );
   return vc;

@@ -36,6 +36,7 @@ export type {
   VCProofReference
 }
 
+// @todo Rename to Web3Provider
 export type WebProvider =
   | HttpProvider
   | WebsocketProvider
