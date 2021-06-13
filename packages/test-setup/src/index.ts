@@ -56,6 +56,7 @@ export const buildOrgJson = async (
 ): Promise<SignedVC> => {
   const orgJson = JSON.parse(JSON.stringify(orgJsonTemplate));
   const issuer = `${did}#key-1`;
+  const blockchainAccountId = `${owner}@eip155:1337`;
   orgJson.id = did;
   orgJson.created = new Date().toISOString();
   orgJson.updated = new Date().toISOString();
@@ -63,7 +64,7 @@ export const buildOrgJson = async (
     await createVerificationMethodWithBlockchainAccountId(
       issuer,
       did,
-      owner
+      blockchainAccountId
     )
   );
   const vc: SignedVC = await createVC(

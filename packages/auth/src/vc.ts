@@ -115,7 +115,7 @@ export const signWithWeb3Provider = async (
     web3Provider.send(
       {
         jsonrpc: '2.0',
-        method: 'personal_sign',
+        method: 'eth_sign',
         params,
         id: new Date().getTime()
       },
