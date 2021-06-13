@@ -3,7 +3,7 @@ import {
   DevelopmentServer,
   defaults,
   ganache
-}  from '../src/ganache';
+}  from '../src';
 
 describe('Ganache server', () => {
   let server: DevelopmentServer;
