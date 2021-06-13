@@ -1,7 +1,7 @@
 import Web3 from 'web3';
 import Ganache from 'ganache-core';
 
-export { Ganache }
+export type { Ganache }
 
 export class DevelopmentServer {
   server: Ganache.Server;
