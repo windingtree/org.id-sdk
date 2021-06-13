@@ -13,8 +13,8 @@ import {
   createVerificationMethodWithBlockchainAccountId
 } from '@windingtree/org.json-utils/dist/verificationMethod';
 import { OrgIdContract } from '@windingtree/org.id';
-import { ganache, DevelopmentServer } from './ganache';
-import { HttpFileServer, File } from './httpServer';
+import { ganache, DevelopmentServer } from '@windingtree/org.id-test-ganache-server';
+import { HttpFileServer, File } from '@windingtree/org.id-test-http-server';
 import orgJsonTemplate from './data/legal-entity.json';
 import Ganache from 'ganache-core';
 

@@ -1,7 +1,7 @@
 {
-  "name": "@windingtree/org.id-test-helpers",
-  "version": "0.2.4",
-  "description": "Core ORGiD Javascript library",
+  "name": "@windingtree/org.id-test-setup",
+  "version": "0.1.0",
+  "description": "Ease ORGiD setup for testing purposes",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -36,14 +36,16 @@
   "bugs": {
     "url": "https://github.com/windingtree/org.id-sdk/issues"
   },
-  "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/test-helpers#readme",
+  "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/test-setup#readme",
   "dependencies": {
-    "@truffle/contract": "4.3.18",
+    "@truffle/contract": "4.3.20",
     "@windingtree/org.id": "2.0.0",
-    "@windingtree/org.id-auth": "0.3.0",
-    "@windingtree/org.id-utils": "0.2.12",
+    "@windingtree/org.id-auth": "0.3.1",
+    "@windingtree/org.id-utils": "0.2.14",
     "@windingtree/org.json-schema": "0.5.7-beta",
-    "@windingtree/org.json-utils": "0.2.0"
+    "@windingtree/org.json-utils": "0.2.0",
+    "@windingtree/org.id-test-ganache-server": "0.1.0",
+    "@windingtree/org.id-test-http-server": "0.1.1"
   },
   "devDependencies": {
     "@types/jest": "26.0.23",

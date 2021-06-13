@@ -2,9 +2,9 @@ import {
   orgIdSetup,
   OrgIdSetup,
   generateSalt
-}  from '../src/orgIdSetup';
-import { DevelopmentServer } from '../src/ganache';
-import { HttpFileServer } from '../src/httpServer';
+}  from '../src';
+import { DevelopmentServer } from '@windingtree/org.id-test-ganache-server';
+import { HttpFileServer } from '@windingtree/org.id-test-http-server';
 
 describe('OrgId setup', () => {
   let setup: OrgIdSetup;
