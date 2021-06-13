@@ -1,4 +1,4 @@
-import { HttpFileServer } from '@windingtree/org.id-test-helpers';
+import { HttpFileServer } from '@windingtree/org.id-test-http-server';
 import {
   request,
   createAuthBearerHeader
