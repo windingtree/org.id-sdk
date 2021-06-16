@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:30](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L30)
+[src/keys.ts:30](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L30)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:32](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L32)
+[src/keys.ts:32](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L32)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:38](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L38)
+[src/keys.ts:38](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L38)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:36](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L36)
+[src/keys.ts:36](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L36)
 
 ## Variables
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:47](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L47)
+[src/keys.ts:47](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L47)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:55](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L55)
+[src/keys.ts:55](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L55)
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:83](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L83)
+[src/keys.ts:83](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L83)
 
 ___
 
@@ -148,7 +148,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:92](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L92)
+[src/keys.ts:92](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L92)
 
 ## Functions
 
@@ -168,7 +168,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:230](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L230)
+[src/keys.ts:230](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L230)
 
 ___
 
@@ -189,7 +189,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:197](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L197)
+[src/keys.ts:197](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L197)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:160](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L160)
+[src/keys.ts:160](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L160)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:233](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L233)
+[src/keys.ts:233](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L233)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:251](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L251)
+[src/keys.ts:251](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L251)
 
 ___
 
@@ -271,7 +271,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:101](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L101)
+[src/keys.ts:101](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L101)
 
 ___
 
@@ -291,4 +291,4 @@ ___
 
 #### Defined in
 
-[src/keys.ts:130](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/keys.ts#L130)
+[src/keys.ts:130](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L130)

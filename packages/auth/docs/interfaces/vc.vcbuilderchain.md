@@ -14,7 +14,7 @@
 - [setValidFrom](vc.vcbuilderchain.md#setvalidfrom)
 - [setValidUntil](vc.vcbuilderchain.md#setvaliduntil)
 - [sign](vc.vcbuilderchain.md#sign)
-- [signWithWeb3Provider](vc.vcbuilderchain.md#signwithweb3provider)
+- [signWithBlockchainAccount](vc.vcbuilderchain.md#signwithblockchainaccount)
 
 ## Methods
 
@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[src/vc.ts:66](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L66)
+[src/vc.ts:76](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L76)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:63](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L63)
+[src/vc.ts:73](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L73)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:53](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L53)
+[src/vc.ts:63](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L63)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:57](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L57)
+[src/vc.ts:67](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L67)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:60](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L60)
+[src/vc.ts:70](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L70)
 
 ___
 
@@ -135,20 +135,20 @@ ___
 
 #### Defined in
 
-[src/vc.ts:69](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L69)
+[src/vc.ts:79](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L79)
 
 ___
 
-### signWithWeb3Provider
+### signWithBlockchainAccount
 
-▸ **signWithWeb3Provider**(`web3Provider`, `ownerAddress`): `Promise`<[SignedVC](vc.signedvc.md)\>
+▸ **signWithBlockchainAccount**(`blockchainAccountId`, `options?`): `Promise`<[SignedVC](vc.signedvc.md)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `web3Provider` | [WebProvider](../modules/vc.md#webprovider) |
-| `ownerAddress` | `string` |
+| `blockchainAccountId` | `string` |
+| `options?` | [SignatureOptions](vc.signatureoptions.md) |
 
 #### Returns
 
@@ -156,4 +156,4 @@ ___
 
 #### Defined in
 
-[src/vc.ts:72](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L72)
+[src/vc.ts:82](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L82)

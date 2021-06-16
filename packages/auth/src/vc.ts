@@ -14,6 +14,7 @@ import type {
   WebsocketProvider,
   IpcProvider
 }  from 'web3-core';
+import Web3 from 'web3';
 import {
   getAlgFromJWK,
   signatureTypeFromJWK,
@@ -28,7 +29,7 @@ import { DateTime } from  'luxon';
 import { parseJwk } from 'jose/jwk/parse';
 import { CompactSign } from 'jose/jws/compact/sign';
 import { compactVerify } from 'jose/jws/compact/verify';
-import base64 from 'base64-js';
+import base64url from 'base64url';
 
 export type {
   VCTypedHolderReference,
@@ -36,11 +37,19 @@ export type {
   VCProofReference
 }
 
-// @todo Rename to Web3Provider
-export type WebProvider =
+export type GenericObject = { [k: string]: unknown };
+
+export type Web3Provider =
   | HttpProvider
   | WebsocketProvider
   | IpcProvider;
+
+// Live this definition for backward compatibility
+export type WebProvider = Web3Provider;
+
+export interface SignatureOptions {
+  web3Provider?: Web3Provider
+}
 
 export interface SignedVC extends CredentialReference {
   proof: VCProofReference
@@ -70,9 +79,9 @@ export interface VCBuilderChain {
   sign(
     privateKey: KeyLike | JWK
   ): Promise<SignedVC>;
-  signWithWeb3Provider(
-    web3Provider: WebProvider,
-    ownerAddress: string
+  signWithBlockchainAccount(
+    blockchainAccountId: string,
+    options?: SignatureOptions
   ): Promise<SignedVC>;
 }
 
@@ -81,69 +90,167 @@ export interface DidGroupedCheckResult {
   fragment?: string;
 }
 
+export interface BlockchainAccountIdGroupedResult {
+  accountId?: string;
+  blockchainType?: string;
+  blockchainId?: string;
+}
+
+export interface BlockchainAccountIdParsed {
+  accountId: string;
+  blockchainType: string;
+  blockchainId: string;
+}
+
+export interface DecodedJws {
+  protectedHeader: GenericObject;
+  payload: CredentialReference;
+  signature: string
+}
+
+// Prepare an unsigned data for signing
+export const buildUnsignedDataForWeb3Signature = (
+  verificationMethod: string,
+  payload: string | CredentialReference | GenericObject
+): string => `${base64url.encode(
+  JSON.stringify({
+    alg: 'ES256K',
+    kid: verificationMethod,
+    typ: 'JWS'
+  })
+)}.${base64url.encode(
+  typeof payload === 'object'
+    ? JSON.stringify(payload)
+    : payload
+)}`;
+
+// Sign payload using Ethereum account
 export const signWithWeb3Provider = async (
-  web3Provider: WebProvider,
+  web3Provider: Web3Provider,
   from: string,
   verificationMethod: string,
-  payload: string | { [k: string]: unknown }
+  payload: string | GenericObject
 ): Promise<string> => {
-  const encoder = new TextEncoder();
-
-  const encodedHeader = encoder.encode(
-    JSON.stringify({
-      alg: 'ES256K',
-      kid: verificationMethod,
-      typ: 'JWS'
-    })
+  const unsignedData = buildUnsignedDataForWeb3Signature(
+    verificationMethod,
+    payload
   );
 
-  const encodedPayload = encoder.encode(
-    typeof payload === 'object'
-      ? JSON.stringify(payload)
-      : payload
-  );
+  const web3 = new Web3(web3Provider);
 
-  const unsignedData =
-    `${base64.fromByteArray(encodedHeader)}.${base64.fromByteArray(encodedPayload)}`;
-
-  const params = [
-    unsignedData,
+  const signature: string = await web3.eth.sign(
+    web3.utils.utf8ToHex(unsignedData),
     from
-  ];
+  );
 
-  const signature: string = await new Promise((resolve, reject) => {
-    web3Provider.send(
-      {
-        jsonrpc: '2.0',
-        method: 'eth_sign',
-        params,
-        id: new Date().getTime()
-      },
-      (error: Error | null, result) => {
-        if (error) {
-          return reject(error);
-        }
-        if (typeof result === 'undefined') {
-          throw new Error('Unable to get a signature');
-        }
-        if (result.error) {
-          throw new Error(result.error);
-        }
-        resolve(result.result);
-      }
-    );
-  });
+  return `${unsignedData}.${base64url.encode(signature)}`;
+}
 
-  let signatureString = '';
+// Parse string formatted as blockchain account Id
+export const parseBlockchainAccountId = (blockchainAccountId: string): BlockchainAccountIdParsed => {
+  const blockchainAccountIdResult = regexp.blockchainAccountIdGrouped.exec(blockchainAccountId);
 
-  for (let i = 2; i < signature.length; i += 2) {
-    signatureString += String.fromCharCode(parseInt(signature.substring(i, i + 2), 16))
+  if (!blockchainAccountIdResult) {
+    throw new Error('Unable to parse blockchain account Id');
   }
 
-  const encodedSignature = encoder.encode(signatureString);
+  const {
+    accountId,
+    blockchainType,
+    blockchainId
+  } = blockchainAccountIdResult.groups as BlockchainAccountIdGroupedResult;
 
-  return `${unsignedData}.${base64.fromByteArray(encodedSignature)}`;
-}
+  if (!accountId || accountId === '') {
+    throw new Error('Invalid blockchain account Id');
+  }
+
+  if (!blockchainType || blockchainType === '') {
+    throw new Error('Invalid blockchain type');
+  }
+
+  if (!blockchainId || blockchainId === '') {
+    throw new Error('Invalid blockchain Id');
+  }
+
+  return {
+    accountId,
+    blockchainType,
+    blockchainId
+  };
+};
+
+// Decode raw JWS
+export const decodeJws = (jws: string): DecodedJws => {
+  const {
+    0: encodedProtectedHeader,
+    1: encodedPayload,
+    2: signature,
+    length: signaturePartsLength
+  } = jws.split('.');
+
+  if (signaturePartsLength !== 3) {
+    throw new Error('Invalid JWS signature');
+  }
+
+  let protectedHeader;
+
+  try {
+    protectedHeader = JSON.parse(
+      base64url.decode(encodedProtectedHeader)
+    );
+  } catch (error) {
+    throw new Error('Unable to decode JWS protected header');
+  }
+
+  let payload: CredentialReference;
+
+  try {
+    payload = JSON.parse(
+      base64url.decode(encodedPayload)
+    );
+  } catch (error) {
+    throw new Error('Unable to decode JWS payload');
+  }
+
+  return {
+    protectedHeader,
+    payload,
+    signature
+  };
+};
+
+// Verify JWS signed With blockchain account
+export const verifyJwsSignedWithBlockchainAccount = (
+  jws: string,
+  accountId: string
+): CredentialReference => {
+  const {
+    protectedHeader,
+    payload,
+    signature
+  } = decodeJws(jws);
+
+  // Build unsigned signature message
+  const message: string = buildUnsignedDataForWeb3Signature(
+    protectedHeader.kid as string,
+    payload as CredentialReference
+  );
+
+  // Verify signature
+  const web3 = new Web3();
+  const recoveredAccountId = web3.eth.accounts.recover(
+    message,
+    base64url.decode(signature)
+  );
+
+  if (accountId.toUpperCase() !== recoveredAccountId.toUpperCase()) {
+    throw new Error(
+      `VC signed by unknown accountId: ${recoveredAccountId} though expected: ${accountId}`
+    );
+  }
+
+  return payload;
+};
 
 // Utility that used for creation of the holder data
 export const buildHolderUtil = (
@@ -436,24 +543,48 @@ export const createVC = (
     },
 
     // Sign VC with Web3 provider
-    signWithWeb3Provider: async (
-      web3Provider,
-      ownerAddress
+    signWithBlockchainAccount: async (
+      blockchainAccountId,
+      options
     ) => {
       buildUnsignedVC();
 
-      const jws = await signWithWeb3Provider(
-        web3Provider,
-        ownerAddress,
-        issuer,
-        unsignedVS
-      );
+      let jws: string | undefined;
+      let vcProof: VCProofReference | undefined;
 
-      const vcProof = buildProofUtil(
-        jws,
-        'EcdsaSecp256k1RecoverySignature2020',
-        issuer
-      );
+      const {
+        accountId,
+        blockchainType
+      } = parseBlockchainAccountId(blockchainAccountId);
+
+      switch (blockchainType) {
+        case 'eip155':
+
+          if (!options || !options.web3Provider) {
+            throw new Error('web3Provider must be provided as option');
+          }
+
+          jws = await signWithWeb3Provider(
+            options.web3Provider,
+            accountId,
+            issuer,
+            unsignedVS
+          );
+
+          vcProof = buildProofUtil(
+            jws,
+            'EcdsaSecp256k1RecoverySignature2020',
+            issuer
+          );
+
+          break;
+        default:
+          throw new Error(`Unsupported blockchain type: ${blockchainType}`);
+      }
+
+      if (!vcProof) {
+        throw new Error('Unable to build VC proof');
+      }
 
       return {
         ...unsignedVS,
@@ -468,7 +599,7 @@ export const createVC = (
 // VC verification
 export const verifyVC = async (
   vc: SignedVC,
-  publicKey: KeyLike | JWK
+  publicKey: KeyLike | JWK | string
 ): Promise<CredentialReference> => {
   const jws = object.getDeepValue(vc, 'proof.jws');
 
@@ -476,28 +607,58 @@ export const verifyVC = async (
     throw new Error('Unable to find VC signature');
   }
 
-  if ((publicKey as JWK).kty) {
-    // JWK provided so converting key to KeyLike format
-    publicKey = await parseJwk(publicKey as JWK);
-  }
-
-  if ((publicKey as KeyObject).type !== 'public') {
-    throw new Error(
-      'Only public keys are accepted for verifying of VCs\''
-    );
-  }
-
   const decoder = new TextDecoder();
-  const { payload } = await compactVerify(jws, publicKey as KeyObject);
+  let payload: string | CredentialReference | undefined;
+
+  if (typeof publicKey === 'object') {
+    // Trying to use a public key for the VC verification
+
+    if ((publicKey as JWK).kty) {
+      // JWK provided so converting key to KeyLike format
+      publicKey = await parseJwk(publicKey as JWK);
+    }
+
+    if ((publicKey as KeyObject).type !== 'public') {
+      throw new Error(
+        'Only public keys are accepted for verifying of VCs\''
+      );
+    }
+
+    const verificationResult = await compactVerify(jws, publicKey as KeyObject);
+    payload = decoder.decode(verificationResult.payload);
+
+  } else if (regexp.blockchainAccountId.exec(publicKey)) {
+    // Trying to parse a blockchain account Id
+    const {
+      accountId,
+      blockchainType
+    } = parseBlockchainAccountId(publicKey);
+
+    switch (blockchainType) {
+      case 'eip155':
+        payload = verifyJwsSignedWithBlockchainAccount(jws, accountId);
+        break;
+      default:
+        throw new Error(`Unsupported blockchain type: ${blockchainType}`);
+    }
+  } else {
+    throw new Error('Unsupported type of public key');
+  }
+
+  if (!payload || payload === '') {
+    throw new Error('Unable to decode a VC signature');
+  }
 
   let decodedPayload: CredentialReference;
 
-  try {
-    decodedPayload = JSON.parse(
-      decoder.decode(payload)
-    );
-  } catch (error) {
-    throw new Error('Unable to parse VC payload');
+  if (typeof payload !== 'object') {
+    try {
+      decodedPayload = JSON.parse(payload as string);
+    } catch (error) {
+      throw new Error('Unable to parse VC payload');
+    }
+  } else {
+    decodedPayload = payload;
   }
 
   // @todo Add validation of the payload against the VC schema

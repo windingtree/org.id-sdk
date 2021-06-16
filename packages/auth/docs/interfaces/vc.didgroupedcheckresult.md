@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/vc.ts:79](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L79)
+[src/vc.ts:89](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L89)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[src/vc.ts:80](https://github.com/windingtree/org.id-sdk/blob/37fdd44/packages/auth/src/vc.ts#L80)
+[src/vc.ts:90](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L90)
