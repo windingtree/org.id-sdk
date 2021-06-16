@@ -40,7 +40,7 @@
   "dependencies": {
     "@truffle/contract": "4.3.20",
     "@windingtree/org.id": "2.0.0",
-    "@windingtree/org.id-auth": "0.3.2",
+    "@windingtree/org.id-auth": "0.4.0",
     "@windingtree/org.id-utils": "0.2.14",
     "@windingtree/org.json-schema": "0.5.7-beta",
     "@windingtree/org.json-utils": "0.2.0",

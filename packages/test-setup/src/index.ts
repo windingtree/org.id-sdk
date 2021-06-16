@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const contract = require('@truffle/contract');
 import type {
-  WebProvider,
+  Web3Provider,
   SignedVC
 } from '@windingtree/org.id-auth/dist/vc';
 import {
@@ -72,9 +72,11 @@ export const buildOrgJson = async (
     'ORG.JSON'
   )
     .setCredentialSubject(orgJson)
-    .signWithWeb3Provider(
-      (web3Provider as unknown as WebProvider),
-      owner
+    .signWithBlockchainAccount(
+      blockchainAccountId,
+      {
+        web3Provider: web3Provider as unknown as Web3Provider
+      }
     );
   return vc;
 };
