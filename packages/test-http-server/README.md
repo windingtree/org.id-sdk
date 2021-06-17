@@ -1,6 +1,6 @@
 [![@windingtree/org.id-test-http-server](https://img.shields.io/npm/v/@windingtree/org.id-test-http-server.svg)](https://www.npmjs.com/package/@windingtree/org.id-test-http-server)
 # @windingtree/org.id-test-http-server
-Http Server for ORGiD protocol testing
+Simple Http Server for ORGiD protocol testing
 
 ## Setup
 
