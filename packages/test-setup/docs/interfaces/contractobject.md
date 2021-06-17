@@ -1,4 +1,4 @@
-[@windingtree/org.id-test-helpers](../README.md) / ContractObject
+[@windingtree/org.id-test-setup](../README.md) / ContractObject
 
 # Interface: ContractObject
 
@@ -29,4 +29,4 @@
 
 #### Defined in
 
-[test-helpers/src/orgIdSetup.ts:38](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L38)
+[test-setup/src/index.ts:44](https://github.com/windingtree/org.id-sdk/blob/853e449/packages/test-setup/src/index.ts#L44)

@@ -1,18 +1,8 @@
-@windingtree/org.id-test-helpers
+@windingtree/org.id-test-setup
 
-# @windingtree/org.id-test-helpers
+# @windingtree/org.id-test-setup
 
 ## Table of contents
-
-### Namespaces
-
-- [Ganache](modules/ganache.md)
-- [http](modules/http.md)
-
-### Classes
-
-- [DevelopmentServer](classes/developmentserver.md)
-- [HttpFileServer](classes/httpfileserver.md)
 
 ### Interfaces
 
@@ -21,20 +11,11 @@
 
 ### Type aliases
 
-- [AllowedMimes](README.md#allowedmimes)
-- [File](README.md#file)
-- [Files](README.md#files)
-- [MimeKeys](README.md#mimekeys)
-- [Mimes](README.md#mimes)
-
-### Variables
-
-- [defaults](README.md#defaults)
+- [OrgIdRegistrationResult](README.md#orgidregistrationresult)
 
 ### Functions
 
 - [buildOrgJson](README.md#buildorgjson)
-- [ganache](README.md#ganache)
 - [generateOrgIdHash](README.md#generateorgidhash)
 - [generateSalt](README.md#generatesalt)
 - [orgIdSetup](README.md#orgidsetup)
@@ -42,116 +23,42 @@
 
 ## Type aliases
 
-### AllowedMimes
+### OrgIdRegistrationResult
 
-Ƭ **AllowedMimes**: ``"text/html"`` \| ``"text/plain"`` \| ``"application/json"``
-
-#### Defined in
-
-[test-helpers/src/httpServer.ts:11](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/httpServer.ts#L11)
-
-___
-
-### File
-
-Ƭ **File**: `Object`
+Ƭ **OrgIdRegistrationResult**: `Object`
 
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `content` | `string` \| `Record`<string, unknown\> |
-| `path` | `string` |
-| `type` | [MimeKeys](README.md#mimekeys) |
+| `orgIdHash` | `string` |
+| `orgJson` | `SignedVC` |
 
 #### Defined in
 
-[test-helpers/src/httpServer.ts:17](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/httpServer.ts#L17)
-
-___
-
-### Files
-
-Ƭ **Files**: `Object`
-
-#### Index signature
-
-▪ [path: `string`]: [File](README.md#file)
-
-#### Defined in
-
-[test-helpers/src/httpServer.ts:23](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/httpServer.ts#L23)
-
-___
-
-### MimeKeys
-
-Ƭ **MimeKeys**: ``"html"`` \| ``"text"`` \| ``"json"``
-
-#### Defined in
-
-[test-helpers/src/httpServer.ts:9](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/httpServer.ts#L9)
-
-___
-
-### Mimes
-
-Ƭ **Mimes**: { [key in MimeKeys]: AllowedMimes}
-
-#### Defined in
-
-[test-helpers/src/httpServer.ts:13](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/httpServer.ts#L13)
-
-## Variables
-
-### defaults
-
-• `Const` **defaults**: [IServerOptions](interfaces/ganache.iserveroptions.md)
-
-#### Defined in
-
-[test-helpers/src/ganache.ts:46](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/ganache.ts#L46)
+[test-setup/src/index.ts:47](https://github.com/windingtree/org.id-sdk/blob/853e449/packages/test-setup/src/index.ts#L47)
 
 ## Functions
 
 ### buildOrgJson
 
-▸ `Const` **buildOrgJson**(`did`, `keyPair`): `Promise`<ORGJSON\>
+▸ `Const` **buildOrgJson**(`did`, `web3Provider`, `owner`): `Promise`<SignedVC\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `did` | `string` |
-| `keyPair` | `KeyPair` |
+| `web3Provider` | `Provider` |
+| `owner` | `string` |
 
 #### Returns
 
-`Promise`<ORGJSON\>
+`Promise`<SignedVC\>
 
 #### Defined in
 
-[test-helpers/src/orgIdSetup.ts:41](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L41)
-
-___
-
-### ganache
-
-▸ `Const` **ganache**(`options?`): `Promise`<[DevelopmentServer](classes/developmentserver.md)\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `options` | [IServerOptions](interfaces/ganache.iserveroptions.md) |
-
-#### Returns
-
-`Promise`<[DevelopmentServer](classes/developmentserver.md)\>
-
-#### Defined in
-
-[test-helpers/src/ganache.ts:54](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/ganache.ts#L54)
+[test-setup/src/index.ts:52](https://github.com/windingtree/org.id-sdk/blob/853e449/packages/test-setup/src/index.ts#L52)
 
 ___
 
@@ -200,27 +107,27 @@ ___
 
 #### Defined in
 
-[test-helpers/src/orgIdSetup.ts:80](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L80)
+[test-setup/src/index.ts:117](https://github.com/windingtree/org.id-sdk/blob/853e449/packages/test-setup/src/index.ts#L117)
 
 ___
 
 ### registerOrgId
 
-▸ `Const` **registerOrgId**(`contract`, `httpServer`, `owner`, `orgJsonFile?`): `Promise`<string\>
+▸ `Const` **registerOrgId**(`server`, `contract`, `httpServer`, `owner`): `Promise`<[OrgIdRegistrationResult](README.md#orgidregistrationresult)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
+| `server` | `DevelopmentServer` |
 | `contract` | [ContractObject](interfaces/contractobject.md) |
-| `httpServer` | [HttpFileServer](classes/httpfileserver.md) |
+| `httpServer` | `HttpFileServer` |
 | `owner` | `string` |
-| `orgJsonFile?` | [File](README.md#file) |
 
 #### Returns
 
-`Promise`<string\>
+`Promise`<[OrgIdRegistrationResult](README.md#orgidregistrationresult)\>
 
 #### Defined in
 
-[test-helpers/src/orgIdSetup.ts:56](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L56)
+[test-setup/src/index.ts:84](https://github.com/windingtree/org.id-sdk/blob/853e449/packages/test-setup/src/index.ts#L84)

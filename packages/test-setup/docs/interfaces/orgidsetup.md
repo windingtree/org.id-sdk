@@ -1,4 +1,4 @@
-[@windingtree/org.id-test-helpers](../README.md) / OrgIdSetup
+[@windingtree/org.id-test-setup](../README.md) / OrgIdSetup
 
 # Interface: OrgIdSetup
 
@@ -9,9 +9,7 @@
 - [accounts](orgidsetup.md#accounts)
 - [address](orgidsetup.md#address)
 - [httpServer](orgidsetup.md#httpserver)
-- [keyPairs](orgidsetup.md#keypairs)
 - [owner](orgidsetup.md#owner)
-- [salts](orgidsetup.md#salts)
 - [server](orgidsetup.md#server)
 
 ### Methods
@@ -28,7 +26,7 @@
 
 #### Defined in
 
-[test-helpers/src/orgIdSetup.ts:22](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L22)
+[test-setup/src/index.ts:27](https://github.com/windingtree/org.id-sdk/blob/853e449/packages/test-setup/src/index.ts#L27)
 
 ___
 
@@ -38,27 +36,17 @@ ___
 
 #### Defined in
 
-[test-helpers/src/orgIdSetup.ts:26](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L26)
+[test-setup/src/index.ts:29](https://github.com/windingtree/org.id-sdk/blob/853e449/packages/test-setup/src/index.ts#L29)
 
 ___
 
 ### httpServer
 
-• **httpServer**: [HttpFileServer](../classes/httpfileserver.md)
+• **httpServer**: `HttpFileServer`
 
 #### Defined in
 
-[test-helpers/src/orgIdSetup.ts:28](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L28)
-
-___
-
-### keyPairs
-
-• **keyPairs**: `KeyPair`[]
-
-#### Defined in
-
-[test-helpers/src/orgIdSetup.ts:24](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L24)
+[test-setup/src/index.ts:31](https://github.com/windingtree/org.id-sdk/blob/853e449/packages/test-setup/src/index.ts#L31)
 
 ___
 
@@ -68,48 +56,39 @@ ___
 
 #### Defined in
 
-[test-helpers/src/orgIdSetup.ts:25](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L25)
-
-___
-
-### salts
-
-• **salts**: `string`[]
-
-#### Defined in
-
-[test-helpers/src/orgIdSetup.ts:23](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L23)
+[test-setup/src/index.ts:28](https://github.com/windingtree/org.id-sdk/blob/853e449/packages/test-setup/src/index.ts#L28)
 
 ___
 
 ### server
 
-• **server**: [DevelopmentServer](../classes/developmentserver.md)
+• **server**: `DevelopmentServer`
 
 #### Defined in
 
-[test-helpers/src/orgIdSetup.ts:27](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L27)
+[test-setup/src/index.ts:30](https://github.com/windingtree/org.id-sdk/blob/853e449/packages/test-setup/src/index.ts#L30)
 
 ## Methods
 
 ### buildOrgJson
 
-▸ **buildOrgJson**(`did`, `keyPair`): `Promise`<ORGJSON\>
+▸ **buildOrgJson**(`did`, `web3Provider`, `owner`): `Promise`<SignedVC\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `did` | `string` |
-| `keyPair` | `KeyPair` |
+| `web3Provider` | `Provider` |
+| `owner` | `string` |
 
 #### Returns
 
-`Promise`<ORGJSON\>
+`Promise`<SignedVC\>
 
 #### Defined in
 
-[test-helpers/src/orgIdSetup.ts:30](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L30)
+[test-setup/src/index.ts:35](https://github.com/windingtree/org.id-sdk/blob/853e449/packages/test-setup/src/index.ts#L35)
 
 ___
 
@@ -123,13 +102,13 @@ ___
 
 #### Defined in
 
-[test-helpers/src/orgIdSetup.ts:34](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L34)
+[test-setup/src/index.ts:40](https://github.com/windingtree/org.id-sdk/blob/853e449/packages/test-setup/src/index.ts#L40)
 
 ___
 
 ### registerOrgId
 
-▸ **registerOrgId**(`orgIdOwner`): `Promise`<string\>
+▸ **registerOrgId**(`orgIdOwner`): `Promise`<[OrgIdRegistrationResult](../README.md#orgidregistrationresult)\>
 
 #### Parameters
 
@@ -139,8 +118,8 @@ ___
 
 #### Returns
 
-`Promise`<string\>
+`Promise`<[OrgIdRegistrationResult](../README.md#orgidregistrationresult)\>
 
 #### Defined in
 
-[test-helpers/src/orgIdSetup.ts:29](https://github.com/windingtree/org.id-sdk/blob/c66281f/packages/test-helpers/src/orgIdSetup.ts#L29)
+[test-setup/src/index.ts:32](https://github.com/windingtree/org.id-sdk/blob/853e449/packages/test-setup/src/index.ts#L32)
