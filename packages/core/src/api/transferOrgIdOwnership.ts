@@ -4,7 +4,7 @@ import { TransactionReceipt } from 'web3-eth';
 import {
   OrgIdData,
   CallbackFn
-} from '../core';
+} from '../types';
 import { getOrgId } from './getOrgId';
 import { sendHelper } from '../shared/sendHelper'
 import { regexp } from '@windingtree/org.id-utils';

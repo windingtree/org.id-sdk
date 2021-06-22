@@ -2,7 +2,7 @@ import type {
   Web3Provider,
   OrgIdData,
   CallbackFn
-} from './core';
+} from './types';
 import type { Contract } from 'web3-eth-contract';
 import Web3 from 'web3';
 import {
@@ -24,7 +24,7 @@ export type {
   Web3Provider,
   OrgIdData,
   OrgIdRawResult
-} from './core';
+} from './types';
 
 export class OrgIdContract {
   address: string;

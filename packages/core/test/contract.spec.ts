@@ -2,7 +2,7 @@ import Web3 from 'web3';
 import { orgIdSetup, OrgIdSetup, generateSalt } from '@windingtree/org.id-test-helpers';
 import { regexp } from '@windingtree/org.id-utils';
 import { OrgIdContract } from '../src';
-import type { OrgIdData } from '../src/core';
+import type { OrgIdData } from '../src/types';
 
 type TestInput = any;
 

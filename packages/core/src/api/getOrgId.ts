@@ -4,7 +4,7 @@ import { regexp } from '@windingtree/org.id-utils';
 import {
   OrgIdData,
   OrgIdRawResult
-} from '../core';
+} from '../types';
 
 export const getOrgId = async (
   web3: Web3,

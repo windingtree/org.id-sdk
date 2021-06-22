@@ -5,7 +5,7 @@ import { regexp } from '@windingtree/org.id-utils';
 import {
   OrgIdData,
   CallbackFn
-} from '../core';
+} from '../types';
 import { getOrgId } from './getOrgId';
 import { sendHelper } from '../shared/sendHelper'
 

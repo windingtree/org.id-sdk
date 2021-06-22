@@ -1,4 +1,4 @@
-import type { CallbackFn } from '../core';
+import type { CallbackFn } from '../types';
 import type { Contract } from 'web3-eth-contract';
 import type { TransactionReceipt } from 'web3-eth';
 
