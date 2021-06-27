@@ -4,6 +4,7 @@ import type {
   CallbackFn
 } from './types';
 import type { Contract } from 'web3-eth-contract';
+
 import Web3 from 'web3';
 import {
   OrgIdContract as CompiledOrgIdContract,

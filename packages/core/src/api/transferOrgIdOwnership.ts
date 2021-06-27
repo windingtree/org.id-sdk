@@ -1,10 +1,11 @@
-import Web3 from 'web3';
-import { Contract } from 'web3-eth-contract';
-import { TransactionReceipt } from 'web3-eth';
-import {
+import type { Contract } from 'web3-eth-contract';
+import type { TransactionReceipt } from 'web3-eth';
+import type {
   OrgIdData,
   CallbackFn
 } from '../types';
+
+import Web3 from 'web3';
 import { getOrgId } from './getOrgId';
 import { sendHelper } from '../shared/sendHelper'
 import { regexp } from '@windingtree/org.id-utils';

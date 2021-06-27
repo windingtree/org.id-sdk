@@ -1,10 +1,11 @@
-import Web3 from 'web3';
-import { Contract } from 'web3-eth-contract';
-import { regexp } from '@windingtree/org.id-utils';
-import {
+import type { Contract } from 'web3-eth-contract';
+import type {
   OrgIdData,
   OrgIdRawResult
 } from '../types';
+
+import Web3 from 'web3';
+import { regexp } from '@windingtree/org.id-utils';
 
 export const getOrgId = async (
   web3: Web3,

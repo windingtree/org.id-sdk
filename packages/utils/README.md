@@ -84,3 +84,7 @@ console.log(HTTP_STATUS_CODES);
 ## Documentation
 
 [Generated docs](docs#readme)
+
+## TODO
+
+- Create types definitions for grouped regexps

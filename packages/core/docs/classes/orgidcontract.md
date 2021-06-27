@@ -34,11 +34,11 @@
 | Name | Type |
 | :------ | :------ |
 | `networkOrAddress` | `string` |
-| `web3ProviderOrUri` | `string` \| `Web3Provider` |
+| `web3ProviderOrUri` | `string` \| [`Web3Provider`](../README.md#web3provider) |
 
 #### Defined in
 
-[contract.ts:25](https://github.com/windingtree/org.id-sdk/blob/ad447a3/packages/core/src/contract.ts#L25)
+[index.ts:33](https://github.com/windingtree/org.id-sdk/blob/c8f06ff/packages/core/src/index.ts#L33)
 
 ## Properties
 
@@ -48,7 +48,7 @@
 
 #### Defined in
 
-[contract.ts:23](https://github.com/windingtree/org.id-sdk/blob/ad447a3/packages/core/src/contract.ts#L23)
+[index.ts:31](https://github.com/windingtree/org.id-sdk/blob/c8f06ff/packages/core/src/index.ts#L31)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[contract.ts:25](https://github.com/windingtree/org.id-sdk/blob/ad447a3/packages/core/src/contract.ts#L25)
+[index.ts:33](https://github.com/windingtree/org.id-sdk/blob/c8f06ff/packages/core/src/index.ts#L33)
 
 ___
 
@@ -68,13 +68,13 @@ ___
 
 #### Defined in
 
-[contract.ts:24](https://github.com/windingtree/org.id-sdk/blob/ad447a3/packages/core/src/contract.ts#L24)
+[index.ts:32](https://github.com/windingtree/org.id-sdk/blob/c8f06ff/packages/core/src/index.ts#L32)
 
 ## Methods
 
 ### createOrgId
 
-▸ **createOrgId**(`salt`, `orgJsonUri`, `orgIdOwner`, `gasPrice?`, `gasLimit?`, `transactionHashCb?`): `Promise`<``null`` \| OrgIdData\>
+▸ **createOrgId**(`salt`, `orgJsonUri`, `orgIdOwner`, `gasPrice?`, `gasLimit?`, `transactionHashCb?`): `Promise`<``null`` \| [`OrgIdData`](../interfaces/orgiddata.md)\>
 
 #### Parameters
 
@@ -89,17 +89,17 @@ ___
 
 #### Returns
 
-`Promise`<``null`` \| OrgIdData\>
+`Promise`<``null`` \| [`OrgIdData`](../interfaces/orgiddata.md)\>
 
 #### Defined in
 
-[contract.ts:56](https://github.com/windingtree/org.id-sdk/blob/ad447a3/packages/core/src/contract.ts#L56)
+[index.ts:64](https://github.com/windingtree/org.id-sdk/blob/c8f06ff/packages/core/src/index.ts#L64)
 
 ___
 
 ### getOrgId
 
-▸ **getOrgId**(`orgIdHash`): `Promise`<``null`` \| OrgIdData\>
+▸ **getOrgId**(`orgIdHash`): `Promise`<``null`` \| [`OrgIdData`](../interfaces/orgiddata.md)\>
 
 #### Parameters
 
@@ -109,17 +109,17 @@ ___
 
 #### Returns
 
-`Promise`<``null`` \| OrgIdData\>
+`Promise`<``null`` \| [`OrgIdData`](../interfaces/orgiddata.md)\>
 
 #### Defined in
 
-[contract.ts:93](https://github.com/windingtree/org.id-sdk/blob/ad447a3/packages/core/src/contract.ts#L93)
+[index.ts:101](https://github.com/windingtree/org.id-sdk/blob/c8f06ff/packages/core/src/index.ts#L101)
 
 ___
 
 ### getOrgIds
 
-▸ **getOrgIds**(`cursor?`, `count?`): `Promise`<string[]\>
+▸ **getOrgIds**(`cursor?`, `count?`): `Promise`<`string`[]\>
 
 #### Parameters
 
@@ -130,31 +130,31 @@ ___
 
 #### Returns
 
-`Promise`<string[]\>
+`Promise`<`string`[]\>
 
 #### Defined in
 
-[contract.ts:97](https://github.com/windingtree/org.id-sdk/blob/ad447a3/packages/core/src/contract.ts#L97)
+[index.ts:105](https://github.com/windingtree/org.id-sdk/blob/c8f06ff/packages/core/src/index.ts#L105)
 
 ___
 
 ### getOrgIdsCount
 
-▸ **getOrgIdsCount**(): `Promise`<number\>
+▸ **getOrgIdsCount**(): `Promise`<`number`\>
 
 #### Returns
 
-`Promise`<number\>
+`Promise`<`number`\>
 
 #### Defined in
 
-[contract.ts:89](https://github.com/windingtree/org.id-sdk/blob/ad447a3/packages/core/src/contract.ts#L89)
+[index.ts:97](https://github.com/windingtree/org.id-sdk/blob/c8f06ff/packages/core/src/index.ts#L97)
 
 ___
 
 ### setOrgJson
 
-▸ **setOrgJson**(`orgIdHash`, `orgJsonUri`, `orgIdOwner`, `gasPrice?`, `gasLimit?`, `transactionHashCb?`): `Promise`<``null`` \| OrgIdData\>
+▸ **setOrgJson**(`orgIdHash`, `orgJsonUri`, `orgIdOwner`, `gasPrice?`, `gasLimit?`, `transactionHashCb?`): `Promise`<``null`` \| [`OrgIdData`](../interfaces/orgiddata.md)\>
 
 #### Parameters
 
@@ -169,17 +169,17 @@ ___
 
 #### Returns
 
-`Promise`<``null`` \| OrgIdData\>
+`Promise`<``null`` \| [`OrgIdData`](../interfaces/orgiddata.md)\>
 
 #### Defined in
 
-[contract.ts:67](https://github.com/windingtree/org.id-sdk/blob/ad447a3/packages/core/src/contract.ts#L67)
+[index.ts:75](https://github.com/windingtree/org.id-sdk/blob/c8f06ff/packages/core/src/index.ts#L75)
 
 ___
 
 ### transferOrgIdOwnership
 
-▸ **transferOrgIdOwnership**(`orgIdHash`, `newOrgIdOwner`, `orgIdOwner`, `gasPrice?`, `gasLimit?`, `transactionHashCb?`): `Promise`<``null`` \| OrgIdData\>
+▸ **transferOrgIdOwnership**(`orgIdHash`, `newOrgIdOwner`, `orgIdOwner`, `gasPrice?`, `gasLimit?`, `transactionHashCb?`): `Promise`<``null`` \| [`OrgIdData`](../interfaces/orgiddata.md)\>
 
 #### Parameters
 
@@ -194,8 +194,8 @@ ___
 
 #### Returns
 
-`Promise`<``null`` \| OrgIdData\>
+`Promise`<``null`` \| [`OrgIdData`](../interfaces/orgiddata.md)\>
 
 #### Defined in
 
-[contract.ts:78](https://github.com/windingtree/org.id-sdk/blob/ad447a3/packages/core/src/contract.ts#L78)
+[index.ts:86](https://github.com/windingtree/org.id-sdk/blob/c8f06ff/packages/core/src/index.ts#L86)
