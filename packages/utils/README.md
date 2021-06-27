@@ -36,6 +36,7 @@ console.log(Object.keys(regexp));
 [
   phone,
   uri,
+  uriHttp,
   email,
   isoDate,
   ethereumAddress,

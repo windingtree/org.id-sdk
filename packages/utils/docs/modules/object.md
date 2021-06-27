@@ -27,4 +27,4 @@
 
 #### Defined in
 
-[src/object/index.ts:3](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/object/index.ts#L3)
+[src/object/index.ts:3](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/object/index.ts#L3)

@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/http/codes.ts:13](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/http/codes.ts#L13)
+[src/http/codes.ts:13](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/http/codes.ts#L13)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[src/http/codes.ts:35](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/http/codes.ts#L35)
+[src/http/codes.ts:35](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/http/codes.ts#L35)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/http/codes.ts:27](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/http/codes.ts#L27)
+[src/http/codes.ts:27](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/http/codes.ts#L27)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[src/http/codes.ts:15](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/http/codes.ts#L15)
+[src/http/codes.ts:15](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/http/codes.ts#L15)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[src/http/codes.ts:31](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/http/codes.ts#L31)
+[src/http/codes.ts:31](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/http/codes.ts#L31)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/http/codes.ts:1](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/http/codes.ts#L1)
+[src/http/codes.ts:1](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/http/codes.ts#L1)
 
 ## Variables
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/http/codes.ts:68](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/http/codes.ts#L68)
+[src/http/codes.ts:68](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/http/codes.ts#L68)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[src/http/codes.ts:40](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/http/codes.ts#L40)
+[src/http/codes.ts:40](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/http/codes.ts#L40)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[src/http/codes.ts:54](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/http/codes.ts#L54)
+[src/http/codes.ts:54](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/http/codes.ts#L54)
 
 ## Functions
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/http/request.ts:20](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/http/request.ts#L20)
+[src/http/request.ts:20](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/http/request.ts#L20)
 
 ___
 
@@ -161,4 +161,4 @@ ___
 
 #### Defined in
 
-[src/http/request.ts:25](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/http/request.ts#L25)
+[src/http/request.ts:25](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/http/request.ts#L25)

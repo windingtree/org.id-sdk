@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/common/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/common/index.ts#L8)
+[src/common/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/common/index.ts#L8)
 
 ___
 
@@ -42,4 +42,4 @@ ___
 
 #### Defined in
 
-[src/common/index.ts:4](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/common/index.ts#L4)
+[src/common/index.ts:4](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/common/index.ts#L4)

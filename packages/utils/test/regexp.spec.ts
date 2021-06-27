@@ -5,6 +5,22 @@ type TestInput = any;
 describe('Regular expressions', () => {
 
   describe('Common', () => {
+    const validHttpUris = [
+      'http://0.0.0.0:10000/myfile.txt',
+      'https://dsfsdf.sdfsdfsd-sf.io:8080/path/to?user=allowed#readme',
+      'http://dsfsdf.sdfsdfsd-sf.io:8080/path/to?user=allowed#readme',
+      'http://ibm.com:443/path/',
+      'https://ibm.com',
+      'https://ibm.com/path/to'
+    ];
+    const validWsUris = [
+      'ws://0.0.0.0:8654/ws',
+      'wss://0.0.0.0:8654/ws'
+    ];
+    const validUris = [
+      ...validHttpUris,
+      ...validWsUris
+    ];
 
     test('should validate emails', async () => {
       expect(rules.email.exec('test.bla_bladomain-1.com')).toBeNull();
@@ -25,18 +41,17 @@ describe('Regular expressions', () => {
       expect(rules.uri.exec(
         'https://blaqwert1-asdsad.domain1-2-aaa.io:8080/path/to?user=allowed#readme'
       )).not.toBeNull();
-      const validUris = [
-        'http://0.0.0.0:10000/myfile.txt',
-        'https://dsfsdf.sdfsdfsd-sf.io:8080/path/to?user=allowed#readme',
-        'http://dsfsdf.sdfsdfsd-sf.io:8080/path/to?user=allowed#readme',
-        'http://ibm.com:443/path/',
-        'https://ibm.com',
-        'https://ibm.com/path/to',
-        'ws://0.0.0.0:8654/ws',
-        'wss://0.0.0.0:8654/ws'
-      ];
       validUris.forEach(u => {
         expect(rules.uri.exec(u)).not.toBeNull();
+      });
+    });
+
+    test('should validate HTTP URIs', async () => {
+      validHttpUris.forEach(u => {
+        expect(rules.uriHttp.exec(u)).not.toBeNull();
+      });
+      validWsUris.forEach(u => {
+        expect(rules.uriHttp.exec(u)).toBeNull();
       });
     });
 

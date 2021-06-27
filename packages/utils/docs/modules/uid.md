@@ -35,7 +35,7 @@ simpleUid(5); // returns a string like 'jedpr'
 
 #### Defined in
 
-[src/uid/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/uid/index.ts#L8)
+[src/uid/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/uid/index.ts#L8)
 
 ___
 
@@ -54,4 +54,4 @@ uuid4(); // 955a781f-f427-2d8e-e895-4ab3f87026c1
 
 #### Defined in
 
-[src/uid/index.ts:24](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/uid/index.ts#L24)
+[src/uid/index.ts:24](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/uid/index.ts#L24)
