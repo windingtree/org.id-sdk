@@ -293,11 +293,67 @@ describe('Regular expressions', () => {
         expect(result.groups.fragment).toBe(s[variant].fragment);
       });
     });
+  });
 
-    test('should validate uuid', () => {
+  describe('UUID', () => {
+
+    test('should validate uuid', async () => {
       expect(rules.uuid4.exec(
         '853171d7-34ed-4481-82f8-043cc407031f'
       )).not.toBeNull();
     });
   });
+
+  describe('IPFS/IPNS', () => {
+    const validV0 = [
+      'QMYjtig7VJQ6XsnUjqqJvj7QaMcCAwtrgNdahSiFofrE7o',
+      'qmbcBPAwCDxRMB1Qe7CRQmxdrTSkxKwM9y6rZw2FjGtbsb',
+      'qMYjtig7VJQ6XsnUjqqJvj7QaMcCAwtrgNdahSiFofrE7o',
+      'QmYjtig7VJQ6XsnUjqqJvj7QaMcCAwtrgNdahSiFofrE7o'
+    ];
+    const validV1Base32 = [
+      'bafybeiasb5vpmaounyilfuxbd3lryvosl4yefqrfahsb2esg46q6tu6y5q',
+      'Bafybeiasb5vpmaounyilfuxbd3lryvosl4yefqrfahsb2esg46q6tu6y5q'
+    ];
+    const validV1Base58btc = [
+      'zdj7WWeQ43G6JJvLWQWZpyHuAMq6uYWRjkBXFad11vE2LHhQ7',
+      'Zdj7WWeQ43G6JJvLWQWZpyHuAMq6uYWRjkBXFad11vE2LHhQ7'
+    ];
+    const validCid = [
+      ...validV0,
+      ...validV1Base32,
+      ...validV1Base58btc
+    ];
+    const invalidCid = validCid.map(c => c.split('').reverse().join(''));
+
+    test('should validate IPFS CIDV0', async () => {
+      validV0.forEach(cid => {
+        expect(rules.ipfsCidV0.exec(cid)).not.toBeNull();
+      });
+    });
+
+    test('should validate IPFS CIDV1Base32', async () => {
+      validV1Base32.forEach(cid => {
+        expect(rules.ipfsCidV1Base32.exec(cid)).not.toBeNull();
+      });
+    });
+
+    test('should validate IPFS CIDV1Bse58btc', async () => {
+      validV1Base58btc.forEach(cid => {
+        expect(rules.ipfsCidV1Base58btc.exec(cid)).not.toBeNull();
+      });
+    });
+
+    test('should validate IPFS ', async () => {
+      validCid.forEach(cid => {
+        expect(rules.ipfs.exec(cid)).not.toBeNull();
+      });
+    });
+
+    test('should fail if invalid hash provided', async () => {
+      invalidCid.forEach(cid => {
+        expect(rules.ipfs.exec(cid)).toBeNull();
+      });
+    });
+  })
 });

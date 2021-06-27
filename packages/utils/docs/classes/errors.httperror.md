@@ -49,7 +49,7 @@ new HttpError('Cannot find you in the list', 'FORBIDDEN');
 
 #### Defined in
 
-[src/errors/index.ts:19](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/errors/index.ts#L19)
+[src/errors/index.ts:19](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/errors/index.ts#L19)
 
 ## Properties
 
@@ -59,7 +59,7 @@ new HttpError('Cannot find you in the list', 'FORBIDDEN');
 
 #### Defined in
 
-[src/errors/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/errors/index.ts#L10)
+[src/errors/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/errors/index.ts#L10)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[src/errors/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/errors/index.ts#L11)
+[src/errors/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/errors/index.ts#L11)
 
 ___
 

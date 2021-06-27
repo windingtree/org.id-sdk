@@ -46,7 +46,11 @@ console.log(Object.keys(regexp));
   secp256k1,       // <-- secp256k1 pub key
   bytes32,
   swift,
-  iban
+  iban,
+  ipfs,
+  ipfsCidV0,
+  ipfsCidV1Base32,
+  ipfsCidV1Base58btc
 ]
 */
 ```

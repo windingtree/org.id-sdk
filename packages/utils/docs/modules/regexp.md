@@ -17,6 +17,10 @@
 - [email](regexp.md#email)
 - [ethereumAddress](regexp.md#ethereumaddress)
 - [iban](regexp.md#iban)
+- [ipfs](regexp.md#ipfs)
+- [ipfsCidV0](regexp.md#ipfscidv0)
+- [ipfsCidV1Base32](regexp.md#ipfscidv1base32)
+- [ipfsCidV1Base58btc](regexp.md#ipfscidv1base58btc)
 - [isoDate](regexp.md#isodate)
 - [phone](regexp.md#phone)
 - [secp256k1](regexp.md#secp256k1)
@@ -32,7 +36,7 @@
 
 #### Defined in
 
-[src/regexp/index.ts:14](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L14)
+[src/regexp/index.ts:14](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L14)
 
 ___
 
@@ -42,7 +46,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:9](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L9)
+[src/regexp/index.ts:9](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L9)
 
 ___
 
@@ -52,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L10)
+[src/regexp/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L10)
 
 ___
 
@@ -62,7 +66,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L11)
+[src/regexp/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L11)
 
 ___
 
@@ -72,7 +76,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:18](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L18)
+[src/regexp/index.ts:18](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L18)
 
 ___
 
@@ -82,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:25](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L25)
+[src/regexp/index.ts:25](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L25)
 
 ___
 
@@ -92,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:27](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L27)
+[src/regexp/index.ts:27](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L27)
 
 ___
 
@@ -102,7 +106,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:26](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L26)
+[src/regexp/index.ts:26](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L26)
 
 ___
 
@@ -112,7 +116,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:4](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L4)
+[src/regexp/index.ts:4](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L4)
 
 ___
 
@@ -122,7 +126,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L8)
+[src/regexp/index.ts:8](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L8)
 
 ___
 
@@ -132,7 +136,47 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:22](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L22)
+[src/regexp/index.ts:22](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L22)
+
+___
+
+### ipfs
+
+• `Const` **ipfs**: `RegExp`
+
+#### Defined in
+
+[src/regexp/index.ts:33](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L33)
+
+___
+
+### ipfsCidV0
+
+• `Const` **ipfsCidV0**: `RegExp`
+
+#### Defined in
+
+[src/regexp/index.ts:34](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L34)
+
+___
+
+### ipfsCidV1Base32
+
+• `Const` **ipfsCidV1Base32**: `RegExp`
+
+#### Defined in
+
+[src/regexp/index.ts:35](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L35)
+
+___
+
+### ipfsCidV1Base58btc
+
+• `Const` **ipfsCidV1Base58btc**: `RegExp`
+
+#### Defined in
+
+[src/regexp/index.ts:36](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L36)
 
 ___
 
@@ -142,7 +186,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:5](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L5)
+[src/regexp/index.ts:5](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L5)
 
 ___
 
@@ -152,7 +196,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:2](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L2)
+[src/regexp/index.ts:2](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L2)
 
 ___
 
@@ -162,7 +206,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:15](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L15)
+[src/regexp/index.ts:15](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L15)
 
 ___
 
@@ -172,7 +216,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:21](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L21)
+[src/regexp/index.ts:21](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L21)
 
 ___
 
@@ -182,7 +226,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:3](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L3)
+[src/regexp/index.ts:3](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L3)
 
 ___
 
@@ -192,4 +236,4 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:30](https://github.com/windingtree/org.id-sdk/blob/c34f680/packages/utils/src/regexp/index.ts#L30)
+[src/regexp/index.ts:30](https://github.com/windingtree/org.id-sdk/blob/bcbadf0/packages/utils/src/regexp/index.ts#L30)

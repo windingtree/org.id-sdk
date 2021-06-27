@@ -1,6 +1,6 @@
 // Common
 export const phone = /^([+]{0,1})([0-9- ()/]+)$/;
-export const uri = /^(https|http|wss|ws){1}:\/\/([\w\d.-]+)(:(\d*))?(\/[\w\d.-?=#&%]*)?$/i;
+export const uri = /^(https|http|wss|ws){1}:\/\/([\w\d.-]+)(:(\d*))?(\/[\w\d.-?=#&%]*)?$/;
 export const email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-_0-9]+\.)+[a-zA-Z]{2,}))$/i;
 export const isoDate = /(\d{4})-(\d{2})-(\d{2})T((\d{2}):(\d{2}):(\d{2}))\.(\d{3})Z/;
 
@@ -28,3 +28,9 @@ export const didGrouped = /^(?<did>did:(?<method>[a-zA-Z]+):(?<submethod>[a-zA-Z
 
 // UUID
 export const uuid4 = /^(?:^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[a-f0-9]{4}-[a-f0-9]{12}$)|(?:^0{8}-0{4}-0{4}-0{4}-0{12}$)$/;
+
+// IPFS/IPNS
+export const ipfs = /^(Qm|QM|qm|qM){1}[1-9A-Za-z]{44}[^OIl]*|[bB]{1}[A-Za-z2-7]{58}|[zZ]{1}[1-9A-HJ-NP-Za-km-z]{48}$/;
+export const ipfsCidV0 = /^(Qm|QM|qm|qM){1}[1-9A-Za-z]{44}[^OIl]*$/;
+export const ipfsCidV1Base32 = /^[bB]{1}[A-Za-z2-7]{58}$/;
+export const ipfsCidV1Base58btc = /^[zZ]{1}[1-9A-HJ-NP-Za-km-z]{48}$/;
