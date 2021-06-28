@@ -1,6 +1,9 @@
+import orgJsonSchema from '@windingtree/org.json-schema';
 import {
   getDeepValue,
+  validateWithSchemaOrRef
 } from '../src/object';
+import vcJson from './fixtures/vc.json';
 
 describe('Object utils', () => {
 
@@ -27,6 +30,18 @@ describe('Object utils', () => {
 
     test('should return undefined if variable does not exist', async () => {
       expect(typeof getDeepValue(obj, 'a.v')).toBe('undefined');
+    });
+  });
+
+  describe('#validateWithSchemaOrRef', () => {
+
+    test('should validate data against given schema', async () => {
+      const result = validateWithSchemaOrRef(
+        orgJsonSchema,
+        '#/definitions/CredentialReference',
+        vcJson
+      );
+      expect(result).toBeNull();
     });
   });
 });

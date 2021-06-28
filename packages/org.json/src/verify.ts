@@ -1,4 +1,11 @@
+import type {
+  CredentialReference
+} from '@windingtree/org.json-schema';
+import type {
+  SignedVC
+} from '@windingtree/org.id-auth/dist/vc';
 
+import orgJsonSchema from '@windingtree/org.json-schema';
 
 
 // Verify ORG.JSON VC format
@@ -18,4 +25,6 @@
     - blockchainType must be supported by the resolver
     - blockchainNetworkId must be supported by the resolver
 */
-export const verifyOrgJsonVcFormat = () => {};
+export const verifyOrgJsonVcFormat = (vc: SignedVC): void => {
+
+};
