@@ -8,15 +8,13 @@ ORGiD Verifiable Credentials Schema
 
 ## Hierarchy
 
-- **CredentialReference**
+- **`CredentialReference`**
 
-  ↳ [SignedVC](vc.signedvc.md)
+  ↳ [`SignedVC`](vc.signedvc.md)
 
 ## Indexable
 
 ▪ [k: `string`]: `unknown`
-
-ORGiD Verifiable Credentials Schema
 
 ## Table of contents
 
@@ -76,7 +74,7 @@ ___
 
 ### holder
 
-• `Optional` **holder**: `string` \| [VCTypedHolderReference](vc.vctypedholderreference.md)
+• `Optional` **holder**: `string` \| [`VCTypedHolderReference`](vc.vctypedholderreference.md)
 
 VC holder
 
@@ -124,7 +122,7 @@ ___
 
 ### proof
 
-• `Optional` **proof**: [VCProofReference](vc.vcproofreference.md)
+• `Optional` **proof**: [`VCProofReference`](vc.vcproofreference.md)
 
 #### Defined in
 

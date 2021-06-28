@@ -41,7 +41,7 @@
 
 ### KeyLike
 
-Ƭ **KeyLike**: [KeyObject](../classes/keys.keyobject.md) \| `CryptoKey` \| `Uint8Array`
+Ƭ **KeyLike**: [`KeyObject`](../classes/keys.keyobject.md) \| `CryptoKey` \| `Uint8Array`
 
 #### Defined in
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:30](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L30)
+[src/keys.ts:30](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L30)
 
 ___
 
@@ -65,7 +65,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:32](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L32)
+[src/keys.ts:32](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L32)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:38](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L38)
+[src/keys.ts:38](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L38)
 
 ___
 
@@ -96,17 +96,17 @@ ___
 
 #### Defined in
 
-[src/keys.ts:36](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L36)
+[src/keys.ts:36](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L36)
 
 ## Variables
 
 ### KeyTypes
 
-• `Const` **KeyTypes**: [VerificationMethodType](keys.md#verificationmethodtype)[]
+• `Const` **KeyTypes**: [`VerificationMethodType`](keys.md#verificationmethodtype)[]
 
 #### Defined in
 
-[src/keys.ts:47](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L47)
+[src/keys.ts:47](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L47)
 
 ___
 
@@ -116,11 +116,11 @@ ___
 
 #### Index signature
 
-▪ [key: `string`]: [KeysAlgConfig](keys.md#keysalgconfig)
+▪ [key: `string`]: [`KeysAlgConfig`](keys.md#keysalgconfig)
 
 #### Defined in
 
-[src/keys.ts:55](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L55)
+[src/keys.ts:55](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L55)
 
 ___
 
@@ -130,11 +130,11 @@ ___
 
 #### Index signature
 
-▪ [key: `string`]: [VerificationMethodType](keys.md#verificationmethodtype)
+▪ [key: `string`]: [`VerificationMethodType`](keys.md#verificationmethodtype)
 
 #### Defined in
 
-[src/keys.ts:83](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L83)
+[src/keys.ts:83](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L83)
 
 ___
 
@@ -148,33 +148,33 @@ ___
 
 #### Defined in
 
-[src/keys.ts:92](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L92)
+[src/keys.ts:92](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L92)
 
 ## Functions
 
 ### createJWK
 
-▸ `Const` **createJWK**(`key`): `Promise`<[JWK](../interfaces/keys.jwk.md)\>
+▸ `Const` **createJWK**(`key`): `Promise`<[`JWK`](../interfaces/keys.jwk.md)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `key` | [KeyLike](keys.md#keylike) |
+| `key` | [`KeyLike`](keys.md#keylike) |
 
 #### Returns
 
-`Promise`<[JWK](../interfaces/keys.jwk.md)\>
+`Promise`<[`JWK`](../interfaces/keys.jwk.md)\>
 
 #### Defined in
 
-[src/keys.ts:230](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L230)
+[src/keys.ts:230](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L230)
 
 ___
 
 ### generateKeyPair
 
-▸ `Const` **generateKeyPair**(`type`, `options?`): `Promise`<[KeyPair](keys.md#keypair)\>
+▸ `Const` **generateKeyPair**(`type`, `options?`): `Promise`<[`KeyPair`](keys.md#keypair)\>
 
 #### Parameters
 
@@ -185,11 +185,11 @@ ___
 
 #### Returns
 
-`Promise`<[KeyPair](keys.md#keypair)\>
+`Promise`<[`KeyPair`](keys.md#keypair)\>
 
 #### Defined in
 
-[src/keys.ts:197](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L197)
+[src/keys.ts:197](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L197)
 
 ___
 
@@ -201,8 +201,8 @@ ___
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `key` | [JWK](../interfaces/keys.jwk.md) | `undefined` |
-| `supportJws` | `boolean` | false |
+| `key` | [`JWK`](../interfaces/keys.jwk.md) | `undefined` |
+| `supportJws` | `boolean` | `false` |
 
 #### Returns
 
@@ -210,13 +210,13 @@ ___
 
 #### Defined in
 
-[src/keys.ts:160](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L160)
+[src/keys.ts:160](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L160)
 
 ___
 
 ### importKeyPrivatePem
 
-▸ `Const` **importKeyPrivatePem**(`key`, `passphrase?`): [KeyObject](../classes/keys.keyobject.md)
+▸ `Const` **importKeyPrivatePem**(`key`, `passphrase?`): [`KeyObject`](../classes/keys.keyobject.md)
 
 #### Parameters
 
@@ -227,17 +227,17 @@ ___
 
 #### Returns
 
-[KeyObject](../classes/keys.keyobject.md)
+[`KeyObject`](../classes/keys.keyobject.md)
 
 #### Defined in
 
-[src/keys.ts:233](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L233)
+[src/keys.ts:233](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L233)
 
 ___
 
 ### importKeyPublicPem
 
-▸ `Const` **importKeyPublicPem**(`key`): [KeyObject](../classes/keys.keyobject.md)
+▸ `Const` **importKeyPublicPem**(`key`): [`KeyObject`](../classes/keys.keyobject.md)
 
 #### Parameters
 
@@ -247,11 +247,11 @@ ___
 
 #### Returns
 
-[KeyObject](../classes/keys.keyobject.md)
+[`KeyObject`](../classes/keys.keyobject.md)
 
 #### Defined in
 
-[src/keys.ts:251](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L251)
+[src/keys.ts:251](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L251)
 
 ___
 
@@ -263,7 +263,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `key` | [JWK](../interfaces/keys.jwk.md) |
+| `key` | [`JWK`](../interfaces/keys.jwk.md) |
 
 #### Returns
 
@@ -271,7 +271,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:101](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L101)
+[src/keys.ts:101](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L101)
 
 ___
 
@@ -283,7 +283,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `key` | [JWK](../interfaces/keys.jwk.md) |
+| `key` | [`JWK`](../interfaces/keys.jwk.md) |
 
 #### Returns
 
@@ -291,4 +291,4 @@ ___
 
 #### Defined in
 
-[src/keys.ts:130](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/keys.ts#L130)
+[src/keys.ts:130](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/keys.ts#L130)

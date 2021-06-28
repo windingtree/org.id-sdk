@@ -116,7 +116,7 @@ export const buildUnsignedDataForWeb3Signature = (
   JSON.stringify({
     alg: 'ES256K',
     kid: verificationMethod,
-    typ: 'JWS'
+    typ: 'JWT'
   })
 )}.${base64url.encode(
   typeof payload === 'object'

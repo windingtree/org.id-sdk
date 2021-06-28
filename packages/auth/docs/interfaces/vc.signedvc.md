@@ -6,9 +6,9 @@
 
 ## Hierarchy
 
-- [CredentialReference](vc.credentialreference.md)
+- [`CredentialReference`](vc.credentialreference.md)
 
-  ↳ **SignedVC**
+  ↳ **`SignedVC`**
 
 ## Table of contents
 
@@ -80,7 +80,7 @@ ___
 
 ### holder
 
-• `Optional` **holder**: `string` \| [VCTypedHolderReference](vc.vctypedholderreference.md)
+• `Optional` **holder**: `string` \| [`VCTypedHolderReference`](vc.vctypedholderreference.md)
 
 VC holder
 
@@ -144,7 +144,7 @@ ___
 
 ### proof
 
-• **proof**: [VCProofReference](vc.vcproofreference.md)
+• **proof**: [`VCProofReference`](vc.vcproofreference.md)
 
 #### Overrides
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:55](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L55)
+[src/vc.ts:55](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L55)
 
 ___
 

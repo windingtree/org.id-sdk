@@ -17,13 +17,13 @@
 
 ### createAuthJWT
 
-▸ `Const` **createAuthJWT**(`privateKey`, `issuer`, `audience`, `scope?`, `expiration?`): `Promise`<string\>
+▸ `Const` **createAuthJWT**(`privateKey`, `issuer`, `audience`, `scope?`, `expiration?`): `Promise`<`string`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `privateKey` | [JWK](../interfaces/keys.jwk.md) \| [KeyLike](keys.md#keylike) |
+| `privateKey` | [`JWK`](../interfaces/keys.jwk.md) \| [`KeyLike`](keys.md#keylike) |
 | `issuer` | `string` |
 | `audience` | `string` |
 | `scope?` | `string` \| `string`[] |
@@ -31,32 +31,32 @@
 
 #### Returns
 
-`Promise`<string\>
+`Promise`<`string`\>
 
 #### Defined in
 
-[src/tokens.ts:25](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/tokens.ts#L25)
+[src/tokens.ts:25](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/tokens.ts#L25)
 
 ___
 
 ### verifyAuthJWT
 
-▸ `Const` **verifyAuthJWT**(`jwt`, `publicKey`, `issuer`, `audience`, `scope?`): `Promise`<[JWTVerifyResult](../interfaces/tokens.jwtverifyresult.md)\>
+▸ `Const` **verifyAuthJWT**(`jwt`, `publicKey`, `issuer`, `audience`, `scope?`): `Promise`<[`JWTVerifyResult`](../interfaces/tokens.jwtverifyresult.md)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `jwt` | `string` |
-| `publicKey` | [JWK](../interfaces/keys.jwk.md) \| [KeyLike](keys.md#keylike) |
+| `publicKey` | [`JWK`](../interfaces/keys.jwk.md) \| [`KeyLike`](keys.md#keylike) |
 | `issuer` | `string` |
 | `audience` | `string` |
 | `scope?` | `string` \| `string`[] |
 
 #### Returns
 
-`Promise`<[JWTVerifyResult](../interfaces/tokens.jwtverifyresult.md)\>
+`Promise`<[`JWTVerifyResult`](../interfaces/tokens.jwtverifyresult.md)\>
 
 #### Defined in
 
-[src/tokens.ts:102](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/tokens.ts#L102)
+[src/tokens.ts:102](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/tokens.ts#L102)

@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[src/vc.ts:40](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L40)
+[src/vc.ts:40](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L40)
 
 ___
 
@@ -61,23 +61,23 @@ ___
 
 #### Defined in
 
-[src/vc.ts:42](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L42)
+[src/vc.ts:42](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L42)
 
 ___
 
 ### WebProvider
 
-Ƭ **WebProvider**: [Web3Provider](vc.md#web3provider)
+Ƭ **WebProvider**: [`Web3Provider`](vc.md#web3provider)
 
 #### Defined in
 
-[src/vc.ts:48](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L48)
+[src/vc.ts:48](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L48)
 
 ## Functions
 
 ### buildHolderUtil
 
-▸ `Const` **buildHolderUtil**(`holder`, `type?`): `string` \| [VCTypedHolderReference](../interfaces/vc.vctypedholderreference.md)
+▸ `Const` **buildHolderUtil**(`holder`, `type?`): `string` \| [`VCTypedHolderReference`](../interfaces/vc.vctypedholderreference.md)
 
 #### Parameters
 
@@ -88,17 +88,17 @@ ___
 
 #### Returns
 
-`string` \| [VCTypedHolderReference](../interfaces/vc.vctypedholderreference.md)
+`string` \| [`VCTypedHolderReference`](../interfaces/vc.vctypedholderreference.md)
 
 #### Defined in
 
-[src/vc.ts:256](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L256)
+[src/vc.ts:256](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L256)
 
 ___
 
 ### buildProofUtil
 
-▸ `Const` **buildProofUtil**(`jws`, `type`, `verificationMethod`): [VCProofReference](../interfaces/vc.vcproofreference.md)
+▸ `Const` **buildProofUtil**(`jws`, `type`, `verificationMethod`): [`VCProofReference`](../interfaces/vc.vcproofreference.md)
 
 #### Parameters
 
@@ -110,11 +110,11 @@ ___
 
 #### Returns
 
-[VCProofReference](../interfaces/vc.vcproofreference.md)
+[`VCProofReference`](../interfaces/vc.vcproofreference.md)
 
 #### Defined in
 
-[src/vc.ts:287](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L287)
+[src/vc.ts:287](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L287)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `verificationMethod` | `string` |
-| `payload` | `string` \| [CredentialReference](../interfaces/vc.credentialreference.md) \| [GenericObject](vc.md#genericobject) |
+| `payload` | `string` \| [`CredentialReference`](../interfaces/vc.credentialreference.md) \| [`GenericObject`](vc.md#genericobject) |
 
 #### Returns
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:112](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L112)
+[src/vc.ts:112](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L112)
 
 ___
 
@@ -155,13 +155,13 @@ ___
 
 #### Defined in
 
-[src/vc.ts:275](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L275)
+[src/vc.ts:275](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L275)
 
 ___
 
 ### createVC
 
-▸ `Const` **createVC**(`issuer`, `type`): [VCBuilderChain](../interfaces/vc.vcbuilderchain.md)
+▸ `Const` **createVC**(`issuer`, `type`): [`VCBuilderChain`](../interfaces/vc.vcbuilderchain.md)
 
 #### Parameters
 
@@ -172,17 +172,17 @@ ___
 
 #### Returns
 
-[VCBuilderChain](../interfaces/vc.vcbuilderchain.md)
+[`VCBuilderChain`](../interfaces/vc.vcbuilderchain.md)
 
 #### Defined in
 
-[src/vc.ts:307](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L307)
+[src/vc.ts:307](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L307)
 
 ___
 
 ### decodeJws
 
-▸ `Const` **decodeJws**(`jws`): [DecodedJws](../interfaces/vc.decodedjws.md)
+▸ `Const` **decodeJws**(`jws`): [`DecodedJws`](../interfaces/vc.decodedjws.md)
 
 #### Parameters
 
@@ -192,11 +192,11 @@ ___
 
 #### Returns
 
-[DecodedJws](../interfaces/vc.decodedjws.md)
+[`DecodedJws`](../interfaces/vc.decodedjws.md)
 
 #### Defined in
 
-[src/vc.ts:183](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L183)
+[src/vc.ts:183](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L183)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `vc` | [CredentialReference](../interfaces/vc.credentialreference.md) |
+| `vc` | [`CredentialReference`](../interfaces/vc.credentialreference.md) |
 
 #### Returns
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:670](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L670)
+[src/vc.ts:670](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L670)
 
 ___
 
@@ -228,7 +228,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `vc` | [CredentialReference](../interfaces/vc.credentialreference.md) |
+| `vc` | [`CredentialReference`](../interfaces/vc.credentialreference.md) |
 
 #### Returns
 
@@ -236,13 +236,13 @@ ___
 
 #### Defined in
 
-[src/vc.ts:677](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L677)
+[src/vc.ts:677](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L677)
 
 ___
 
 ### parseBlockchainAccountId
 
-▸ `Const` **parseBlockchainAccountId**(`blockchainAccountId`): [BlockchainAccountIdParsed](../interfaces/vc.blockchainaccountidparsed.md)
+▸ `Const` **parseBlockchainAccountId**(`blockchainAccountId`): [`BlockchainAccountIdParsed`](../interfaces/vc.blockchainaccountidparsed.md)
 
 #### Parameters
 
@@ -252,40 +252,40 @@ ___
 
 #### Returns
 
-[BlockchainAccountIdParsed](../interfaces/vc.blockchainaccountidparsed.md)
+[`BlockchainAccountIdParsed`](../interfaces/vc.blockchainaccountidparsed.md)
 
 #### Defined in
 
-[src/vc.ts:150](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L150)
+[src/vc.ts:150](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L150)
 
 ___
 
 ### signWithWeb3Provider
 
-▸ `Const` **signWithWeb3Provider**(`web3Provider`, `from`, `verificationMethod`, `payload`): `Promise`<string\>
+▸ `Const` **signWithWeb3Provider**(`web3Provider`, `from`, `verificationMethod`, `payload`): `Promise`<`string`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `web3Provider` | [Web3Provider](vc.md#web3provider) |
+| `web3Provider` | [`Web3Provider`](vc.md#web3provider) |
 | `from` | `string` |
 | `verificationMethod` | `string` |
-| `payload` | `string` \| [GenericObject](vc.md#genericobject) |
+| `payload` | `string` \| [`GenericObject`](vc.md#genericobject) |
 
 #### Returns
 
-`Promise`<string\>
+`Promise`<`string`\>
 
 #### Defined in
 
-[src/vc.ts:128](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L128)
+[src/vc.ts:128](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L128)
 
 ___
 
 ### verifyJwsSignedWithBlockchainAccount
 
-▸ `Const` **verifyJwsSignedWithBlockchainAccount**(`jws`, `accountId`): [CredentialReference](../interfaces/vc.credentialreference.md)
+▸ `Const` **verifyJwsSignedWithBlockchainAccount**(`jws`, `accountId`): [`CredentialReference`](../interfaces/vc.credentialreference.md)
 
 #### Parameters
 
@@ -296,29 +296,29 @@ ___
 
 #### Returns
 
-[CredentialReference](../interfaces/vc.credentialreference.md)
+[`CredentialReference`](../interfaces/vc.credentialreference.md)
 
 #### Defined in
 
-[src/vc.ts:223](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L223)
+[src/vc.ts:223](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L223)
 
 ___
 
 ### verifyVC
 
-▸ `Const` **verifyVC**(`vc`, `publicKey`): `Promise`<[CredentialReference](../interfaces/vc.credentialreference.md)\>
+▸ `Const` **verifyVC**(`vc`, `publicKey`): `Promise`<[`CredentialReference`](../interfaces/vc.credentialreference.md)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `vc` | [SignedVC](../interfaces/vc.signedvc.md) |
-| `publicKey` | `string` \| [JWK](../interfaces/keys.jwk.md) \| [KeyLike](keys.md#keylike) |
+| `vc` | [`SignedVC`](../interfaces/vc.signedvc.md) |
+| `publicKey` | `string` \| [`JWK`](../interfaces/keys.jwk.md) \| [`KeyLike`](keys.md#keylike) |
 
 #### Returns
 
-`Promise`<[CredentialReference](../interfaces/vc.credentialreference.md)\>
+`Promise`<[`CredentialReference`](../interfaces/vc.credentialreference.md)\>
 
 #### Defined in
 
-[src/vc.ts:600](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L600)
+[src/vc.ts:600](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L600)

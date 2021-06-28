@@ -10,8 +10,6 @@ This type of the holder definition can be used when a credential issued to a hol
 
 ▪ [k: `string`]: `unknown`
 
-This type of the holder definition can be used when a credential issued to a holder who is not the (only) subject of the credential, who has no relationship with the subject of the credential, but who has a relationship with the issuer
-
 ## Table of contents
 
 ### Properties

@@ -10,8 +10,6 @@ Digital proof that makes the credential tamper-evident
 
 ▪ [k: `string`]: `unknown`
 
-Digital proof that makes the credential tamper-evident
-
 ## Table of contents
 
 ### Properties

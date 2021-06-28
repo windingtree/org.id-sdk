@@ -1282,22 +1282,47 @@
     "@typescript-eslint/types" "4.26.0"
     eslint-visitor-keys "^2.0.0"
 
-"@windingtree/org.id-auth@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@windingtree/org.id-auth/-/org.id-auth-0.3.0.tgz#cded8f498db05d0197a9923b09eb9bd6e1721f33"
-  integrity sha512-d+WiQ45MshN7Qt01IiapeyDzM1rhUKRTdXVQ752IfTUNv6blpTcMl5oBu0HaicDv3muPBsL85OJngrLVazEL0w==
+"@windingtree/org.id-auth@0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-auth/-/org.id-auth-0.2.3.tgz#87a78804ceabe81c64ae0a77492ee9f630fe44f6"
+  integrity sha512-vj65Kp6t1rXz6R07qMy0T511xV/R2Y/bBOW7LuM0aT+nSAHARa3jihPmd0b68hrgZHcdE2XsINyqcFN+M8HqXg==
   dependencies:
-    "@windingtree/org.id-utils" "0.2.12"
+    "@windingtree/org.id-utils" "0.2.11"
+    "@windingtree/org.json-schema" "0.5.5-beta"
+    jose "3.12.3"
+    luxon "1.27.0"
+
+"@windingtree/org.id-auth@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-auth/-/org.id-auth-0.4.0.tgz#32d8d73b8998fb6c84e30a05efded1dc0fa1f7fa"
+  integrity sha512-tO77l2EK1CXmQTevHRdLniGpeSUYaSfPUKJJ8oVro1BN3ZH6ThVhsi5rfP3vvvR7gyKDE3rKeyDH/2dEU34Tgw==
+  dependencies:
+    "@windingtree/org.id-utils" "0.2.14"
     "@windingtree/org.json-schema" "0.5.7-beta"
-    base64-js "1.5.1"
+    base64url "3.0.1"
     jose "3.12.3"
     luxon "1.27.0"
     web3 "1.3.6"
+
+"@windingtree/org.id-utils@0.2.11":
+  version "0.2.11"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-utils/-/org.id-utils-0.2.11.tgz#c428f1fb1f891e7a1c83b0c64004b852d6117619"
+  integrity sha512-dDHwNvTQbjL1lzxTNTSBR6rlsWkHdUnZdwIQ6Hd3UATtE9Q5B5+3hs1rSurA3e1f90cRe1HOZFz0nc5J7V8rNw==
+  dependencies:
+    axios "0.21.1"
 
 "@windingtree/org.id-utils@0.2.12":
   version "0.2.12"
   resolved "https://registry.yarnpkg.com/@windingtree/org.id-utils/-/org.id-utils-0.2.12.tgz#a5d6a69d7acbf2a3e92db10e36e892b72a850617"
   integrity sha512-xe5+ReTseX9BQ/LVeOJccqqsOTxYB5BP2CmhvGzlUSIf+7LN7vqFkdCBvKApCDdu6+m7aDJ8L3jaYYEDoBtILg==
+  dependencies:
+    axios "0.21.1"
+    web3 "1.3.6"
+
+"@windingtree/org.id-utils@0.2.14":
+  version "0.2.14"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-utils/-/org.id-utils-0.2.14.tgz#6ab1df4121f87e3e54c27a351c35bc0ea622c226"
+  integrity sha512-01pt4sZBtBBABJgZn2JCAvQuzHoUqIDP914JA9o9vpYH9QkQ+siqYEBX4slDkE2Kh1HAAz8uMYouMfh2iCm+Ng==
   dependencies:
     axios "0.21.1"
     web3 "1.3.6"
@@ -1309,10 +1334,29 @@
   dependencies:
     "@openzeppelin/contracts" "2.5.0"
 
+"@windingtree/org.json-schema@0.5.5-beta":
+  version "0.5.5-beta"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.5-beta.tgz#96ffcc89a394558b0f2dd90299bb8564c7ece208"
+  integrity sha512-zqybo/WsLVWCEa2Rkn7MqicdilP2DOaHYSbtaTe+mVidSP7o5RSOxBRQ3nJSFmdxcVxnj/jr5ia4NFaDhNvMQQ==
+
+"@windingtree/org.json-schema@0.5.6-beta":
+  version "0.5.6-beta"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.6-beta.tgz#9caaaf5f24dc09a347e40d3948a4de7cea27b90d"
+  integrity sha512-Ac7cZsinc3QhaIOeGZrdsYShN59mg3v+FcfvixhbG0kR5AhnDqudqXCAsvfjI3PXBl8f7pG2JP2JYWJvoEbL6Q==
+
 "@windingtree/org.json-schema@0.5.7-beta":
   version "0.5.7-beta"
   resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.7-beta.tgz#c1a63088bee810fab819ed252c35dcc5e780d7b1"
   integrity sha512-dfjYTHfZ3XXsCk0F46VCs5S6BBsfBB/XURVdRFVnsQTg2tCszQ2Ep0Rn1tjasjqaHl15d+SjrxhRgACUIZ8duw==
+
+"@windingtree/org.json-utils@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.json-utils/-/org.json-utils-0.2.0.tgz#120278cf103950ea37f6de8e7fc31b0f699dc965"
+  integrity sha512-X3w3UTqWVZQc1VR01e11bkCsga0paDB8hgJeEf0gL5KCRRpC2znloN0t9pjizNI7zWalPHnGYEW1s9IzxkKOIg==
+  dependencies:
+    "@windingtree/org.id-auth" "0.2.3"
+    "@windingtree/org.id-utils" "0.2.12"
+    "@windingtree/org.json-schema" "0.5.6-beta"
 
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
@@ -1705,10 +1749,15 @@ base-x@^3.0.2, base-x@^3.0.8:
   dependencies:
     safe-buffer "^5.0.1"
 
-base64-js@1.5.1, base64-js@^1.0.2, base64-js@^1.3.1:
+base64-js@^1.0.2, base64-js@^1.3.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
+
+base64url@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/base64url/-/base64url-3.0.1.tgz#6399d572e2bc3f90a9a8b22d5dbb0a32d33f788d"
+  integrity sha512-ir1UPr3dkwexU7FdV8qBBbNDRUhMmIekYMFZfi+C/sLNnRESKPl23nB9b2pltqfOQNnGzsDdId90AEtG5tCx4A==
 
 base@^0.11.1:
   version "0.11.2"

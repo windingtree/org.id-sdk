@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-auth",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "ORGiD authentication library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -39,8 +39,8 @@
   },
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/auth#readme",
   "dependencies": {
-    "jose": "3.12.3",
-    "@windingtree/org.id-utils": "0.2.14",
+    "jose": "3.13.0",
+    "@windingtree/org.id-utils": "0.2.17",
     "@windingtree/org.json-schema": "0.5.7-beta",
     "luxon": "1.27.0",
     "web3": "1.3.6",
@@ -49,14 +49,14 @@
   "devDependencies": {
     "@types/jest": "26.0.23",
     "@types/luxon": "1.27.0",
-    "@typescript-eslint/eslint-plugin": "4.27.0",
-    "@typescript-eslint/parser": "4.27.0",
-    "eslint": "7.28.0",
-    "jest": "27.0.4",
+    "@typescript-eslint/eslint-plugin": "4.28.1",
+    "@typescript-eslint/parser": "4.28.1",
+    "eslint": "7.29.0",
+    "jest": "27.0.6",
     "ts-jest": "27.0.3",
-    "typedoc": "0.20.36",
-    "typedoc-plugin-markdown": "3.9.0",
-    "typescript": "4.2.4",
+    "typedoc": "0.21.2",
+    "typedoc-plugin-markdown": "3.10.2",
+    "typescript": "4.3.4",
     "@windingtree/org.id-test-ganache-server": "0.1.0"
   }
 }

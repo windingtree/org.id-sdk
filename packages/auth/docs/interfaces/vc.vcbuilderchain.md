@@ -20,27 +20,27 @@
 
 ### setCredentialSubject
 
-▸ **setCredentialSubject**(`subject`): [VCBuilderChain](vc.vcbuilderchain.md)
+▸ **setCredentialSubject**(`subject`): [`VCBuilderChain`](vc.vcbuilderchain.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `subject` | [CredentialSubject](vc.credentialsubject.md) |
+| `subject` | [`CredentialSubject`](vc.credentialsubject.md) |
 
 #### Returns
 
-[VCBuilderChain](vc.vcbuilderchain.md)
+[`VCBuilderChain`](vc.vcbuilderchain.md)
 
 #### Defined in
 
-[src/vc.ts:76](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L76)
+[src/vc.ts:76](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L76)
 
 ___
 
 ### setExpirationDate
 
-▸ **setExpirationDate**(`expire`): [VCBuilderChain](vc.vcbuilderchain.md)
+▸ **setExpirationDate**(`expire`): [`VCBuilderChain`](vc.vcbuilderchain.md)
 
 #### Parameters
 
@@ -50,17 +50,17 @@ ___
 
 #### Returns
 
-[VCBuilderChain](vc.vcbuilderchain.md)
+[`VCBuilderChain`](vc.vcbuilderchain.md)
 
 #### Defined in
 
-[src/vc.ts:73](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L73)
+[src/vc.ts:73](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L73)
 
 ___
 
 ### setHolder
 
-▸ **setHolder**(`holder`, `type?`): [VCBuilderChain](vc.vcbuilderchain.md)
+▸ **setHolder**(`holder`, `type?`): [`VCBuilderChain`](vc.vcbuilderchain.md)
 
 #### Parameters
 
@@ -71,17 +71,17 @@ ___
 
 #### Returns
 
-[VCBuilderChain](vc.vcbuilderchain.md)
+[`VCBuilderChain`](vc.vcbuilderchain.md)
 
 #### Defined in
 
-[src/vc.ts:63](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L63)
+[src/vc.ts:63](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L63)
 
 ___
 
 ### setValidFrom
 
-▸ **setValidFrom**(`date`): [VCBuilderChain](vc.vcbuilderchain.md)
+▸ **setValidFrom**(`date`): [`VCBuilderChain`](vc.vcbuilderchain.md)
 
 #### Parameters
 
@@ -91,17 +91,17 @@ ___
 
 #### Returns
 
-[VCBuilderChain](vc.vcbuilderchain.md)
+[`VCBuilderChain`](vc.vcbuilderchain.md)
 
 #### Defined in
 
-[src/vc.ts:67](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L67)
+[src/vc.ts:67](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L67)
 
 ___
 
 ### setValidUntil
 
-▸ **setValidUntil**(`date`): [VCBuilderChain](vc.vcbuilderchain.md)
+▸ **setValidUntil**(`date`): [`VCBuilderChain`](vc.vcbuilderchain.md)
 
 #### Parameters
 
@@ -111,49 +111,49 @@ ___
 
 #### Returns
 
-[VCBuilderChain](vc.vcbuilderchain.md)
+[`VCBuilderChain`](vc.vcbuilderchain.md)
 
 #### Defined in
 
-[src/vc.ts:70](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L70)
+[src/vc.ts:70](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L70)
 
 ___
 
 ### sign
 
-▸ **sign**(`privateKey`): `Promise`<[SignedVC](vc.signedvc.md)\>
+▸ **sign**(`privateKey`): `Promise`<[`SignedVC`](vc.signedvc.md)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `privateKey` | [JWK](keys.jwk.md) \| [KeyLike](../modules/keys.md#keylike) |
+| `privateKey` | [`JWK`](keys.jwk.md) \| [`KeyLike`](../modules/keys.md#keylike) |
 
 #### Returns
 
-`Promise`<[SignedVC](vc.signedvc.md)\>
+`Promise`<[`SignedVC`](vc.signedvc.md)\>
 
 #### Defined in
 
-[src/vc.ts:79](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L79)
+[src/vc.ts:79](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L79)
 
 ___
 
 ### signWithBlockchainAccount
 
-▸ **signWithBlockchainAccount**(`blockchainAccountId`, `options?`): `Promise`<[SignedVC](vc.signedvc.md)\>
+▸ **signWithBlockchainAccount**(`blockchainAccountId`, `options?`): `Promise`<[`SignedVC`](vc.signedvc.md)\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `blockchainAccountId` | `string` |
-| `options?` | [SignatureOptions](vc.signatureoptions.md) |
+| `options?` | [`SignatureOptions`](vc.signatureoptions.md) |
 
 #### Returns
 
-`Promise`<[SignedVC](vc.signedvc.md)\>
+`Promise`<[`SignedVC`](vc.signedvc.md)\>
 
 #### Defined in
 
-[src/vc.ts:82](https://github.com/windingtree/org.id-sdk/blob/7afe153/packages/auth/src/vc.ts#L82)
+[src/vc.ts:82](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L82)
