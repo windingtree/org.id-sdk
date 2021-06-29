@@ -18,4 +18,4 @@
 
 #### Defined in
 
-[src/vc.ts:51](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L51)
+[src/vc.ts:52](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L52)

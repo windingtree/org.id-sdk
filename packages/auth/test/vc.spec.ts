@@ -46,7 +46,7 @@ describe('Verifiable Credentials', () => {
     )
     .setHolder(holder)
     .setExpirationDate(new Date('2031-06-29').toISOString())
-    .setValidFrom(new Date('2031-05-30').toISOString())
+    .setValidFrom(new Date().toISOString())
     .setValidUntil(new Date('2031-06-28').toISOString())
     .setCredentialSubject(subject)
     .sign(privateKey);
@@ -63,7 +63,7 @@ describe('Verifiable Credentials', () => {
     )
     .setHolder(holder)
     .setExpirationDate(new Date('2031-06-29').toISOString())
-    .setValidFrom(new Date('2031-05-30').toISOString())
+    .setValidFrom(new Date().toISOString())
     .setValidUntil(new Date('2031-06-28').toISOString())
     .setCredentialSubject(subject)
     .signWithBlockchainAccount(

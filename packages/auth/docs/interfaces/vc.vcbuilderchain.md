@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[src/vc.ts:76](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L76)
+[src/vc.ts:77](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L77)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:73](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L73)
+[src/vc.ts:74](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L74)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:63](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L63)
+[src/vc.ts:64](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L64)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:67](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L67)
+[src/vc.ts:68](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L68)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:70](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L70)
+[src/vc.ts:71](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L71)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:79](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L79)
+[src/vc.ts:80](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L80)
 
 ___
 
@@ -156,4 +156,4 @@ ___
 
 #### Defined in
 
-[src/vc.ts:82](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L82)
+[src/vc.ts:83](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L83)

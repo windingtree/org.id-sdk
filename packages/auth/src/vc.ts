@@ -25,6 +25,7 @@ import {
   uid,
   object
 } from '@windingtree/org.id-utils';
+import orgJsonSchema from '@windingtree/org.json-schema';
 import { DateTime } from  'luxon';
 import { parseJwk } from 'jose/jwk/parse';
 import { CompactSign } from 'jose/jws/compact/sign';
@@ -601,6 +602,17 @@ export const verifyVC = async (
   vc: SignedVC,
   publicKey: KeyLike | JWK | string
 ): Promise<CredentialReference> => {
+  // Validate ORG.JSON VC against the VC schema
+  const vcSchemaValid = object.validateWithSchemaOrRef(
+    orgJsonSchema,
+    '#/definitions/CredentialReference',
+    vc
+  );
+
+  if (vcSchemaValid !== null) {
+    throw new Error(`VC schema validation: ${vcSchemaValid}`);
+  }
+
   const jws = object.getDeepValue(vc, 'proof.jws');
 
   if (typeof jws !== 'string') {
@@ -661,34 +673,61 @@ export const verifyVC = async (
     decodedPayload = payload;
   }
 
-  // @todo Add validation of the payload against the VC schema
+  const unsignedPayload = JSON.parse(JSON.stringify(vc));
+  delete unsignedPayload.proof;
+
+  // Compare unsigned and signed payloads
+  if (JSON.stringify(unsignedPayload) !== JSON.stringify(decodedPayload)) {
+    throw new Error('Unsigned and signed payloads are not equal');
+  }
+
+  const currentDate = DateTime.now();
+
+  // Check if VC expired
+  if (
+    !(
+      typeof decodedPayload.expirationDate === 'undefined' ||
+      currentDate <= DateTime.fromISO(decodedPayload.expirationDate)
+    )
+  ) {
+    throw new Error(`VC expired at: ${decodedPayload.expirationDate}`);
+  }
+
+  // Check if VC active by both dates
+  if (
+    typeof decodedPayload.validFrom !== 'undefined' &&
+    typeof decodedPayload.validUntil !== 'undefined' &&
+    !(
+      currentDate >= DateTime.fromISO(decodedPayload.validFrom) &&
+      currentDate <= DateTime.fromISO(decodedPayload.validUntil)
+    )
+  ) {
+    throw new Error(
+      `VC inactive. Valid from date: ${decodedPayload.validFrom}. Valid until date: ${decodedPayload.validUntil}`
+    );
+  }
+
+  // Check if VC active by `from` date only
+  if (
+    typeof vc.validFrom !== 'undefined' &&
+    typeof vc.validUntil === 'undefined' &&
+    currentDate < DateTime.fromISO(vc.validFrom)
+  ) {
+    throw new Error(
+      `VC inactive. Valid from date: ${decodedPayload.validFrom}`
+    );
+  }
+
+  // Check if VC active by `until` date only
+  if (
+    typeof vc.validFrom === 'undefined' &&
+    typeof vc.validUntil !== 'undefined' &&
+    currentDate > DateTime.fromISO(vc.validUntil)
+  ) {
+    throw new Error(
+      `VC inactive. Valid until date: ${decodedPayload.validUntil}`
+    );
+  }
 
   return decodedPayload;
-};
-
-// Check if VC expired
-export const isExpired = (vc: CredentialReference): boolean => {
-  const currentDate = DateTime.now();
-  return typeof vc.expirationDate === 'undefined' ||
-    currentDate > DateTime.fromISO(vc.expirationDate);
-};
-
-// Check if VC fullfil from-until range
-export const isValidFromUntil = (vc: CredentialReference): boolean => {
-  const currentDate = DateTime.now();
-
-  if (typeof vc.validFrom !== 'undefined' && typeof vc.validUntil !== 'undefined') {
-    return currentDate >= DateTime.fromISO(vc.validFrom) &&
-      currentDate <= DateTime.fromISO(vc.validUntil);
-  }
-
-  if (typeof vc.validFrom !== 'undefined' && typeof vc.validUntil === 'undefined') {
-    return currentDate >= DateTime.fromISO(vc.validFrom);
-  }
-
-  if (typeof vc.validFrom === 'undefined' && typeof vc.validUntil !== 'undefined') {
-    return currentDate <= DateTime.fromISO(vc.validUntil);
-  }
-
-  return true;
 };

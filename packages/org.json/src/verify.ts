@@ -1,18 +1,14 @@
 import type {
   CredentialReference
 } from '@windingtree/org.json-schema';
-import type {
-  SignedVC
-} from '@windingtree/org.id-auth/dist/vc';
 
 import orgJsonSchema from '@windingtree/org.json-schema';
+import { object } from '@windingtree/org.id-utils';
+import { verifyVC } from '@windingtree/org.id-auth/dist/vc';
 
 
 // Verify ORG.JSON VC format
 /*
-  - Validate ORG.JSON VC against the VC schema
-  - Verify ORG.JSON VS type
-    - must contains ORG.JSON
   - Extract the ORG.JSON VC proof
   - Validate the proof creation date
   - Verify the verification method type
@@ -25,6 +21,32 @@ import orgJsonSchema from '@windingtree/org.json-schema';
     - blockchainType must be supported by the resolver
     - blockchainNetworkId must be supported by the resolver
 */
-export const verifyOrgJsonVcFormat = (vc: SignedVC): void => {
+export const verifyOrgJsonVc = async (vc: CredentialReference): Promise<CredentialReference> => {
+  // Verify ORG.JSON VC type
+  const vcTypes = object.getDeepValue(vc, 'type');
+
+  // Must includes type ORG.JSON
+  if (!Array.isArray(vcTypes) || !vcTypes.includes('ORG.JSON')) {
+    throw new Error('ORG.JSON VC type must include ORG.JSON type');
+  }
+
+  // Extract unsafe ORG.JSON source
+  const unsafeOrgJson = object.getDeepValue(vc, 'credentialSubject');
+
+  if (typeof unsafeOrgJson === 'undefined') {
+    throw new Error('Credential subject not defined');
+  }
+
+  // Validate ORG.JSON against the schema
+  const orgJsonValidationResult = object.validateWithSchemaOrRef(
+    {},
+    orgJsonSchema,
+    unsafeOrgJson
+  );
+
+  if (orgJsonValidationResult) {
+    throw new Error(`ORG.JSON schema validation: ${orgJsonValidationResult}`);
+  }
+
 
 };

@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[src/vc.ts:94](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L94)
+[src/vc.ts:95](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L95)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:96](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L96)
+[src/vc.ts:97](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L97)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[src/vc.ts:95](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L95)
+[src/vc.ts:96](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L96)

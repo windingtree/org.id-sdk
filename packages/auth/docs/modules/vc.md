@@ -32,8 +32,6 @@
 - [checkDateUtil](vc.md#checkdateutil)
 - [createVC](vc.md#createvc)
 - [decodeJws](vc.md#decodejws)
-- [isExpired](vc.md#isexpired)
-- [isValidFromUntil](vc.md#isvalidfromuntil)
 - [parseBlockchainAccountId](vc.md#parseblockchainaccountid)
 - [signWithWeb3Provider](vc.md#signwithweb3provider)
 - [verifyJwsSignedWithBlockchainAccount](vc.md#verifyjwssignedwithblockchainaccount)
@@ -51,7 +49,7 @@
 
 #### Defined in
 
-[src/vc.ts:40](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L40)
+[src/vc.ts:41](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L41)
 
 ___
 
@@ -61,7 +59,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:42](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L42)
+[src/vc.ts:43](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L43)
 
 ___
 
@@ -71,7 +69,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:48](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L48)
+[src/vc.ts:49](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L49)
 
 ## Functions
 
@@ -92,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:256](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L256)
+[src/vc.ts:257](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L257)
 
 ___
 
@@ -114,7 +112,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:287](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L287)
+[src/vc.ts:288](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L288)
 
 ___
 
@@ -135,7 +133,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:112](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L112)
+[src/vc.ts:113](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L113)
 
 ___
 
@@ -155,7 +153,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:275](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L275)
+[src/vc.ts:276](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L276)
 
 ___
 
@@ -176,7 +174,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:307](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L307)
+[src/vc.ts:308](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L308)
 
 ___
 
@@ -196,47 +194,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:183](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L183)
-
-___
-
-### isExpired
-
-▸ `Const` **isExpired**(`vc`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `vc` | [`CredentialReference`](../interfaces/vc.credentialreference.md) |
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/vc.ts:670](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L670)
-
-___
-
-### isValidFromUntil
-
-▸ `Const` **isValidFromUntil**(`vc`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `vc` | [`CredentialReference`](../interfaces/vc.credentialreference.md) |
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/vc.ts:677](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L677)
+[src/vc.ts:184](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L184)
 
 ___
 
@@ -256,7 +214,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:150](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L150)
+[src/vc.ts:151](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L151)
 
 ___
 
@@ -279,7 +237,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:128](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L128)
+[src/vc.ts:129](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L129)
 
 ___
 
@@ -300,7 +258,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:223](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L223)
+[src/vc.ts:224](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L224)
 
 ___
 
@@ -321,4 +279,4 @@ ___
 
 #### Defined in
 
-[src/vc.ts:600](https://github.com/windingtree/org.id-sdk/blob/074c18d/packages/auth/src/vc.ts#L600)
+[src/vc.ts:601](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/vc.ts#L601)
