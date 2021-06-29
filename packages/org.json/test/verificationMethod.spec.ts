@@ -24,7 +24,9 @@ describe('DID utilities', () => {
 
     beforeAll(async () => {
       keyPairs = await Promise.all(
-        KeyTypes.map(t => generateKeyPair(t))
+        KeyTypes
+          .filter(t => t !== 'EcdsaSecp256k1RecoveryMethod2020')
+          .map(t => generateKeyPair(t))
       );
       keyJWK = await Promise.all(
         keyPairs.map(async t => {

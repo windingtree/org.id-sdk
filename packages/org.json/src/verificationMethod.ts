@@ -1,3 +1,6 @@
+import type {
+  DidGroupedCheckResult
+} from '@windingtree/org.id-auth/dist/vc';
 import { regexp } from '@windingtree/org.id-utils';
 import {
   keyTypeFromJWK,
@@ -35,7 +38,13 @@ export const validateIdAndController = (
     throw new Error(`Wrong DID format: ${id}`);
   }
 
-  const { fragment } = regexp.didGrouped.exec(id).groups;
+  const groupedCheck = regexp.didGrouped.exec(id);
+
+  if (!groupedCheck || !groupedCheck.groups) {
+    throw new Error(`Wrong Issuer DID format: ${id}`);
+  }
+
+  const { fragment } = groupedCheck.groups as DidGroupedCheckResult;
 
   if (!fragment) {
     throw new Error(`Key identifier must be provided as fragment in the Id: ${id} #??????`);

@@ -22,77 +22,99 @@
 
 ### blockchainAccountId
 
-• `Optional` **blockchainAccountId**: *string*
+• `Optional` **blockchainAccountId**: `string`
 
-Defined in: [src/verificationMethod.ts:23](https://github.com/windingtree/org.id-sdk/blob/4778438/packages/org.json/src/verificationMethod.ts#L23)
+#### Defined in
+
+[org.json/src/verificationMethod.ts:26](https://github.com/windingtree/org.id-sdk/blob/4009f33/packages/org.json/src/verificationMethod.ts#L26)
 
 ___
 
 ### controller
 
-• **controller**: *string*
+• **controller**: `string`
 
-Defined in: [src/verificationMethod.ts:21](https://github.com/windingtree/org.id-sdk/blob/4778438/packages/org.json/src/verificationMethod.ts#L21)
+#### Defined in
+
+[org.json/src/verificationMethod.ts:24](https://github.com/windingtree/org.id-sdk/blob/4009f33/packages/org.json/src/verificationMethod.ts#L24)
 
 ___
 
 ### id
 
-• **id**: *string*
+• **id**: `string`
 
-Defined in: [src/verificationMethod.ts:19](https://github.com/windingtree/org.id-sdk/blob/4778438/packages/org.json/src/verificationMethod.ts#L19)
+#### Defined in
+
+[org.json/src/verificationMethod.ts:22](https://github.com/windingtree/org.id-sdk/blob/4009f33/packages/org.json/src/verificationMethod.ts#L22)
 
 ___
 
 ### note
 
-• `Optional` **note**: *string*
+• `Optional` **note**: `string`
 
-Defined in: [src/verificationMethod.ts:27](https://github.com/windingtree/org.id-sdk/blob/4778438/packages/org.json/src/verificationMethod.ts#L27)
+#### Defined in
+
+[org.json/src/verificationMethod.ts:30](https://github.com/windingtree/org.id-sdk/blob/4009f33/packages/org.json/src/verificationMethod.ts#L30)
 
 ___
 
 ### publicKeyBase58
 
-• `Optional` **publicKeyBase58**: *string*
+• `Optional` **publicKeyBase58**: `string`
 
-Defined in: [src/verificationMethod.ts:25](https://github.com/windingtree/org.id-sdk/blob/4778438/packages/org.json/src/verificationMethod.ts#L25)
+#### Defined in
+
+[org.json/src/verificationMethod.ts:28](https://github.com/windingtree/org.id-sdk/blob/4009f33/packages/org.json/src/verificationMethod.ts#L28)
 
 ___
 
 ### publicKeyJwk
 
-• `Optional` **publicKeyJwk**: JWK
+• `Optional` **publicKeyJwk**: `JWK`
 
-Defined in: [src/verificationMethod.ts:22](https://github.com/windingtree/org.id-sdk/blob/4778438/packages/org.json/src/verificationMethod.ts#L22)
+#### Defined in
+
+[org.json/src/verificationMethod.ts:25](https://github.com/windingtree/org.id-sdk/blob/4009f33/packages/org.json/src/verificationMethod.ts#L25)
 
 ___
 
 ### publicKeyPem
 
-• `Optional` **publicKeyPem**: *string*
+• `Optional` **publicKeyPem**: `string`
 
-Defined in: [src/verificationMethod.ts:24](https://github.com/windingtree/org.id-sdk/blob/4778438/packages/org.json/src/verificationMethod.ts#L24)
+#### Defined in
+
+[org.json/src/verificationMethod.ts:27](https://github.com/windingtree/org.id-sdk/blob/4009f33/packages/org.json/src/verificationMethod.ts#L27)
 
 ___
 
 ### type
 
-• **type**: *string*
+• **type**: `string`
 
-Defined in: [src/verificationMethod.ts:20](https://github.com/windingtree/org.id-sdk/blob/4778438/packages/org.json/src/verificationMethod.ts#L20)
+#### Defined in
+
+[org.json/src/verificationMethod.ts:23](https://github.com/windingtree/org.id-sdk/blob/4009f33/packages/org.json/src/verificationMethod.ts#L23)
 
 ___
 
 ### verificationMethodRevocation
 
-• `Optional` **verificationMethodRevocation**: *object*
+• `Optional` **verificationMethodRevocation**: `Object`
+
+#### Index signature
+
+▪ [k: `string`]: `unknown`
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `invalidityDate?` | *string* | Date of the public key invalidation |
+| `invalidityDate?` | `string` | Date of the public key invalidation |
 | `reason?` | ``"unspecified"`` \| ``"keyCompromise"`` \| ``"affiliationChanged"`` \| ``"superseded"`` \| ``"cessationOfOperation"`` \| ``"certificateHold"`` \| ``"privilegeWithdrawn"`` | Revocation reason according to https://datatracker.ietf.org/doc/html/rfc5280#section-5.3.1 |
 
-Defined in: [src/verificationMethod.ts:26](https://github.com/windingtree/org.id-sdk/blob/4778438/packages/org.json/src/verificationMethod.ts#L26)
+#### Defined in
+
+[org.json/src/verificationMethod.ts:29](https://github.com/windingtree/org.id-sdk/blob/4009f33/packages/org.json/src/verificationMethod.ts#L29)
