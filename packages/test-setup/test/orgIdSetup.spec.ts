@@ -5,6 +5,7 @@ import {
 }  from '../src';
 import { DevelopmentServer } from '@windingtree/org.id-test-ganache-server';
 import { HttpFileServer } from '@windingtree/org.id-test-http-server';
+import { verifyVC } from '@windingtree/org.id-auth/dist/vc';
 
 describe('OrgId setup', () => {
   let setup: OrgIdSetup;
@@ -50,7 +51,9 @@ describe('OrgId setup', () => {
           orgJson
         } = await setup.registerOrgId(owner);
         expect(/^0x[a-fA-F0-9]{64}$/.exec(orgIdHash)).not.toBeNull();
-        console.log(JSON.stringify(orgJson, null, 2));
+        // console.log(JSON.stringify(orgJson, null, 2));
+        const issuerBlockchainAccountId = `${owner}@eip155:1337`;
+        await expect(() => verifyVC(orgJson, issuerBlockchainAccountId)).not.toThrow();
       });
     });
   });

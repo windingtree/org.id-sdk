@@ -106,7 +106,8 @@ export interface BlockchainAccountIdParsed {
 export interface DecodedJws {
   protectedHeader: GenericObject;
   payload: CredentialReference;
-  signature: string
+  signature: string;
+  message: string;
 }
 
 // Prepare an unsigned data for signing
@@ -128,7 +129,7 @@ export const buildUnsignedDataForWeb3Signature = (
 // Sign payload using Ethereum account
 export const signWithWeb3Provider = async (
   web3Provider: Web3Provider,
-  from: string,
+  signerAddress: string,
   verificationMethod: string,
   payload: string | GenericObject
 ): Promise<string> => {
@@ -140,11 +141,11 @@ export const signWithWeb3Provider = async (
   const web3 = new Web3(web3Provider);
 
   const signature: string = await web3.eth.sign(
-    web3.utils.utf8ToHex(unsignedData),
-    from
+    unsignedData,
+    signerAddress
   );
 
-  return `${unsignedData}.${base64url.encode(signature)}`;
+  return `${unsignedData}.${base64url.encode(signature as string)}`;
 }
 
 // Parse string formatted as blockchain account Id
@@ -216,7 +217,8 @@ export const decodeJws = (jws: string): DecodedJws => {
   return {
     protectedHeader,
     payload,
-    signature
+    signature: base64url.decode(signature),
+    message: `${encodedProtectedHeader}.${encodedPayload}`
   };
 };
 
@@ -226,22 +228,16 @@ export const verifyJwsSignedWithBlockchainAccount = (
   accountId: string
 ): CredentialReference => {
   const {
-    protectedHeader,
     payload,
+    message,
     signature
   } = decodeJws(jws);
-
-  // Build unsigned signature message
-  const message: string = buildUnsignedDataForWeb3Signature(
-    protectedHeader.kid as string,
-    payload as CredentialReference
-  );
 
   // Verify signature
   const web3 = new Web3();
   const recoveredAccountId = web3.eth.accounts.recover(
     message,
-    base64url.decode(signature)
+    signature
   );
 
   if (accountId.toUpperCase() !== recoveredAccountId.toUpperCase()) {
