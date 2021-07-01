@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-test-http-server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simple Http Server for ORGiD testing",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -39,14 +39,14 @@
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/test-http-server#readme",
   "devDependencies": {
     "@types/jest": "26.0.23",
-    "@typescript-eslint/eslint-plugin": "4.26.0",
-    "@typescript-eslint/parser": "4.26.0",
+    "@typescript-eslint/eslint-plugin": "4.28.1",
+    "@typescript-eslint/parser": "4.28.1",
     "axios": "0.21.1",
-    "eslint": "7.27.0",
-    "jest": "27.0.3",
-    "ts-jest": "27.0.2",
-    "typedoc": "0.20.36",
-    "typedoc-plugin-markdown": "3.9.0",
-    "typescript": "4.2.4"
+    "eslint": "7.29.0",
+    "jest": "27.0.6",
+    "ts-jest": "27.0.3",
+    "typedoc": "0.21.2",
+    "typedoc-plugin-markdown": "3.10.2",
+    "typescript": "4.3.5"
   }
 }
