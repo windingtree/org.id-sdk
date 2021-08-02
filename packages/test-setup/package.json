@@ -40,8 +40,8 @@
   "dependencies": {
     "@truffle/contract": "4.3.27",
     "@windingtree/org.id": "2.0.0",
-    "@windingtree/org.id-auth": "0.4.5",
-    "@windingtree/org.id-utils": "0.2.18",
+    "@windingtree/org.id-auth": "0.4.6",
+    "@windingtree/org.id-utils": "0.2.19",
     "@windingtree/org.json-schema": "0.5.8-beta",
     "@windingtree/org.json-utils": "0.2.1",
     "@windingtree/org.id-test-ganache-server": "0.1.1",
