@@ -38,13 +38,13 @@
   },
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/test-setup#readme",
   "dependencies": {
-    "@truffle/contract": "4.3.20",
+    "@truffle/contract": "4.3.27",
     "@windingtree/org.id": "2.0.0",
-    "@windingtree/org.id-auth": "0.4.0",
-    "@windingtree/org.id-utils": "0.2.14",
-    "@windingtree/org.json-schema": "0.5.7-beta",
-    "@windingtree/org.json-utils": "0.2.0",
-    "@windingtree/org.id-test-ganache-server": "0.1.0",
+    "@windingtree/org.id-auth": "0.4.5",
+    "@windingtree/org.id-utils": "0.2.18",
+    "@windingtree/org.json-schema": "0.5.8-beta",
+    "@windingtree/org.json-utils": "0.2.1",
+    "@windingtree/org.id-test-ganache-server": "0.1.1",
     "@windingtree/org.id-test-http-server": "0.1.1"
   },
   "devDependencies": {

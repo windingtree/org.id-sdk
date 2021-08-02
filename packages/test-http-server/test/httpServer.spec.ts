@@ -10,6 +10,8 @@ describe('HTTP fetch method', () => {
         server = new HttpFileServer();
     });
 
+    afterAll(() => server.close());
+
     describe('#start', () => {
 
       test('should start a server', async () => {
@@ -20,6 +22,7 @@ describe('HTTP fetch method', () => {
     describe('#close', () => {
 
       test('should close the server', async () => {
+        const server = new HttpFileServer();
         await server.start();
         server.close();
         expect(server.server).toBe(null);

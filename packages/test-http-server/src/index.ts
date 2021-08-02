@@ -39,6 +39,12 @@ export class HttpFileServer {
   server: Server | null = null;
   files: Files = {};
 
+  constructor(shift = 0) {
+    if (shift > 0) {
+      port = port + shift;
+    }
+  }
+
   start(): Promise<Server> {
     this.port = port++;
     this.baseUri = `http://0.0.0.0:${this.port}`;
@@ -47,9 +53,14 @@ export class HttpFileServer {
     return new Promise(
       (resolve, reject) => (this.server as Server).listen(
         this.port,
-        (error: void | Error) => error
-          ? reject(error)
-          : resolve(this.server as Server)
+        (error: void | Error) => {
+
+          if (error) {
+            return reject(error);
+          }
+
+          resolve(this.server as Server);
+        }
       )
     );
   }
