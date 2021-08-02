@@ -1,5 +1,5 @@
 import Web3 from 'web3';
-import { orgIdSetup, OrgIdSetup, generateSalt } from '@windingtree/org.id-test-helpers';
+import { orgIdSetup, OrgIdSetup, generateSalt } from '@windingtree/org.id-test-setup';
 import { regexp } from '@windingtree/org.id-utils';
 import { OrgIdContract } from '../src';
 import type { OrgIdData } from '../src/types';
@@ -17,7 +17,8 @@ describe('OrgId contract', () => {
     setup = await orgIdSetup();
     orgIdContractAddress = setup.address;
     orgIdOwner = setup.accounts[1];
-    orgIdHash = await setup.registerOrgId(orgIdOwner);
+    const regResult = await setup.registerOrgId(orgIdOwner);
+    orgIdHash = regResult.orgIdHash;
     contract = new OrgIdContract(
       orgIdContractAddress,
       setup.server.providerUri
