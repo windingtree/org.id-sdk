@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.json-utils",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "ORG.JSON utilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -39,19 +39,19 @@
   },
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/org.json#readme",
   "dependencies": {
-    "@windingtree/org.id-auth": "0.4.2",
-    "@windingtree/org.id-utils": "0.2.18",
-    "@windingtree/org.json-schema": "0.5.7-beta"
+    "@windingtree/org.id-auth": "0.4.8",
+    "@windingtree/org.id-utils": "0.2.20",
+    "@windingtree/org.json-schema": "0.5.8-beta"
   },
   "devDependencies": {
-    "@types/jest": "26.0.23",
-    "@typescript-eslint/eslint-plugin": "4.28.1",
-    "@typescript-eslint/parser": "4.28.1",
-    "eslint": "7.29.0",
+    "@types/jest": "26.0.24",
+    "@typescript-eslint/eslint-plugin": "4.28.5",
+    "@typescript-eslint/parser": "4.28.5",
+    "eslint": "7.32.0",
     "jest": "27.0.6",
-    "ts-jest": "27.0.3",
-    "typedoc": "0.21.2",
-    "typedoc-plugin-markdown": "3.10.2",
-    "typescript": "4.3.4"
+    "ts-jest": "27.0.4",
+    "typedoc": "0.21.5",
+    "typedoc-plugin-markdown": "3.10.4",
+    "typescript": "4.3.5"
   }
 }
