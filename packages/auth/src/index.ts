@@ -1,3 +1,9 @@
-export * as keys from './keys';
-export * as tokens from './tokens';
-export * as vc from './vc';
+import * as keys from './keys';
+import * as tokens from './tokens';
+import * as vc from './vc';
+
+export default {
+  keys,
+  tokens,
+  vc
+}

@@ -952,6 +952,11 @@
     "@typescript-eslint/types" "4.28.1"
     eslint-visitor-keys "^2.0.0"
 
+"@windingtree/org.id-test-http-server@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-test-http-server/-/org.id-test-http-server-0.1.1.tgz#aa91c1b0f5b7d2b8c20e1a27185e8c9975ab1e24"
+  integrity sha512-0+kR6n++JekoN5nvIGtTJZQ1OUlzGV+qcs+ezo49pKrrekKPNBO2E3RMMCkAeRGnmdFxz7eEmyu/jFgh6/p2Gg==
+
 "@windingtree/org.json-schema@0.5.7-beta":
   version "0.5.7-beta"
   resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.7-beta.tgz#c1a63088bee810fab819ed252c35dcc5e780d7b1"
