@@ -5,7 +5,7 @@ import * as regexp from './regexp';
 import * as object from  './object';
 import * as common from  './common';
 
-export default {
+export {
   uid,
   http,
   errors,
