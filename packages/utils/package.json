@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-utils",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "description": "Shared ORGiD utilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -38,22 +38,22 @@
   },
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/shared#readme",
   "dependencies": {
-    "web3": "1.3.6",
+    "web3": "1.5.0",
     "axios": "0.21.1",
-    "ajv": "8.6.0",
+    "ajv": "8.6.2",
     "ajv-formats": "2.1.0"
   },
   "devDependencies": {
     "jest": "27.0.6",
-    "ts-jest": "27.0.3",
-    "@types/jest": "26.0.23",
-    "eslint": "7.29.0",
-    "@typescript-eslint/eslint-plugin": "4.28.1",
-    "@typescript-eslint/parser": "4.28.1",
-    "typedoc": "0.21.2",
-    "typedoc-plugin-markdown": "3.10.2",
-    "typescript": "4.3.4",
-    "@windingtree/org.id-test-http-server": "0.1.1",
-    "@windingtree/org.json-schema": "0.5.7-beta"
+    "ts-jest": "27.0.4",
+    "@types/jest": "26.0.24",
+    "eslint": "7.32.0",
+    "@typescript-eslint/eslint-plugin": "4.28.5",
+    "@typescript-eslint/parser": "4.28.5",
+    "typedoc": "0.21.5",
+    "typedoc-plugin-markdown": "3.10.4",
+    "typescript": "4.3.5",
+    "@windingtree/org.id-test-http-server": "0.1.4",
+    "@windingtree/org.json-schema": "0.5.8-beta"
   }
 }

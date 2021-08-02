@@ -1,9 +1,15 @@
 import type {
-  AnySchema
+  AnySchema,
+  Plugin
 } from 'ajv';
+import type { FormatOptions } from 'ajv-formats';
 
 import Ajv from 'ajv';
-import addFormats from 'ajv-formats';
+import ajvFormats from 'ajv-formats';
+
+// Because of wrong typings in ajv@8.6.2
+// @todo Refactor after next ajv version will be released
+const addFormats = ajvFormats as unknown as Plugin<FormatOptions>;
 
 // Get value by path from the object
 // Usage: const value = getDeepValue(obj, 'path.to.variable');
