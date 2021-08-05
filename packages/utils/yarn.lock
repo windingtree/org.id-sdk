@@ -989,6 +989,11 @@
     "@typescript-eslint/types" "4.28.5"
     eslint-visitor-keys "^2.0.0"
 
+"@windingtree/org.id-test-http-server@0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-test-http-server/-/org.id-test-http-server-0.1.4.tgz#d4339715e33affe9f9bbc3a2483288b7612823c2"
+  integrity sha512-2VshtcbpUyyIGTu+hakbGfi2jQUKPVWOhhr4Y7aO6RFDCO22pS9pBV79tPdCvqqZLwSH84ltyJctuOElyoT1VA==
+
 "@windingtree/org.json-schema@0.5.8-beta":
   version "0.5.8-beta"
   resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.8-beta.tgz#fdd69f95a23d92b45a9f129852d0fd50fdd0787e"
@@ -5042,9 +5047,9 @@ table@^6.0.9:
     strip-ansi "^6.0.0"
 
 tar@^4.0.2:
-  version "4.4.13"
-  resolved "https://registry.yarnpkg.com/tar/-/tar-4.4.13.tgz#43b364bc52888d555298637b10d60790254ab525"
-  integrity sha512-w2VwSrBoHa5BsSyH+KxEqeQBAllHhccyMFVHtGtdMpF4W7IRWfZjFiQceJPChOeTsSDVUpER2T8FA93pr0L+QA==
+  version "4.4.15"
+  resolved "https://registry.yarnpkg.com/tar/-/tar-4.4.15.tgz#3caced4f39ebd46ddda4d6203d48493a919697f8"
+  integrity sha512-ItbufpujXkry7bHH9NpQyTXPbJ72iTlXgkBAYsAjDXk3Ds8t/3NfO5P4xZGy7u+sYuQUbimgzswX4uQIEeNVOA==
   dependencies:
     chownr "^1.1.1"
     fs-minipass "^1.2.5"
