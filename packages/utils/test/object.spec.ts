@@ -1,4 +1,7 @@
-import orgJsonSchema from '@windingtree/org.json-schema';
+import {
+  org as orgJsonSchema,
+  vc as vcJsonSchema
+} from '@windingtree/org.json-schema';
 import {
   getDeepValue,
   validateWithSchemaOrRef
@@ -36,9 +39,18 @@ describe('Object utils', () => {
   describe('#validateWithSchemaOrRef', () => {
 
     test('should validate data against given schema', async () => {
-      const result = validateWithSchemaOrRef(
+      // Using embedded definition
+      let result = validateWithSchemaOrRef(
         orgJsonSchema,
         '#/definitions/CredentialReference',
+        vcJson
+      );
+      expect(result).toBeNull();
+
+      // Using the root definition
+      result = validateWithSchemaOrRef(
+        vcJsonSchema,
+        '',
         vcJson
       );
       expect(result).toBeNull();

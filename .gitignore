@@ -47,8 +47,7 @@ node_modules/
 
 # dotenv environment variables file
 .env
-.env.test
-.env.build
+.senv
 
 # Serverless directories
 .serverless/

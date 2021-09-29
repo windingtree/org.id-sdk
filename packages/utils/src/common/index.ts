@@ -1,14 +1,45 @@
-import Web3 from 'web3';
+import type { Signer } from 'ethers';
+import { ethers } from 'ethers';
 
-// Generate random salt string
-export const generateSalt = (): string =>
-  Web3.utils.keccak256(Math.random().toString());
+// Generates a random salt
+export const generateSalt = (): string => ethers.utils.solidityKeccak256(
+  [
+    'string'
+  ],
+  [
+    Math.random().toString()
+  ]
+);
 
-// Generate ORGiD hash
-export const generateOrgIdHash = (
-  address: string,
-  salt: string
-): string => Web3.utils.soliditySha3(
-  address,
-  salt
-) as string;
+// Generate an orgId on the base of salt and ethers signer
+export const generateOrgIdWithSigner = async (
+  salt: string,
+  sender: Signer
+): Promise<string> => {
+  const address = await sender.getAddress();
+  return ethers.utils.solidityKeccak256(
+    [
+      'address',
+      'bytes32'
+    ],
+    [
+      address,
+      salt
+    ]
+  );
+}
+
+// Generate an orgId on the base of salt and known address
+export const generateOrgIdWithAddress = (
+  salt: string,
+  address: string
+): string => ethers.utils.solidityKeccak256(
+  [
+    'address',
+    'bytes32'
+  ],
+  [
+    address,
+    salt
+  ]
+);
