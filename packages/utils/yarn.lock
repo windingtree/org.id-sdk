@@ -1074,6 +1074,11 @@
     "@typescript-eslint/types" "4.32.0"
     eslint-visitor-keys "^2.0.0"
 
+"@windingtree/org.id-test-http-server@0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-test-http-server/-/org.id-test-http-server-0.1.4.tgz#d4339715e33affe9f9bbc3a2483288b7612823c2"
+  integrity sha512-2VshtcbpUyyIGTu+hakbGfi2jQUKPVWOhhr4Y7aO6RFDCO22pS9pBV79tPdCvqqZLwSH84ltyJctuOElyoT1VA==
+
 "@windingtree/org.json-schema@0.5.11-beta":
   version "0.5.11-beta"
   resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.11-beta.tgz#c1fe8dcb9b7b1adc93e6e7e9df0f4fdabfdba8a2"
@@ -3434,9 +3439,9 @@ throat@^6.0.1:
   integrity sha512-8hmiGIJMDlwjg7dlJ4yKGLK8EsYqKgPWbG3b4wjJddKNwc7N7Dpn08Df4szr/sZdMVeOstrdYSsqzX6BYbcB+w==
 
 tmpl@1.0.x:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.4.tgz#23640dd7b42d00433911140820e5cf440e521dd1"
-  integrity sha1-I2QN17QtAEM5ERQIIOXPRA5SHdE=
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.5.tgz#8683e0b902bb9c20c4f726e3c0b69f36518c07cc"
+  integrity sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==
 
 to-fast-properties@^2.0.0:
   version "2.0.0"
