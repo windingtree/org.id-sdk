@@ -1074,6 +1074,11 @@
     "@typescript-eslint/types" "4.32.0"
     eslint-visitor-keys "^2.0.0"
 
+"@windingtree/org.id-test-http-server@0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-test-http-server/-/org.id-test-http-server-0.1.4.tgz#d4339715e33affe9f9bbc3a2483288b7612823c2"
+  integrity sha512-2VshtcbpUyyIGTu+hakbGfi2jQUKPVWOhhr4Y7aO6RFDCO22pS9pBV79tPdCvqqZLwSH84ltyJctuOElyoT1VA==
+
 "@windingtree/org.json-schema@0.5.11-beta":
   version "0.5.11-beta"
   resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-0.5.11-beta.tgz#c1fe8dcb9b7b1adc93e6e7e9df0f4fdabfdba8a2"
@@ -1183,12 +1188,7 @@ ansi-escapes@^4.2.1:
   dependencies:
     type-fest "^0.21.3"
 
-ansi-regex@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-5.0.0.tgz#388539f55179bf39339c81af30a654d69f87cb75"
-  integrity sha512-bY6fj56OUQ0hU1KjFNDQuJFezqKdrAyFdIevADiqrWHwSlbmBNMHp5ak2f40Pm8JTFyM2mqxkG6ngkHO11f/lg==
-
-ansi-regex@^5.0.1:
+ansi-regex@^5.0.0, ansi-regex@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-5.0.1.tgz#082cb2c89c9fe8659a311a53bd6a4dc5301db304"
   integrity sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==
