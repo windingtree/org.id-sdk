@@ -1,11 +1,5 @@
-import type {
-  KeyLike,
-  KeyObject
-} from '../src/keys';
-import {
-  createAuthJWT,
-  verifyAuthJWT
-} from '../src/tokens';
+import type { KeyLike, KeyObject } from '../src/keys';
+import { createAuthJWT, verifyAuthJWT } from '../src/tokens';
 import {
   KeyTypes,
   keyTypeConfig,
@@ -28,7 +22,7 @@ describe('Tokens', () => {
     let publicKey: KeyObject;
     let keyPairs: { privateKey: KeyLike, publicKey: KeyLike }[];
 
-    beforeAll(async () => {
+    before(async () => {
       privateKey = importKeyPrivatePem(privatePem);
       publicKey = importKeyPublicPem(publicPem);
       keyPairs = await Promise.all(
@@ -41,7 +35,7 @@ describe('Tokens', () => {
 
     describe('#createAuthToken', () => {
 
-      test('should create JWT token from imported key', async () => {
+      it('should create JWT token from imported key', async () => {
         const jwt = await createAuthJWT(
           privateKey,
           issuer,
@@ -57,7 +51,7 @@ describe('Tokens', () => {
         );
       });
 
-      test('should create JWT token from generated keys', async () => {
+      it('should create JWT token from generated keys', async () => {
         const jwts = await Promise.all(
           keyPairs.map(
             k => createAuthJWT(

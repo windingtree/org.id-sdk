@@ -1,8 +1,4 @@
-import type {
-  KeyLike,
-  KeyObject,
-  JWK
-} from '../src/keys';
+import type { KeyLike, KeyObject, JWK } from '../src/keys';
 import {
   KeyTypes,
   keyTypeConfig,
@@ -12,15 +8,13 @@ import {
   importKeyPrivatePem,
   importKeyPublicPem
 } from '../src/keys';
-import {
-  privatePem,
-  publicPem
-} from './mocks/pemKeys';
+import { privatePem, publicPem } from './mocks/pemKeys';
+import { expect } from 'chai';
 
 describe('Keys utilities', () => {
   let keys: { privateKey: KeyLike, publicKey: KeyLike }[];
 
-  beforeAll(async () => {
+  before(async () => {
     keys = await Promise.all(
       KeyTypes
         .filter(t => t !== 'EcdsaSecp256k1RecoveryMethod2020')
@@ -32,10 +26,10 @@ describe('Keys utilities', () => {
 
     describe('#generateKeyPair', () => {
 
-      test('should generate key pairs', async () => {
+      it('should generate key pairs', async () => {
         keys.forEach((k, i) => {
           for (const key of [k.privateKey, k.publicKey]) {
-            expect((key as KeyObject).asymmetricKeyType).toBe(
+            expect((key as KeyObject).asymmetricKeyType).to.equal(
               keyTypeConfig[KeyTypes[i]].type
             );
           }
@@ -47,7 +41,7 @@ describe('Keys utilities', () => {
   describe('JWK keys', () => {
     let keysJwk: { privateKey: JWK, publicKey: JWK }[];
 
-    beforeAll(async () => {
+    before(async () => {
       keysJwk = await Promise.all(
         keys.map(async key => ({
           privateKey: await createJWK(key.privateKey),
@@ -58,10 +52,10 @@ describe('Keys utilities', () => {
 
     describe('#createJWK', () => {
 
-      test('should create JWK from key', async () => {
+      it('should create JWK from key', async () => {
         keysJwk.forEach(async k => {
           for (const key of [k.privateKey, k.publicKey]) {
-            expect(typeof key.kty).toBe('string');
+            expect(typeof key.kty).to.equal('string');
           }
         });
       });
@@ -69,10 +63,10 @@ describe('Keys utilities', () => {
 
     describe('#keyTypeFromJWK', () => {
 
-      test('should return standard key type by JWK', async () => {
+      it('should return standard key type by JWK', async () => {
         keysJwk.forEach(async (k, i) => {
           for (const key of [k.privateKey, k.publicKey]) {
-            expect(keyTypeFromJWK(key)).toBe(KeyTypes[i]);
+            expect(keyTypeFromJWK(key)).to.equal(KeyTypes[i]);
           }
         });
       });
@@ -81,17 +75,17 @@ describe('Keys utilities', () => {
 
   describe('#importKeyPrivatePem', () => {
 
-    test('should import private key without passphrase', async () => {
+    it('should import private key without passphrase', async () => {
       const privateKey = importKeyPrivatePem(privatePem);
-      expect(privateKey.type).toBe('private');
+      expect(privateKey.type).to.equal('private');
     });
   });
 
   describe('#importKeyPublicPem', () => {
 
-    test('should import public key', async () => {
+    it('should import public key', async () => {
       const publicKey = importKeyPublicPem(publicPem);
-      expect(publicKey.type).toBe('public');
+      expect(publicKey.type).to.equal('public');
     });
   });
 });

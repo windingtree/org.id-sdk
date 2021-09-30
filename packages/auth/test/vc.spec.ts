@@ -4,6 +4,7 @@ import { createVC, verifyVC } from '../src/vc';
 import { importKeyPrivatePem, importKeyPublicPem } from '../src/keys';
 import { privatePem, publicPem } from './mocks/pemKeys';
 import { ethers } from 'hardhat';
+import { expect } from 'chai';
 
 describe('Verifiable Credentials', () => {
   const issuer = 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1';
@@ -16,14 +17,14 @@ describe('Verifiable Credentials', () => {
   let signers;
   let accounts;
 
-  beforeAll(async () => {
+  before(async () => {
     signers = await ethers.getSigners();
     accounts = await Promise.all(signers.map((s: Signer) => s.getAddress()));
     privateKey = importKeyPrivatePem(privatePem);
     publicKey = importKeyPublicPem(publicPem);
   });
 
-  test('should create credential', async () => {
+  it('should create credential', async () => {
     const vc: SignedVC = await createVC(
       issuer,
       'TestCredential'
@@ -36,10 +37,10 @@ describe('Verifiable Credentials', () => {
     .sign(privateKey);
 
     const payload = await verifyVC(vc, publicKey); // @toto verify payload
-    expect(vc.credentialSubject).toEqual(payload.credentialSubject);
+    expect(vc.credentialSubject).to.deep.equal(payload.credentialSubject);
   });
 
-  test('should create credential signed with web3 provider', async () => {
+  it('should create credential signed with web3 provider', async () => {
     const signerIndex = 0;
     const issuerBlockchainAccountId = `${accounts[signerIndex]}@eip155:1`;
     const vc: SignedVC = await createVC(
@@ -57,6 +58,6 @@ describe('Verifiable Credentials', () => {
     );
 
     const payload = await verifyVC(vc, issuerBlockchainAccountId);
-    expect(vc.credentialSubject).toEqual(payload.credentialSubject);
+    expect(vc.credentialSubject).to.deep.equal(payload.credentialSubject);
   });
 });
