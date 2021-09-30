@@ -1,33 +1,30 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const contract = require('@truffle/contract');
-import type {
-  Web3Provider,
-  SignedVC
-} from '@windingtree/org.id-auth/dist/vc';
+import type { Signer, Contract } from 'ethers';
+import type { Web3Provider, SignedVC } from '@windingtree/org.id-auth/dist/vc';
 import {
   generateSalt,
-  generateOrgIdHash
+  generateOrgIdWithSigner,
+  generateOrgIdWithAddress
 } from '@windingtree/org.id-utils/dist/common';
 import { createVC } from '@windingtree/org.id-auth/dist/vc';
 import {
   createVerificationMethodWithBlockchainAccountId
 } from '@windingtree/org.json-utils/dist/verificationMethod';
 import { OrgIdContract } from '@windingtree/org.id';
-import { ganache, DevelopmentServer } from '@windingtree/org.id-test-ganache-server';
 import { HttpFileServer, File } from '@windingtree/org.id-test-http-server';
+import { ethers, upgrades } from 'hardhat';
+
 import orgJsonTemplate from './data/legal-entity.json';
-import Ganache from 'ganache-core';
 
 export {
   generateSalt,
-  generateOrgIdHash
+  generateOrgIdWithSigner,
+  generateOrgIdWithAddress
 }
 
 export interface OrgIdSetup {
+  signers: Signer[];
   accounts: string[];
-  owner: string;
-  address: string;
-  server: DevelopmentServer;
+  orgIdContract: Contract;
   httpServer: HttpFileServer;
   registerOrgId(
     orgIdOwner: string
@@ -51,8 +48,7 @@ export type OrgIdRegistrationResult = {
 
 export const buildOrgJson = async (
   did: string,
-  web3Provider: Ganache.Provider,
-  owner: string
+  owner: Signer
 ): Promise<SignedVC> => {
   const orgJson = JSON.parse(JSON.stringify(orgJsonTemplate));
   const issuer = `${did}#key-1`;
@@ -85,10 +81,10 @@ export const registerOrgId = async (
   server: DevelopmentServer,
   contract: ContractObject,
   httpServer: HttpFileServer,
-  owner: string
+  owner: Signer
 ): Promise<OrgIdRegistrationResult> => {
   const salt = generateSalt();
-  const orgIdHash = generateOrgIdHash(owner, salt);
+  const orgIdHash = generateOrgIdWithSigner(owner, salt);
   const orgJson = await buildOrgJson(
     `did:orgid:test:${orgIdHash}`,
     server.server.provider,
@@ -115,30 +111,29 @@ export const registerOrgId = async (
 }
 
 export const orgIdSetup = async (): Promise<OrgIdSetup> => {
-  // Setup Ganache server
-  const server = await ganache();
-  const accounts = await server.getAccounts();
-  const owner = accounts[0];
+  const signers = await ethers.getSigners();
+  const accounts = await Promise.all(
+    signers.map((s: Signer) => s.getAddress())
+  );
+  const deployer = signers[0];
 
   // Deploy OrgId contract
-  const OrgId = contract(OrgIdContract);
-  OrgId.setProvider(server.server.provider);
-  const orgIdContract = await OrgId.new({
-    from: owner
-  });
-  await orgIdContract.initializeUpgrade_2_0_0({
-    from: owner
-  });
+  const OrgIdFactory = ethers.ContractFactory(
+    OrgIdContract.abi,
+    OrgIdContract.bytecode,
+    deployer
+  );
+  const orgIdContract = await upgrades.deployProxy(OrgIdFactory);
+  await orgIdContract.deployed();
 
   // Set up Http server
   const httpServer = new HttpFileServer();
   httpServer.start();
 
   return {
+    signers,
     accounts,
-    owner,
-    address: orgIdContract.address,
-    server,
+    orgIdContract,
     httpServer,
     registerOrgId: orgIdOwner => registerOrgId(
       server,
@@ -146,10 +141,6 @@ export const orgIdSetup = async (): Promise<OrgIdSetup> => {
       httpServer,
       orgIdOwner
     ),
-    buildOrgJson,
-    close: async () => {
-      httpServer.close();
-      await server.close();
-    }
+    buildOrgJson
   };
 };

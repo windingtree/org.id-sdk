@@ -1,36 +1,24 @@
-import type {
-  KeyLike,
-  KeyObject,
-  JWK
-} from './keys';
+import type { Signer } from 'ethers';
+import type { KeyLike, KeyObject, JWK } from './keys';
 import type {
   VCTypedHolderReference,
   CredentialReference,
   VCProofReference,
   CryptographicSignatureSuiteReference
-} from '@windingtree/org.json-schema';
-import type {
-  HttpProvider,
-  WebsocketProvider,
-  IpcProvider
-}  from 'web3-core';
-import Web3 from 'web3';
+} from '@windingtree/org.json-schema/types/org';
 import {
   getAlgFromJWK,
   signatureTypeFromJWK,
   createJWK
 } from './keys';
-import {
-  regexp,
-  uid,
-  object
-} from '@windingtree/org.id-utils';
-import orgJsonSchema from '@windingtree/org.json-schema';
+import { regexp, uid, object } from '@windingtree/org.id-utils';
+import { org as orgJsonSchema } from '@windingtree/org.json-schema';
 import { DateTime } from  'luxon';
 import { parseJwk } from 'jose/jwk/parse';
 import { CompactSign } from 'jose/jws/compact/sign';
 import { compactVerify } from 'jose/jws/compact/verify';
 import base64url from 'base64url';
+import { utils as ethersUtils } from 'ethers';
 
 export type {
   VCTypedHolderReference,
@@ -39,18 +27,6 @@ export type {
 }
 
 export type GenericObject = { [k: string]: unknown };
-
-export type Web3Provider =
-  | HttpProvider
-  | WebsocketProvider
-  | IpcProvider;
-
-// Live this definition for backward compatibility
-export type WebProvider = Web3Provider;
-
-export interface SignatureOptions {
-  web3Provider?: Web3Provider
-}
 
 export interface SignedVC extends CredentialReference {
   proof: VCProofReference
@@ -82,7 +58,7 @@ export interface VCBuilderChain {
   ): Promise<SignedVC>;
   signWithBlockchainAccount(
     blockchainAccountId: string,
-    options?: SignatureOptions
+    signer: Signer
   ): Promise<SignedVC>;
 }
 
@@ -111,39 +87,41 @@ export interface DecodedJws {
 }
 
 // Prepare an unsigned data for signing
-export const buildUnsignedDataForWeb3Signature = (
+export const buildUnsignedDataForSignature = (
   verificationMethod: string,
   payload: string | CredentialReference | GenericObject
-): string => `${base64url.encode(
-  JSON.stringify({
-    alg: 'ES256K',
-    kid: verificationMethod,
-    typ: 'JWT'
-  })
-)}.${base64url.encode(
-  typeof payload === 'object'
-    ? JSON.stringify(payload)
-    : payload
-)}`;
+): string => `${
+  base64url
+    .encode(
+      JSON.stringify(
+        {
+          alg: 'ES256K',
+          kid: verificationMethod,
+          typ: 'JWT'
+        }
+      )
+    )
+}.${
+  base64url
+    .encode(
+      typeof payload === 'object'
+        ? JSON.stringify(payload)
+        : payload
+    )
+}`;
 
 // Sign payload using Ethereum account
-export const signWithWeb3Provider = async (
-  web3Provider: Web3Provider,
-  signerAddress: string,
+export const signWithSigner = async (
+  signer: Signer,
   verificationMethod: string,
   payload: string | GenericObject
 ): Promise<string> => {
-  const unsignedData = buildUnsignedDataForWeb3Signature(
+  const unsignedData = buildUnsignedDataForSignature(
     verificationMethod,
     payload
   );
 
-  const web3 = new Web3(web3Provider);
-
-  const signature: string = await web3.eth.sign(
-    unsignedData,
-    signerAddress
-  );
+  const signature: string = await signer.signMessage(unsignedData);
 
   return `${unsignedData}.${base64url.encode(signature as string)}`;
 }
@@ -234,8 +212,7 @@ export const verifyJwsSignedWithBlockchainAccount = (
   } = decodeJws(jws);
 
   // Verify signature
-  const web3 = new Web3();
-  const recoveredAccountId = web3.eth.accounts.recover(
+  const recoveredAccountId = ethersUtils.verifyMessage(
     message,
     signature
   );
@@ -542,7 +519,7 @@ export const createVC = (
     // Sign VC with Web3 provider
     signWithBlockchainAccount: async (
       blockchainAccountId,
-      options
+      signer: Signer
     ) => {
       buildUnsignedVC();
 
@@ -553,17 +530,19 @@ export const createVC = (
         accountId,
         blockchainType
       } = parseBlockchainAccountId(blockchainAccountId);
+      const signerAddress = await signer.getAddress();
+
+      if (signerAddress !== accountId) {
+        throw new Error(
+          `The signer address must be equal to accountId: ${accountId}`
+        );
+      }
 
       switch (blockchainType) {
         case 'eip155':
 
-          if (!options || !options.web3Provider) {
-            throw new Error('web3Provider must be provided as option');
-          }
-
-          jws = await signWithWeb3Provider(
-            options.web3Provider,
-            accountId,
+          jws = await signWithSigner(
+            signer,
             issuer,
             unsignedVS
           );

@@ -1,19 +1,9 @@
-import type {
-  SignedVC
-} from '../src/vc'
-import {
-  createVC,
-  verifyVC,
-} from '../src/vc';
-import {
-  importKeyPrivatePem,
-  importKeyPublicPem
-} from '../src/keys';
-import {
-  privatePem,
-  publicPem
-} from './mocks/pemKeys';
-import { ganache } from '@windingtree/org.id-test-ganache-server';
+import type { Signer } from 'ethers';
+import type { SignedVC } from '../src/vc';
+import { createVC, verifyVC } from '../src/vc';
+import { importKeyPrivatePem, importKeyPublicPem } from '../src/keys';
+import { privatePem, publicPem } from './mocks/pemKeys';
+import { ethers } from 'hardhat';
 
 describe('Verifiable Credentials', () => {
   const issuer = 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1';
@@ -23,20 +13,14 @@ describe('Verifiable Credentials', () => {
   };
   let privateKey;
   let publicKey;
-  let server;
+  let signers;
   let accounts;
-  let web3Provider;
 
   beforeAll(async () => {
+    signers = await ethers.getSigners();
+    accounts = await Promise.all(signers.map((s: Signer) => s.getAddress()));
     privateKey = importKeyPrivatePem(privatePem);
     publicKey = importKeyPublicPem(publicPem);
-    server = await ganache();
-    accounts = await server.getAccounts();
-    web3Provider = server.provider;
-  });
-
-  afterAll(async () => {
-    await server.close();
   });
 
   test('should create credential', async () => {
@@ -56,7 +40,8 @@ describe('Verifiable Credentials', () => {
   });
 
   test('should create credential signed with web3 provider', async () => {
-    const issuerBlockchainAccountId = `${accounts[0]}@eip155:1`;
+    const signerIndex = 0;
+    const issuerBlockchainAccountId = `${accounts[signerIndex]}@eip155:1`;
     const vc: SignedVC = await createVC(
       issuer,
       'TestCredential'
@@ -68,9 +53,7 @@ describe('Verifiable Credentials', () => {
     .setCredentialSubject(subject)
     .signWithBlockchainAccount(
       issuerBlockchainAccountId,
-      {
-        web3Provider
-      }
+      signers[signerIndex]
     );
 
     const payload = await verifyVC(vc, issuerBlockchainAccountId);

@@ -47,7 +47,8 @@ node_modules/
 
 # dotenv environment variables file
 .env
-.senv
+*.env
+*.senv
 
 # Serverless directories
 .serverless/

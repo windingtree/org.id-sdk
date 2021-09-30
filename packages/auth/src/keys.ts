@@ -11,7 +11,7 @@ import type {
 import type {
   VerificationMethodReference,
   CryptographicSignatureSuiteReference
-} from '@windingtree/org.json-schema';
+} from '@windingtree/org.json-schema/types/org';
 import {
   generateKeyPair as generate
 } from 'jose/util/generate_key_pair';
