@@ -13,8 +13,8 @@ export const generateSalt = (): string => ethers.utils.solidityKeccak256(
 
 // Generate an orgId on the base of salt and ethers signer
 export const generateOrgIdWithSigner = async (
-  salt: string,
-  sender: Signer
+  sender: Signer,
+  salt: string
 ): Promise<string> => {
   const address = await sender.getAddress();
   return ethers.utils.solidityKeccak256(
@@ -31,8 +31,8 @@ export const generateOrgIdWithSigner = async (
 
 // Generate an orgId on the base of salt and known address
 export const generateOrgIdWithAddress = (
-  salt: string,
-  address: string
+  address: string,
+  salt: string
 ): string => ethers.utils.solidityKeccak256(
   [
     'address',
