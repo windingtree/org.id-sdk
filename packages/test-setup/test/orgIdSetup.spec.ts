@@ -3,39 +3,39 @@ import {
   OrgIdSetup,
   generateSalt
 }  from '../src';
-import { DevelopmentServer } from '@windingtree/org.id-test-ganache-server';
 import { HttpFileServer } from '@windingtree/org.id-test-http-server';
+import { Contract } from 'ethers';
 import { verifyVC } from '@windingtree/org.id-auth/dist/vc';
+import { expect } from 'chai';
 
 describe('OrgId setup', () => {
   let setup: OrgIdSetup;
 
-  beforeAll(async () => {
+  before(async () => {
     setup = await orgIdSetup();
   });
 
-  afterAll(async () => {
-    await setup.close();
+  after(async () => {
+    setup.close();
   });
 
-  test('should set up the OrgId environment', async () => {
-    expect(Array.isArray(setup.accounts)).toBe(true);
-    expect(typeof setup.owner).toBe('string');
-    expect(typeof setup.address).toBe('string');
-    expect(setup.server).toBeInstanceOf(DevelopmentServer);
-    expect(setup.httpServer).toBeInstanceOf(HttpFileServer);
-    expect(typeof setup.registerOrgId).toBe('function');
-    expect(typeof setup.close).toBe('function');
+  it('should set up the OrgId environment', async () => {
+    expect(Array.isArray(setup.signers)).to.equal(true);
+    expect(Array.isArray(setup.accounts)).to.equal(true);
+    expect(setup.orgIdContract).to.be.instanceOf(Contract);
+    expect(setup.httpServer).to.be.instanceOf(HttpFileServer);
+    expect(typeof setup.registerOrgId).to.equal('function');
+    expect(typeof setup.buildOrgJson).to.equal('function');
   });
 
   describe('Utilities', () => {
 
     describe('#generateSalt', () => {
 
-      test('should generate random unique bytes32 string', async () => {
+      it('should generate random unique bytes32 string', async () => {
         const salt = generateSalt();
-        expect(/^0x[a-fA-F0-9]{64}$/.exec(salt)).not.toBeNull();
-        expect(generateSalt()).not.toEqual(generateSalt());
+        expect(/^0x[a-fA-F0-9]{64}$/.exec(salt)).not.null;
+        expect(generateSalt()).not.to.equal(generateSalt());
       });
     });
   });
@@ -44,16 +44,17 @@ describe('OrgId setup', () => {
 
     describe('#registerOrgId', () => {
 
-      test('should register new orgId', async () => {
-        const owner = setup.accounts[2];
+      it('should register new orgId', async () => {
+        const owner = setup.signers[2];
         const {
           orgIdHash,
           orgJson
         } = await setup.registerOrgId(owner);
-        expect(/^0x[a-fA-F0-9]{64}$/.exec(orgIdHash)).not.toBeNull();
+        expect(/^0x[a-fA-F0-9]{64}$/.exec(orgIdHash)).not.null;
         // console.log(JSON.stringify(orgJson, null, 2));
-        const issuerBlockchainAccountId = `${owner}@eip155:1337`;
-        await expect(() => verifyVC(orgJson, issuerBlockchainAccountId)).not.toThrow();
+        const ownerAddress = await owner.getAddress();
+        const issuerBlockchainAccountId = `${ownerAddress}@eip155:1337`;
+        await expect(() => verifyVC(orgJson, issuerBlockchainAccountId)).not.to.throw;
       });
     });
   });

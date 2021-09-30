@@ -1,7 +1,6 @@
 import type { HardhatUserConfig } from 'hardhat/types';
 
 import '@nomiclabs/hardhat-ethers';
-import '@openzeppelin/hardhat-upgrades';
 
 // Hardhat config
 const config: HardhatUserConfig = {

@@ -1,5 +1,5 @@
 import type { Signer, Contract } from 'ethers';
-import type { Web3Provider, SignedVC } from '@windingtree/org.id-auth/dist/vc';
+import type { SignedVC } from '@windingtree/org.id-auth/dist/vc';
 import {
   generateSalt,
   generateOrgIdWithSigner,
@@ -11,7 +11,7 @@ import {
 } from '@windingtree/org.json-utils/dist/verificationMethod';
 import { OrgIdContract } from '@windingtree/org.id';
 import { HttpFileServer, File } from '@windingtree/org.id-test-http-server';
-import { ethers, upgrades } from 'hardhat';
+import { ethers } from 'hardhat';
 
 import orgJsonTemplate from './data/legal-entity.json';
 
@@ -27,18 +27,13 @@ export interface OrgIdSetup {
   orgIdContract: Contract;
   httpServer: HttpFileServer;
   registerOrgId(
-    orgIdOwner: string
+    orgIdOwner: Signer
   ): Promise<OrgIdRegistrationResult>;
   buildOrgJson(
     did: string,
-    web3Provider: Ganache.Provider,
-    owner: string
+    owner: Signer
   ): Promise<SignedVC>;
-  close(): Promise<void>;
-}
-
-export interface ContractObject {
-  createOrgId(salt: string, arg1: string, arg2: { from: string; }): Promise<any>;
+  close: () => void;
 }
 
 export type OrgIdRegistrationResult = {
@@ -46,13 +41,15 @@ export type OrgIdRegistrationResult = {
   orgJson: SignedVC;
 };
 
+// Builds a signed org.json VC
 export const buildOrgJson = async (
   did: string,
   owner: Signer
 ): Promise<SignedVC> => {
   const orgJson = JSON.parse(JSON.stringify(orgJsonTemplate));
   const issuer = `${did}#key-1`;
-  const blockchainAccountId = `${owner}@eip155:1337`;
+  const ownerAddress = await owner.getAddress();
+  const blockchainAccountId = `${ownerAddress}@eip155:1337`;
   orgJson.id = did;
   orgJson.created = new Date().toISOString();
   orgJson.updated = new Date().toISOString();
@@ -70,24 +67,21 @@ export const buildOrgJson = async (
     .setCredentialSubject(orgJson)
     .signWithBlockchainAccount(
       blockchainAccountId,
-      {
-        web3Provider: web3Provider as unknown as Web3Provider
-      }
+      owner
     );
   return vc;
 };
 
+// Registers an ORGiD
 export const registerOrgId = async (
-  server: DevelopmentServer,
-  contract: ContractObject,
+  contract: Contract,
   httpServer: HttpFileServer,
   owner: Signer
 ): Promise<OrgIdRegistrationResult> => {
   const salt = generateSalt();
-  const orgIdHash = generateOrgIdWithSigner(owner, salt);
+  const orgIdHash = await generateOrgIdWithSigner(owner, salt);
   const orgJson = await buildOrgJson(
     `did:orgid:test:${orgIdHash}`,
-    server.server.provider,
     owner
   );
   const fileToAdd: File = {
@@ -96,20 +90,19 @@ export const registerOrgId = async (
     content: JSON.stringify(orgJson)
   };
   const file = httpServer.addFile(fileToAdd);
-  const result = await contract.createOrgId(
+  const tx = await contract.connect(owner).createOrgId(
     salt,
-    `${httpServer.baseUri}/${file.path}`,
-    {
-      from: owner
-    }
+    `${httpServer.baseUri}/${file.path}`
   );
-  const event = result.logs.filter(e => e.event === 'OrgIdCreated')[0];
+  const result = await tx.wait();
+  const event = result.events.filter(e => e.event === 'OrgIdCreated')[0];
   return {
     orgIdHash: event.args.orgId,
     orgJson
   };
 }
 
+// Setup an ORGiD environment
 export const orgIdSetup = async (): Promise<OrgIdSetup> => {
   const signers = await ethers.getSigners();
   const accounts = await Promise.all(
@@ -118,29 +111,31 @@ export const orgIdSetup = async (): Promise<OrgIdSetup> => {
   const deployer = signers[0];
 
   // Deploy OrgId contract
-  const OrgIdFactory = ethers.ContractFactory(
+  const OrgIdFactory = new ethers.ContractFactory(
     OrgIdContract.abi,
     OrgIdContract.bytecode,
     deployer
   );
-  const orgIdContract = await upgrades.deployProxy(OrgIdFactory);
-  await orgIdContract.deployed();
+  const orgIdContract = await OrgIdFactory.deploy();
+  await orgIdContract.deployTransaction.wait();
+  await orgIdContract.initialize();
 
   // Set up Http server
   const httpServer = new HttpFileServer();
-  httpServer.start();
+  await httpServer.start();
 
   return {
     signers,
     accounts,
     orgIdContract,
     httpServer,
-    registerOrgId: orgIdOwner => registerOrgId(
-      server,
-      orgIdContract,
-      httpServer,
-      orgIdOwner
-    ),
-    buildOrgJson
+    registerOrgId: (orgIdOwner: Signer) =>
+      registerOrgId(
+        orgIdContract,
+        httpServer,
+        orgIdOwner
+      ),
+    buildOrgJson,
+    close: () => httpServer.close()
   };
 };
