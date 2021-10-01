@@ -1,14 +1,10 @@
-import type {
-  Web3Provider,
-  OrgIdData,
-  CallbackFn
-} from './types';
-import type { Contract } from 'web3-eth-contract';
-
-import Web3 from 'web3';
+import type { BigNumber, Signer, providers } from 'ethers';
+import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
+import type { OrgIdData } from './types';
+import type { MethodOverrides, TxHashCallbackFn } from './shared/sendHelper';
+import { ethers } from 'ethers';
 import {
-  OrgIdContract as CompiledOrgIdContract,
-  addresses
+  OrgIdContract as CompiledOrgIdContract
 } from '@windingtree/org.id';
 import { regexp } from '@windingtree/org.id-utils';
 
@@ -17,89 +13,115 @@ import { createOrgId } from './api/createOrgId';
 import { setOrgJson } from './api/setOrgJson';
 import { transferOrgIdOwnership } from './api/transferOrgIdOwnership';
 import { getOrgIdsCount } from './api/getOrgIdsCount';
+import { getOrgIdByTokenId } from './api/getOrgIdByTokenId';
 import { getOrgId } from './api/getOrgId';
 import { getOrgIds } from './api/getOrgIds';
 
 export type {
   OrgIdAddresses,
-  Web3Provider,
   OrgIdData,
   OrgIdRawResult
 } from './types';
 
+export type KnownProvider =
+  | providers.ExternalProvider
+  | providers.JsonRpcProvider
+  | providers.Web3Provider
+  | providers.Provider
+  | string;
+
 export class OrgIdContract {
   address: string;
-  web3: Web3;
-  contract: Contract;
+  provider: providers.BaseProvider;
+  contract: OrgIdBaseContract;
 
   constructor(
-    networkOrAddress: string,
-    web3ProviderOrUri: Web3Provider | string
+    contractAddress: string,
+    providerOrUri: KnownProvider
   ) {
 
-    if (regexp.ethereumAddress.exec(networkOrAddress)) {
-      this.address = networkOrAddress;
-    } else if (networkOrAddress) {
-      this.address = addresses[networkOrAddress.replace('mainnet', 'main')];
-    }
-
-    if (!this.address) {
+    if (regexp.ethereumAddress.exec(contractAddress)) {
+      this.address = contractAddress;
+    } else {
       throw new Error(
-        `orgIdContract: Invalid network or a smart contract address: ${networkOrAddress}`
+        `orgIdContract: Invalid smart contract address: ${contractAddress}`
       );
     }
 
-    this.web3 = new Web3(web3ProviderOrUri);
+    if (typeof providerOrUri === 'string') {
+      this.provider = new ethers.providers.JsonRpcProvider(providerOrUri);
+    } else if (typeof providerOrUri === 'object') {
 
-    if (!this.web3.currentProvider) {
-      throw new Error('orgIdContract: Unable to initialize web3 provider');
+      if ((providerOrUri as providers.ExternalProvider).isMetaMask) {
+        // using window.ethereum provided as providerOrUri
+        this.provider = new ethers.providers.Web3Provider(
+          providerOrUri as providers.ExternalProvider
+        );
+      } else if (typeof (providerOrUri as providers.JsonRpcProvider).send === 'function') {
+        // using raw provider
+        this.provider = providerOrUri as providers.JsonRpcProvider;
+      }
     }
 
-    this.contract = ((new this.web3.eth.Contract(
+    if (!this.provider) {
+      throw new Error(
+        `orgIdContract: Unable to initialize provider': ${providerOrUri}`
+      );
+    }
+
+    this.contract = new ethers.Contract(
+      this.address,
       CompiledOrgIdContract.abi,
-      this.address
-    ) as unknown) as Contract);
+      this.provider
+    ) as OrgIdBaseContract;
   }
 
   createOrgId(
     salt: string,
     orgJsonUri: string,
-    orgIdOwner: string,
-    gasPrice?: string | number,
-    gasLimit?: string | number,
-    transactionHashCb?: CallbackFn
+    orgIdOwner: Signer,
+    overrides?: MethodOverrides,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    transactionHashCb: TxHashCallbackFn = () => {},
+    confirmations?: number
   ): Promise<OrgIdData | null> {
-    return createOrgId(this.web3, this.contract, salt, orgJsonUri, orgIdOwner, gasPrice, gasLimit, transactionHashCb);
+    return createOrgId(this.contract, salt, orgJsonUri, orgIdOwner, overrides, transactionHashCb, confirmations);
   }
 
   setOrgJson(
     orgIdHash: string,
     orgJsonUri: string,
-    orgIdOwner: string,
-    gasPrice?: string | number,
-    gasLimit?: string | number,
-    transactionHashCb?: CallbackFn
+    orgIdOwner: Signer,
+    overrides?: MethodOverrides,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    transactionHashCb: TxHashCallbackFn = () => {},
+    confirmations?: number
   ): Promise<OrgIdData | null> {
-    return setOrgJson(this.web3, this.contract, orgIdHash, orgJsonUri, orgIdOwner, gasPrice, gasLimit, transactionHashCb);
+    return setOrgJson(this.contract, orgIdHash, orgJsonUri, orgIdOwner, overrides, transactionHashCb, confirmations);
   }
 
   transferOrgIdOwnership(
     orgIdHash: string,
     newOrgIdOwner: string,
-    orgIdOwner: string,
-    gasPrice?: string | number,
-    gasLimit?: string | number,
-    transactionHashCb?: CallbackFn
+    orgIdOwner: Signer,
+    overrides?: MethodOverrides,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    transactionHashCb: TxHashCallbackFn = () => {},
+    confirmations?: number
   ): Promise<OrgIdData | null> {
-    return transferOrgIdOwnership(this.web3, this.contract, orgIdHash, newOrgIdOwner, orgIdOwner, gasPrice, gasLimit, transactionHashCb);
+    return transferOrgIdOwnership(this.contract, orgIdHash, newOrgIdOwner, orgIdOwner, overrides, transactionHashCb, confirmations);
   }
 
   getOrgIdsCount(): Promise<number> {
     return getOrgIdsCount(this.contract);
   }
 
+  getOrgIdByTokenId(tokenId: number | BigNumber): Promise<OrgIdData | null> {
+    return getOrgIdByTokenId(this.contract, tokenId);
+  }
+
   getOrgId(orgIdHash: string): Promise<OrgIdData | null> {
-    return getOrgId(this.web3, this.contract, orgIdHash);
+    return getOrgId(this.contract, orgIdHash);
   }
 
   getOrgIds(cursor?: number, count?: number): Promise<string[]> {

@@ -1,25 +1,20 @@
-import type { Contract } from 'web3-eth-contract';
-import type { TransactionReceipt } from 'web3-eth';
-import type {
-  OrgIdData,
-  CallbackFn
-} from '../types';
-
-import Web3 from 'web3';
+import type { Signer, ContractReceipt } from 'ethers';
+import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
+import type { OrgIdData } from '../types';
+import type { MethodOverrides, TxHashCallbackFn } from '../shared/sendHelper';
 import { regexp } from '@windingtree/org.id-utils';
 import { getOrgId } from './getOrgId';
 import { sendHelper } from '../shared/sendHelper'
 
 export const createOrgId = async (
-  web3: Web3,
-  contract: Contract,
+  contract: OrgIdBaseContract,
   salt: string,
   orgJsonUri: string,
-  orgIdOwner: string,
-  gasPrice?: string | number,
-  gasLimit?: string | number,
+  orgIdOwner: Signer,
+  overrides?: MethodOverrides,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  transactionHashCb: CallbackFn | void = () => {}
+  transactionHashCb: TxHashCallbackFn = () => {},
+  confirmations?: number
 ): Promise<OrgIdData | null> => {
 
   if (!regexp.bytes32.exec(salt)) {
@@ -30,11 +25,7 @@ export const createOrgId = async (
     throw new Error(`createOrgId: Invalid orgJsonUri value: ${orgJsonUri}`);
   }
 
-  if (!regexp.ethereumAddress.exec(orgIdOwner)) {
-    throw new Error(`createOrgId: Invalid orgIdOwner address: ${orgIdOwner}`);
-  }
-
-  const receipt: TransactionReceipt = await sendHelper(
+  const receipt: ContractReceipt = await sendHelper(
     contract,
     'createOrgId(bytes32,string)',
     [
@@ -42,9 +33,9 @@ export const createOrgId = async (
       orgJsonUri
     ],
     orgIdOwner,
-    gasLimit,
-    gasPrice,
-    transactionHashCb
+    overrides,
+    transactionHashCb,
+    confirmations
   );
 
   if (!receipt.events) {
@@ -53,7 +44,11 @@ export const createOrgId = async (
     );
   }
 
-  const createdOrgId = receipt.events.OrgIdCreated.returnValues.orgId;
+  const event = receipt.events.filter(e => e.event === 'OrgIdCreated')[0];
 
-  return getOrgId(web3, contract, createdOrgId);
+  if (!event.args) {
+    throw new Error('Unable extract OrgIdCreated event data');
+  }
+
+  return getOrgId(contract, event.args.orgId);
 }

@@ -1,25 +1,21 @@
-import type { Contract } from 'web3-eth-contract';
-import type { TransactionReceipt } from 'web3-eth';
-import type {
-  OrgIdData,
-  CallbackFn
-} from '../types';
-
-import Web3 from 'web3';
+import type { Signer, ContractReceipt } from 'ethers';
+import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
+import type { OrgIdData } from '../types';
+import type { MethodOverrides, TxHashCallbackFn } from '../shared/sendHelper';
 import { getOrgId } from './getOrgId';
 import { sendHelper } from '../shared/sendHelper'
 import { regexp } from '@windingtree/org.id-utils';
+import { getOrgIdByTokenId } from './getOrgIdByTokenId';
 
 export const transferOrgIdOwnership = async (
-  web3: Web3,
-  contract: Contract,
+  contract: OrgIdBaseContract,
   orgIdHash: string,
   newOrgIdOwner: string,
-  orgIdOwner: string,
-  gasPrice?: string | number,
-  gasLimit?: string | number,
+  orgIdOwner: Signer,
+  overrides?: MethodOverrides,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  transactionHashCb: CallbackFn | void = () => {}
+  transactionHashCb: TxHashCallbackFn = () => {},
+  confirmations?: number
 ): Promise<OrgIdData | null> => {
 
   if (!regexp.bytes32.exec(orgIdHash)) {
@@ -30,27 +26,24 @@ export const transferOrgIdOwnership = async (
     throw new Error(`transferOrgIdOwnership: Invalid newOrgIdOwner address: ${newOrgIdOwner}`);
   }
 
-  if (!regexp.ethereumAddress.exec(orgIdOwner)) {
-    throw new Error(`transferOrgIdOwnership: Invalid orgIdOwner address: ${orgIdOwner}`);
-  }
-
-  const orgId = await getOrgId(web3, contract, orgIdHash);
+  const orgId = await getOrgId(contract, orgIdHash);
 
   if (!orgId) {
     throw new Error(`transferOrgIdOwnership: ORGiD not found: ${orgIdHash}`);
   }
 
-  const receipt: TransactionReceipt = await sendHelper(
+  const receipt: ContractReceipt = await sendHelper(
     contract,
-    'transferOrgIdOwnership(bytes32,address)',
+    'safeTransferFrom(address,address,uint256)',
     [
-      orgIdHash,
-      newOrgIdOwner
+      orgId.owner,
+      newOrgIdOwner,
+      orgId.tokenId
     ],
     orgIdOwner,
-    gasLimit,
-    gasPrice,
-    transactionHashCb
+    overrides,
+    transactionHashCb,
+    confirmations
   );
 
   if (!receipt.events) {
@@ -59,7 +52,11 @@ export const transferOrgIdOwnership = async (
     );
   }
 
-  const updatedOrgId = receipt.events.OrgIdOwnershipTransferred.returnValues.orgId;
+  const event = receipt.events.filter(e => e.event === 'Transfer')[0];
 
-  return getOrgId(web3, contract, updatedOrgId)
+  if (!event.args) {
+    throw new Error('Unable extract Transfer event data');
+  }
+
+  return getOrgIdByTokenId(contract, event.args.tokenId);
 }

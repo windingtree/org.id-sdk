@@ -1,15 +1,10 @@
-import type { Contract } from 'web3-eth-contract';
-import type {
-  OrgIdData,
-  OrgIdRawResult
-} from '../types';
-
-import Web3 from 'web3';
+import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
+import type { OrgIdData } from '../types';
 import { regexp } from '@windingtree/org.id-utils';
+import { getOrgIdByTokenId } from './getOrgIdByTokenId';
 
 export const getOrgId = async (
-  web3: Web3,
-  contract: Contract,
+  contract: OrgIdBaseContract,
   orgIdHash: string
 ): Promise<OrgIdData | null> => {
 
@@ -17,68 +12,8 @@ export const getOrgId = async (
     throw new Error(`getOrgId: Invalid ORGiD hash: ${orgIdHash}`);
   }
 
-  const methodArguments = [
-    orgIdHash
-  ];
+  // Get a tokenId by the ORGiD hash
+  const tokenId = await contract['getTokenId(bytes32)'](orgIdHash);
 
-  // Call smart contract
-  const result: OrgIdRawResult = await contract
-    .methods['getOrgId(bytes32)']
-    .apply(
-      contract,
-      methodArguments
-    )
-    .call();
-
-  if (!result || !result.exists) {
-    return null;
-  }
-
-  // Fetching of ORGiD creation date
-  let events = await contract.getPastEvents('OrgIdCreated', {
-    filter: {
-      orgId: orgIdHash
-    },
-    fromBlock: 0,
-    toBlock: 'latest'
-  });
-  let orgIdCreationDate: string;
-
-  /* istanbul ignore next */
-  if (events && events.length === 1) {
-    const { timestamp } = await web3.eth.getBlock(events[0].blockNumber);
-    orgIdCreationDate = new Date(Number(timestamp) * 1000).toISOString();
-  } else {
-    throw new Error(
-      `getOrgId: Not found OrgIdCreated event for ORGiD: ${orgIdHash}`
-    );
-  }
-
-  // Fetching of ORGiD's ORG.JSON URI
-  events = await contract.getPastEvents('OrgJsonUriChanged', {
-    filter: {
-      orgId: orgIdHash
-    },
-    fromBlock: 0,
-    toBlock: 'latest'
-  });
-
-  let orgJsonUri: string;
-
-  /* istanbul ignore next */
-  if (events && events.length !== 0) {
-    const latestEvent = events.sort((a, b) => a.blockNumber > b.blockNumber ? -1 : 1)[0];
-    orgJsonUri = latestEvent.returnValues.orgJsonUri;
-  } else {
-    throw new Error(
-      `getOrgId: Not found OrgJsonUriChanged event for ORGiD: ${orgIdHash}`
-    );
-  }
-
-  return {
-    id: orgIdHash,
-    owner: result.owner,
-    orgJsonUri,
-    created: orgIdCreationDate
-  };
+  return getOrgIdByTokenId(contract, tokenId);
 };

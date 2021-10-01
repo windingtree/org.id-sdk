@@ -11,7 +11,8 @@ export type Web3Provider = HttpProvider | WebsocketProvider | IpcProvider;
 export type CallbackFn = (data: unknown | void) => void;
 
 export interface OrgIdData {
-  id: string;
+  tokenId: number;
+  orgId: string;
   owner: string;
   orgJsonUri: string;
   created: string;

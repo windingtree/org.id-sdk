@@ -1,7 +1,7 @@
-import type { Contract } from 'web3-eth-contract';
+import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
 
 export const getOrgIds = async (
-  contract: Contract,
+  contract: OrgIdBaseContract,
   cursor?: number,
   count = 10
 ): Promise<string[]> => {
@@ -18,25 +18,9 @@ export const getOrgIds = async (
     cursor = 0;
   }
 
-  let methodArguments: number[] | undefined;
-
   if (typeof cursor === 'number') {
-    methodArguments = [
-      cursor,
-      count
-    ];
+    return contract['getOrgIds(uint256,uint256)'](cursor, count);
   }
 
-  // Call smart contract
-  return contract
-    .methods[
-      methodArguments
-        ? 'getOrgIds(uint256,uint256)'
-        : 'getOrgIds()'
-    ]
-    .apply(
-      contract,
-      methodArguments
-    )
-    .call();
+  return contract['getOrgIds()']();
 };

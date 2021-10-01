@@ -1,17 +1,11 @@
-import type { Contract } from 'web3-eth-contract';
+import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
 
 export const getOrgIdsCount = async (
-  contract: Contract
+  contract: OrgIdBaseContract
 ): Promise<number> => {
 
   // Call smart contract
-  const count = await contract
-    .methods['getOrgIdsCount()']
-    .apply(
-      contract,
-      []
-    )
-    .call();
+  const count = await contract['totalSupply()']();
 
   return Number(count);
 };

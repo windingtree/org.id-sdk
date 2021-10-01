@@ -1,25 +1,21 @@
-import type { Contract } from 'web3-eth-contract';
-import type { TransactionReceipt } from 'web3-eth';
-import type {
-  OrgIdData,
-  CallbackFn
-} from '../types';
+import type { Signer, ContractReceipt } from 'ethers';
+import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
+import type { OrgIdData } from '../types';
+import type { MethodOverrides, TxHashCallbackFn } from '../shared/sendHelper';
 
-import Web3 from 'web3';
 import { regexp } from '@windingtree/org.id-utils';
 import { getOrgId } from './getOrgId';
 import { sendHelper } from '../shared/sendHelper'
 
 export const setOrgJson = async (
-  web3: Web3,
-  contract: Contract,
+  contract: OrgIdBaseContract,
   orgIdHash: string,
   orgJsonUri: string,
-  orgIdOwner: string,
-  gasPrice?: string | number,
-  gasLimit?: string | number,
+  orgIdOwner: Signer,
+  overrides?: MethodOverrides,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  transactionHashCb: CallbackFn | void = () => {}
+  transactionHashCb: TxHashCallbackFn = () => {},
+  confirmations?: number
 ): Promise<OrgIdData | null> => {
 
   if (!regexp.bytes32.exec(orgIdHash)) {
@@ -30,17 +26,13 @@ export const setOrgJson = async (
     throw new Error(`setOrgJson: Invalid orgJsonUri value: ${orgJsonUri}`);
   }
 
-  if (!regexp.ethereumAddress.exec(orgIdOwner)) {
-    throw new Error(`setOrgJson: Invalid orgIdOwner address: ${orgIdOwner}`);
-  }
-
-  const orgId = await getOrgId(web3, contract, orgIdHash);
+  const orgId = await getOrgId(contract, orgIdHash);
 
   if (!orgId) {
     throw new Error(`setOrgJson: ORGiD not found: ${orgIdHash}`);
   }
 
-  const receipt: TransactionReceipt = await sendHelper(
+  const receipt: ContractReceipt = await sendHelper(
     contract,
     'setOrgJson(bytes32,string)',
     [
@@ -48,9 +40,9 @@ export const setOrgJson = async (
       orgJsonUri
     ],
     orgIdOwner,
-    gasLimit,
-    gasPrice,
-    transactionHashCb
+    overrides,
+    transactionHashCb,
+    confirmations
   );
 
   if (!receipt.events) {
@@ -59,7 +51,11 @@ export const setOrgJson = async (
     );
   }
 
-  const updatedOrgId = receipt.events.OrgJsonUriChanged.returnValues.orgId;
+  const event = receipt.events.filter(e => e.event === 'OrgJsonUriChanged')[0];
 
-  return getOrgId(web3, contract, updatedOrgId)
+  if (!event.args) {
+    throw new Error('Unable extract OrgJsonUriChanged event data');
+  }
+
+  return getOrgId(contract, event.args.orgId);
 }

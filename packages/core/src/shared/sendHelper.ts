@@ -1,60 +1,60 @@
-import type { CallbackFn } from '../types';
-import type { Contract } from 'web3-eth-contract';
-import type { TransactionReceipt } from 'web3-eth';
+import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
+import type { ContractReceipt, Signer, BigNumber } from 'ethers';
+import { BigNumber as BN } from 'ethers';
+
+export interface MethodOverrides {
+  gas?: BigNumber;
+  gasPrice?: BigNumber;
+  value?: BigNumber;
+}
+
+export type TxHashCallbackFn = (txHash: string) => void;
 
 export const sendHelper = async (
-  contract: Contract,
+  contract: OrgIdBaseContract,
   method: string,
-  methodArguments: unknown[],
-  owner: string,
-  gasLimit?: string | number,
-  gasPrice?: string | number,
+  args: unknown[],
+  owner: Signer,
+  overrides?: MethodOverrides,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  transactionHashCb: CallbackFn | void = () => {}
-): Promise<TransactionReceipt> => {
-  const sendParameters = {
-    from: owner,
-    ...(
-      gasLimit
-        ? {
-          gas: gasLimit
-        }
-        : {}
-    ),
-    ...(
-      gasPrice
-        ? {
-          gasPrice
-        }
-        : {}
-    )
-  };
+  transactionHashCb?: TxHashCallbackFn,
+  confirmations = 3
+): Promise<ContractReceipt> => {
+
+  // Build function overrides
+  const methodOverrides = overrides ? overrides : {};
+
+  // Build function parameters
+  const methodArguments = [
+    ...args,
+    methodOverrides
+  ];
+
+  // Assign owner as a Signer
+  const contractWithSigner = contract.connect(owner);
 
   // Transaction gas estimation
-  const gasAmount: number = await contract
-    .methods[method]
-    .apply(
-      contract,
-      methodArguments
-    )
-    .estimateGas(sendParameters);
+  const gasAmount: BigNumber = await contractWithSigner
+    .estimateGas[method](
+      ...methodArguments
+    );
+
+  // Validate available gas
+  if (BN.isBigNumber(methodOverrides.gasPrice)) {
+    const balance = await owner.getBalance();
+
+    if (methodOverrides.gasPrice.mul(gasAmount).gt(balance)) {
+      throw new Error('Insufficient gas or always failing transaction');
+    }
+  }
 
   // Send transaction
-  return new Promise(
-    (resolve, reject) => {
-      contract
-        .methods[method]
-        .apply(
-          contract,
-          methodArguments
-        )
-        .send({
-          ...sendParameters,
-          gas: gasAmount
-        })
-        .on('transactionHash', transactionHashCb)
-        .on('receipt', resolve)
-        .on('error', reject);
-    }
-  );
+  const tx = await contractWithSigner[method](...methodArguments);
+
+  if (typeof transactionHashCb === 'function') {
+    transactionHashCb(tx.transactionHash);
+  }
+
+  // Wait for specified number of tx confirmations
+  return await tx.wait(confirmations);
 }
