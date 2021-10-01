@@ -33,6 +33,7 @@ describe('OrgId contract', () => {
 
   it('orgIdHash', async () => {
     console.log('orgIdHash', orgIdHash);
+    console.log('contract', contract);
   });
 
   // describe('Initialization', () => {
