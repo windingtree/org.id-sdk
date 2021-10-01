@@ -1,5 +1,6 @@
-import type { Signer, Contract } from 'ethers';
+import type { Signer } from 'ethers';
 import type { SignedVC } from '@windingtree/org.id-auth/dist/vc';
+import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
 import {
   generateSalt,
   generateOrgIdWithSigner,
@@ -24,7 +25,7 @@ export {
 export interface OrgIdSetup {
   signers: Signer[];
   accounts: string[];
-  orgIdContract: Contract;
+  orgIdContract: OrgIdBaseContract;
   httpServer: HttpFileServer;
   registerOrgId(
     orgIdOwner: Signer
@@ -74,7 +75,7 @@ export const buildOrgJson = async (
 
 // Registers an ORGiD
 export const registerOrgId = async (
-  contract: Contract,
+  contract: OrgIdBaseContract,
   httpServer: HttpFileServer,
   owner: Signer
 ): Promise<OrgIdRegistrationResult> => {
@@ -94,8 +95,18 @@ export const registerOrgId = async (
     salt,
     `${httpServer.baseUri}/${file.path}`
   );
-  const result = await tx.wait();
-  const event = result.events.filter(e => e.event === 'OrgIdCreated')[0];
+  const receipt = await tx.wait();
+
+  if (!receipt.events) {
+    throw new Error('Unable to get events from receipt');
+  }
+
+  const event = receipt.events.filter(e => e.event === 'OrgIdCreated')[0];
+
+  if (!event.args) {
+    throw new Error('Unable to extract OrgIdCreated event data');
+  }
+
   return {
     orgIdHash: event.args.orgId,
     orgJson
@@ -105,8 +116,8 @@ export const registerOrgId = async (
 // Setup an ORGiD environment
 export const orgIdSetup = async (): Promise<OrgIdSetup> => {
   const signers = await ethers.getSigners();
-  const accounts = await Promise.all(
-    signers.map((s: Signer) => s.getAddress())
+  const accounts: string[] = await Promise.all(
+    signers.map((s: Signer): Promise<string> => s.getAddress())
   );
   const deployer = signers[0];
 
@@ -116,7 +127,7 @@ export const orgIdSetup = async (): Promise<OrgIdSetup> => {
     OrgIdContract.bytecode,
     deployer
   );
-  const orgIdContract = await OrgIdFactory.deploy();
+  const orgIdContract = await OrgIdFactory.deploy() as OrgIdBaseContract;
   await orgIdContract.deployTransaction.wait();
   await orgIdContract.initialize();
 

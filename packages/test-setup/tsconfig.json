@@ -17,11 +17,13 @@
     "strictNullChecks": true
   },
   "include": [
-    "src",
+    "hardhat.config.ts",
     "test",
-    "hardhat.config.ts"
   ],
   "exclude": [
     "node_modules"
+  ],
+  "files": [
+    "src/index.ts"
   ]
 }
