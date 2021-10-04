@@ -29,10 +29,12 @@ export const getOrgIdByTokenId = async (
   }
 
   // Fetching of ORGiD creation date
-  const orgIdCreatedFilter = contract.filters.OrgIdCreated(orgId, owner);
-  const orgIdCreatedEvent = contract.queryFilter(orgIdCreatedFilter)[0];
+  const orgIdCreatedFilter = contract.filters.OrgIdCreated(orgId);
+  const orgIdCreatedEvent = (
+    await contract.queryFilter(orgIdCreatedFilter, 'earliest')
+  )[0];
 
-  if (orgIdCreatedEvent) {
+  if (!orgIdCreatedEvent) {
     throw new Error(`Unable to find OrgIdCreated event for ORGiD: ${orgId}`);
   }
 
@@ -41,7 +43,7 @@ export const getOrgIdByTokenId = async (
     .toISOString();
 
   return {
-    tokenId: tokenId.toNumber(),
+    tokenId: tokenId,
     orgId,
     owner,
     orgJsonUri,

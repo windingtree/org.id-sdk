@@ -1,17 +1,11 @@
-import { HttpProvider } from 'web3-providers-http';
-import { WebsocketProvider } from 'web3-providers-ws';
-import { IpcProvider} from 'web3-providers-ipc';
+import type { BigNumber } from 'ethers';
 
 export type OrgIdAddresses = {
   [key in string]?: string
 }
 
-export type Web3Provider = HttpProvider | WebsocketProvider | IpcProvider;
-
-export type CallbackFn = (data: unknown | void) => void;
-
 export interface OrgIdData {
-  tokenId: number;
+  tokenId: BigNumber;
   orgId: string;
   owner: string;
   orgJsonUri: string;

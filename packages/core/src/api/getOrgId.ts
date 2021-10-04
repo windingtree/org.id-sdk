@@ -15,5 +15,9 @@ export const getOrgId = async (
   // Get a tokenId by the ORGiD hash
   const tokenId = await contract['getTokenId(bytes32)'](orgIdHash);
 
+  if (tokenId.eq(0)) {
+    return null;
+  }
+
   return getOrgIdByTokenId(contract, tokenId);
 };

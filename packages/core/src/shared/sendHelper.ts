@@ -1,12 +1,14 @@
 import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
-import type { ContractReceipt, Signer, BigNumber } from 'ethers';
-import { BigNumber as BN } from 'ethers';
+import type {
+  ContractReceipt,
+  Signer,
+  BigNumber,
+  CallOverrides,
+  PayableOverrides
+} from 'ethers';
+import { BigNumber as BN, Signer as SignerObject } from 'ethers';
 
-export interface MethodOverrides {
-  gas?: BigNumber;
-  gasPrice?: BigNumber;
-  value?: BigNumber;
-}
+export type MethodOverrides = CallOverrides | PayableOverrides;
 
 export type TxHashCallbackFn = (txHash: string) => void;
 
@@ -14,45 +16,47 @@ export const sendHelper = async (
   contract: OrgIdBaseContract,
   method: string,
   args: unknown[],
-  owner: Signer,
+  sender: Signer,
   overrides?: MethodOverrides,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   transactionHashCb?: TxHashCallbackFn,
-  confirmations = 3
+  confirmations = 1
 ): Promise<ContractReceipt> => {
 
-  // Build function overrides
-  const methodOverrides = overrides ? overrides : {};
+  if (sender instanceof SignerObject === false) {
+    throw new Error('Invalid transaction signer');
+  }
 
-  // Build function parameters
-  const methodArguments = [
-    ...args,
-    methodOverrides
-  ];
+  // Assign sender as a Signer
+  const contractWithSigner = contract.connect(sender);
 
-  // Assign owner as a Signer
-  const contractWithSigner = contract.connect(owner);
+  // Add overrides to arguments
+  if (overrides) {
+    args.push(overrides);
+  }
 
   // Transaction gas estimation
   const gasAmount: BigNumber = await contractWithSigner
-    .estimateGas[method](
-      ...methodArguments
-    );
+    .estimateGas[method](...args);
 
   // Validate available gas
-  if (BN.isBigNumber(methodOverrides.gasPrice)) {
-    const balance = await owner.getBalance();
+  if (overrides && overrides.gasPrice) {
+    const balance = await sender.getBalance();
 
-    if (methodOverrides.gasPrice.mul(gasAmount).gt(balance)) {
+    if (!BN.isBigNumber(overrides.gasPrice)) {
+      overrides.gasPrice = BN.from(overrides.gasPrice);
+    }
+
+    if (overrides.gasPrice.mul(gasAmount).gt(balance)) {
       throw new Error('Insufficient gas or always failing transaction');
     }
   }
 
   // Send transaction
-  const tx = await contractWithSigner[method](...methodArguments);
+  const tx = await contractWithSigner[method](...args);
 
   if (typeof transactionHashCb === 'function') {
-    transactionHashCb(tx.transactionHash);
+    transactionHashCb(tx.hash);
   }
 
   // Wait for specified number of tx confirmations

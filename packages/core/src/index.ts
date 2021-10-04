@@ -31,9 +31,9 @@ export type KnownProvider =
   | string;
 
 export class OrgIdContract {
-  address: string;
-  provider: providers.BaseProvider;
-  contract: OrgIdBaseContract;
+  readonly address: string;
+  readonly provider: providers.BaseProvider;
+  readonly contract: OrgIdBaseContract;
 
   constructor(
     contractAddress: string,
@@ -48,7 +48,7 @@ export class OrgIdContract {
       );
     }
 
-    if (typeof providerOrUri === 'string') {
+    if (typeof providerOrUri === 'string' && providerOrUri !== '') {
       this.provider = new ethers.providers.JsonRpcProvider(providerOrUri);
     } else if (typeof providerOrUri === 'object') {
 
