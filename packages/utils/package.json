@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-utils",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Shared ORGiD utilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -39,7 +39,7 @@
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/shared#readme",
   "dependencies": {
     "ethers": "5.4.7",
-    "axios": "0.21.4",
+    "axios": "0.22.0",
     "ajv": "8.6.3",
     "ajv-formats": "2.1.1"
   },

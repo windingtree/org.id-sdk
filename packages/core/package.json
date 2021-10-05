@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-core",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Core ORGiD Javascript library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -39,7 +39,7 @@
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/core#readme",
   "dependencies": {
     "@windingtree/org.id": "3.0.0-beta.4",
-    "@windingtree/org.id-utils": "0.3.2",
+    "@windingtree/org.id-utils": "0.3.3",
     "ethers": "5.4.7"
   },
   "devDependencies": {
@@ -49,7 +49,7 @@
     "typedoc": "0.22.4",
     "typedoc-plugin-markdown": "3.11.2",
     "typescript": "4.4.3",
-    "@windingtree/org.id-test-setup": "0.2.3",
+    "@windingtree/org.id-test-setup": "0.2.4",
     "@nomiclabs/hardhat-ethers": "2.0.2",
     "hardhat": "2.6.4",
     "@types/mocha": "9.0.0",
