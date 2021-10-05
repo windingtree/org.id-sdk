@@ -48,5 +48,6 @@
     "typedoc": "0.22.5",
     "typedoc-plugin-markdown": "3.11.2",
     "typescript": "4.4.3"
-  }
+  },
+  "gitHead": "3e80e10b0db7fb9121cfbeb6cdfaf2513816043a"
 }

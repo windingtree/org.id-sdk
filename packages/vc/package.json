@@ -36,5 +36,6 @@
   "dependencies": {
     "@windingtree/common-utilities": "0.1.0",
     "jose": "2.0.5"
-  }
+  },
+  "gitHead": "3e80e10b0db7fb9121cfbeb6cdfaf2513816043a"
 }
