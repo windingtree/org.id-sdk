@@ -1,30 +1,27 @@
-import {
-  HttpError as MyError
-} from '../src/errors';
-import {
-  HTTP_STATUS_CODES
-} from '../src/http';
+import { HttpError as MyError } from '../src/errors';
+import { HTTP_STATUS_CODES } from '../src/http';
+import { expect } from 'chai';
 
 describe('Errors', () => {
 
   describe('HttpError', () => {
     const message = 'ERR';
 
-    test('should generate a proper Error instance', async () => {
+    it('should generate a proper Error instance', async () => {
       const err = new MyError(message);
-      expect(err).toBeInstanceOf(Error);
-      expect(err).toHaveProperty('message');
-      expect(err.message).toEqual(message);
+      expect(err).to.be.instanceOf(Error);
+      expect(err).to.have.property('message');
+      expect(err.message).to.equal(message);
     });
 
-    test('should generate a error with HTTP codes', async () => {
+    it('should generate a error with HTTP codes', async () => {
       Object.entries(HTTP_STATUS_CODES).forEach(
         (status: any) => {
           const err = new MyError(message, status[0]);
-          expect(err).toHaveProperty('code');
-          expect(err).toHaveProperty('status');
-          expect(err.status).toEqual(status[0]);
-          expect(err.code).toEqual(status[1]);
+          expect(err).to.have.property('code');
+          expect(err).to.have.property('status');
+          expect(err.status).to.equal(status[0]);
+          expect(err.code).to.equal(status[1]);
         }
       );
     });

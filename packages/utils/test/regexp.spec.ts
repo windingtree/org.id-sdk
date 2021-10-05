@@ -1,4 +1,5 @@
 import * as rules from '../src/regexp';
+import { expect } from 'chai';
 
 type TestInput = any;
 
@@ -22,41 +23,41 @@ describe('Regular expressions', () => {
       ...validWsUris
     ];
 
-    test('should validate emails', async () => {
-      expect(rules.email.exec('test.bla_bladomain-1.com')).toBeNull();
-      expect(rules.email.exec('test@bla_bla@domain-1.com')).toBeNull();
-      expect(rules.email.exec('test.bla_bla@doma_in-1.com')).not.toBeNull();
+    it('should validate emails', async () => {
+      expect(rules.email.exec('test.bla_bladomain-1.com')).to.be.null;
+      expect(rules.email.exec('test@bla_bla@domain-1.com')).to.be.null;
+      expect(rules.email.exec('test.bla_bla@doma_in-1.com')).not.to.be.null;
     });
 
-    test('should validate URIs', async () => {
+    it('should validate URIs', async () => {
       expect(rules.uri.exec(
         'https://blaqwert1-as^dsad.domain1-2-aaa.io:8080/path/to/file?user=allowed#readme'
-      )).toBeNull();
+      )).to.be.null;
       expect(rules.uri.exec(
         'https://blaqwert1-asdsad.domain1-2-aaa.io@8080/path/to?user=allowed#readme'
-      )).toBeNull();
+      )).to.be.null;
       expect(rules.uri.exec(
         'hzzz://blaqwert1-asdsad.domain1-2-aaa.io@8080/path/to?user=allowed#readme'
-      )).toBeNull();
+      )).to.be.null;
       expect(rules.uri.exec(
         'https://blaqwert1-asdsad.domain1-2-aaa.io:8080/path/to?user=allowed#readme'
-      )).not.toBeNull();
+      )).not.to.be.null;
       validUris.forEach(u => {
-        expect(rules.uri.exec(u)).not.toBeNull();
+        expect(rules.uri.exec(u)).not.to.be.null;
       });
     });
 
-    test('should validate HTTP URIs', async () => {
+    it('should validate HTTP URIs', async () => {
       validHttpUris.forEach(u => {
-        expect(rules.uriHttp.exec(u)).not.toBeNull();
+        expect(rules.uriHttp.exec(u)).not.to.be.null;
       });
       validWsUris.forEach(u => {
-        expect(rules.uriHttp.exec(u)).toBeNull();
+        expect(rules.uriHttp.exec(u)).to.be.null;
       });
     });
 
-    test('should validate phone numbers', async () => {
-      expect(rules.phone.exec('+1-AAA-754-3010')).toBeNull();
+    it('should validate phone numbers', async () => {
+      expect(rules.phone.exec('+1-AAA-754-3010')).to.be.null;
       const validPhones = [
         '754-3010',
         '(541) 754-3010',
@@ -70,28 +71,28 @@ describe('Regular expressions', () => {
         '19-49-89-636-48018',
       ];
       validPhones.forEach(p => {
-        expect(rules.phone.exec(p)).not.toBeNull();
+        expect(rules.phone.exec(p)).not.to.be.null;
       });
     });
   });
 
   describe('Crypto addresses', () => {
 
-    test('should validate ethereum address', async () => {
-      expect(rules.ethereumAddress.exec('0x7f06d9c09b5627a9d48693A1dB7e1f62cAc')).toBeNull();
+    it('should validate ethereum address', async () => {
+      expect(rules.ethereumAddress.exec('0x7f06d9c09b5627a9d48693A1dB7e1f62cAc')).to.be.null;
       const valid = [
         '0x7f06d9c09b5627a9d48693A1dB7e1f62cAc90c36',
         '0x135f874692c0C44e0196AF9c4cE0141f3E23197a',
         '0x427B05781308e7c35b3724Cf890A6EC20A6ED0e2'
       ];
       valid.forEach(s => {
-        expect(rules.ethereumAddress.exec(s)).not.toBeNull();
+        expect(rules.ethereumAddress.exec(s)).not.to.be.null;
       });
     });
 
-    test('should validate bitcoin address', async () => {
-      expect(rules.ethereumAddress.exec('151Y4HsfkDk6NjhyqPThPdVzFpsKc9P7')).toBeNull();
-      expect(rules.ethereumAddress.exec('2NapBXatQueFQqsLjqJcsMCbdGjn8AHPiR')).toBeNull();
+    it('should validate bitcoin address', async () => {
+      expect(rules.ethereumAddress.exec('151Y4HsfkDk6NjhyqPThPdVzFpsKc9P7')).to.be.null;
+      expect(rules.ethereumAddress.exec('2NapBXatQueFQqsLjqJcsMCbdGjn8AHPiR')).to.be.null;
       const valid = [
         '151Y4HsfkDk6NjhyqPThPdVdrzFpsKc9P7',
         '1NapBXatQueFQqsLjqJcsMCbdGjn8AHPiR',
@@ -101,7 +102,7 @@ describe('Regular expressions', () => {
         'bc1q7eucu99xzuz76nkkypt9h6kv5ua94eg3gcu68h'
       ];
       valid.forEach(s => {
-        expect(rules.bitcoinAddress.exec(s)).not.toBeNull();
+        expect(rules.bitcoinAddress.exec(s)).not.to.be.null;
       });
     });
 
@@ -144,14 +145,14 @@ describe('Regular expressions', () => {
         }
       ];
 
-      test('should validate blockchainAccountId format', async () => {
+      it('should validate blockchainAccountId format', async () => {
         validIds.forEach((s: any) => {
           const string = Object.keys(s)[0];
           const values = s[string];
           const result = (rules.blockchainAccountIdGrouped.exec(string) as TestInput).groups;
-          expect(result.accountId).toBe(values.accountId);
-          expect(result.blockchainType).toBe(values.blockchainType);
-          expect(result.blockchainId).toBe(values.blockchainId);
+          expect(result.accountId).to.equal(values.accountId);
+          expect(result.blockchainType).to.equal(values.blockchainType);
+          expect(result.blockchainId).to.equal(values.blockchainId);
         });
       });
     });
@@ -159,54 +160,54 @@ describe('Regular expressions', () => {
 
   describe('Public keys (as strings)', () => {
 
-    test('should validate X25519 key', async () => {
-      expect(rules.X25519.exec('MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAE76VV1vw+capJ7m4AlKP=')).toBeNull();
+    it('should validate X25519 key', async () => {
+      expect(rules.X25519.exec('MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAE76VV1vw+capJ7m4AlKP=')).to.be.null;
       const valid = [
         'MCowBQYDK2VuAyEAMjwLgeDT9Eabvd/sBg0T3Cl9WE81JafABI8tKXMhnnM=',
       ];
       valid.forEach(s => {
-        expect(rules.X25519.exec(s)).not.toBeNull();
+        expect(rules.X25519.exec(s)).not.to.be.null;
       });
     });
 
-    test('should validate secp256k1 key', async () => {
-      expect(rules.secp256k1.exec('capJ7m4AlKP+qZ0Sh516y25ErauRkRgJShSPtKdYP3a4eFjRtfUsvCnl903mr4hSPt+KVxudoMUOYw==')).toBeNull();
+    it('should validate secp256k1 key', async () => {
+      expect(rules.secp256k1.exec('capJ7m4AlKP+qZ0Sh516y25ErauRkRgJShSPtKdYP3a4eFjRtfUsvCnl903mr4hSPt+KVxudoMUOYw==')).to.be.null;
       const valid = [
         'MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAE76VV1vw+capJ7m4AlKP+qZ0Sh516y25ErauRkRgJShSPtKdYP3a4eFjRtfUsvCnl903mr4hSPt+KVxudoMUOYw==',
       ];
       valid.forEach(s => {
-        expect(rules.secp256k1.exec(s)).not.toBeNull();
+        expect(rules.secp256k1.exec(s)).not.to.be.null;
       });
     });
   });
 
   describe('Hashes', () => {
 
-    test('should validate bytes32 hash string', async () => {
-      expect(rules.bytes32.exec('0x7f06d9c09b5627a9d48693A1dB7e1f62cAc90c36')).toBeNull();
+    it('should validate bytes32 hash string', async () => {
+      expect(rules.bytes32.exec('0x7f06d9c09b5627a9d48693A1dB7e1f62cAc90c36')).to.be.null;
       const valid = [
         '0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
       ];
       valid.forEach(s => {
-        expect(rules.bytes32.exec(s)).not.toBeNull();
+        expect(rules.bytes32.exec(s)).not.to.be.null;
       });
     });
   });
 
   describe('Banks accounts', () => {
 
-    test('should validate SWIFT account', async () => {
-      expect(rules.swift.exec('CTBAAUG2S')).toBeNull();
+    it('should validate SWIFT account', async () => {
+      expect(rules.swift.exec('CTBAAUG2S')).to.be.null;
       const valid = [
         'CTBAAU2S',
       ];
       valid.forEach(s => {
-        expect(rules.swift.exec(s)).not.toBeNull();
+        expect(rules.swift.exec(s)).not.to.be.null;
       });
     });
 
-    test('should validate IBAN account', async () => {
-      expect(rules.iban.exec('CTBAAU2S')).toBeNull();
+    it('should validate IBAN account', async () => {
+      expect(rules.iban.exec('CTBAAU2S')).to.be.null;
       const valid = [
         'CY 17 002 00128 00000012005276002',
         'LU 28 001 94006447500003',
@@ -214,28 +215,28 @@ describe('Regular expressions', () => {
         'AL47 2121 1009 0000 0002 3569 87411'
       ];
       valid.forEach(s => {
-        expect(rules.iban.exec(s)).not.toBeNull();
+        expect(rules.iban.exec(s)).not.to.be.null;
       });
     });
   });
 
   describe('DID', () => {
 
-    test('should validate clear ORGiD DID (without query and fragment)', async () => {
-      expect(rules.didOnly.exec('did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1')).toBeNull();
-      expect(rules.didOnly.exec('did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a')).toBeNull();
-      expect(rules.didOnly.exec('did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a#key-1')).toBeNull();
+    it('should validate clear ORGiD DID (without query and fragment)', async () => {
+      expect(rules.didOnly.exec('did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1')).to.be.null;
+      expect(rules.didOnly.exec('did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a')).to.be.null;
+      expect(rules.didOnly.exec('did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a#key-1')).to.be.null;
       const valid = [
         'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
         'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
       ];
       valid.forEach(s => {
-        expect(rules.didOnly.exec(s)).not.toBeNull();
+        expect(rules.didOnly.exec(s)).not.to.be.null;
       });
     });
 
-    test('should validate ORGiD DID', async () => {
-      expect(rules.did.exec('0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d')).toBeNull();
+    it('should validate ORGiD DID', async () => {
+      expect(rules.did.exec('0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d')).to.be.null;
       const valid = [
         'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
         'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
@@ -245,11 +246,11 @@ describe('Regular expressions', () => {
         'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest#intro',
       ];
       valid.forEach(s => {
-        expect(rules.did.exec(s)).not.toBeNull();
+        expect(rules.did.exec(s)).not.to.be.null;
       });
     });
 
-    test('should validate ORGiD by DID parameters', async () => {
+    it('should validate ORGiD by DID parameters', async () => {
       const valid = [
         {
           'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d': {
@@ -299,23 +300,23 @@ describe('Regular expressions', () => {
       valid.forEach((s: any) => {
         const variant: string = Object.keys(s)[0];
         const result: TestInput = rules.didGrouped.exec(variant);
-        expect(result).not.toBeNull();
-        expect(result.groups.did).toBe(s[variant].did);
-        expect(result.groups.method).toBe(s[variant].method);
-        expect(result.groups.submethod).toBe(s[variant].submethod);
-        expect(result.groups.id).toBe(s[variant].id);
-        expect(result.groups.query).toBe(s[variant].query);
-        expect(result.groups.fragment).toBe(s[variant].fragment);
+        expect(result).not.to.be.null;
+        expect(result.groups.did).to.equal(s[variant].did);
+        expect(result.groups.method).to.equal(s[variant].method);
+        expect(result.groups.submethod).to.equal(s[variant].submethod);
+        expect(result.groups.id).to.equal(s[variant].id);
+        expect(result.groups.query).to.equal(s[variant].query);
+        expect(result.groups.fragment).to.equal(s[variant].fragment);
       });
     });
   });
 
   describe('UUID', () => {
 
-    test('should validate uuid', async () => {
+    it('should validate uuid', async () => {
       expect(rules.uuid4.exec(
         '853171d7-34ed-4481-82f8-043cc407031f'
-      )).not.toBeNull();
+      )).not.to.be.null;
     });
   });
 
@@ -341,33 +342,33 @@ describe('Regular expressions', () => {
     ];
     const invalidCid = validCid.map(c => c.split('').reverse().join(''));
 
-    test('should validate IPFS CIDV0', async () => {
+    it('should validate IPFS CIDV0', async () => {
       validV0.forEach(cid => {
-        expect(rules.ipfsCidV0.exec(cid)).not.toBeNull();
+        expect(rules.ipfsCidV0.exec(cid)).not.to.be.null;
       });
     });
 
-    test('should validate IPFS CIDV1Base32', async () => {
+    it('should validate IPFS CIDV1Base32', async () => {
       validV1Base32.forEach(cid => {
-        expect(rules.ipfsCidV1Base32.exec(cid)).not.toBeNull();
+        expect(rules.ipfsCidV1Base32.exec(cid)).not.to.be.null;
       });
     });
 
-    test('should validate IPFS CIDV1Bse58btc', async () => {
+    it('should validate IPFS CIDV1Bse58btc', async () => {
       validV1Base58btc.forEach(cid => {
-        expect(rules.ipfsCidV1Base58btc.exec(cid)).not.toBeNull();
+        expect(rules.ipfsCidV1Base58btc.exec(cid)).not.to.be.null;
       });
     });
 
-    test('should validate IPFS ', async () => {
+    it('should validate IPFS ', async () => {
       validCid.forEach(cid => {
-        expect(rules.ipfs.exec(cid)).not.toBeNull();
+        expect(rules.ipfs.exec(cid)).not.to.be.null;
       });
     });
 
-    test('should fail if invalid hash provided', async () => {
+    it('should fail if invalid hash provided', async () => {
       invalidCid.forEach(cid => {
-        expect(rules.ipfs.exec(cid)).toBeNull();
+        expect(rules.ipfs.exec(cid)).to.be.null;
       });
     });
   })

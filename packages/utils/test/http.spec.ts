@@ -3,6 +3,7 @@ import {
   request,
   createAuthBearerHeader
 } from '../src/http';
+import { expect } from 'chai';
 
 describe('HTTP utils', () => {
 
@@ -11,7 +12,7 @@ describe('HTTP utils', () => {
     const filePath = 'myfile.txt';
     const fileContent = 'test';
 
-    beforeAll(async () => {
+    before(async () => {
         server = new HttpFileServer();
         await server.start();
         server.addFile({
@@ -21,29 +22,29 @@ describe('HTTP utils', () => {
         })
     });
 
-    afterAll(async () => {
+    after(async () => {
       server.close();
     });
 
     describe('#request', () => {
 
-      test('should able to send requests', async () => {
+      it('should able to send requests', async () => {
         const data = await request(
           `${server.baseUri}/${filePath}`,
           'post',
           {}
         );
-        expect(data).toBe(fileContent);
+        expect(data).to.equal(fileContent);
       });
     });
 
     describe('#createAuthBearerHeader', () => {
 
-      test('should create a Authorization header object', async () => {
+      it('should create a Authorization header object', async () => {
         const token = 'AAA';
         const header = createAuthBearerHeader(token);
-        expect(header).toHaveProperty('Authorization');
-        expect(header.Authorization).toBe(`Bearer ${token}`);
+        expect(header).to.have.property('Authorization');
+        expect(header.Authorization).to.equal(`Bearer ${token}`);
       });
     });
   })
