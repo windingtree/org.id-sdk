@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.json-utils",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
   "description": "ORG.JSON utilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -40,7 +40,7 @@
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/org.json#readme",
   "dependencies": {
     "@windingtree/org.id-auth": "0.5.1",
-    "@windingtree/org.id-utils": "^1.0.0-beta.4",
+    "@windingtree/org.id-utils": "^1.0.0-beta.5",
     "@windingtree/org.json-schema": "0.5.11-beta"
   },
   "devDependencies": {
