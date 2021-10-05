@@ -40,8 +40,5 @@
   "homepage": "https://github.com/windingtree/org.id-sdk#readme",
   "devDependencies": {
     "lerna": "4.0.0"
-  },
-  "workspaces": [
-    "packages/*"
-  ]
+  }
 }
