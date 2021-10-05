@@ -9,7 +9,7 @@ import {
 import { createVC } from '@windingtree/org.id-auth/dist/vc';
 import {
   createVerificationMethodWithBlockchainAccountId
-} from '@windingtree/org.json-utils/dist/verificationMethod';
+} from '@windingtree/org.json-utils';
 import { OrgIdContract } from '@windingtree/org.id';
 import { HttpFileServer, File } from '@windingtree/org.id-test-http-server';
 import '@nomiclabs/hardhat-ethers';
