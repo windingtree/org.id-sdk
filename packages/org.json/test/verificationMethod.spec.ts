@@ -1,10 +1,5 @@
-import type {
-  KeyLike,
-  JWK
-} from '@windingtree/org.id-auth/dist/keys';
-import type {
-  DidVerificationMethod
-} from '../src/verificationMethod';
+import type { KeyLike, JWK } from '@windingtree/org.id-auth/dist/keys';
+import type { DidVerificationMethod } from '../src/verificationMethod';
 import {
   KeyTypes,
   generateKeyPair,
@@ -13,6 +8,7 @@ import {
 import {
   createVerificationMethodWithKey
 } from '../src/verificationMethod';
+import { expect } from 'chai';
 
 describe('DID utilities', () => {
   const id = 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1';
@@ -22,7 +18,7 @@ describe('DID utilities', () => {
     let keyPairs: { privateKey: KeyLike; publicKey: KeyLike; }[];
     let keyJWK: { privateKey: JWK; publicKey: JWK; }[];
 
-    beforeAll(async () => {
+    before(async () => {
       keyPairs = await Promise.all(
         KeyTypes
           .filter(t => t !== 'EcdsaSecp256k1RecoveryMethod2020')
@@ -40,7 +36,7 @@ describe('DID utilities', () => {
       );
     });
 
-    test('should create verification method from KeyLike', async () => {
+    it('should create verification method from KeyLike', async () => {
       const methods: DidVerificationMethod[] = await Promise.all(
         keyPairs.map(
           k => createVerificationMethodWithKey(
@@ -51,14 +47,14 @@ describe('DID utilities', () => {
         )
       );
       methods.forEach(m => {
-        expect(typeof m.id).toBe('string');
-        expect(typeof m.controller).toBe('string');
-        expect(typeof m.type).toBe('string');
-        expect(typeof m.publicKeyJwk).toBe('object');
+        expect(typeof m.id).to.equal('string');
+        expect(typeof m.controller).to.equal('string');
+        expect(typeof m.type).to.equal('string');
+        expect(typeof m.publicKeyJwk).to.equal('object');
       });
     });
 
-    test('should create verification method from JWK', async () => {
+    it('should create verification method from JWK', async () => {
       const methods: DidVerificationMethod[] = await Promise.all(
         keyJWK.map(
           k => createVerificationMethodWithKey(
@@ -69,10 +65,10 @@ describe('DID utilities', () => {
         )
       );
       methods.forEach(m => {
-        expect(typeof m.id).toBe('string');
-        expect(typeof m.controller).toBe('string');
-        expect(typeof m.type).toBe('string');
-        expect(typeof m.publicKeyJwk).toBe('object');
+        expect(typeof m.id).to.equal('string');
+        expect(typeof m.controller).to.equal('string');
+        expect(typeof m.type).to.equal('string');
+        expect(typeof m.publicKeyJwk).to.equal('object');
       });
     });
   })
