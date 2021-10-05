@@ -49,7 +49,7 @@
     "typedoc": "0.22.4",
     "typedoc-plugin-markdown": "3.11.2",
     "typescript": "4.4.3",
-    "@windingtree/org.id-test-setup": "0.2.2",
+    "@windingtree/org.id-test-setup": "0.2.3",
     "@nomiclabs/hardhat-ethers": "2.0.2",
     "hardhat": "2.6.4",
     "@types/mocha": "9.0.0",

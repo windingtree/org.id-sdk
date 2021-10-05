@@ -52,6 +52,7 @@
     "typescript": "4.4.3",
     "@windingtree/org.id-test-http-server": "0.1.4",
     "@windingtree/org.json-schema": "0.5.11-beta",
+    "@types/node": "16.10.2",
     "@types/mocha": "9.0.0",
     "@types/chai": "4.2.22",
     "@types/chai-as-promised": "7.1.4",
