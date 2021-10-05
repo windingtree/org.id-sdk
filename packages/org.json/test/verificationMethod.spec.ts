@@ -1,3 +1,10 @@
+import type {
+  KeyLike,
+  JWK
+} from '@windingtree/org.id-auth/dist/keys';
+import type {
+  DidVerificationMethod
+} from '../src/verificationMethod';
 import {
   KeyTypes,
   generateKeyPair,
@@ -5,13 +12,6 @@ import {
 } from '@windingtree/org.id-auth/dist/keys';
 import {
   createVerificationMethodWithKey
-} from '../src/verificationMethod';
-import type {
-  KeyLike,
-  JWK
-} from '@windingtree/org.id-auth/dist/keys';
-import type {
-  DidVerificationMethod
 } from '../src/verificationMethod';
 
 describe('DID utilities', () => {
