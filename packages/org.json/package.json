@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.json-utils",
-  "version": "0.2.4",
+  "version": "1.0.0-beta.1",
   "description": "ORG.JSON utilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -40,24 +40,24 @@
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/org.json#readme",
   "dependencies": {
     "@windingtree/org.id-auth": "0.5.1",
-    "@windingtree/org.id-utils": "0.3.3",
+    "@windingtree/org.id-utils": "^1.0.0-beta.1",
     "@windingtree/org.json-schema": "0.5.11-beta"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "4.32.0",
-    "@typescript-eslint/parser": "4.32.0",
-    "eslint": "7.32.0",
-    "typedoc": "0.22.5",
-    "typedoc-plugin-markdown": "3.11.2",
-    "typescript": "4.4.3",
-    "@types/mocha": "9.0.0",
+    "@istanbuljs/nyc-config-typescript": "1.0.1",
     "@types/chai": "4.2.22",
     "@types/chai-as-promised": "7.1.4",
-    "@istanbuljs/nyc-config-typescript": "1.0.1",
-    "ts-node": "10.2.1",
-    "mocha": "9.1.2",
+    "@types/mocha": "9.0.0",
+    "@typescript-eslint/eslint-plugin": "4.32.0",
+    "@typescript-eslint/parser": "4.32.0",
     "chai": "4.3.4",
     "chai-as-promised": "7.1.1",
-    "nyc": "15.1.0"
+    "eslint": "7.32.0",
+    "mocha": "9.1.2",
+    "nyc": "15.1.0",
+    "ts-node": "10.2.1",
+    "typedoc": "0.22.5",
+    "typedoc-plugin-markdown": "3.11.2",
+    "typescript": "4.4.3"
   }
 }

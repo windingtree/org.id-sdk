@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-test-setup",
-  "version": "0.2.4",
+  "version": "1.0.0-beta.1",
   "description": "Ease ORGiD setup for testing purposes",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -38,29 +38,29 @@
   },
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/test-setup#readme",
   "dependencies": {
-    "@windingtree/org.id-utils": "0.3.2",
+    "@nomiclabs/hardhat-ethers": "2.0.2",
     "@windingtree/org.id": "3.0.0-beta.4",
-    "@windingtree/org.json-schema": "0.5.11-beta",
     "@windingtree/org.id-auth": "0.5.1",
-    "@windingtree/org.json-utils": "0.2.4",
     "@windingtree/org.id-test-http-server": "0.1.4",
+    "@windingtree/org.id-utils": "0.3.2",
+    "@windingtree/org.json-schema": "0.5.11-beta",
+    "@windingtree/org.json-utils": "^1.0.0-beta.1",
     "ethers": "5.4.7",
-    "hardhat": "2.6.4",
-    "@nomiclabs/hardhat-ethers": "2.0.2"
+    "hardhat": "2.6.4"
   },
   "devDependencies": {
-    "@types/mocha": "9.0.0",
-    "@types/chai": "4.2.22",
     "@istanbuljs/nyc-config-typescript": "1.0.1",
+    "@types/chai": "4.2.22",
+    "@types/mocha": "9.0.0",
     "@typescript-eslint/eslint-plugin": "4.32.0",
     "@typescript-eslint/parser": "4.32.0",
     "axios": "0.21.4",
+    "chai": "4.3.4",
     "eslint": "7.32.0",
+    "nyc": "15.1.0",
+    "ts-node": "10.2.1",
     "typedoc": "0.22.4",
     "typedoc-plugin-markdown": "3.11.2",
-    "typescript": "4.4.3",
-    "ts-node": "10.2.1",
-    "chai": "4.3.4",
-    "nyc": "15.1.0"
+    "typescript": "4.4.3"
   }
 }
