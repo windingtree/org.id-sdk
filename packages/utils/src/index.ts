@@ -1,6 +1,17 @@
-export * as uid from './uid';
-export * as http from './http';
-export * as errors from './errors';
-export * as regexp from './regexp';
-export * as object from  './object';
-export * as common from  './common';
+import * as uid from './uid';
+import * as http from './http';
+import * as errors from './errors';
+import * as regexp from './regexp';
+import * as object from  './object';
+import * as common from  './common';
+
+const defaultInterface = {
+  uid,
+  http,
+  errors,
+  regexp,
+  object,
+  common
+};
+
+export default defaultInterface;
