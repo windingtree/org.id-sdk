@@ -13,7 +13,7 @@ import type {
 } from '@windingtree/org.id-auth/dist/keys';
 import type {
   VerificationMethodReference
-} from '@windingtree/org.json-schema';
+} from '@windingtree/org.json-schema/types/org';
 
 export type DidVerificationMethodRevocation =
   VerificationMethodReference['verificationMethodRevocation'];
