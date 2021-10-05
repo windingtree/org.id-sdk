@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-test-setup",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "Ease ORGiD setup for testing purposes",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -44,7 +44,7 @@
     "@windingtree/org.id-test-http-server": "0.1.4",
     "@windingtree/org.id-utils": "0.3.2",
     "@windingtree/org.json-schema": "0.5.11-beta",
-    "@windingtree/org.json-utils": "^1.0.0-beta.1",
+    "@windingtree/org.json-utils": "^1.0.0-beta.2",
     "ethers": "5.4.7",
     "hardhat": "2.6.4"
   },
