@@ -223,11 +223,11 @@ describe('Regular expressions', () => {
   describe('DID', () => {
 
     it('should validate clear ORGiD DID (without query and fragment)', async () => {
-      expect(rules.didOnly.exec('did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1')).to.be.null;
-      expect(rules.didOnly.exec('did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a')).to.be.null;
-      expect(rules.didOnly.exec('did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a#key-1')).to.be.null;
+      expect(rules.didOnly.exec('did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1')).to.be.null;
+      expect(rules.didOnly.exec('did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a')).to.be.null;
+      expect(rules.didOnly.exec('did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a#key-1')).to.be.null;
       const valid = [
-        'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+        'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
         'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
       ];
       valid.forEach(s => {
@@ -238,12 +238,12 @@ describe('Regular expressions', () => {
     it('should validate ORGiD DID', async () => {
       expect(rules.did.exec('0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d')).to.be.null;
       const valid = [
-        'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+        'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
         'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
         'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest#intro',
         'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest',
-        'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1',
-        'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest#intro',
+        'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1',
+        'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest#intro',
       ];
       valid.forEach(s => {
         expect(rules.did.exec(s)).not.to.be.null;
@@ -253,10 +253,10 @@ describe('Regular expressions', () => {
     it('should validate ORGiD by DID parameters', async () => {
       const valid = [
         {
-          'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d': {
-            did: 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+          'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d': {
+            did: 'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
             method: 'orgid',
-            submethod: 'ropsten',
+            network: '4',
             id: '0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d'
           }
         },
@@ -278,19 +278,19 @@ describe('Regular expressions', () => {
           }
         },
         {
-          'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1': {
-            did: 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+          'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1': {
+            did: 'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
             method: 'orgid',
-            submethod: 'ropsten',
+            network: '4',
             id: '0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
             fragment: 'key-1'
           }
         },
         {
-          'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest#intro': {
-            did: 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+          'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest#intro': {
+            did: 'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
             method: 'orgid',
-            submethod: 'ropsten',
+            network: '4',
             id: '0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
             query: 'service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest',
             fragment: 'intro'
@@ -303,7 +303,7 @@ describe('Regular expressions', () => {
         expect(result).not.to.be.null;
         expect(result.groups.did).to.equal(s[variant].did);
         expect(result.groups.method).to.equal(s[variant].method);
-        expect(result.groups.submethod).to.equal(s[variant].submethod);
+        expect(result.groups.network).to.equal(s[variant].network);
         expect(result.groups.id).to.equal(s[variant].id);
         expect(result.groups.query).to.equal(s[variant].query);
         expect(result.groups.fragment).to.equal(s[variant].fragment);
