@@ -51,3 +51,6 @@ senv ./scripts/release <PACKAGE_NAME>
 `*` Do not forget to set a proper version number of the package you want to release in the package.json of the selected package.
 
 To get an access token please use this [guide](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+
+# Packages dependencies diagram
+![ORGiD SDK Packages dependencies](./assets/dependencies.svg)

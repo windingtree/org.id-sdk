@@ -1,0 +1,26 @@
+// {type:deployment}
+// {generate:true}
+
+[org.id]ABI, types-[org.id-core]
+[org.id]ABI, types-[org.id-test-setup]
+
+[org.json-schema]schema, types-[org.id-auth]
+[org.json-schema]schema, types-[org.id-test-setup]
+[org.json-schema]schema, types-[org.json-utils]
+
+[org.id-utils]utils-[org.id-auth]
+[org.id-utils]utils-[org.id-core]
+[org.id-utils]utils-[org.id-test-setup]
+[org.id-utils]utils-[org.json-utils]
+
+[org.id-test-setup]tests env-[org.id-core]
+
+[org.id-auth]lib-[org.json-utils]
+[org.id-auth]lib-[org.id-test-setup]
+
+[org.id-test-http-server]tests env-[org.id-test-setup]
+[org.id-test-http-server]tests env-[org.id-utils]
+
+[org.json-utils]utils-[org.id-test-setup]
+
+
