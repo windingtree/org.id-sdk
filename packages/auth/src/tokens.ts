@@ -1,20 +1,10 @@
-import type {
-  JWTPayload,
-  JWSHeaderParameters
-} from 'jose/jwt/sign';
-import type {
-  KeyLike,
-  KeyObject,
-  JWK
-} from './keys';
+import type { JWTPayload, JWSHeaderParameters } from 'jose/jwt/sign';
+import type { KeyLike, KeyObject, JWK } from './keys';
 import { regexp } from '@windingtree/org.id-utils';
 import { SignJWT } from 'jose/jwt/sign';
-import { parseJwk } from 'jose/jwk/parse';
+import { importJWK } from 'jose/key/import';
 import { jwtVerify } from 'jose/jwt/verify';
-import {
-  getAlgFromJWK,
-  createJWK
-} from './keys';
+import { getAlgFromJWK, createJWK } from './keys';
 
 export interface JWTVerifyResult {
   payload: JWTPayload
@@ -30,34 +20,37 @@ export const createAuthJWT = async (
   expiration?: string,
 ): Promise<string> => {
 
-  if (!regexp.did.exec(issuer)) {
-    throw new Error(`Wrong Issuer DID format: ${issuer}`);
-  }
-
   const groupedCheck = regexp.didGrouped.exec(issuer);
 
   if (!groupedCheck || !groupedCheck.groups) {
-    throw new Error(`Wrong Issuer DID format: ${issuer}`);
+    throw new Error(`Invalid Issuer DID format: ${issuer}`);
   }
 
   if (!groupedCheck.groups.fragment) {
     throw new Error(
-      `Key identifier must be provided as fragment in the DID: ${issuer} #??????`
+      `The key identifier must be provided as a fragment in the DID: ${issuer}`
     );
   }
 
   if (!regexp.did.exec(audience)) {
-    throw new Error(`Wrong Audience DID format: ${audience}`);
+    throw new Error(`Invalid Audience DID format: ${audience}`);
   }
 
-  if (!scope) {
+  const scopeError = 'Invalid scope value';
+
+  if (Array.isArray(scope)) {
+    scope.forEach(s => {
+      if (typeof s !== 'string') {
+        throw new Error(scopeError);
+      }
+    });
+    scope = JSON.stringify(scope);
+  } else if (typeof scope === 'undefined') {
     scope = '';
   }
 
-  if (Array.isArray(scope) || typeof scope === 'string') {
-    scope = Array.isArray(scope) ? JSON.stringify(scope) : scope
-  } else {
-    throw new Error('Scope value must be a string ot array of strings');
+  if (typeof scope !== 'string') {
+    throw new Error(scopeError);
   }
 
   const payload: JWTPayload = {
@@ -66,15 +59,15 @@ export const createAuthJWT = async (
 
   let alg: string;
 
-  if ((privateKey as JWK).kty) {
+  if ((privateKey as JWK).kty !== undefined) {
     // Use raw JWK
     alg = getAlgFromJWK(privateKey as JWK);
-    privateKey = await parseJwk(privateKey as JWK);
+    privateKey = await importJWK(privateKey as JWK, alg) as KeyLike;
   } else {
     // Try to use key in KeyLike format
 
     if ((privateKey as KeyObject).type !== 'private') {
-      throw new Error('Only private keys are accepted for sining of tokens');
+      throw new Error('Only private keys are accepted for signing of tokens');
     }
 
     const privateKeyJWK: JWK = await createJWK(privateKey as KeyObject);
@@ -108,16 +101,17 @@ export const verifyAuthJWT = async (
 ): Promise<JWTVerifyResult> => {
 
   if (!regexp.did.exec(issuer)) {
-    throw new Error(`Wrong Issuer DID format: ${issuer}`);
+    throw new Error(`Invalid Issuer DID format: ${issuer}`);
   }
 
   if (!regexp.did.exec(audience)) {
-    throw new Error(`Wrong Audience DID format: ${audience}`);
+    throw new Error(`Invalid Audience DID format: ${audience}`);
   }
 
   if ((publicKey as JWK).kty) {
     // JWK provided so converting key to KeyLike format
-    publicKey = await parseJwk(publicKey as JWK);
+    const alg = getAlgFromJWK(publicKey as JWK);
+    publicKey = await importJWK(publicKey as JWK, alg) as KeyLike;
   }
 
   if ((publicKey as KeyObject).type !== 'public') {
@@ -148,14 +142,14 @@ export const verifyAuthJWT = async (
       parsedScope = scope;
     }
 
-    if (!payload.scope) {
+    if (!payload.scope || payload.scope === '') {
       throw new Error('Scope not found in the payload');
     }
 
     try {
       payload.scope = JSON.parse(payload.scope as string);
     } catch {
-      throw new Error(`Unable to parse scope in the payload: ${parsedScope}`);
+      throw new Error(`Unable to parse scope in the payload: ${payload.scope}`);
     }
 
     const scopeMatch = (payload.scope as string[])

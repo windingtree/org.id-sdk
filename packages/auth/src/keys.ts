@@ -1,25 +1,13 @@
-import type {
-  GenerateKeyPairOptions
-} from 'jose/util/generate_key_pair';
-import type {
-  KeyObject
-} from 'crypto';
-import type {
-  KeyLike,
-  JWK
-} from 'jose/jwk/from_key_like';
+import type { GenerateKeyPairOptions } from 'jose/util/generate_key_pair';
+import type { KeyObject } from 'crypto';
+import type { KeyLike, JWK } from 'jose/jwk/from_key_like';
 import type {
   VerificationMethodReference,
   CryptographicSignatureSuiteReference
-} from '@windingtree/org.json-schema/types/org';
-import {
-  generateKeyPair as generate
-} from 'jose/util/generate_key_pair';
-import { fromKeyLike } from 'jose/jwk/from_key_like'
-import {
-  createPrivateKey,
-  createPublicKey
-} from 'crypto';
+} from '@windingtree/org.json-schema/types/org.json';
+import { generateKeyPair as generate } from 'jose/util/generate_key_pair';
+import { exportJWK } from 'jose/key/export';
+import { createPrivateKey, createPublicKey } from 'crypto';
 
 export type {
   KeyObject,
@@ -207,6 +195,7 @@ export const generateKeyPair = (
   return generate(
     algConfig.alg,
     {
+      extractable: true,
       ...options,
       ...(
         algConfig.crv
@@ -227,7 +216,7 @@ export const generateKeyPair = (
 };
 
 // Create JWK from a key
-export const createJWK = (key: KeyLike): Promise<JWK> => fromKeyLike(key)
+export const createJWK = (key: KeyLike): Promise<JWK> => exportJWK(key)
 
 // Import a private key
 export const importKeyPrivatePem = (

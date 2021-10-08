@@ -7,7 +7,7 @@ import { ethers } from 'hardhat';
 import { expect } from 'chai';
 
 describe('Verifiable Credentials', () => {
-  const issuer = 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1';
+  const issuer = 'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1';
   const holder = 'did:orgid:0xcfdb769eafae259e58028ba25ab70ce539731b593c08b780e5275c723132d206';
   const subject = {
     test: '123'

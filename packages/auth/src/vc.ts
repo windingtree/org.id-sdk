@@ -5,7 +5,7 @@ import type {
   CredentialReference,
   VCProofReference,
   CryptographicSignatureSuiteReference
-} from '@windingtree/org.json-schema/types/org';
+} from '@windingtree/org.json-schema/types/org.json';
 import {
   getAlgFromJWK,
   signatureTypeFromJWK,
@@ -54,7 +54,7 @@ export interface VCBuilderChain {
     subject: CredentialSubject
   ): VCBuilderChain;
   sign(
-    privateKey: KeyLike | JWK
+    privateKey: KeyLike | Uint8Array | JWK
   ): Promise<SignedVC>;
   signWithBlockchainAccount(
     blockchainAccountId: string,
@@ -575,7 +575,7 @@ export const createVC = (
 // VC verification
 export const verifyVC = async (
   vc: SignedVC,
-  publicKey: KeyLike | JWK | string
+  publicKey: KeyLike | Uint8Array | JWK | string
 ): Promise<CredentialReference> => {
   // Validate ORG.JSON VC against the VC schema
   const vcSchemaValid = object.validateWithSchemaOrRef(
