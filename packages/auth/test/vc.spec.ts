@@ -205,7 +205,7 @@ describe('Verifiable Credentials', () => {
       expect(
         () => createVC(
           invalidIssuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
       ).to.throw(`Invalid issuer DID format: ${invalidIssuer}`);
     });
@@ -215,7 +215,7 @@ describe('Verifiable Credentials', () => {
       expect(
         () => createVC(
           invalidIssuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
       ).to.throw(
         `Key identifier must be provided as fragment in the DID: ${invalidIssuer} #fragment`
@@ -226,7 +226,7 @@ describe('Verifiable Credentials', () => {
       expect(
         () => createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setExpirationDate(new Date('2031-06-29').toISOString())
         .setValidFrom(new Date('2031-07-28').toISOString())
@@ -238,7 +238,7 @@ describe('Verifiable Credentials', () => {
       expect(
         () => createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setExpirationDate(new Date('2031-11-29').toISOString())
         .setValidUntil(new Date('2031-04-28').toISOString())
@@ -250,7 +250,7 @@ describe('Verifiable Credentials', () => {
       expect(
         () => createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setExpirationDate(new Date('2031-11-29').toISOString())
         .setValidFrom(new Date('2000-10-11').toISOString())
@@ -261,7 +261,7 @@ describe('Verifiable Credentials', () => {
       expect(
         () => createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setExpirationDate(new Date('2031-06-29').toISOString())
         .setValidUntil(new Date('2031-08-28').toISOString())
@@ -272,7 +272,7 @@ describe('Verifiable Credentials', () => {
       expect(
         () => createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setExpirationDate(new Date('2031-06-29').toISOString())
         .setValidFrom(new Date('2031-05-11').toISOString())
@@ -284,7 +284,7 @@ describe('Verifiable Credentials', () => {
       expect(
         () => createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setExpirationDate(new Date('2031-06-29').toISOString())
         .setValidUntil(new Date('2000-10-11').toISOString())
@@ -295,7 +295,7 @@ describe('Verifiable Credentials', () => {
       expect(
         () => createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setValidUntil(new Date('2031-10-11').toISOString())
         .setExpirationDate(new Date('2031-06-29').toISOString())
@@ -306,7 +306,7 @@ describe('Verifiable Credentials', () => {
       expect(
         () => createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setValidFrom(new Date('2031-10-11').toISOString())
         .setExpirationDate(new Date('2031-06-29').toISOString())
@@ -317,7 +317,7 @@ describe('Verifiable Credentials', () => {
       expect(
         () => createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setExpirationDate(new Date('2000-10-11').toISOString())
       ).to.throw('expirationDate must be greater than issuanceDate');
@@ -327,14 +327,14 @@ describe('Verifiable Credentials', () => {
       expect(
         () => createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setCredentialSubject('NotAnObject' as any)
       ).to.throw('Credential subject must be a valid object and cannot be empty');
       expect(
         () => createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setCredentialSubject({})
       ).to.throw('Credential subject must be a valid object and cannot be empty');
@@ -344,7 +344,7 @@ describe('Verifiable Credentials', () => {
       await expect(
         createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setCredentialSubject({ data: true })
         .sign(publicKey)
@@ -358,7 +358,7 @@ describe('Verifiable Credentials', () => {
       await expect(
         createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setHolder(holder)
         .setExpirationDate(new Date('2031-06-29').toISOString())
@@ -380,7 +380,7 @@ describe('Verifiable Credentials', () => {
       await expect(
         createVC(
           issuer,
-          'TestCredential'
+          'VerifiableCredential'
         )
         .setHolder(holder)
         .setExpirationDate(new Date('2031-06-29').toISOString())
@@ -399,7 +399,7 @@ describe('Verifiable Credentials', () => {
       const privJwk = await createJWK(privateKey);
       const vc: SignedVC = await createVC(
         issuer,
-        'TestCredential'
+        'VerifiableCredential'
       )
       .setHolder(holder)
       .setExpirationDate(new Date('2031-06-29').toISOString())
@@ -415,7 +415,7 @@ describe('Verifiable Credentials', () => {
     it('should create credential', async () => {
       const vc: SignedVC = await createVC(
         issuer,
-        'TestCredential'
+        'VerifiableCredential'
       )
       .setHolder(holder)
       .setExpirationDate(new Date('2031-06-29').toISOString())
@@ -433,7 +433,7 @@ describe('Verifiable Credentials', () => {
       const issuerBlockchainAccountId = `${accounts[signerIndex]}@eip155:1`;
       const vc: SignedVC = await createVC(
         issuer,
-        'TestCredential'
+        'VerifiableCredential'
       )
       .setHolder(holder)
       .setExpirationDate(new Date('2031-06-29').toISOString())
@@ -456,7 +456,7 @@ describe('Verifiable Credentials', () => {
     before(async () => {
       vc = await createVC(
         issuer,
-        'TestCredential'
+        'VerifiableCredential'
       )
       .setHolder(holder)
       .setExpirationDate(new Date('2031-06-29').toISOString())
@@ -495,7 +495,7 @@ describe('Verifiable Credentials', () => {
       const blockchainAccountId = `${accounts[signerIndex]}@eip155:1`;
       const vc: SignedVC = await createVC(
         issuer,
-        'TestCredential'
+        'VerifiableCredential'
       )
       .setHolder(holder)
       .setExpirationDate(new Date('2031-06-29').toISOString())
@@ -522,7 +522,7 @@ describe('Verifiable Credentials', () => {
       const expirationDate = new Date().toISOString();
       const vc = await createVC(
         issuer,
-        'TestCredential'
+        'VerifiableCredential'
       )
       .setExpirationDate(expirationDate)
       .setCredentialSubject(subject)
@@ -544,7 +544,7 @@ describe('Verifiable Credentials', () => {
       const validUntil = DateTime.fromMillis(now + 200).toISO();
       const vc = await createVC(
         issuer,
-        'TestCredential'
+        'VerifiableCredential'
       )
       .setExpirationDate(new Date('2031-06-29').toISOString())
       .setValidFrom(validFrom)
@@ -575,7 +575,7 @@ describe('Verifiable Credentials', () => {
       const validFrom = DateTime.fromMillis(now + 100).toISO();
       const vc = await createVC(
         issuer,
-        'TestCredential'
+        'VerifiableCredential'
       )
       .setExpirationDate(new Date('2031-06-29').toISOString())
       .setValidFrom(validFrom)
@@ -594,7 +594,7 @@ describe('Verifiable Credentials', () => {
       const validUntil = DateTime.fromMillis(now + 50).toISO();
       const vc = await createVC(
         issuer,
-        'TestCredential'
+        'VerifiableCredential'
       )
       .setExpirationDate(new Date('2031-06-29').toISOString())
       .setValidUntil(validUntil)

@@ -5,14 +5,18 @@ import type {
   CredentialReference,
   VCProofReference,
   CryptographicSignatureSuiteReference
-} from '@windingtree/org.json-schema/types/org.json';
+} from '@windingtree/org.json-schema/types/vc';
 import {
   getAlgFromJWK,
   signatureTypeFromJWK,
   createJWK
 } from './keys';
 import { regexp, uid, object } from '@windingtree/org.id-utils';
-import { org as orgJsonSchema } from '@windingtree/org.json-schema';
+import {
+  vc as credentialSchema,
+  org as orgJsonSchema,
+  trustAssertion as trustAssertionSchema
+} from '@windingtree/org.json-schema';
 import { DateTime } from  'luxon';
 import { importJWK } from 'jose/key/import';
 import { CompactSign } from 'jose/jws/compact/sign';
@@ -36,6 +40,11 @@ export interface SignedVC extends CredentialReference {
 export interface CredentialSubject {
   [k: string]: unknown;
 }
+
+export type CredentialSubjectTypes =
+  | 'VerifiableCredential'
+  | 'OrgJson'
+  | 'TrustAssertion';
 
 export interface VCBuilderChain {
   setHolder(
@@ -91,6 +100,30 @@ export interface DecodedJws {
   signature: string;
   message: string;
 }
+
+export interface CredentialSubjectTypesConfig {
+  schema: object.AnySchema;
+  path: string;
+}
+
+export type SubjectTypes = {
+  [k in CredentialSubjectTypes]: CredentialSubjectTypesConfig;
+};
+
+export const CredentialSubjectTypesMap: SubjectTypes = {
+  'VerifiableCredential': {
+    schema: credentialSchema,
+    path: '#/definitions/CredentialReference'
+  },
+  'OrgJson': {
+    schema: orgJsonSchema,
+    path: ''
+  },
+  'TrustAssertion': {
+    schema: trustAssertionSchema,
+    path: ''
+  },
+};
 
 // Prepare an unsigned data for signing
 export const buildUnsignedDataForSignature = (
@@ -362,7 +395,28 @@ export const createVC = (
       credentialSubject: vcSubject
     };
 
-    // @todo Add validation of the VC object with existed JSON schema
+    // Validate VC against the schema
+    vcType.forEach(
+      (type: CredentialSubjectTypes) => {
+        const schemaConfig = CredentialSubjectTypesMap[type];
+
+        if (!schemaConfig) {
+          throw new Error(`Unsupported credential type: ${type}`);
+        }
+
+        const validationResult = object.validateWithSchemaOrRef(
+          schemaConfig.schema,
+          schemaConfig.path,
+          unsignedVC
+        );
+
+        if (validationResult !== null) {
+          throw new Error(
+            `VC schema validation error: ${validationResult}`
+          );
+        }
+      }
+    );
   };
 
   // Chained methods that implements VC creation
@@ -550,14 +604,14 @@ export const verifyVC = async (
   publicKey: KeyLike | Uint8Array | JWK | string
 ): Promise<CredentialReference> => {
   // Validate ORG.JSON VC against the VC schema
-  const vcSchemaValid = object.validateWithSchemaOrRef(
-    orgJsonSchema,
+  const vcSchemaValidationResult = object.validateWithSchemaOrRef(
+    credentialSchema,
     '#/definitions/CredentialReference',
     vc
   );
 
-  if (vcSchemaValid !== null) {
-    throw new Error(`VC schema validation error: ${vcSchemaValid}`);
+  if (vcSchemaValidationResult !== null) {
+    throw new Error(`VC schema validation error: ${vcSchemaValidationResult}`);
   }
 
   const jws = object.getDeepValue(vc, 'proof.jws') as string; // type is validated by schema

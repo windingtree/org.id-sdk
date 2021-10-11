@@ -40,7 +40,7 @@
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/auth#readme",
   "dependencies": {
     "@windingtree/org.id-utils": "^1.0.0-beta.6",
-    "@windingtree/org.json-schema": "1.0.0-beta.1",
+    "@windingtree/org.json-schema": "1.0.0-beta.2",
     "base64url": "3.0.1",
     "ethers": "5.4.7",
     "jose": "3.20.1",

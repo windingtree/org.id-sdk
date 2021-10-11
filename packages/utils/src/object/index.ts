@@ -4,6 +4,8 @@ import type { FormatOptions } from 'ajv-formats';
 import Ajv from 'ajv';
 import ajvFormats from 'ajv-formats';
 
+export type { AnySchema }
+
 // Because of wrong typings in ajv@8.6.2
 // @todo Refactor after next ajv version will be released
 const addFormats = ajvFormats as unknown as Plugin<FormatOptions>;

@@ -955,10 +955,10 @@
     "@typescript-eslint/types" "4.33.0"
     eslint-visitor-keys "^2.0.0"
 
-"@windingtree/org.json-schema@1.0.0-beta.1":
-  version "1.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-1.0.0-beta.1.tgz#f1a75ea29017dbf8a178fd05aba427e44abefd78"
-  integrity sha512-Aph7EgE5n+wz4D1jT0LnbxElEF/TERsBrF9GYgG18NacDMGB0RZ6D2NumdOelkTgAwuPePCCfY0AXp2v3+Ey1w==
+"@windingtree/org.json-schema@1.0.0-beta.2":
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-1.0.0-beta.2.tgz#ec4c053c7bfbabb04f9fea55babc55127b20fb6c"
+  integrity sha512-v5dNixZ+M0pQiXY+1TXEZ5TpRiKphTf625ekfyj4Xhy99mCouBIzUC39azmxSjMD508UrzwRvvFzBRHD8wgwKg==
 
 abort-controller@^3.0.0:
   version "3.0.0"
