@@ -14,10 +14,11 @@ import {
 import { regexp, uid, object } from '@windingtree/org.id-utils';
 import { org as orgJsonSchema } from '@windingtree/org.json-schema';
 import { DateTime } from  'luxon';
-import { parseJwk } from 'jose/jwk/parse';
+import { importJWK } from 'jose/key/import';
 import { CompactSign } from 'jose/jws/compact/sign';
 import { compactVerify } from 'jose/jws/compact/verify';
-import base64url from 'base64url';
+import { decodeProtectedHeader } from 'jose/util/decode_protected_header';
+import { encode as base64urlEncode, decode as base64urlDecode } from 'jose/util/base64url';
 import { utils as ethersUtils } from 'ethers';
 
 export type {
@@ -62,15 +63,20 @@ export interface VCBuilderChain {
   ): Promise<SignedVC>;
 }
 
-export interface DidGroupedCheckResult {
-  did?: string;
-  fragment?: string;
+export interface DidGroupedCheckResult extends RegExpExecArray {
+  groups: {
+    did: string;
+    fragment?: string;
+  }
 }
 
-export interface BlockchainAccountIdGroupedResult {
-  accountId?: string;
-  blockchainType?: string;
-  blockchainId?: string;
+export interface BlockchainAccountIdGroupedResult extends RegExpExecArray {
+  groups: {
+    accountId: string;
+    blockchainType: string;
+    blockchainId: string;
+    [key: string]: string;
+  }
 }
 
 export interface BlockchainAccountIdParsed {
@@ -91,8 +97,7 @@ export const buildUnsignedDataForSignature = (
   verificationMethod: string,
   payload: string | CredentialReference | GenericObject
 ): string => `${
-  base64url
-    .encode(
+  base64urlEncode(
       JSON.stringify(
         {
           alg: 'ES256K',
@@ -102,8 +107,7 @@ export const buildUnsignedDataForSignature = (
       )
     )
 }.${
-  base64url
-    .encode(
+  base64urlEncode(
       typeof payload === 'object'
         ? JSON.stringify(payload)
         : payload
@@ -123,34 +127,23 @@ export const signWithSigner = async (
 
   const signature: string = await signer.signMessage(unsignedData);
 
-  return `${unsignedData}.${base64url.encode(signature as string)}`;
+  return `${unsignedData}.${base64urlEncode(signature as string)}`;
 }
 
 // Parse string formatted as blockchain account Id
 export const parseBlockchainAccountId = (blockchainAccountId: string): BlockchainAccountIdParsed => {
-  const blockchainAccountIdResult = regexp.blockchainAccountIdGrouped.exec(blockchainAccountId);
+  const blockchainAccountIdResult  = regexp.blockchainAccountIdGrouped
+    .exec(blockchainAccountId) as BlockchainAccountIdGroupedResult;
 
   if (!blockchainAccountIdResult) {
-    throw new Error('Unable to parse blockchain account Id');
+    throw new Error('Invalid blockchain account Id format');
   }
 
   const {
     accountId,
     blockchainType,
     blockchainId
-  } = blockchainAccountIdResult.groups as BlockchainAccountIdGroupedResult;
-
-  if (!accountId || accountId === '') {
-    throw new Error('Invalid blockchain account Id');
-  }
-
-  if (!blockchainType || blockchainType === '') {
-    throw new Error('Invalid blockchain type');
-  }
-
-  if (!blockchainId || blockchainId === '') {
-    throw new Error('Invalid blockchain Id');
-  }
+  } = blockchainAccountIdResult.groups;
 
   return {
     accountId,
@@ -175,9 +168,7 @@ export const decodeJws = (jws: string): DecodedJws => {
   let protectedHeader;
 
   try {
-    protectedHeader = JSON.parse(
-      base64url.decode(encodedProtectedHeader)
-    );
+    protectedHeader = decodeProtectedHeader(jws);
   } catch (error) {
     throw new Error('Unable to decode JWS protected header');
   }
@@ -186,7 +177,7 @@ export const decodeJws = (jws: string): DecodedJws => {
 
   try {
     payload = JSON.parse(
-      base64url.decode(encodedPayload)
+      base64urlDecode(encodedPayload).toString()
     );
   } catch (error) {
     throw new Error('Unable to decode JWS payload');
@@ -195,7 +186,7 @@ export const decodeJws = (jws: string): DecodedJws => {
   return {
     protectedHeader,
     payload,
-    signature: base64url.decode(signature),
+    signature: base64urlDecode(signature).toString(),
     message: `${encodedProtectedHeader}.${encodedPayload}`
   };
 };
@@ -219,7 +210,7 @@ export const verifyJwsSignedWithBlockchainAccount = (
 
   if (accountId.toUpperCase() !== recoveredAccountId.toUpperCase()) {
     throw new Error(
-      `VC signed by unknown accountId: ${recoveredAccountId} though expected: ${accountId}`
+      `VC signed by different accountId: ${accountId} though expected: ${recoveredAccountId}`
     );
   }
 
@@ -233,7 +224,7 @@ export const buildHolderUtil = (
 ): string | VCTypedHolderReference => {
 
   if (!regexp.didOnly.exec(holder)) {
-    throw new Error(`Wrong Holder DID format: ${holder}`);
+    throw new Error(`Invalid holder DID format: ${holder}`);
   }
 
   return type && type !== ''
@@ -251,7 +242,7 @@ export const checkDateUtil = (
 ): DateTime => {
 
   if (!regexp.isoDate.exec(date)) {
-    throw new Error('A valid date must be provided');
+    throw new Error('Invalid date format');
   }
 
   return DateTime.fromISO(date);
@@ -265,7 +256,7 @@ export const buildProofUtil = (
 ): VCProofReference => {
 
   if (!jws || jws === '') {
-    throw new Error(`JWS must be provided`);
+    throw new Error('JWS must be provided');
   }
 
   return {
@@ -282,27 +273,16 @@ export const createVC = (
   issuer: string,
   type: string | string[] | undefined
 ): VCBuilderChain => {
-
-  if (!regexp.did.exec(issuer)) {
-    throw new Error(`Wrong Issuer DID format: ${issuer}`);
-  }
-
-  const groupedCheck = regexp.didGrouped.exec(issuer);
+  const groupedCheck = regexp.didGrouped.exec(issuer) as DidGroupedCheckResult;
 
   if (!groupedCheck || !groupedCheck.groups) {
-    throw new Error(`Wrong Issuer DID format: ${issuer}`);
+    throw new Error(`Invalid issuer DID format: ${issuer}`);
   }
 
   const {
     did,
     fragment
-  } = groupedCheck.groups as DidGroupedCheckResult;
-
-  if (!did) {
-    throw new Error(
-      `Unable to extract DID from the issuer Id: ${issuer}`
-    );
-  }
+  } = groupedCheck.groups;
 
   if (!fragment) {
     throw new Error(
@@ -339,11 +319,11 @@ export const createVC = (
   let vcValidFrom: DateTime | undefined;
   let vcValidUntil: DateTime | undefined;
   let vcSubject: CredentialSubject;
-  let unsignedVS: CredentialReference;
+  let unsignedVC: CredentialReference;
 
   const buildUnsignedVC = (): void => {
     // Creation of unsigned VC object
-    unsignedVS = {
+    unsignedVC = {
       '@context': [
         'https://www.w3.org/2018/credentials/v1'
       ],
@@ -457,10 +437,6 @@ export const createVC = (
     // Adds subject data to VC (`credentialSubject` is mandatory property)
     setCredentialSubject: subject => {
 
-      if (vcSubject) {
-        throw new Error('Credential subject can be set only once');
-      }
-
       if (typeof subject !== 'object' || Object.keys(subject).length === 0) {
         throw new Error(
           `Credential subject must be a valid object and cannot be empty`
@@ -482,7 +458,7 @@ export const createVC = (
         // Use raw JWK
         alg = getAlgFromJWK(privateKey as JWK);
         signatureType = signatureTypeFromJWK(privateKey as JWK);
-        privateKey = await parseJwk(privateKey as JWK);
+        privateKey = await importJWK(privateKey as JWK, alg);
       } else {
         // Try to use key in KeyLike format
 
@@ -499,7 +475,7 @@ export const createVC = (
 
       const encoder = new TextEncoder();
       const jws: string = await new CompactSign(encoder.encode(
-        JSON.stringify(unsignedVS)
+        JSON.stringify(unsignedVC)
       ))
         .setProtectedHeader(
           {
@@ -511,7 +487,7 @@ export const createVC = (
       const vcProof = buildProofUtil(jws, signatureType, issuer);
 
       return {
-        ...unsignedVS,
+        ...unsignedVC,
         proof: vcProof
       };
     },
@@ -534,7 +510,7 @@ export const createVC = (
 
       if (signerAddress !== accountId) {
         throw new Error(
-          `The signer address must be equal to accountId: ${accountId}`
+          'The signer address is different from blockchain account'
         );
       }
 
@@ -544,7 +520,7 @@ export const createVC = (
           jws = await signWithSigner(
             signer,
             issuer,
-            unsignedVS
+            unsignedVC
           );
 
           vcProof = buildProofUtil(
@@ -558,12 +534,8 @@ export const createVC = (
           throw new Error(`Unsupported blockchain type: ${blockchainType}`);
       }
 
-      if (!vcProof) {
-        throw new Error('Unable to build VC proof');
-      }
-
       return {
-        ...unsignedVS,
+        ...unsignedVC,
         proof: vcProof
       };
     }
@@ -585,24 +557,25 @@ export const verifyVC = async (
   );
 
   if (vcSchemaValid !== null) {
-    throw new Error(`VC schema validation: ${vcSchemaValid}`);
+    throw new Error(`VC schema validation error: ${vcSchemaValid}`);
   }
 
-  const jws = object.getDeepValue(vc, 'proof.jws');
+  const jws = object.getDeepValue(vc, 'proof.jws') as string; // type is validated by schema
 
-  if (typeof jws !== 'string') {
-    throw new Error('Unable to find VC signature');
+  if (jws === '') {
+    throw new Error('Invalid VC signature');
   }
 
   const decoder = new TextDecoder();
-  let payload: string | CredentialReference | undefined;
+  let payload: CredentialReference;
 
   if (typeof publicKey === 'object') {
     // Trying to use a public key for the VC verification
 
     if ((publicKey as JWK).kty) {
       // JWK provided so converting key to KeyLike format
-      publicKey = await parseJwk(publicKey as JWK);
+      const alg = getAlgFromJWK(publicKey as JWK);
+      publicKey = await importJWK(publicKey as JWK, alg);
     }
 
     if ((publicKey as KeyObject).type !== 'public') {
@@ -612,8 +585,14 @@ export const verifyVC = async (
     }
 
     const verificationResult = await compactVerify(jws, publicKey as KeyObject);
-    payload = decoder.decode(verificationResult.payload);
 
+    try {
+      payload = JSON.parse(
+        decoder.decode(verificationResult.payload)
+      ) as CredentialReference;
+    } catch (error) {
+      throw new Error('Unable to parse VC payload');
+    }
   } else if (regexp.blockchainAccountId.exec(publicKey)) {
     // Trying to parse a blockchain account Id
     const {
@@ -623,7 +602,7 @@ export const verifyVC = async (
 
     switch (blockchainType) {
       case 'eip155':
-        payload = verifyJwsSignedWithBlockchainAccount(jws, accountId);
+        payload = verifyJwsSignedWithBlockchainAccount(jws, accountId) as CredentialReference;
         break;
       default:
         throw new Error(`Unsupported blockchain type: ${blockchainType}`);
@@ -632,53 +611,35 @@ export const verifyVC = async (
     throw new Error('Unsupported type of public key');
   }
 
-  if (!payload || payload === '') {
-    throw new Error('Unable to decode a VC signature');
-  }
-
-  let decodedPayload: CredentialReference;
-
-  if (typeof payload !== 'object') {
-    try {
-      decodedPayload = JSON.parse(payload as string);
-    } catch (error) {
-      throw new Error('Unable to parse VC payload');
-    }
-  } else {
-    decodedPayload = payload;
-  }
-
   const unsignedPayload = JSON.parse(JSON.stringify(vc));
   delete unsignedPayload.proof;
 
   // Compare unsigned and signed payloads
-  if (JSON.stringify(unsignedPayload) !== JSON.stringify(decodedPayload)) {
-    throw new Error('Unsigned and signed payloads are not equal');
+  if (JSON.stringify(unsignedPayload) !== JSON.stringify(payload)) {
+    throw new Error('Invalid signed payload');
   }
 
   const currentDate = DateTime.now();
 
   // Check if VC expired
   if (
-    !(
-      typeof decodedPayload.expirationDate === 'undefined' ||
-      currentDate <= DateTime.fromISO(decodedPayload.expirationDate)
-    )
+    typeof payload.expirationDate !== 'undefined' &&
+    currentDate >= DateTime.fromISO(payload.expirationDate)
   ) {
-    throw new Error(`VC expired at: ${decodedPayload.expirationDate}`);
+    throw new Error(`VC expired at: ${payload.expirationDate}`);
   }
 
-  // Check if VC active by both dates
+  // Check if VC active by from-until rules
   if (
-    typeof decodedPayload.validFrom !== 'undefined' &&
-    typeof decodedPayload.validUntil !== 'undefined' &&
+    typeof payload.validFrom !== 'undefined' &&
+    typeof payload.validUntil !== 'undefined' &&
     !(
-      currentDate >= DateTime.fromISO(decodedPayload.validFrom) &&
-      currentDate <= DateTime.fromISO(decodedPayload.validUntil)
+      currentDate >= DateTime.fromISO(payload.validFrom) &&
+      currentDate <= DateTime.fromISO(payload.validUntil)
     )
   ) {
     throw new Error(
-      `VC inactive. Valid from date: ${decodedPayload.validFrom}. Valid until date: ${decodedPayload.validUntil}`
+      `VC inactive. Valid from date: ${payload.validFrom}. Valid until date: ${payload.validUntil}`
     );
   }
 
@@ -689,7 +650,7 @@ export const verifyVC = async (
     currentDate < DateTime.fromISO(vc.validFrom)
   ) {
     throw new Error(
-      `VC inactive. Valid from date: ${decodedPayload.validFrom}`
+      `VC inactive. Valid from date: ${payload.validFrom}`
     );
   }
 
@@ -700,9 +661,9 @@ export const verifyVC = async (
     currentDate > DateTime.fromISO(vc.validUntil)
   ) {
     throw new Error(
-      `VC inactive. Valid until date: ${decodedPayload.validUntil}`
+      `VC inactive. Valid until date: ${payload.validUntil}`
     );
   }
 
-  return decodedPayload;
+  return payload;
 };

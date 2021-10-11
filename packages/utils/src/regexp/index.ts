@@ -3,7 +3,7 @@ export const phone = /^([+]{0,1})([0-9- ()/]+)$/;
 export const uri = /^(https|http|wss|ws){1}:\/\/([\w\d.-]+)(:(\d*))?(\/[\w\d.-?=#&%]*)?$/;
 export const uriHttp = /^(https|http){1}:\/\/([\w\d.-]+)(:(\d*))?(\/[\w\d.-?=#&%]*)?$/;
 export const email = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-_0-9]+\.)+[a-zA-Z]{2,}))$/i;
-export const isoDate = /(\d{4})-(\d{2})-(\d{2})T((\d{2}):(\d{2}):(\d{2}))\.(\d{3})Z/;
+export const isoDate = /(\d{4})-(\d{2})-(\d{2})T((\d{2}):(\d{2}):(\d{2}))\.(\d{3})([Z]*([+]\d{2}:\d{2})*)/;
 
 // Crypto addresses
 export const ethereumAddress = /^0x[a-fA-F0-9]{40}$/;
