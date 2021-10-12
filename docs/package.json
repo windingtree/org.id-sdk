@@ -1,0 +1,32 @@
+{
+  "name": "@windingtree/org.id-docs",
+  "private": true,
+  "description": "ORGiD SDK Docs",
+  "scripts": {
+    "lint": "npx markdownlint **/*.md --ignore node_modules",
+    "serve": "npx docsify serve ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windingtree/org.id-sdk.git"
+  },
+  "keywords": [
+    "orgid",
+    "windingtree",
+    "sdk",
+    "docs"
+  ],
+  "author": "Winding Tree Developers <dev@windingtree.com>",
+  "contributors": [
+    "Kostiantyn Smyrnov <kostysh@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/windingtree/org.id-sdk/issues"
+  },
+  "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/docs#readme",
+  "devDependencies": {
+    "docsify-cli": "4.4.3",
+    "markdownlint-cli": "0.29.0"
+  }
+}
