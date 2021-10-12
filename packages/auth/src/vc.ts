@@ -1,5 +1,5 @@
 import type { Signer } from 'ethers';
-import type { KeyLike, KeyObject, JWK } from './keys';
+import type { KeyLike, JWK } from './keys';
 import type {
   VCTypedHolderReference,
   CredentialReference,
@@ -101,16 +101,20 @@ export interface DecodedJws {
   message: string;
 }
 
-export interface CredentialSubjectTypesConfig {
+export interface CredentialSubjectValidatorConfig {
   schema: object.AnySchema;
   path: string;
 }
 
-export type SubjectTypes = {
-  [k in CredentialSubjectTypes]: CredentialSubjectTypesConfig;
+export type SubjectTypeConfig = {
+  [k in CredentialSubjectTypes]: CredentialSubjectValidatorConfig;
 };
 
-export const CredentialSubjectTypesMap: SubjectTypes = {
+export interface CreateVcOptions {
+  types?: SubjectTypeConfig;
+}
+
+export const CredentialSubjectTypesMap: SubjectTypeConfig = {
   'VerifiableCredential': {
     schema: credentialSchema,
     path: '#/definitions/CredentialReference'
@@ -304,8 +308,18 @@ export const buildProofUtil = (
 // Create a Verifiable Credential
 export const createVC = (
   issuer: string,
-  type: string | string[] | undefined
+  type: string | string[] | undefined,
+  options?: CreateVcOptions
 ): VCBuilderChain => {
+  let subjectTypesValidators = CredentialSubjectTypesMap;
+
+  if (options && options.types) {
+    subjectTypesValidators = {
+      ...subjectTypesValidators,
+      ...options.types
+    };
+  }
+
   const groupedCheck = regexp.didGrouped.exec(issuer) as DidGroupedCheckResult;
 
   if (!groupedCheck || !groupedCheck.groups) {
@@ -398,7 +412,7 @@ export const createVC = (
     // Validate VC against the schema
     vcType.forEach(
       (type: CredentialSubjectTypes) => {
-        const schemaConfig = CredentialSubjectTypesMap[type];
+        const schemaConfig = subjectTypesValidators[type];
 
         if (!schemaConfig) {
           throw new Error(`Unsupported credential type: ${type}`);
@@ -516,13 +530,13 @@ export const createVC = (
       } else {
         // Try to use key in KeyLike format
 
-        if ((privateKey as KeyObject).type !== 'private') {
+        if ((privateKey as KeyLike).type !== 'private') {
           throw new Error(
             'Only private keys are accepted for sining of VCs\''
           );
         }
 
-        const privateKeyJWK: JWK = await createJWK(privateKey as KeyObject);
+        const privateKeyJWK: JWK = await createJWK(privateKey as KeyLike);
         signatureType = signatureTypeFromJWK(privateKeyJWK);
         alg = getAlgFromJWK(privateKeyJWK, true);
       }
@@ -536,7 +550,7 @@ export const createVC = (
             alg
           }
         )
-        .sign(privateKey as KeyObject);
+        .sign(privateKey as KeyLike);
 
       const vcProof = buildProofUtil(jws, signatureType, issuer);
 
@@ -632,13 +646,13 @@ export const verifyVC = async (
       publicKey = await importJWK(publicKey as JWK, alg);
     }
 
-    if ((publicKey as KeyObject).type !== 'public') {
+    if ((publicKey as KeyLike).type !== 'public') {
       throw new Error(
         'Only public keys are accepted for verifying of VCs\''
       );
     }
 
-    const verificationResult = await compactVerify(jws, publicKey as KeyObject);
+    const verificationResult = await compactVerify(jws, publicKey as KeyLike);
 
     try {
       payload = JSON.parse(

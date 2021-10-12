@@ -1,5 +1,4 @@
 import type { GenerateKeyPairOptions } from 'jose/util/generate_key_pair';
-import type { KeyObject } from 'crypto';
 import type { KeyLike, JWK } from 'jose/jwk/from_key_like';
 import type {
   VerificationMethodReference,
@@ -7,10 +6,9 @@ import type {
 } from '@windingtree/org.json-schema/types/org.json';
 import { generateKeyPair as generate } from 'jose/util/generate_key_pair';
 import { exportJWK } from 'jose/key/export';
-import { createPrivateKey, createPublicKey } from 'crypto';
+import { importSPKI, importPKCS8 } from 'jose/key/import';
 
 export type {
-  KeyObject,
   KeyLike,
   JWK
 }
@@ -220,28 +218,12 @@ export const createJWK = (key: KeyLike): Promise<JWK> => exportJWK(key)
 
 // Import a private key
 export const importKeyPrivatePem = (
-  key: string | Buffer,
-  passphrase?: string
-): KeyObject => createPrivateKey(
-  {
-    key,
-    format: 'pem',
-    ...(
-      passphrase
-        ? {
-          passphrase
-        }
-        : {}
-    )
-  }
-);
+  key: string,
+  alg = 'ES256K'
+): Promise<KeyLike> => importPKCS8(key, alg);
 
 // Import a public key
 export const importKeyPublicPem = (
-  key: string | Buffer
-): KeyObject => createPublicKey(
-  {
-    key,
-    format: 'pem'
-  }
-);
+  key: string,
+  alg = 'ES256K'
+): Promise<KeyLike> => importSPKI(key, alg);

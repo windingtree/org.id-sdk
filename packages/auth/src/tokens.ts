@@ -1,5 +1,5 @@
 import type { JWTPayload, JWSHeaderParameters } from 'jose/jwt/sign';
-import type { KeyLike, KeyObject, JWK } from './keys';
+import type { KeyLike, JWK } from './keys';
 import { regexp } from '@windingtree/org.id-utils';
 import { SignJWT } from 'jose/jwt/sign';
 import { importJWK } from 'jose/key/import';
@@ -66,11 +66,11 @@ export const createAuthJWT = async (
   } else {
     // Try to use key in KeyLike format
 
-    if ((privateKey as KeyObject).type !== 'private') {
+    if ((privateKey as KeyLike).type !== 'private') {
       throw new Error('Only private keys are accepted for signing of tokens');
     }
 
-    const privateKeyJWK: JWK = await createJWK(privateKey as KeyObject);
+    const privateKeyJWK: JWK = await createJWK(privateKey as KeyLike);
     alg = getAlgFromJWK(privateKeyJWK, true);
   }
 
@@ -88,7 +88,7 @@ export const createAuthJWT = async (
     token = token.setExpirationTime(expiration);
   }
 
-  return token.sign(privateKey as KeyObject);
+  return token.sign(privateKey as KeyLike);
 };
 
 // Verify authentication token
@@ -114,7 +114,7 @@ export const verifyAuthJWT = async (
     publicKey = await importJWK(publicKey as JWK, alg) as KeyLike;
   }
 
-  if ((publicKey as KeyObject).type !== 'public') {
+  if ((publicKey as KeyLike).type !== 'public') {
     throw new Error(
       'Only public keys are accepted for verifying of tokens'
     );
@@ -122,7 +122,7 @@ export const verifyAuthJWT = async (
 
   const { payload, protectedHeader } = await jwtVerify(
     jwt,
-    publicKey as KeyObject,
+    publicKey as KeyLike,
     {
       issuer,
       audience

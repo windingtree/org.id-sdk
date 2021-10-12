@@ -14,15 +14,15 @@ npm install @windingtree/org.id-auth
 
 ```javascript
 const privateKey = '<PRIVATE_KEY_KEYLIKE_OR_JWK>';
-const issuer = 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1';
-const holder = 'did:orgid:0xcfdb769eafae259e58028ba25ab70ce539731b593c08b780e5275c723132d206';
+const issuer = 'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1';
+const holder = 'did:orgid:4:0xcfdb769eafae259e58028ba25ab70ce539731b593c08b780e5275c723132d206';
 const subject = {
   test: '123'
 };
 
 const vc = await createVC(
   issuer,
-  'TestCredential'
+  'VerifiableCredential'
 )
   .setHolder(holder)
   .setExpirationDate(new Date('2031-06-29').toISOString())
@@ -138,3 +138,21 @@ const payload = await verifyVC(vc, issuerBlockchainAccountId);
 ## Documentation
 
 [Generated docs](docs#readme)
+
+
+## Manual keys generation
+
+### secp256k1 ECPrivateKey format
+
+```bash
+openssl ecparam -name secp256k1 -genkey -out ./key.pem
+openssl ec -in ./key.pem -pubout > ./key.pub
+```
+
+### secp256k1 PKCS#8 format (unencrypted)
+
+```bash
+openssl ecparam -name secp256k1 -genkey -out ./key.pem
+openssl pkcs8 -in ./key.pem -topk8 -nocrypt -out ./pkcs8.pem
+openssl ec -in ./pkcs8.pem -pubout > ./key.pub
+```

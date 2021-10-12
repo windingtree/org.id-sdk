@@ -14,8 +14,8 @@ This type of the holder definition can be used when a credential issued to a hol
 
 ### Properties
 
-- [id](vc.vctypedholderreference.md#id)
-- [type](vc.vctypedholderreference.md#type)
+- [id](vc.VCTypedHolderReference.md#id)
+- [type](vc.VCTypedHolderReference.md#type)
 
 ## Properties
 
@@ -23,11 +23,11 @@ This type of the holder definition can be used when a credential issued to a hol
 
 • **id**: `string`
 
-The DID subject is denoted by the id property. The DID subject is the entity that the DID document (ORG.JSON) is about. That is, it is the entity identified by the DID and described in the DID document.
+Holder' ORGiD
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/dist/index.d.ts:303
+node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:93
 
 ___
 
@@ -39,4 +39,4 @@ A type of activity during which the issuer permits to own the credential
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/dist/index.d.ts:299
+node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:89

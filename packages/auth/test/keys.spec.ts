@@ -1,4 +1,4 @@
-import type { KeyLike, KeyObject, JWK } from '../src/keys';
+import type { KeyLike, JWK } from '../src/keys';
 import {
   KeyTypes,
   keyTypeConfig,
@@ -39,12 +39,9 @@ describe('Keys utilities', () => {
       });
 
       it('should generate key pairs', async () => {
-        keys.forEach((k, i) => {
-          for (const key of [k.privateKey, k.publicKey]) {
-            expect((key as KeyObject).asymmetricKeyType).to.equal(
-              keyTypeConfig[KeyTypes[i]].type
-            );
-          }
+        keys.forEach((key) => {
+          expect(key.publicKey.type).to.equal('public');
+          expect(key.privateKey.type).to.equal('private');
         });
       });
     });
@@ -187,7 +184,7 @@ describe('Keys utilities', () => {
   describe('#importKeyPrivatePem', () => {
 
     it('should import private key without passphrase', async () => {
-      const privateKey = importKeyPrivatePem(privatePem);
+      const privateKey = await importKeyPrivatePem(privatePem);
       expect(privateKey.type).to.equal('private');
     });
   });
@@ -195,7 +192,7 @@ describe('Keys utilities', () => {
   describe('#importKeyPublicPem', () => {
 
     it('should import public key', async () => {
-      const publicKey = importKeyPublicPem(publicPem);
+      const publicKey = await importKeyPublicPem(publicPem);
       expect(publicKey.type).to.equal('public');
     });
   });

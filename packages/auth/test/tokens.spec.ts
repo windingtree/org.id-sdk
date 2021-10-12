@@ -1,4 +1,4 @@
-import type { KeyLike, KeyObject } from '../src/keys';
+import type { KeyLike } from '../src/keys';
 import { createAuthJWT, verifyAuthJWT } from '../src/tokens';
 import {
   KeyTypes,
@@ -22,13 +22,13 @@ describe('Tokens', () => {
     const issuer = 'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1';
     const audience = 'did:orgid:0xcfdb769eafae259e58028ba25ab70ce539731b593c08b780e5275c723132d206';
     const scope = '';
-    let privateKey: KeyObject;
-    let publicKey: KeyObject;
+    let privateKey: KeyLike;
+    let publicKey: KeyLike;
     let keyPairs: { privateKey: KeyLike, publicKey: KeyLike }[];
 
     before(async () => {
-      privateKey = importKeyPrivatePem(privatePem);
-      publicKey = importKeyPublicPem(publicPem);
+      privateKey = await importKeyPrivatePem(privatePem);
+      publicKey = await importKeyPublicPem(publicPem);
       keyPairs = await Promise.all(
         KeyTypes
           .filter(t => t !== 'EcdsaSecp256k1RecoveryMethod2020')
@@ -83,7 +83,7 @@ describe('Tokens', () => {
             privateKey,
             issuer,
             audience,
-            {} as any
+            {} as never
           )
         ).to.rejectedWith('Invalid scope value');
         await expect(
@@ -93,7 +93,7 @@ describe('Tokens', () => {
             audience,
             [
               {}
-            ] as any
+            ] as never
           )
         ).to.rejectedWith('Invalid scope value');
       });

@@ -1,4 +1,5 @@
 import type { Signer } from 'ethers';
+import type { KeyLike } from '../src/keys';
 import type { SignedVC } from '../src/vc';
 import {
   createVC,
@@ -26,16 +27,16 @@ describe('Verifiable Credentials', () => {
   const subject = {
     test: '123'
   };
-  let privateKey;
-  let publicKey;
+  let privateKey: KeyLike;
+  let publicKey: KeyLike;
   let signers: Signer[];
   let accounts: string[];
 
   before(async () => {
     signers = await ethers.getSigners();
     accounts = await Promise.all(signers.map((s: Signer) => s.getAddress()));
-    privateKey = importKeyPrivatePem(privatePem);
-    publicKey = importKeyPublicPem(publicPem);
+    privateKey = await importKeyPrivatePem(privatePem);
+    publicKey = await importKeyPublicPem(publicPem);
   });
 
   describe('#parseBlockchainAccountId', () => {
@@ -329,7 +330,7 @@ describe('Verifiable Credentials', () => {
           issuer,
           'VerifiableCredential'
         )
-        .setCredentialSubject('NotAnObject' as any)
+        .setCredentialSubject('NotAnObject' as never)
       ).to.throw('Credential subject must be a valid object and cannot be empty');
       expect(
         () => createVC(
@@ -392,6 +393,22 @@ describe('Verifiable Credentials', () => {
           signer
         )
       ).to.rejectedWith(`Unsupported blockchain type: ${blockchainType}`);
+    });
+
+    it('should throw if unsupported credential type provided', async () => {
+      const unsupportedType = 'UnsupportedCredential';
+      await expect(
+        createVC(
+          issuer,
+          unsupportedType
+        )
+        .setHolder(holder)
+        .setExpirationDate(new Date('2031-06-29').toISOString())
+        .setValidFrom(new Date().toISOString())
+        .setValidUntil(new Date('2031-06-28').toISOString())
+        .setCredentialSubject(subject)
+        .sign(privateKey)
+      ).to.rejectedWith(`Unsupported credential type: ${unsupportedType}`);
     });
 
     it('should create credential with JWK', async () => {

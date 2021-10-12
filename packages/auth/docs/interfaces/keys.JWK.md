@@ -4,33 +4,37 @@
 
 [keys](../modules/keys.md).JWK
 
+## Indexable
+
+▪ [propName: `string`]: `unknown`
+
 ## Table of contents
 
 ### Properties
 
-- [alg](keys.jwk.md#alg)
-- [crv](keys.jwk.md#crv)
-- [d](keys.jwk.md#d)
-- [dp](keys.jwk.md#dp)
-- [dq](keys.jwk.md#dq)
-- [e](keys.jwk.md#e)
-- [ext](keys.jwk.md#ext)
-- [k](keys.jwk.md#k)
-- [key\_ops](keys.jwk.md#key_ops)
-- [kid](keys.jwk.md#kid)
-- [kty](keys.jwk.md#kty)
-- [n](keys.jwk.md#n)
-- [oth](keys.jwk.md#oth)
-- [p](keys.jwk.md#p)
-- [q](keys.jwk.md#q)
-- [qi](keys.jwk.md#qi)
-- [use](keys.jwk.md#use)
-- [x](keys.jwk.md#x)
-- [x5c](keys.jwk.md#x5c)
-- [x5t](keys.jwk.md#x5t)
-- [x5t#S256](keys.jwk.md#x5t#s256)
-- [x5u](keys.jwk.md#x5u)
-- [y](keys.jwk.md#y)
+- [alg](keys.JWK.md#alg)
+- [crv](keys.JWK.md#crv)
+- [d](keys.JWK.md#d)
+- [dp](keys.JWK.md#dp)
+- [dq](keys.JWK.md#dq)
+- [e](keys.JWK.md#e)
+- [ext](keys.JWK.md#ext)
+- [k](keys.JWK.md#k)
+- [key\_ops](keys.JWK.md#key_ops)
+- [kid](keys.JWK.md#kid)
+- [kty](keys.JWK.md#kty)
+- [n](keys.JWK.md#n)
+- [oth](keys.JWK.md#oth)
+- [p](keys.JWK.md#p)
+- [q](keys.JWK.md#q)
+- [qi](keys.JWK.md#qi)
+- [use](keys.JWK.md#use)
+- [x](keys.JWK.md#x)
+- [x5c](keys.JWK.md#x5c)
+- [x5t](keys.JWK.md#x5t)
+- [x5t#S256](keys.JWK.md#x5t#s256)
+- [x5u](keys.JWK.md#x5u)
+- [y](keys.JWK.md#y)
 
 ## Properties
 
@@ -40,7 +44,7 @@
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:4
+node_modules/jose/dist/types/types.d.ts:99
 
 ___
 
@@ -50,7 +54,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:5
+node_modules/jose/dist/types/types.d.ts:100
 
 ___
 
@@ -60,7 +64,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:6
+node_modules/jose/dist/types/types.d.ts:101
 
 ___
 
@@ -70,7 +74,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:7
+node_modules/jose/dist/types/types.d.ts:102
 
 ___
 
@@ -80,7 +84,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:8
+node_modules/jose/dist/types/types.d.ts:103
 
 ___
 
@@ -90,7 +94,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:9
+node_modules/jose/dist/types/types.d.ts:104
 
 ___
 
@@ -100,7 +104,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:10
+node_modules/jose/dist/types/types.d.ts:105
 
 ___
 
@@ -110,7 +114,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:11
+node_modules/jose/dist/types/types.d.ts:106
 
 ___
 
@@ -120,7 +124,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:12
+node_modules/jose/dist/types/types.d.ts:107
 
 ___
 
@@ -130,7 +134,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:13
+node_modules/jose/dist/types/types.d.ts:108
 
 ___
 
@@ -140,7 +144,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:14
+node_modules/jose/dist/types/types.d.ts:109
 
 ___
 
@@ -150,7 +154,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:15
+node_modules/jose/dist/types/types.d.ts:110
 
 ___
 
@@ -160,7 +164,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:16
+node_modules/jose/dist/types/types.d.ts:111
 
 ___
 
@@ -170,7 +174,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:21
+node_modules/jose/dist/types/types.d.ts:116
 
 ___
 
@@ -180,7 +184,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:22
+node_modules/jose/dist/types/types.d.ts:117
 
 ___
 
@@ -190,7 +194,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:23
+node_modules/jose/dist/types/types.d.ts:118
 
 ___
 
@@ -200,7 +204,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:24
+node_modules/jose/dist/types/types.d.ts:119
 
 ___
 
@@ -210,7 +214,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:25
+node_modules/jose/dist/types/types.d.ts:120
 
 ___
 
@@ -220,7 +224,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:27
+node_modules/jose/dist/types/types.d.ts:122
 
 ___
 
@@ -230,7 +234,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:28
+node_modules/jose/dist/types/types.d.ts:123
 
 ___
 
@@ -240,7 +244,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:28
+node_modules/jose/dist/types/types.d.ts:124
 
 ___
 
@@ -250,7 +254,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:30
+node_modules/jose/dist/types/types.d.ts:125
 
 ___
 
@@ -260,4 +264,4 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:26
+node_modules/jose/dist/types/types.d.ts:121

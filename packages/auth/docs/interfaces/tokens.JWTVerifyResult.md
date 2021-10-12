@@ -8,8 +8,8 @@
 
 ### Properties
 
-- [payload](tokens.jwtverifyresult.md#payload)
-- [protectedHeader](tokens.jwtverifyresult.md#protectedheader)
+- [payload](tokens.JWTVerifyResult.md#payload)
+- [protectedHeader](tokens.JWTVerifyResult.md#protectedheader)
 
 ## Properties
 
@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/tokens.ts:20](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/tokens.ts#L20)
+[src/tokens.ts:10](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/tokens.ts#L10)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[src/tokens.ts:21](https://github.com/windingtree/org.id-sdk/blob/45c8f9f/packages/auth/src/tokens.ts#L21)
+[src/tokens.ts:11](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/tokens.ts#L11)
