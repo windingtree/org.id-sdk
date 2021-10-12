@@ -4,7 +4,7 @@
   "description": "ORGiD SDK Docs",
   "scripts": {
     "lint": "npx markdownlint **/*.md --ignore node_modules",
-    "serve": "npx docsify serve ./src"
+    "serve": "npx docsify serve ./"
   },
   "repository": {
     "type": "git",
