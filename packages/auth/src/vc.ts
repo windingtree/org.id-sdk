@@ -1,4 +1,4 @@
-import type { Signer } from 'ethers';
+import type { VoidSigner } from 'ethers';
 import type { KeyLike, JWK } from './keys';
 import type {
   VCTypedHolderReference,
@@ -18,11 +18,11 @@ import {
   trustAssertion as trustAssertionSchema
 } from '@windingtree/org.json-schema';
 import { DateTime } from  'luxon';
-import { importJWK } from 'jose/key/import';
-import { CompactSign } from 'jose/jws/compact/sign';
-import { compactVerify } from 'jose/jws/compact/verify';
-import { decodeProtectedHeader } from 'jose/util/decode_protected_header';
-import { encode as base64urlEncode, decode as base64urlDecode } from 'jose/util/base64url';
+import { importJWK } from 'jose';
+import { CompactSign } from 'jose';
+import { compactVerify } from 'jose';
+import { decodeProtectedHeader } from 'jose';
+import { base64url } from 'jose';
 import { utils as ethersUtils } from 'ethers';
 
 export type {
@@ -68,7 +68,7 @@ export interface VCBuilderChain {
   ): Promise<SignedVC>;
   signWithBlockchainAccount(
     blockchainAccountId: string,
-    signer: Signer
+    signer: VoidSigner
   ): Promise<SignedVC>;
 }
 
@@ -134,7 +134,7 @@ export const buildUnsignedDataForSignature = (
   verificationMethod: string,
   payload: string | CredentialReference | GenericObject
 ): string => `${
-  base64urlEncode(
+  base64url.encode(
       JSON.stringify(
         {
           alg: 'ES256K',
@@ -144,16 +144,31 @@ export const buildUnsignedDataForSignature = (
       )
     )
 }.${
-  base64urlEncode(
+  base64url.encode(
       typeof payload === 'object'
         ? JSON.stringify(payload)
         : payload
     )
 }`;
 
+// Typed data domain for VC
+export const verifiableCredentialDomain = {
+  'name': 'Verifiable Credential'
+};
+
+// Typed data types for VC
+export const verifiableCredentialSignatureTypes = {
+  Payload: [
+    {
+      name: 'payload',
+      type: 'string'
+    }
+  ]
+};
+
 // Sign payload using Ethereum account
 export const signWithSigner = async (
-  signer: Signer,
+  signer: VoidSigner,
   verificationMethod: string,
   payload: string | GenericObject
 ): Promise<string> => {
@@ -162,9 +177,16 @@ export const signWithSigner = async (
     payload
   );
 
-  const signature: string = await signer.signMessage(unsignedData);
+  // @todo "_signTypedData" method should be renamed to the "signTypedData" in one of next ethers.js version
+  const signature: string = await signer._signTypedData(
+    verifiableCredentialDomain,
+    verifiableCredentialSignatureTypes,
+    {
+      payload: unsignedData
+    }
+  );
 
-  return `${unsignedData}.${base64urlEncode(signature as string)}`;
+  return `${unsignedData}.${base64url.encode(signature as string)}`;
 }
 
 // Parse string formatted as blockchain account Id
@@ -214,7 +236,7 @@ export const decodeJws = (jws: string): DecodedJws => {
 
   try {
     payload = JSON.parse(
-      base64urlDecode(encodedPayload).toString()
+      base64url.decode(encodedPayload).toString()
     );
   } catch (error) {
     throw new Error('Unable to decode JWS payload');
@@ -223,7 +245,7 @@ export const decodeJws = (jws: string): DecodedJws => {
   return {
     protectedHeader,
     payload,
-    signature: base64urlDecode(signature).toString(),
+    signature: base64url.decode(signature).toString(),
     message: `${encodedProtectedHeader}.${encodedPayload}`
   };
 };
@@ -240,8 +262,12 @@ export const verifyJwsSignedWithBlockchainAccount = (
   } = decodeJws(jws);
 
   // Verify signature
-  const recoveredAccountId = ethersUtils.verifyMessage(
-    message,
+  const recoveredAccountId = ethersUtils.verifyTypedData(
+    verifiableCredentialDomain,
+    verifiableCredentialSignatureTypes,
+    {
+      payload: message
+    },
     signature
   );
 
@@ -563,7 +589,7 @@ export const createVC = (
     // Sign VC with Web3 provider
     signWithBlockchainAccount: async (
       blockchainAccountId,
-      signer: Signer
+      signer: VoidSigner
     ) => {
       buildUnsignedVC();
 

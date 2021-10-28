@@ -9,8 +9,8 @@ import { createVerificationMethodWithKey } from '../src';
 import { expect } from 'chai';
 
 describe('DID utilities', () => {
-  const id = 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1';
-  const controller = 'did:orgid:ropsten:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d';
+  const id = 'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1';
+  const controller = 'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d';
 
   describe('#createVerificationMethod', () => {
     let keyPairs: { privateKey: KeyLike; publicKey: KeyLike; }[];

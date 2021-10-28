@@ -39,27 +39,27 @@
   },
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/org.json#readme",
   "dependencies": {
-    "@windingtree/org.id-auth": "0.5.1",
+    "@windingtree/org.id-auth": "^1.0.0-beta.6",
     "@windingtree/org.id-utils": "^1.0.0-beta.6",
-    "@windingtree/org.json-schema": "0.5.11-beta"
+    "@windingtree/org.json-schema": "1.0.0-beta.2"
   },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "1.0.1",
     "@types/chai": "4.2.22",
     "@types/chai-as-promised": "7.1.4",
     "@types/mocha": "9.0.0",
-    "@types/node": "16.10.2",
-    "@typescript-eslint/eslint-plugin": "4.32.0",
-    "@typescript-eslint/parser": "4.32.0",
+    "@types/node": "16.11.6",
+    "@typescript-eslint/eslint-plugin": "5.2.0",
+    "@typescript-eslint/parser": "5.2.0",
     "chai": "4.3.4",
     "chai-as-promised": "7.1.1",
-    "eslint": "7.32.0",
-    "mocha": "9.1.2",
+    "eslint": "8.1.0",
+    "mocha": "9.1.3",
     "nyc": "15.1.0",
-    "ts-node": "10.2.1",
-    "typedoc": "0.22.5",
-    "typedoc-plugin-markdown": "3.11.2",
-    "typescript": "4.4.3"
+    "ts-node": "10.4.0",
+    "typedoc": "0.22.7",
+    "typedoc-plugin-markdown": "3.11.3",
+    "typescript": "4.4.4"
   },
   "gitHead": "3e80e10b0db7fb9121cfbeb6cdfaf2513816043a"
 }

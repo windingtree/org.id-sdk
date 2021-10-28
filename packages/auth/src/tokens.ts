@@ -1,9 +1,9 @@
-import type { JWTPayload, JWSHeaderParameters } from 'jose/jwt/sign';
+import type { JWTPayload, JWSHeaderParameters } from 'jose';
 import type { KeyLike, JWK } from './keys';
 import { regexp } from '@windingtree/org.id-utils';
-import { SignJWT } from 'jose/jwt/sign';
-import { importJWK } from 'jose/key/import';
-import { jwtVerify } from 'jose/jwt/verify';
+import { SignJWT } from 'jose';
+import { importJWK } from 'jose';
+import { jwtVerify } from 'jose';
 import { getAlgFromJWK, createJWK } from './keys';
 
 export interface JWTVerifyResult {

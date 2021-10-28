@@ -1,12 +1,12 @@
-import type { GenerateKeyPairOptions } from 'jose/util/generate_key_pair';
-import type { KeyLike, JWK } from 'jose/jwk/from_key_like';
+import type { GenerateKeyPairOptions } from 'jose';
+import type { KeyLike, JWK } from 'jose';
 import type {
   VerificationMethodReference,
   CryptographicSignatureSuiteReference
 } from '@windingtree/org.json-schema/types/org.json';
-import { generateKeyPair as generate } from 'jose/util/generate_key_pair';
-import { exportJWK } from 'jose/key/export';
-import { importSPKI, importPKCS8 } from 'jose/key/import';
+import { generateKeyPair as generate } from 'jose';
+import { exportJWK } from 'jose';
+import { importSPKI, importPKCS8 } from 'jose';
 
 export type {
   KeyLike,

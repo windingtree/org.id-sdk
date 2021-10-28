@@ -3,7 +3,7 @@ import type {
   CancelTokenSource,
   AxiosRequestConfig,
   AxiosResponse,
-  AxiosTransformer
+  AxiosResponseTransformer
 } from 'axios';
 import axios from 'axios';
 import { HttpError } from '../errors';
@@ -28,7 +28,7 @@ export const request = async (
   data?: unknown,
   extraHeaders?: ExtraHeaders,
   timeout = 10000,
-  transformResponse?: AxiosTransformer
+  transformResponse?: AxiosResponseTransformer
 ): Promise<unknown> => {
 
   if (!regexp.uri.exec(url)) {

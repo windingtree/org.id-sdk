@@ -7,13 +7,12 @@ import {
   createJWK
 } from '@windingtree/org.id-auth/dist/keys';
 import type {
-  KeyObject,
   KeyLike,
   JWK
 } from '@windingtree/org.id-auth/dist/keys';
 import type {
   VerificationMethodReference
-} from '@windingtree/org.json-schema/types/org';
+} from '@windingtree/org.json-schema/types/orgVc';
 
 export type DidVerificationMethodRevocation =
   VerificationMethodReference['verificationMethodRevocation'];
@@ -38,13 +37,13 @@ export const validateIdAndController = (
     throw new Error(`Wrong DID format: ${id}`);
   }
 
-  const groupedCheck = regexp.didGrouped.exec(id);
+  const groupedCheck = regexp.didGrouped.exec(id) as DidGroupedCheckResult;
 
   if (!groupedCheck || !groupedCheck.groups) {
     throw new Error(`Wrong Issuer DID format: ${id}`);
   }
 
-  const { fragment } = groupedCheck.groups as DidGroupedCheckResult;
+  const { fragment } = groupedCheck.groups;
 
   if (!fragment) {
     throw new Error(`Key identifier must be provided as fragment in the Id: ${id} #??????`);
@@ -102,7 +101,7 @@ export const createVerificationMethodWithKey = async (
   } else {
     // Try to use key in KeyLike format
 
-    if ((key as KeyObject).type !== 'public') {
+    if ((key as KeyLike).type !== 'public') {
       throw new Error('Only public keys are accepted in verification methods');
     }
 

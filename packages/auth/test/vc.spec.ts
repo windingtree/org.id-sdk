@@ -1,4 +1,4 @@
-import type { Signer } from 'ethers';
+import type { Signer, VoidSigner } from 'ethers';
 import type { KeyLike } from '../src/keys';
 import type { SignedVC } from '../src/vc';
 import {
@@ -15,8 +15,8 @@ import {
 import { importKeyPrivatePem, importKeyPublicPem, createJWK } from '../src/keys';
 import { clone } from './helpers/utils';
 import { privatePem, publicPem } from './mocks/pemKeys';
-import { decodeProtectedHeader } from 'jose/util/decode_protected_header';
-import { decode as base64urlDecode } from 'jose/util/base64url';
+import { decodeProtectedHeader } from 'jose';
+import { base64url } from 'jose';
 import { DateTime } from  'luxon';
 import { ethers } from 'hardhat';
 import { expect } from 'chai';
@@ -71,7 +71,7 @@ describe('Verifiable Credentials', () => {
     before(async () => {
       signer = signers[1];
       verificationMethod = issuer;
-      jwsBySigner = await signWithSigner(signer, verificationMethod, signPayload);
+      jwsBySigner = await signWithSigner(signer as VoidSigner, verificationMethod, signPayload);
       jwsSplitted = jwsBySigner.split('.');
     });
 
@@ -107,7 +107,7 @@ describe('Verifiable Credentials', () => {
       } = decodeJws(jwsBySigner);
       expect(protectedHeader).to.deep.equal(decodeProtectedHeader(jwsBySigner));
       expect(payload).to.deep.equal(signPayload);
-      expect(signature).to.equal(base64urlDecode(jwsSplitted[2]).toString());
+      expect(signature).to.equal(base64url.decode(jwsSplitted[2]).toString());
       expect(message).to.equal(`${jwsSplitted[0]}.${jwsSplitted[1]}`);
     });
   });
@@ -122,7 +122,7 @@ describe('Verifiable Credentials', () => {
       const signer: Signer = signers[1];
       signerAddress = await signer.getAddress();
       nonSignerAddress = await signers[2].getAddress();
-      jws = await signWithSigner(signer, issuer, jwsPayload);
+      jws = await signWithSigner(signer as VoidSigner, issuer, jwsPayload);
     });
 
     it('should throw is signed by different account', async () => {
@@ -173,7 +173,7 @@ describe('Verifiable Credentials', () => {
 
     before(async () => {
       const signer: Signer = signers[1];
-      jws = await signWithSigner(signer, issuer, jwsPayload);
+      jws = await signWithSigner(signer as VoidSigner, issuer, jwsPayload);
     });
 
     it('should throw if JWS not been provided', async () => {
@@ -368,7 +368,7 @@ describe('Verifiable Credentials', () => {
         .setCredentialSubject(subject)
         .signWithBlockchainAccount(
           issuerBlockchainAccountId,
-          signer
+          signer as VoidSigner
         )
       ).to.rejectedWith('The signer address is different from blockchain account');
     });
@@ -390,7 +390,7 @@ describe('Verifiable Credentials', () => {
         .setCredentialSubject(subject)
         .signWithBlockchainAccount(
           issuerBlockchainAccountId,
-          signer
+          signer as VoidSigner
         )
       ).to.rejectedWith(`Unsupported blockchain type: ${blockchainType}`);
     });
@@ -459,7 +459,7 @@ describe('Verifiable Credentials', () => {
       .setCredentialSubject(subject)
       .signWithBlockchainAccount(
         issuerBlockchainAccountId,
-        signers[signerIndex]
+        signers[signerIndex] as VoidSigner
       );
 
       const payload = await verifyVC(vc, issuerBlockchainAccountId);
@@ -521,7 +521,7 @@ describe('Verifiable Credentials', () => {
       .setCredentialSubject(subject)
       .signWithBlockchainAccount(
         blockchainAccountId,
-        signers[signerIndex]
+        signers[signerIndex] as VoidSigner
       );
 
       await expect(

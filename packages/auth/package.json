@@ -41,8 +41,8 @@
   "dependencies": {
     "@windingtree/org.id-utils": "^1.0.0-beta.6",
     "@windingtree/org.json-schema": "1.0.0-beta.2",
-    "ethers": "5.4.7",
-    "jose": "3.20.1",
+    "ethers": "5.5.1",
+    "jose": "4.1.2",
     "luxon": "2.0.2"
   },
   "devDependencies": {
@@ -52,17 +52,17 @@
     "@types/luxon": "2.0.5",
     "@types/mocha": "9.0.0",
     "@types/chai-as-promised": "7.1.4",
-    "@typescript-eslint/eslint-plugin": "5.0.0",
-    "@typescript-eslint/parser": "5.0.0",
+    "@typescript-eslint/eslint-plugin": "5.2.0",
+    "@typescript-eslint/parser": "5.2.0",
     "chai": "4.3.4",
     "chai-as-promised": "7.1.1",
-    "eslint": "8.0.0",
-    "hardhat": "2.6.5",
+    "eslint": "8.1.0",
+    "hardhat": "2.6.7",
     "nyc": "15.1.0",
-    "ts-node": "10.3.0",
-    "typedoc": "0.22.5",
+    "ts-node": "10.4.0",
+    "typedoc": "0.22.7",
     "typedoc-plugin-markdown": "3.11.3",
-    "typescript": "4.4.3"
+    "typescript": "4.4.4"
   },
   "gitHead": "3e80e10b0db7fb9121cfbeb6cdfaf2513816043a"
 }
