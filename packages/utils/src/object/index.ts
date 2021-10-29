@@ -32,10 +32,13 @@ export const getDeepValue = (
 // Validate given data against the schema or $ref
 export const validateWithSchemaOrRef = (
   schemaJson: AnySchema,
-  ref: AnySchema | string,
+  ref: string,
   data: unknown
 ): string | null => {
-  schemaJson = schemaJson ? schemaJson : {};// Can be null or undefined in case properties validation
+
+  if (schemaJson === undefined || typeof schemaJson !== 'object') {
+    throw new Error('Validation schema not found');
+  }
 
   const ajv = new Ajv({
     useDefaults: true,
@@ -45,23 +48,15 @@ export const validateWithSchemaOrRef = (
   addFormats(ajv);
   ajv.addSchema(schemaJson, 'schema.json');
 
-  if (typeof ref === 'object') {
-    // object with rules
-    ajv.validate(
-      ref,
-      data
-    );
-  } else {
-    // case with reference
-    ajv.validate(
-      {
-        $ref: `schema.json${ref}`
-      },
-      data
-    );
-  }
+  // case with reference
+  ajv.validate(
+    {
+      $ref: `schema.json${ref}`
+    },
+    data
+  );
 
   return ajv.errors !== null
-    ? ajv.errorsText(ajv.errors)
-    : null;
+      ? ajv.errorsText(ajv.errors)
+      : null;
 };

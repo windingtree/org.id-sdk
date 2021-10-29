@@ -39,6 +39,23 @@ describe('Object utils', () => {
 
   describe('#validateWithSchemaOrRef', () => {
 
+    it('should throw if schema not provided', async () => {
+      expect(
+        () => validateWithSchemaOrRef(
+          undefined as any,
+          '#/definitions/CredentialReference',
+          vcJson
+        )
+      ).to.throw('Validation schema not found');
+      expect(
+        () => validateWithSchemaOrRef(
+          '' as any,
+          '#/definitions/CredentialReference',
+          vcJson
+        )
+      ).to.throw('Validation schema not found');
+    });
+
     it('should validate data against given schema', async () => {
       // Using embedded definition
       let result = validateWithSchemaOrRef(
@@ -55,6 +72,29 @@ describe('Object utils', () => {
         vcJson
       );
       expect(result).to.be.null;
+    });
+
+    it('should return errors if object does not match schema', async () => {
+      const subject = {
+        unknownKey: '123'
+      };
+      const subjectSchema = {
+        type: 'object',
+        properties: {
+          test: {
+            type: 'string'
+          }
+        },
+        required: [
+          'test'
+        ]
+      };
+      const result = validateWithSchemaOrRef(
+        subjectSchema,
+        '',
+        subject
+      );
+      expect(result).to.not.be.null;
     });
   });
 });
