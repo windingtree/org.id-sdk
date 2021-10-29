@@ -4,6 +4,7 @@ import type { SignedVC } from '../src/vc';
 import {
   createVC,
   verifyVC,
+  buildUnsignedDataForSignature,
   parseBlockchainAccountId,
   decodeJws,
   signWithSigner,
@@ -27,6 +28,17 @@ describe('Verifiable Credentials', () => {
   const subject = {
     test: '123'
   };
+  const subjectSchema = {
+    type: 'object',
+    properties: {
+      test: {
+        type: 'string'
+      }
+    },
+    required: [
+      'test'
+    ]
+  };
   let privateKey: KeyLike;
   let publicKey: KeyLike;
   let signers: Signer[];
@@ -37,6 +49,41 @@ describe('Verifiable Credentials', () => {
     accounts = await Promise.all(signers.map((s: Signer) => s.getAddress()));
     privateKey = await importKeyPrivatePem(privatePem);
     publicKey = await importKeyPublicPem(publicPem);
+  });
+
+  describe('#buildUnsignedDataForSignature', () => {
+    const testPayload = {
+      data: true
+    };
+    const testPayloadString = 'test';
+
+    it('should build unsigned data from object', async () => {
+      const data = buildUnsignedDataForSignature(issuer, testPayload).split('.');
+      expect(
+        JSON.parse(base64url.decode(data[0]).toString())
+      ).to.deep.equal({
+        alg: 'ES256K',
+        kid: issuer,
+        typ: 'JWT'
+      });
+      expect(
+        JSON.parse(base64url.decode(data[1]).toString())
+      ).to.deep.equal(testPayload);
+    });
+
+    it('should build unsigned data from string', async () => {
+      const data = buildUnsignedDataForSignature(issuer, testPayloadString).split('.');
+      expect(
+        JSON.parse(base64url.decode(data[0]).toString())
+      ).to.deep.equal({
+        alg: 'ES256K',
+        kid: issuer,
+        typ: 'JWT'
+      });
+      expect(
+        base64url.decode(data[1]).toString()
+      ).to.deep.equal(testPayloadString);
+    });
   });
 
   describe('#parseBlockchainAccountId', () => {
@@ -395,20 +442,62 @@ describe('Verifiable Credentials', () => {
       ).to.rejectedWith(`Unsupported blockchain type: ${blockchainType}`);
     });
 
-    it('should throw if unsupported credential type provided', async () => {
+    it('should throw if unsupported credential subject type provided', async () => {
       const unsupportedType = 'UnsupportedCredential';
+      expect(
+        () => createVC(
+          issuer,
+          unsupportedType
+        )
+        .setCredentialSubject(subject)
+      ).to.throw(`Unsupported VC subject type: ${unsupportedType}`);
+    });
+
+    it('should throw if subject does not match its schema', async () => {
+      const invalidSubject = {
+        'unknownKey': true
+      };
+      expect(
+        () => createVC(
+          issuer,
+          'VerifiableCredential',
+        {
+          types: {
+            'TestCredential': {// validator definition for the additional type
+              schema: subjectSchema,
+              path: ''
+            }
+          }
+        }
+        )
+        .setCredentialSubject(invalidSubject)
+      ).to.throw(
+        'VC subject schema validation error: data must have required property \'test\''
+      );
+    });
+
+    it('should throw on signature step if VC does not match schema', async () => {
+      const privJwk = await createJWK(privateKey);
       await expect(
         createVC(
           issuer,
-          unsupportedType
+          'VerifiableCredential',
+          {
+            types: {
+              'VerifiableCredential': {
+                schema: subjectSchema, // <-- overriding of the default VC validator schema
+                path: ''
+              }
+            }
+          }
         )
         .setHolder(holder)
         .setExpirationDate(new Date('2031-06-29').toISOString())
         .setValidFrom(new Date().toISOString())
         .setValidUntil(new Date('2031-06-28').toISOString())
         .setCredentialSubject(subject)
-        .sign(privateKey)
-      ).to.rejectedWith(`Unsupported credential type: ${unsupportedType}`);
+        .sign(privJwk)
+      ).to.rejectedWith('VC schema validation error: data must have required property \'test\'');
     });
 
     it('should create credential with JWK', async () => {
@@ -417,6 +506,32 @@ describe('Verifiable Credentials', () => {
       const vc: SignedVC = await createVC(
         issuer,
         'VerifiableCredential'
+      )
+      .setHolder(holder)
+      .setExpirationDate(new Date('2031-06-29').toISOString())
+      .setValidFrom(new Date().toISOString())
+      .setValidUntil(new Date('2031-06-28').toISOString())
+      .setCredentialSubject(subject)
+      .sign(privJwk);
+
+      const payload = await verifyVC(vc, pubJwk);
+      expect(vc.credentialSubject).to.deep.equal(payload.credentialSubject);
+    });
+
+    it('should create credential with extra options', async () => {
+      const pubJwk = await createJWK(publicKey);
+      const privJwk = await createJWK(privateKey);
+      const vc: SignedVC = await createVC(
+        issuer,
+        'VerifiableCredential',
+        {
+          types: {
+            'TestCredential': {// validator definition for the additional type
+              schema: subjectSchema,
+              path: ''
+            }
+          }
+        }
       )
       .setHolder(holder)
       .setExpirationDate(new Date('2031-06-29').toISOString())

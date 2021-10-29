@@ -41,11 +41,6 @@ export interface CredentialSubject {
   [k: string]: unknown;
 }
 
-export type CredentialSubjectTypes =
-  | 'VerifiableCredential'
-  | 'OrgJson'
-  | 'TrustAssertion';
-
 export interface VCBuilderChain {
   setHolder(
     holder: string,
@@ -107,7 +102,7 @@ export interface CredentialSubjectValidatorConfig {
 }
 
 export type SubjectTypeConfig = {
-  [k in CredentialSubjectTypes]: CredentialSubjectValidatorConfig;
+  [key: string]: CredentialSubjectValidatorConfig;
 };
 
 export interface CreateVcOptions {
@@ -340,6 +335,7 @@ export const createVC = (
   let subjectTypesValidators = CredentialSubjectTypesMap;
 
   if (options && options.types) {
+    // adds additional validators to the defaults
     subjectTypesValidators = {
       ...subjectTypesValidators,
       ...options.types
@@ -374,8 +370,21 @@ export const createVC = (
       type = [ type ];
     }
 
-    // Add additional values to the type
+    // Add additional values to the vcType
     vcType = type.reduce(
+      (a, v) => {
+        if (!vcType.includes(v)) {
+          a.push(v);
+        }
+        return a;
+      },
+      vcType
+    );
+  }
+
+  if (options && options.types) {
+    // Add types defined in options to the vcType
+    vcType = Object.keys(options.types).reduce(
       (a, v) => {
         if (!vcType.includes(v)) {
           a.push(v);
@@ -436,27 +445,19 @@ export const createVC = (
     };
 
     // Validate VC against the schema
-    vcType.forEach(
-      (type: CredentialSubjectTypes) => {
-        const schemaConfig = subjectTypesValidators[type];
+    const schemaConfig = subjectTypesValidators['VerifiableCredential'];
 
-        if (!schemaConfig) {
-          throw new Error(`Unsupported credential type: ${type}`);
-        }
-
-        const validationResult = object.validateWithSchemaOrRef(
-          schemaConfig.schema,
-          schemaConfig.path,
-          unsignedVC
-        );
-
-        if (validationResult !== null) {
-          throw new Error(
-            `VC schema validation error: ${validationResult}`
-          );
-        }
-      }
+    const validationResult = object.validateWithSchemaOrRef(
+      schemaConfig.schema,
+      schemaConfig.path,
+      unsignedVC
     );
+
+    if (validationResult !== null) {
+      throw new Error(
+        `VC schema validation error: ${validationResult}`
+      );
+    }
   };
 
   // Chained methods that implements VC creation
@@ -536,6 +537,33 @@ export const createVC = (
           `Credential subject must be a valid object and cannot be empty`
         );
       }
+
+      // Validate VC subject against the schema
+      vcType.forEach(
+        (type: string) => {
+
+          if (type !== 'VerifiableCredential') {
+
+            const schemaConfig = subjectTypesValidators[type];
+
+            if (!schemaConfig) {
+              throw new Error(`Unsupported VC subject type: ${type}`);
+            }
+
+            const validationResult = object.validateWithSchemaOrRef(
+              schemaConfig.schema,
+              schemaConfig.path,
+              subject
+            );
+
+            if (validationResult !== null) {
+              throw new Error(
+                `VC subject schema validation error: ${validationResult}`
+              );
+            }
+          }
+        }
+      );
 
       vcSubject = subject;
       return chain;
