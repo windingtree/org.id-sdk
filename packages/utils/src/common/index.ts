@@ -1,4 +1,4 @@
-import type { Signer } from 'ethers';
+import type { Signer, VoidSigner } from 'ethers';
 import { ethers } from 'ethers';
 
 // Generates a random salt
@@ -13,7 +13,7 @@ export const generateSalt = (): string => ethers.utils.solidityKeccak256(
 
 // Generate an orgId on the base of salt and ethers signer
 export const generateOrgIdWithSigner = async (
-  sender: Signer,
+  sender: Signer | VoidSigner,
   salt: string
 ): Promise<string> => {
   const address = await sender.getAddress();

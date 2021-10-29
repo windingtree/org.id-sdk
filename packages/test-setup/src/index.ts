@@ -1,4 +1,4 @@
-import type { Signer } from 'ethers';
+import type { Signer, VoidSigner } from 'ethers';
 import type { SignedVC } from '@windingtree/org.id-auth/dist/vc';
 import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
 import {
@@ -29,11 +29,11 @@ export interface OrgIdSetup {
   orgIdContract: OrgIdBaseContract;
   httpServer: HttpFileServer;
   registerOrgId(
-    orgIdOwner: Signer
+    orgIdOwner: VoidSigner
   ): Promise<OrgIdRegistrationResult>;
   buildOrgJson(
     did: string,
-    owner: Signer
+    owner: VoidSigner
   ): Promise<SignedVC>;
   close: () => void;
 }
@@ -46,7 +46,7 @@ export type OrgIdRegistrationResult = {
 // Builds a signed org.json VC
 export const buildOrgJson = async (
   did: string,
-  owner: Signer
+  owner: VoidSigner
 ): Promise<SignedVC> => {
   const orgJson = JSON.parse(JSON.stringify(orgJsonTemplate));
   const issuer = `${did}#key-1`;
@@ -64,7 +64,7 @@ export const buildOrgJson = async (
   );
   const vc: SignedVC = await createVC(
     issuer,
-    'ORG.JSON'
+    ['OrgJson']
   )
     .setCredentialSubject(orgJson)
     .signWithBlockchainAccount(
@@ -78,12 +78,12 @@ export const buildOrgJson = async (
 export const registerOrgId = async (
   contract: OrgIdBaseContract,
   httpServer: HttpFileServer,
-  owner: Signer
+  owner: VoidSigner
 ): Promise<OrgIdRegistrationResult> => {
   const salt = generateSalt();
   const orgIdHash = await generateOrgIdWithSigner(owner, salt);
   const orgJson = await buildOrgJson(
-    `did:orgid:test:${orgIdHash}`,
+    `did:orgid:4:${orgIdHash}`,
     owner
   );
   const fileToAdd: File = {
@@ -141,7 +141,7 @@ export const orgIdSetup = async (): Promise<OrgIdSetup> => {
     accounts,
     orgIdContract,
     httpServer,
-    registerOrgId: (orgIdOwner: Signer) =>
+    registerOrgId: (orgIdOwner: VoidSigner) =>
       registerOrgId(
         orgIdContract,
         httpServer,

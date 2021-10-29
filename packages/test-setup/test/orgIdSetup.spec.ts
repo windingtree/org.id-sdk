@@ -1,3 +1,4 @@
+import type { VoidSigner } from 'ethers';
 import {
   orgIdSetup,
   OrgIdSetup,
@@ -49,9 +50,8 @@ describe('OrgId setup', () => {
         const {
           orgIdHash,
           orgJson
-        } = await setup.registerOrgId(owner);
+        } = await setup.registerOrgId(owner as VoidSigner);
         expect(/^0x[a-fA-F0-9]{64}$/.exec(orgIdHash)).not.null;
-        // console.log(JSON.stringify(orgJson, null, 2));
         const ownerAddress = await owner.getAddress();
         const issuerBlockchainAccountId = `${ownerAddress}@eip155:1337`;
         await expect(() => verifyVC(orgJson, issuerBlockchainAccountId)).not.to.throw;
