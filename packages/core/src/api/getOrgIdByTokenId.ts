@@ -13,7 +13,7 @@ export const getOrgIdByTokenId = async (
   }
 
   if (tokenId.eq(0)) {
-    throw new Error(`getOrgId: TokenId cannot be equal to zero`);
+    throw new Error('tokenId cannot be equal to zero');
   }
 
   //

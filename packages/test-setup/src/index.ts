@@ -1,4 +1,4 @@
-import type { Signer, VoidSigner } from 'ethers';
+import type { Signer, VoidSigner, BigNumber } from 'ethers';
 import type { SignedVC } from '@windingtree/org.id-auth/dist/vc';
 import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
 import {
@@ -40,6 +40,7 @@ export interface OrgIdSetup {
 
 export type OrgIdRegistrationResult = {
   orgIdHash: string;
+  tokenId: BigNumber;
   orgJson: SignedVC;
 };
 
@@ -108,8 +109,11 @@ export const registerOrgId = async (
     throw new Error('Unable to extract OrgIdCreated event data');
   }
 
+  const tokenId = await contract.getTokenId(event.args.orgId);
+
   return {
     orgIdHash: event.args.orgId,
+    tokenId,
     orgJson
   };
 }

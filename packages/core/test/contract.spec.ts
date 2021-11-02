@@ -1,4 +1,4 @@
-import type { Signer } from 'ethers';
+import type { Signer, VoidSigner, BigNumber } from 'ethers';
 import type { OrgIdSetup } from '@windingtree/org.id-test-setup';
 import type { OrgIdData } from '../src/types';
 import { orgIdSetup, generateSalt } from '@windingtree/org.id-test-setup';
@@ -17,13 +17,15 @@ describe('OrgId contract', () => {
   let contract: OrgIdContract;
   let orgIdOwner: Signer;
   let orgIdHash: string;
+  let orgIdTokenId: BigNumber;
 
   before(async () => {
     setup = await orgIdSetup();
     orgIdContractAddress = setup.orgIdContract.address;
     orgIdOwner = setup.signers[1];
-    const regResult = await setup.registerOrgId(orgIdOwner);
+    const regResult = await setup.registerOrgId(orgIdOwner as VoidSigner);
     orgIdHash = regResult.orgIdHash;
+    orgIdTokenId = regResult.tokenId;
     contract = new OrgIdContract(
       orgIdContractAddress,
       setup.orgIdContract.provider
@@ -95,7 +97,7 @@ describe('OrgId contract', () => {
 
   describe('Methods', () => {
 
-    const checkOrgId = (orgId, orgIdHash?: string) => {
+    const checkOrgId = (orgId: OrgIdData, orgIdHash?: string) => {
       expect(orgId).to.have.property('tokenId');
       expect(BN.isBigNumber(orgId.tokenId)).to.equal(true);
       expect(orgId.tokenId).not.to.equal(BN.from(0));
@@ -112,19 +114,48 @@ describe('OrgId contract', () => {
       expect(typeof orgId.orgJsonUri).to.equal('string');
     };
 
+    describe('#getOrgIdByTokenId', () => {
+
+      it('method exposed', async () => {
+        expect(typeof contract.getOrgIdByTokenId).to.equal('function');
+      });
+
+      it('should fail if invalid tokenId provided', async () => {
+        let invalidTokenId: TestInput = '';
+        await expect(contract.getOrgIdByTokenId(invalidTokenId))
+          .to.rejectedWith('invalid BigNumber string (argument="value", value="", code=INVALID_ARGUMENT, version=bignumber/5.5.0)');
+          invalidTokenId = undefined;
+        await expect(contract.getOrgIdByTokenId(invalidTokenId))
+          .to.rejectedWith('invalid BigNumber value (argument="value", value=undefined, code=INVALID_ARGUMENT, version=bignumber/5.5.0)');
+        await expect(contract.getOrgIdByTokenId(0))
+          .to.rejectedWith('tokenId cannot be equal to zero');
+      });
+
+      it('should return null if token not found', async () => {
+        expect(
+          await contract.getOrgIdByTokenId(10000000000)
+        ).to.be.null;
+      });
+
+      it('should return orgId', async () => {
+        const orgId = await contract.getOrgIdByTokenId(orgIdTokenId);
+        checkOrgId(orgId as OrgIdData, orgIdHash);
+      });
+    });
+
     describe('#getOrgId', () => {
 
       it('method exposed', async () => {
         expect(typeof contract.getOrgId).to.equal('function');
       });
 
-      it('should fail if wrong orgIdHash provided', async () => {
-        let wrongOrgIdHash: TestInput = '';
-        expect(contract.getOrgId(wrongOrgIdHash))
-          .to.rejectedWith(`getOrgId: Invalid ORGiD hash: ${wrongOrgIdHash}`);
-        wrongOrgIdHash = undefined;
-        expect(contract.getOrgId(wrongOrgIdHash))
-          .to.rejectedWith(`getOrgId: Invalid ORGiD hash: ${wrongOrgIdHash}`);
+      it('should fail if invalid orgIdHash provided', async () => {
+        let invalidOrgIdHash: TestInput = '';
+        await expect(contract.getOrgId(invalidOrgIdHash))
+          .to.rejectedWith(`getOrgId: Invalid ORGiD hash: ${invalidOrgIdHash}`);
+        invalidOrgIdHash = undefined;
+        await expect(contract.getOrgId(invalidOrgIdHash))
+          .to.rejectedWith(`getOrgId: Invalid ORGiD hash: ${invalidOrgIdHash}`);
       });
 
       it('should return null if orgId not found', async () => {
@@ -137,7 +168,7 @@ describe('OrgId contract', () => {
 
       it('should return orgId', async () => {
         const orgId = await contract.getOrgId(orgIdHash);
-        checkOrgId(orgId, orgIdHash);
+        checkOrgId(orgId as OrgIdData, orgIdHash);
       });
     });
 
@@ -202,7 +233,7 @@ describe('OrgId contract', () => {
           'http://test.uri',
           setup.signers[2]
         );
-        checkOrgId(orgId);
+        checkOrgId(orgId as OrgIdData);
       });
 
       it('should create orgId (with gasPrice, tx callback)', async () => {
@@ -216,7 +247,7 @@ describe('OrgId contract', () => {
           },
           th => { txHash = th; }
         );
-        checkOrgId(orgId);
+        checkOrgId(orgId as OrgIdData);
         expect(typeof txHash).to.equal('string');
       });
     });
@@ -301,7 +332,7 @@ describe('OrgId contract', () => {
           'http://test.uri',
           orgIdOwner
         );
-        checkOrgId(orgId);
+        checkOrgId(orgId as OrgIdData);
       });
 
       it('should set ORG.JSON URI (with gasPrice, tx callback)', async () => {
@@ -315,7 +346,7 @@ describe('OrgId contract', () => {
           },
           th => { txHash = th; }
         );
-        checkOrgId(orgId);
+        checkOrgId(orgId as OrgIdData);
         expect(typeof txHash).to.equal('string');
       });
     });
@@ -468,7 +499,7 @@ describe('OrgId contract', () => {
 
       it('should fail if invalid count provided', async () => {
         const invalidCount = 0;
-        expect(contract.getOrgIds(0, invalidCount))
+        await expect(contract.getOrgIds(0, invalidCount))
           .to.rejectedWith(
             `getOrgIds: Invalid count: ${invalidCount}`
           );
