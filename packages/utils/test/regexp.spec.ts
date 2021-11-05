@@ -340,6 +340,7 @@ describe('Regular expressions', () => {
       ...validV1Base32,
       ...validV1Base58btc
     ];
+    const validCidUri = validCid.map(c => `ipfs://${c}`);
     const invalidCid = validCid.map(c => c.split('').reverse().join(''));
 
     it('should validate IPFS CIDV0', async () => {
@@ -369,6 +370,20 @@ describe('Regular expressions', () => {
     it('should fail if invalid hash provided', async () => {
       invalidCid.forEach(cid => {
         expect(rules.ipfs.exec(cid)).to.be.null;
+      });
+    });
+
+    it('should validate ipfs uri', async () => {
+      validCidUri.forEach(cid => {
+        expect(rules.ipfsUri.exec(cid)).not.to.be.null;
+      });
+    });
+
+    it('should parse ipfs uri', async () => {
+      validCidUri.forEach((cid, index) => {
+        const groupedResult = rules.ipfsUriGrouped.exec(cid);
+        expect(groupedResult).not.to.be.null;
+        expect(groupedResult?.groups?.cid).to.be.equal(validCid[index]);
       });
     });
   })

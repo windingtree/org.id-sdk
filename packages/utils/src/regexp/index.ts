@@ -31,7 +31,9 @@ export const didGrouped = /^(?<did>did:(?<method>orgid):(?<network>[0-9])?(?::)?
 export const uuid4 = /^(?:^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[a-f0-9]{4}-[a-f0-9]{12}$)|(?:^0{8}-0{4}-0{4}-0{4}-0{12}$)$/;
 
 // IPFS/IPNS
-export const ipfs = /^(Qm|QM|qm|qM){1}[1-9A-Za-z]{44}[^OIl]*|[bB]{1}[A-Za-z2-7]{58}|[zZ]{1}[1-9A-HJ-NP-Za-km-z]{48}$/;
-export const ipfsCidV0 = /^(Qm|QM|qm|qM){1}[1-9A-Za-z]{44}[^OIl]*$/;
+export const ipfs = /^((?:Qm|QM|qm|qM){1}[1-9A-Za-z]{44})|([bB]{1}[A-Za-z2-7]{58})|([zZ]{1}[1-9A-HJ-NP-Za-km-z]{48})$/;
+export const ipfsCidV0 = /^(Qm|QM|qm|qM){1}[1-9A-Za-z]{44}$/;
 export const ipfsCidV1Base32 = /^[bB]{1}[A-Za-z2-7]{58}$/;
 export const ipfsCidV1Base58btc = /^[zZ]{1}[1-9A-HJ-NP-Za-km-z]{48}$/;
+export const ipfsUri = /^ipfs:\/\/(((?:Qm|QM|qm|qM){1}[1-9A-Za-z]{44})|([bB]{1}[A-Za-z2-7]{58})|([zZ]{1}[1-9A-HJ-NP-Za-km-z]{48}))$/;
+export const ipfsUriGrouped = /^(?<protocol>ipfs:\/\/)(?<cid>((?:Qm|QM|qm|qM){1}[1-9A-Za-z]{44})|([bB]{1}[A-Za-z2-7]{58})|([zZ]{1}[1-9A-HJ-NP-Za-km-z]{48}))$/;
