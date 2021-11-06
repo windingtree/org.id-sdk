@@ -223,11 +223,11 @@ describe('Regular expressions', () => {
   describe('DID', () => {
 
     it('should validate clear ORGiD DID (without query and fragment)', async () => {
-      expect(rules.didOnly.exec('did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1')).to.be.null;
-      expect(rules.didOnly.exec('did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a')).to.be.null;
-      expect(rules.didOnly.exec('did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a#key-1')).to.be.null;
+      expect(rules.didOnly.exec('did:orgid:1337:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1')).to.be.null;
+      expect(rules.didOnly.exec('did:orgid:1337:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a')).to.be.null;
+      expect(rules.didOnly.exec('did:orgid:1337:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?aaa=zzz&fff=a#key-1')).to.be.null;
       const valid = [
-        'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+        'did:orgid:1337:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
         'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
       ];
       valid.forEach(s => {
@@ -238,12 +238,12 @@ describe('Regular expressions', () => {
     it('should validate ORGiD DID', async () => {
       expect(rules.did.exec('0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d')).to.be.null;
       const valid = [
-        'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+        'did:orgid:1337:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
         'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
         'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest#intro',
         'did:orgid:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest',
-        'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1',
-        'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest#intro',
+        'did:orgid:1337:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1',
+        'did:orgid:1337:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest#intro',
       ];
       valid.forEach(s => {
         expect(rules.did.exec(s)).not.to.be.null;
@@ -253,10 +253,10 @@ describe('Regular expressions', () => {
     it('should validate ORGiD by DID parameters', async () => {
       const valid = [
         {
-          'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d': {
-            did: 'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+          'did:orgid:1337:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d': {
+            did: 'did:orgid:1337:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
             method: 'orgid',
-            network: '4',
+            network: '1337',
             id: '0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d'
           }
         },
@@ -278,19 +278,19 @@ describe('Regular expressions', () => {
           }
         },
         {
-          'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1': {
-            did: 'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+          'did:orgid:1337:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1': {
+            did: 'did:orgid:1337:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
             method: 'orgid',
-            network: '4',
+            network: '1337',
             id: '0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
             fragment: 'key-1'
           }
         },
         {
-          'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest#intro': {
-            did: 'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
+          'did:orgid:1337:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d?service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest#intro': {
+            did: 'did:orgid:1337:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
             method: 'orgid',
-            network: '4',
+            network: '1337',
             id: '0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d',
             query: 'service=files&relative-ref=%2Fmyresume%2Fdoc%3Fversion%3Dlatest',
             fragment: 'intro'
