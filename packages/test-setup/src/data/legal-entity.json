@@ -130,6 +130,9 @@
         "phone": "+1234567890",
         "email": "email@spam.com"
       }
-    ]
+    ],
+    "media": {
+      "logo": "https://imagehosting.test/hotel.jpg"
+    }
   }
 }

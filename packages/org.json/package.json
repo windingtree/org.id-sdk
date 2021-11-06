@@ -41,7 +41,7 @@
   "dependencies": {
     "@windingtree/org.id-auth": "^1.0.0-beta.8",
     "@windingtree/org.id-utils": "^1.0.0-beta.8",
-    "@windingtree/org.json-schema": "1.0.0-beta.3"
+    "@windingtree/org.json-schema": "1.0.0-beta.4"
   },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "1.0.1",

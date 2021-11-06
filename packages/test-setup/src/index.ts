@@ -1,6 +1,7 @@
 import type { Signer, VoidSigner, BigNumber } from 'ethers';
 import type { SignedVC } from '@windingtree/org.id-auth/dist/vc';
 import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
+import type { NFTMetadata } from '@windingtree/org.json-schema/types/nft';
 import {
   generateSalt,
   generateOrgIdWithSigner,
@@ -50,6 +51,11 @@ export const buildOrgJson = async (
   owner: VoidSigner
 ): Promise<SignedVC> => {
   const orgJson = JSON.parse(JSON.stringify(orgJsonTemplate));
+  const nftMetaData: NFTMetadata = {
+    name: orgJson.legalEntity.legalName,
+    description: `${orgJson.legalEntity.legalName} company profile`,
+    image: orgJson.legalEntity.media.logo
+  };
   const issuer = `${did}#key-1`;
   const ownerAddress = await owner.getAddress();
   const blockchainAccountId = `${ownerAddress}@eip155:1337`;
@@ -68,6 +74,7 @@ export const buildOrgJson = async (
     ['OrgJson']
   )
     .setCredentialSubject(orgJson)
+    .setNftMetaData(nftMetaData)
     .signWithBlockchainAccount(
       blockchainAccountId,
       owner
@@ -84,7 +91,7 @@ export const registerOrgId = async (
   const salt = generateSalt();
   const orgIdHash = await generateOrgIdWithSigner(owner, salt);
   const orgJson = await buildOrgJson(
-    `did:orgid:4:${orgIdHash}`,
+    `did:orgid:1337:${orgIdHash}`,
     owner
   );
   const fileToAdd: File = {

@@ -1127,10 +1127,10 @@
   dependencies:
     "@openzeppelin/contracts-upgradeable" "4.3.2"
 
-"@windingtree/org.json-schema@1.0.0-beta.3":
-  version "1.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-1.0.0-beta.3.tgz#cecca724d9dd952785e3652316e5373cbeb6b292"
-  integrity sha512-28O6WkhAsiJOHClAcJdGzwVr6cM7WLD1N4is0eW4lJ9VkmC4DlCTJRa7KOf4Itz1RNB7tER2FHmelmP5ZPR+sw==
+"@windingtree/org.json-schema@1.0.0-beta.4":
+  version "1.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-1.0.0-beta.4.tgz#9e8cf679ef78dc930a1a00c1fd0386da2c220e5e"
+  integrity sha512-pdu3hRjODWp9V3vdeDEkM4IGYhpOqdc8gU58szV7Yr35ukD6JqLvSvhtZcnnJo+w/elsAJG9ruO2J/BsrhT0Bw==
 
 abort-controller@^3.0.0:
   version "3.0.0"

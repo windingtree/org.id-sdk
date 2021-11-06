@@ -1,6 +1,7 @@
 import type { Signer, VoidSigner } from 'ethers';
 import type { KeyLike } from '../src/keys';
 import type { SignedVC } from '../src/vc';
+import type { NFTMetadata } from '@windingtree/org.json-schema/types/nft';
 import {
   createVC,
   verifyVC,
@@ -371,6 +372,21 @@ describe('Verifiable Credentials', () => {
       ).to.throw('expirationDate must be greater than issuanceDate');
     });
 
+    it('should throw if invalid NFT meta-data provided', async () => {
+      const invalidNftMetaData: any = {
+        not: 'invalid',
+        an: 'invalid',
+        nft: 'invalid'
+      };
+      expect(
+        () => createVC(
+          issuer,
+          'VerifiableCredential'
+        )
+        .setNftMetaData(invalidNftMetaData)
+      ).to.throw('VC NFT meta-data schema validation error: data must have required property \'name\'');
+    });
+
     it('should throw if credential subject is not an object or empty object', async () => {
       expect(
         () => createVC(
@@ -578,6 +594,34 @@ describe('Verifiable Credentials', () => {
       );
 
       const payload = await verifyVC(vc, issuerBlockchainAccountId);
+      expect(vc.credentialSubject).to.deep.equal(payload.credentialSubject);
+    });
+
+    it('should create credential with NFT meta-data', async () => {
+      const nftMetaData: NFTMetadata = {
+        name: 'Test name',
+        description: 'Test description',
+        image: 'http://image.uri',
+        external_url: 'https://windingtree.com'
+      };
+      const vc: SignedVC = await createVC(
+        issuer,
+        'VerifiableCredential'
+      )
+      .setHolder(holder)
+      .setExpirationDate(new Date('2031-06-29').toISOString())
+      .setValidFrom(new Date().toISOString())
+      .setValidUntil(new Date('2031-06-28').toISOString())
+      .setCredentialSubject(subject)
+      .setNftMetaData(nftMetaData)
+      .sign(privateKey);
+
+      expect(vc).to.haveOwnProperty('name').to.equal(nftMetaData.name);
+      expect(vc).to.haveOwnProperty('description').to.equal(nftMetaData.description);
+      expect(vc).to.haveOwnProperty('image').to.equal(nftMetaData.image);
+      expect(vc).to.haveOwnProperty('external_url').to.equal(nftMetaData.external_url);
+
+      const payload = await verifyVC(vc, publicKey); // @toto verify payload
       expect(vc.credentialSubject).to.deep.equal(payload.credentialSubject);
     });
   });

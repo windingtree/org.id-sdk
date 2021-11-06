@@ -6,6 +6,7 @@ import type {
   VCProofReference,
   CryptographicSignatureSuiteReference
 } from '@windingtree/org.json-schema/types/vc';
+import type { NFTMetadata } from '@windingtree/org.json-schema/types/nft';
 import {
   getAlgFromJWK,
   signatureTypeFromJWK,
@@ -15,7 +16,8 @@ import { regexp, uid, object } from '@windingtree/org.id-utils';
 import {
   vc as credentialSchema,
   org as orgJsonSchema,
-  trustAssertion as trustAssertionSchema
+  trustAssertion as trustAssertionSchema,
+  nft as NftMetaDataSchema
 } from '@windingtree/org.json-schema';
 import { DateTime } from  'luxon';
 import { importJWK } from 'jose';
@@ -57,6 +59,9 @@ export interface VCBuilderChain {
   ): VCBuilderChain;
   setCredentialSubject(
     subject: CredentialSubject
+  ): VCBuilderChain;
+  setNftMetaData(
+    metaData: NFTMetadata
   ): VCBuilderChain;
   sign(
     privateKey: KeyLike | Uint8Array | JWK
@@ -401,6 +406,7 @@ export const createVC = (
   let vcValidFrom: DateTime | undefined;
   let vcValidUntil: DateTime | undefined;
   let vcSubject: CredentialSubject;
+  let nftMetaData: NFTMetadata;
   let unsignedVC: CredentialReference;
 
   const buildUnsignedVC = (): void => {
@@ -413,6 +419,11 @@ export const createVC = (
       type: vcType,
       issuer: did,
       issuanceDate: vcIssuanceDate.toISO(),
+      ...(
+        nftMetaData
+          ? nftMetaData
+          : {}
+      ),
       ...(
         vcHolder
           ? {
@@ -566,6 +577,24 @@ export const createVC = (
       );
 
       vcSubject = subject;
+      return chain;
+    },
+
+    setNftMetaData: metaData => {
+      const validationResult = object.validateWithSchemaOrRef(
+        NftMetaDataSchema,
+        '',
+        metaData
+      );
+
+      if (validationResult !== null) {
+        throw new Error(
+          `VC NFT meta-data schema validation error: ${validationResult}`
+        );
+      }
+
+      nftMetaData = metaData;
+
       return chain;
     },
 

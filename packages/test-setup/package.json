@@ -43,7 +43,7 @@
     "@windingtree/org.id-auth": "^1.0.0-beta.8",
     "@windingtree/org.id-test-http-server": "^1.0.0-beta.7",
     "@windingtree/org.id-utils": "^1.0.0-beta.8",
-    "@windingtree/org.json-schema": "1.0.0-beta.3",
+    "@windingtree/org.json-schema": "1.0.0-beta.4",
     "@windingtree/org.json-utils": "^1.0.0-beta.8",
     "ethers": "5.5.1",
     "hardhat": "2.6.8"
