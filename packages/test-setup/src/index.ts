@@ -1,5 +1,5 @@
 import type { Signer, VoidSigner, BigNumber } from 'ethers';
-import type { SignedVC } from '@windingtree/org.id-auth/dist/vc';
+import type { SignedVC, SubjectTypeConfig } from '@windingtree/org.id-auth/dist/vc';
 import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
 import type { NFTMetadata } from '@windingtree/org.json-schema/types/nft';
 import {
@@ -45,10 +45,21 @@ export type OrgIdRegistrationResult = {
   orgJson: SignedVC;
 };
 
+export interface TestOverrideOptions {
+  baseUri?: string;
+  vcType?: string[];
+  vcNftMetaData?: any;
+  orgJson?: any;
+  orgJsonBlockchainAccountId?: string;
+  deactivated?: string;
+  verificationMethod?: any[];
+}
+
 // Builds a signed org.json VC
 export const buildOrgJson = async (
   did: string,
-  owner: VoidSigner
+  owner: VoidSigner,
+  overrideOptions: TestOverrideOptions = {}
 ): Promise<SignedVC> => {
   const orgJson = JSON.parse(JSON.stringify(orgJsonTemplate));
   const nftMetaData: NFTMetadata = {
@@ -66,15 +77,31 @@ export const buildOrgJson = async (
     await createVerificationMethodWithBlockchainAccountId(
       issuer,
       did,
-      blockchainAccountId
+      overrideOptions.orgJsonBlockchainAccountId
+        ? overrideOptions.orgJsonBlockchainAccountId
+        : blockchainAccountId
     )
   );
+  if (overrideOptions.deactivated) {
+    orgJson.deactivated = overrideOptions.deactivated;
+  }
+  if (overrideOptions.verificationMethod) {
+    orgJson.verificationMethod = overrideOptions.verificationMethod;
+  }
   const vc: SignedVC = await createVC(
     issuer,
-    ['OrgJson']
+    overrideOptions.vcType ? overrideOptions.vcType : ['OrgJson']
   )
-    .setCredentialSubject(orgJson)
-    .setNftMetaData(nftMetaData)
+    .setCredentialSubject(
+      overrideOptions.orgJson
+        ? overrideOptions.orgJson
+        : orgJson
+    )
+    .setNftMetaData(
+      overrideOptions.vcNftMetaData
+        ? overrideOptions.vcNftMetaData
+        : nftMetaData
+    )
     .signWithBlockchainAccount(
       blockchainAccountId,
       owner
@@ -86,13 +113,15 @@ export const buildOrgJson = async (
 export const registerOrgId = async (
   contract: OrgIdBaseContract,
   httpServer: HttpFileServer,
-  owner: VoidSigner
+  owner: VoidSigner,
+  overrideOptions: TestOverrideOptions = {}
 ): Promise<OrgIdRegistrationResult> => {
   const salt = generateSalt();
   const orgIdHash = await generateOrgIdWithSigner(owner, salt);
   const orgJson = await buildOrgJson(
     `did:orgid:1337:${orgIdHash}`,
-    owner
+    owner,
+    overrideOptions
   );
   const fileToAdd: File = {
     type: 'json',
@@ -102,7 +131,11 @@ export const registerOrgId = async (
   const file = httpServer.addFile(fileToAdd);
   const tx = await contract.connect(owner).createOrgId(
     salt,
-    `${httpServer.baseUri}/${file.path}`
+    `${
+      overrideOptions.baseUri
+        ? overrideOptions.baseUri
+        : httpServer.baseUri
+    }/${file.path}`
   );
   const receipt = await tx.wait();
 
