@@ -18,11 +18,22 @@ import {
 
 const setup = await orgIdSetup();
 
+// Possible overrides
+// {
+//   baseUri?: string;
+//   vcType?: string[];
+//   vcNftMetaData?: any;
+//   orgJson?: any;
+//   orgJsonBlockchainAccountId?: string;
+//   deactivated?: string;
+//   verificationMethod?: any[];
+// }
+
 const owner = setup.accounts[2];
 const {
   orgIdHash,
   orgJson
-} = await setup.registerOrgId(owner);
+} = await setup.registerOrgId(owner /*, overrides * /);
 
 console.log(orgIdHash);
 
