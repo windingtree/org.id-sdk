@@ -1,5 +1,5 @@
 import type { Signer, VoidSigner, BigNumber } from 'ethers';
-import type { SignedVC, SubjectTypeConfig } from '@windingtree/org.id-auth/dist/vc';
+import type { SignedVC } from '@windingtree/org.id-auth/dist/vc';
 import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
 import type { NFTMetadata } from '@windingtree/org.json-schema/types/nft';
 import {
@@ -19,6 +19,7 @@ import { ethers } from 'hardhat';
 import orgJsonTemplate from './data/legal-entity.json';
 
 export {
+  orgJsonTemplate,
   generateSalt,
   generateOrgIdWithSigner,
   generateOrgIdWithAddress
