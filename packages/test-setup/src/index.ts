@@ -31,7 +31,8 @@ export interface OrgIdSetup {
   orgIdContract: OrgIdBaseContract;
   httpServer: HttpFileServer;
   registerOrgId(
-    orgIdOwner: VoidSigner
+    orgIdOwner: VoidSigner,
+    overrideOptions?: TestOverrideOptions
   ): Promise<OrgIdRegistrationResult>;
   buildOrgJson(
     did: string,
@@ -186,11 +187,12 @@ export const orgIdSetup = async (): Promise<OrgIdSetup> => {
     accounts,
     orgIdContract,
     httpServer,
-    registerOrgId: (orgIdOwner: VoidSigner) =>
+    registerOrgId: (orgIdOwner: VoidSigner, overrideOptions: TestOverrideOptions) =>
       registerOrgId(
         orgIdContract,
         httpServer,
-        orgIdOwner
+        orgIdOwner,
+        overrideOptions
       ),
     buildOrgJson,
     close: () => httpServer.close()
