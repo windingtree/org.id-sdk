@@ -51,10 +51,13 @@ export interface TestOverrideOptions {
   baseUri?: string;
   vcType?: string[];
   vcNftMetaData?: any;
+  vcProofVerificationMethod?: string;
+  orgJsonTemplate?: any;
   orgJson?: any;
   orgJsonBlockchainAccountId?: string;
   deactivated?: string;
   verificationMethod?: any[];
+  verificationMethodRevoked?: string;
 }
 
 // Builds a signed org.json VC
@@ -63,7 +66,11 @@ export const buildOrgJson = async (
   owner: VoidSigner,
   overrideOptions: TestOverrideOptions = {}
 ): Promise<SignedVC> => {
-  const orgJson = JSON.parse(JSON.stringify(orgJsonTemplate));
+  const orgJson = JSON.parse(JSON.stringify(
+    overrideOptions.orgJsonTemplate
+      ? overrideOptions.orgJsonTemplate
+      : orgJsonTemplate
+  ));
   const nftMetaData: NFTMetadata = {
     name: orgJson.legalEntity.legalName,
     description: `${orgJson.legalEntity.legalName} company profile`,
@@ -75,21 +82,34 @@ export const buildOrgJson = async (
   orgJson.id = did;
   orgJson.created = new Date().toISOString();
   orgJson.updated = new Date().toISOString();
-  orgJson.verificationMethod.push(
-    await createVerificationMethodWithBlockchainAccountId(
-      issuer,
-      did,
-      overrideOptions.orgJsonBlockchainAccountId
-        ? overrideOptions.orgJsonBlockchainAccountId
-        : blockchainAccountId
-    )
+  const verificationMethod = await createVerificationMethodWithBlockchainAccountId(
+    issuer,
+    did,
+    overrideOptions.orgJsonBlockchainAccountId
+      ? overrideOptions.orgJsonBlockchainAccountId
+      : blockchainAccountId
   );
+  orgJson.verificationMethod.push(
+    {
+      ...verificationMethod,
+      ...(
+        overrideOptions.verificationMethodRevoked
+          ? {
+            revoked: overrideOptions.verificationMethodRevoked
+          }
+          : {}
+      )
+    }
+  );
+
   if (overrideOptions.deactivated) {
     orgJson.deactivated = overrideOptions.deactivated;
   }
+
   if (overrideOptions.verificationMethod) {
     orgJson.verificationMethod = overrideOptions.verificationMethod;
   }
+
   const vc: SignedVC = await createVC(
     issuer,
     overrideOptions.vcType ? overrideOptions.vcType : ['OrgJson']
@@ -125,6 +145,11 @@ export const registerOrgId = async (
     owner,
     overrideOptions
   );
+
+  if (overrideOptions.vcProofVerificationMethod) {
+    orgJson.proof.verificationMethod = overrideOptions.vcProofVerificationMethod;
+  }
+
   const fileToAdd: File = {
     type: 'json',
     path: `${orgIdHash}.json`,
