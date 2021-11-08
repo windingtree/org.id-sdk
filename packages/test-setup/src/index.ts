@@ -67,7 +67,7 @@ export const buildOrgJson = async (
   overrideOptions: TestOverrideOptions = {}
 ): Promise<SignedVC> => {
   const orgJson = JSON.parse(JSON.stringify(
-    overrideOptions.orgJsonTemplate
+    overrideOptions.orgJsonTemplate !== undefined
       ? overrideOptions.orgJsonTemplate
       : orgJsonTemplate
   ));
@@ -85,7 +85,7 @@ export const buildOrgJson = async (
   const verificationMethod = await createVerificationMethodWithBlockchainAccountId(
     issuer,
     did,
-    overrideOptions.orgJsonBlockchainAccountId
+    overrideOptions.orgJsonBlockchainAccountId !== undefined
       ? overrideOptions.orgJsonBlockchainAccountId
       : blockchainAccountId
   );
@@ -93,7 +93,7 @@ export const buildOrgJson = async (
     {
       ...verificationMethod,
       ...(
-        overrideOptions.orgJsonVerificationMethodRevocation
+        overrideOptions.orgJsonVerificationMethodRevocation !== undefined
           ? {
             verificationMethodRevocation: overrideOptions.orgJsonVerificationMethodRevocation
           }
@@ -102,25 +102,25 @@ export const buildOrgJson = async (
     }
   );
 
-  if (overrideOptions.orgJsonDeactivated) {
+  if (overrideOptions.orgJsonDeactivated !== undefined) {
     orgJson.deactivated = overrideOptions.orgJsonDeactivated;
   }
 
-  if (overrideOptions.orgJsonVerificationMethod) {
+  if (overrideOptions.orgJsonVerificationMethod !== undefined) {
     orgJson.verificationMethod = overrideOptions.orgJsonVerificationMethod;
   }
 
   const vc: SignedVC = await createVC(
     issuer,
-    overrideOptions.vcType ? overrideOptions.vcType : ['OrgJson']
+    overrideOptions.vcType !== undefined ? overrideOptions.vcType : ['OrgJson']
   )
     .setCredentialSubject(
-      overrideOptions.orgJson
+      overrideOptions.orgJson !== undefined
         ? overrideOptions.orgJson
         : orgJson
     )
     .setNftMetaData(
-      overrideOptions.vcNftMetaData
+      overrideOptions.vcNftMetaData !== undefined
         ? overrideOptions.vcNftMetaData
         : nftMetaData
     )
@@ -146,7 +146,7 @@ export const registerOrgId = async (
     overrideOptions
   );
 
-  if (overrideOptions.vcProofVerificationMethod) {
+  if (overrideOptions.vcProofVerificationMethod !== undefined) {
     orgJson.proof.verificationMethod = overrideOptions.vcProofVerificationMethod;
   }
 
@@ -159,7 +159,7 @@ export const registerOrgId = async (
   const tx = await contract.connect(owner).createOrgId(
     salt,
     `${
-      overrideOptions.baseUri
+      overrideOptions.baseUri !== undefined
         ? overrideOptions.baseUri
         : httpServer.baseUri
     }/${file.path}`
