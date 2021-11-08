@@ -55,9 +55,9 @@ export interface TestOverrideOptions {
   orgJsonTemplate?: any;
   orgJson?: any;
   orgJsonBlockchainAccountId?: string;
-  deactivated?: string;
-  verificationMethod?: any[];
-  verificationMethodRevoked?: string;
+  orgJsonDeactivated?: string;
+  orgJsonVerificationMethod?: any[];
+  orgJsonVerificationMethodRevocation?: any;
 }
 
 // Builds a signed org.json VC
@@ -93,21 +93,21 @@ export const buildOrgJson = async (
     {
       ...verificationMethod,
       ...(
-        overrideOptions.verificationMethodRevoked
+        overrideOptions.orgJsonVerificationMethodRevocation
           ? {
-            revoked: overrideOptions.verificationMethodRevoked
+            verificationMethodRevocation: overrideOptions.orgJsonVerificationMethodRevocation
           }
           : {}
       )
     }
   );
 
-  if (overrideOptions.deactivated) {
-    orgJson.deactivated = overrideOptions.deactivated;
+  if (overrideOptions.orgJsonDeactivated) {
+    orgJson.deactivated = overrideOptions.orgJsonDeactivated;
   }
 
-  if (overrideOptions.verificationMethod) {
-    orgJson.verificationMethod = overrideOptions.verificationMethod;
+  if (overrideOptions.orgJsonVerificationMethod) {
+    orgJson.verificationMethod = overrideOptions.orgJsonVerificationMethod;
   }
 
   const vc: SignedVC = await createVC(
