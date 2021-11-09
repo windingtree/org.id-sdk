@@ -48,6 +48,8 @@ export type OrgIdRegistrationResult = {
 };
 
 export interface TestOverrideOptions {
+  orgIdSalt?: any;
+  orgIdOwner?: any;
   orgIdHash?: any;
   baseUri?: any;
   vcType?: any[];
@@ -139,8 +141,16 @@ export const registerOrgId = async (
   owner: VoidSigner,
   overrideOptions: TestOverrideOptions = {}
 ): Promise<OrgIdRegistrationResult> => {
-  const salt = generateSalt();
-  let orgIdHash = await generateOrgIdWithSigner(owner, salt);
+  const salt = overrideOptions.orgIdSalt !== undefined
+    ? overrideOptions.orgIdSalt
+    : generateSalt();
+  const orgIdOwner = overrideOptions.orgIdOwner !== undefined
+    ? overrideOptions.orgIdOwner
+    : owner;
+  let orgIdHash = await generateOrgIdWithSigner(
+    orgIdOwner,
+    salt
+  );
 
   if (overrideOptions.orgIdHash !== undefined) {
     orgIdHash = overrideOptions.orgIdHash;
@@ -162,7 +172,7 @@ export const registerOrgId = async (
     content: JSON.stringify(orgJson)
   };
   const file = httpServer.addFile(fileToAdd);
-  const tx = await contract.connect(owner).createOrgId(
+  const tx = await contract.connect(orgIdOwner).createOrgId(
     salt,
     `${
       overrideOptions.baseUri !== undefined
