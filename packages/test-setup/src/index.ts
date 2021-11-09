@@ -48,14 +48,15 @@ export type OrgIdRegistrationResult = {
 };
 
 export interface TestOverrideOptions {
-  baseUri?: string;
-  vcType?: string[];
+  orgIdHash?: any;
+  baseUri?: any;
+  vcType?: any[];
   vcNftMetaData?: any;
-  vcProofVerificationMethod?: string;
+  vcProofVerificationMethod?: any;
   orgJsonTemplate?: any;
   orgJson?: any;
-  orgJsonBlockchainAccountId?: string;
-  orgJsonDeactivated?: string;
+  orgJsonBlockchainAccountId?: any;
+  orgJsonDeactivated?: any;
   orgJsonVerificationMethod?: any[];
   orgJsonVerificationMethodRevocation?: any;
 }
@@ -139,7 +140,12 @@ export const registerOrgId = async (
   overrideOptions: TestOverrideOptions = {}
 ): Promise<OrgIdRegistrationResult> => {
   const salt = generateSalt();
-  const orgIdHash = await generateOrgIdWithSigner(owner, salt);
+  let orgIdHash = await generateOrgIdWithSigner(owner, salt);
+
+  if (overrideOptions.orgIdHash !== undefined) {
+    orgIdHash = overrideOptions.orgIdHash;
+  }
+
   const orgJson = await buildOrgJson(
     `did:orgid:1337:${orgIdHash}`,
     owner,
