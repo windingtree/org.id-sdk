@@ -4,7 +4,7 @@ import type { OrgIdData } from '../types';
 import type { MethodOverrides, TxHashCallbackFn } from '../shared/sendHelper';
 import { regexp } from '@windingtree/org.id-utils';
 import { getOrgId } from './getOrgId';
-import { sendHelper } from '../shared/sendHelper'
+import { sendHelper } from '../shared/sendHelper';
 
 export const createOrgId = async (
   contract: OrgIdBaseContract,

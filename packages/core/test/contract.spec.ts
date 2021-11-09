@@ -1,6 +1,6 @@
 import type { Signer, VoidSigner, BigNumber } from 'ethers';
 import type { OrgIdSetup } from '@windingtree/org.id-test-setup';
-import type { OrgIdData } from '../src/types';
+import type { AddDelegatesResult, Delegates, OrgIdData } from '../src/types';
 import { orgIdSetup, generateSalt } from '@windingtree/org.id-test-setup';
 import { ethers, providers, Contract, BigNumber as BN } from 'ethers';
 import { regexp } from '@windingtree/org.id-utils';
@@ -112,6 +112,7 @@ describe('OrgId contract', () => {
       expect(regexp.isoDate.exec(orgId.created)).not.to.null;
       expect(orgId).to.have.property('orgJsonUri');
       expect(typeof orgId.orgJsonUri).to.equal('string');
+      expect(orgId).to.have.property('delegates').to.be.an('array');
     };
 
     describe('#getOrgIdByTokenId', () => {
@@ -520,6 +521,173 @@ describe('OrgId contract', () => {
         orgIds = await contract.getOrgIds(undefined, count);
         expect(Array.isArray(orgIds)).to.equal(true);
         expect(orgIds.length).to.equal(count);
+      });
+    });
+
+    describe('#addDelegates', () => {
+
+      it('method exposed', async () => {
+        expect(typeof contract.addDelegates).to.equal('function');
+      });
+
+      it('should throw if invalid ORGiD hash provided', async () => {
+        const invalidOrgIdHash: TestInput = '';
+        await expect(
+          contract.addDelegates(
+            invalidOrgIdHash,
+            [
+              'did:orgid:1337:0x2389deb1e582b49ab388c7ebc16b49e5a95e0b8c92ffa9c74881a9904074de9a#key1'
+            ],
+            orgIdOwner
+          )
+        ).to.rejectedWith(`addDelegates: Invalid ORGiD hash: ${invalidOrgIdHash}`);
+      });
+
+      it('should throw if invalid dids provided', async () => {
+        const invalidDid: TestInput = 'did:test:1234';
+        await expect(
+          contract.addDelegates(
+            orgIdHash,
+            [
+              invalidDid
+            ],
+            orgIdOwner
+          )
+        ).to.rejectedWith(`addDelegates: Invalid DID: ${invalidDid}`);
+      });
+
+      it('should add delegates', async () => {
+        const delegates = [
+          'did:orgid:1337:0x2389deb1e582b49ab388c7ebc16b49e5a95e0b8c92ffa9c74881a9904074de9a#key1'
+        ];
+        const result = await contract.addDelegates(
+          orgIdHash,
+          delegates,
+          orgIdOwner
+        );
+        expect(result).to.haveOwnProperty('orgId').to.equal(orgIdHash);
+        expect(result).to.haveOwnProperty('delegates').to.deep.equal(delegates);
+      });
+
+      it('should add delegates with extra parameters', async () => {
+        const delegates = [
+          'did:orgid:1337:0x2389deb1e582b49ab388c7ebc16b49e5a95e0b8c92ffa9c74881a9904074de9a#key1'
+        ];
+        let txHash: any;
+        const result = await contract.addDelegates(
+          orgIdHash,
+          delegates,
+          orgIdOwner,
+          {
+            gasPrice: ethers.utils.parseUnits( '100', 'gwei')
+          },
+          th => { txHash = th; }
+        );
+        expect(result).to.haveOwnProperty('orgId').to.equal(orgIdHash);
+        expect(result).to.haveOwnProperty('delegates').to.deep.equal(delegates);
+        expect(typeof txHash).to.equal('string');
+      });
+    });
+
+    describe('#getDelegates', () => {
+      let delegates: Delegates;
+
+      before(async () => {
+        const result = await contract.addDelegates(
+          orgIdHash,
+          [
+            'did:orgid:1337:0x2389deb1e582b49ab388c7ebc16b49e5a95e0b8c92ffa9c74881a9904074de9a#key1'
+          ],
+          orgIdOwner
+        );
+        delegates = result.delegates;
+      });
+
+      it('method exposed', async () => {
+        expect(typeof contract.getDelegates).to.equal('function');
+      });
+
+      it('should throw if invalid ORGiD hash provided', async () => {
+        const invalidOrgIdHash: TestInput = '';
+        await expect(
+          contract.getDelegates(invalidOrgIdHash)
+        ).to.rejectedWith(`getDelegates: Invalid ORGiD hash: ${invalidOrgIdHash}`);
+      });
+
+      it('should return empty array if no delegates', async () => {
+        const orgId = await contract.createOrgId(
+          generateSalt(),
+          'http://test.uri',
+          setup.signers[2]
+        ) as OrgIdData;
+        const result = await contract.getDelegates(orgId.orgId);
+        expect(result).to.be.an('array')
+          .to.haveOwnProperty('length').to.equal(0);
+      });
+
+      it('should return delegates', async () => {
+        const result = await contract.getDelegates(orgIdHash);
+        expect(result).to.deep.equal(delegates);
+      });
+    });
+
+    describe('#removeDelegates', () => {
+      const delegates = [
+        'did:orgid:1337:0x2389deb1e582b49ab388c7ebc16b49e5a95e0b8c92ffa9c74881a9904074de9a#key1'
+      ];
+
+      it('method exposed', async () => {
+        expect(typeof contract.removeDelegates).to.equal('function');
+      });
+
+      it('should throw if invalid ORGiD hash provided', async () => {
+        const invalidOrgIdHash: TestInput = '';
+        await expect(
+          contract.removeDelegates(invalidOrgIdHash, delegates, orgIdOwner)
+        ).to.rejectedWith(`removeDelegates: Invalid ORGiD hash: ${invalidOrgIdHash}`);
+      });
+
+      it('should throw if invalid dids provided', async () => {
+        const invalidDid = 'did:invalid:12345';
+        const dids = [
+          ...delegates,
+          invalidDid
+        ];
+        await expect(
+          contract.removeDelegates(orgIdHash, dids, orgIdOwner)
+        ).to.rejectedWith(`removeDelegates: Invalid DID: ${invalidDid}`);
+      });
+
+      describe('...', () => {
+        let delegates: AddDelegatesResult;
+
+        beforeEach(async () => {
+          delegates = await contract.addDelegates(
+            orgIdHash,
+            [
+              'did:orgid:1337:0x2389deb1e582b49ab388c7ebc16b49e5a95e0b8c92ffa9c74881a9904074de9a#key1'
+            ],
+            orgIdOwner
+          );
+        });
+
+        it('should remove given delegates', async () => {
+          const result = await contract.removeDelegates(
+            orgIdHash,
+            delegates.delegates,
+            orgIdOwner
+          );
+          expect(result).to.deep.equal(delegates);
+        });
+
+        it('should remove all delegates', async () => {
+          const result = await contract.removeDelegates(
+            orgIdHash,
+            [],
+            orgIdOwner
+          );
+          expect(result).to.deep.equal(delegates);
+        });
       });
     });
   });

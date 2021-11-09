@@ -2,6 +2,7 @@ import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
 import type { OrgIdData } from '../types';
 import type { BigNumber } from 'ethers';
 import { BigNumber as BN } from 'ethers';
+import { getDelegates } from './getDelegates';
 
 export const getOrgIdByTokenId = async (
   contract: OrgIdBaseContract,
@@ -28,6 +29,8 @@ export const getOrgIdByTokenId = async (
     return null;
   }
 
+  const delegates = await getDelegates(contract, orgId);
+
   // Fetching of ORGiD creation date
   const orgIdCreatedFilter = contract.filters.OrgIdCreated(orgId);
   const orgIdCreatedEvent = (
@@ -47,6 +50,7 @@ export const getOrgIdByTokenId = async (
     orgId,
     owner,
     orgJsonUri,
+    delegates,
     created: orgIdCreationDate
   };
 };

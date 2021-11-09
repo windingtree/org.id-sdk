@@ -9,10 +9,23 @@ export interface OrgIdData {
   orgId: string;
   owner: string;
   orgJsonUri: string;
+  delegates: string[];
   created: string;
 }
 
 export interface OrgIdRawResult {
   exists: boolean;
   owner: string;
+}
+
+export type Delegates = string[];
+
+export interface AddDelegatesResult {
+  orgId: string;
+  delegates: string[];
+}
+
+export interface RemoveDelegatesResult {
+  orgId: string;
+  delegates: string[];
 }

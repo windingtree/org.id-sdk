@@ -1,6 +1,11 @@
 import type { BigNumber, Signer, providers } from 'ethers';
 import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
-import type { OrgIdData } from './types';
+import type {
+  OrgIdData,
+  AddDelegatesResult,
+  Delegates,
+  RemoveDelegatesResult
+} from './types';
 import type { MethodOverrides, TxHashCallbackFn } from './shared/sendHelper';
 import { ethers } from 'ethers';
 import {
@@ -16,6 +21,9 @@ import { getOrgIdsCount } from './api/getOrgIdsCount';
 import { getOrgIdByTokenId } from './api/getOrgIdByTokenId';
 import { getOrgId } from './api/getOrgId';
 import { getOrgIds } from './api/getOrgIds';
+import { addDelegates } from './api/addDelegates';
+import { getDelegates } from './api/getDelegates';
+import { removeDelegates } from './api/removeDelegates';
 
 export type {
   OrgIdAddresses,
@@ -112,6 +120,30 @@ export class OrgIdContract {
     return transferOrgIdOwnership(this.contract, orgIdHash, newOrgIdOwner, orgIdOwner, overrides, transactionHashCb, confirmations);
   }
 
+  addDelegates(
+    orgIdHash: string,
+    dids: string[],
+    orgIdOwner: Signer,
+    overrides?: MethodOverrides,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    transactionHashCb: TxHashCallbackFn = () => {},
+    confirmations?: number
+  ): Promise<AddDelegatesResult> {
+    return addDelegates(this.contract, orgIdHash, dids, orgIdOwner, overrides, transactionHashCb, confirmations);
+  }
+
+  removeDelegates(
+    orgIdHash: string,
+    dids: string[],
+    orgIdOwner: Signer,
+    overrides?: MethodOverrides,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    transactionHashCb: TxHashCallbackFn = () => {},
+    confirmations?: number
+  ): Promise<RemoveDelegatesResult> {
+    return removeDelegates(this.contract, orgIdHash, dids, orgIdOwner, overrides, transactionHashCb, confirmations);
+  }
+
   getOrgIdsCount(): Promise<number> {
     return getOrgIdsCount(this.contract);
   }
@@ -126,5 +158,9 @@ export class OrgIdContract {
 
   getOrgIds(cursor?: number, count?: number): Promise<string[]> {
     return getOrgIds(this.contract, cursor, count);
+  }
+
+  getDelegates(orgIdHash: string): Promise<Delegates> {
+    return getDelegates(this.contract, orgIdHash);
   }
 }
