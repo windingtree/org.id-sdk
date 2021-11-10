@@ -2,14 +2,17 @@ import type { Signer, VoidSigner, BigNumber } from 'ethers';
 import type { SignedVC } from '@windingtree/org.id-auth/dist/vc';
 import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
 import type { NFTMetadata } from '@windingtree/org.json-schema/types/nft';
+import type { ORGJSONVCNFT } from '@windingtree/org.json-schema/types/orgVc';
 import {
   generateSalt,
   generateOrgIdWithSigner,
   generateOrgIdWithAddress
 } from '@windingtree/org.id-utils/dist/common';
+import { getDeepValue } from '@windingtree/org.id-utils/dist/object';
 import { createVC } from '@windingtree/org.id-auth/dist/vc';
 import {
-  createVerificationMethodWithBlockchainAccountId
+  createVerificationMethodWithBlockchainAccountId,
+  DidVerificationMethod
 } from '@windingtree/org.json-utils';
 import { OrgIdContract } from '@windingtree/org.id';
 import { HttpFileServer, File } from '@windingtree/org.id-test-http-server';
@@ -17,6 +20,7 @@ import '@nomiclabs/hardhat-ethers';
 import { ethers } from 'hardhat';
 
 import orgJsonTemplate from './data/legal-entity.json';
+import { org } from '@windingtree/org.json-schema';
 
 export {
   orgJsonTemplate,
@@ -36,7 +40,8 @@ export interface OrgIdSetup {
   ): Promise<OrgIdRegistrationResult>;
   buildOrgJson(
     did: string,
-    owner: VoidSigner
+    owner: VoidSigner,
+    overrideOptions?: TestOverrideOptions
   ): Promise<SignedVC>;
   close: () => void;
 }
@@ -45,6 +50,7 @@ export type OrgIdRegistrationResult = {
   orgIdHash: string;
   tokenId: BigNumber;
   orgJson: SignedVC;
+  delegates?: string[];
 };
 
 export interface TestOverrideOptions {
@@ -61,6 +67,10 @@ export interface TestOverrideOptions {
   orgJsonDeactivated?: any;
   orgJsonVerificationMethod?: any[];
   orgJsonVerificationMethodRevocation?: any;
+  signWithDelegate?: {
+    delegate: ORGJSONVCNFT;
+    signer: VoidSigner;
+  };
 }
 
 // Builds a signed org.json VC
@@ -79,19 +89,42 @@ export const buildOrgJson = async (
     description: `${orgJson.legalEntity.legalName} company profile`,
     image: orgJson.legalEntity.media.logo
   };
-  const issuer = `${did}#key-1`;
-  const ownerAddress = await owner.getAddress();
-  const blockchainAccountId = `${ownerAddress}@eip155:1337`;
+
+  let verificationMethod: DidVerificationMethod;
+  let issuer: string;
+  let blockchainAccountId: string;
+
   orgJson.id = did;
   orgJson.created = new Date().toISOString();
   orgJson.updated = new Date().toISOString();
-  const verificationMethod = await createVerificationMethodWithBlockchainAccountId(
-    issuer,
-    did,
-    overrideOptions.orgJsonBlockchainAccountId !== undefined
-      ? overrideOptions.orgJsonBlockchainAccountId
-      : blockchainAccountId
-  );
+
+  if (overrideOptions.signWithDelegate !== undefined) {
+    verificationMethod = getDeepValue(
+      overrideOptions.signWithDelegate.delegate,
+      'credentialSubject.verificationMethod[0]'
+    ) as DidVerificationMethod;
+
+    if (!verificationMethod) {
+      throw new Error('Invalid verificationMethod definition of delegate');
+    }
+
+    issuer = verificationMethod.id;
+    blockchainAccountId = verificationMethod.blockchainAccountId as string;
+    orgJson.capabilityDelegation = [ verificationMethod.id ];
+  } else {
+    issuer = `${did}#key-1`;
+    const ownerAddress = await owner.getAddress();
+    blockchainAccountId = `${ownerAddress}@eip155:1337`;
+
+    verificationMethod = await createVerificationMethodWithBlockchainAccountId(
+      issuer,
+      did,
+      overrideOptions.orgJsonBlockchainAccountId !== undefined
+        ? overrideOptions.orgJsonBlockchainAccountId
+        : blockchainAccountId
+    );
+  }
+
   orgJson.verificationMethod.push(
     {
       ...verificationMethod,
@@ -151,34 +184,15 @@ export const registerOrgId = async (
     orgIdOwner,
     salt
   );
+  let delegates: string[] | undefined;
 
   if (overrideOptions.orgIdHash !== undefined) {
     orgIdHash = overrideOptions.orgIdHash;
   }
 
-  const orgJson = await buildOrgJson(
-    `did:orgid:1337:${orgIdHash}`,
-    owner,
-    overrideOptions
-  );
-
-  if (overrideOptions.vcProofVerificationMethod !== undefined) {
-    orgJson.proof.verificationMethod = overrideOptions.vcProofVerificationMethod;
-  }
-
-  const fileToAdd: File = {
-    type: 'json',
-    path: `${orgIdHash}.json`,
-    content: JSON.stringify(orgJson)
-  };
-  const file = httpServer.addFile(fileToAdd);
-  const tx = await contract.connect(orgIdOwner).createOrgId(
+  let tx = await contract.connect(orgIdOwner).createOrgId(
     salt,
-    `${
-      overrideOptions.baseUri !== undefined
-        ? overrideOptions.baseUri
-        : httpServer.baseUri
-    }/${file.path}`
+    'temp'
   );
   const receipt = await tx.wait();
 
@@ -192,12 +206,56 @@ export const registerOrgId = async (
     throw new Error('Unable to extract OrgIdCreated event data');
   }
 
+  if (overrideOptions.signWithDelegate !== undefined) {
+    const verificationMethod = getDeepValue(
+      overrideOptions.signWithDelegate.delegate,
+      'credentialSubject.verificationMethod[0]'
+    ) as DidVerificationMethod;
+
+    if (!verificationMethod) {
+      throw new Error('Invalid verificationMethod definition of delegate');
+    }
+    delegates = [
+      verificationMethod.id
+    ];
+    await contract.connect(orgIdOwner).addDelegates(orgIdHash, delegates);
+  }
+
   const tokenId = await contract.getTokenId(event.args.orgId);
+  const orgJson = await buildOrgJson(
+    `did:orgid:1337:${orgIdHash}`,
+    overrideOptions.signWithDelegate !== undefined
+      ? overrideOptions.signWithDelegate.signer
+      : owner,
+    overrideOptions
+  );
+
+  if (overrideOptions.vcProofVerificationMethod !== undefined) {
+    orgJson.proof.verificationMethod = overrideOptions.vcProofVerificationMethod;
+  }
+
+  const fileToAdd: File = {
+    type: 'json',
+    path: `${orgIdHash}.json`,
+    content: JSON.stringify(orgJson)
+  };
+  const file = httpServer.addFile(fileToAdd);
+
+  tx = await contract.connect(orgIdOwner).setOrgJson(
+    orgIdHash,
+    `${
+      overrideOptions.baseUri !== undefined
+        ? overrideOptions.baseUri
+        : httpServer.baseUri
+    }/${file.path}`
+  );
+  await tx.wait();
 
   return {
-    orgIdHash: event.args.orgId,
+    orgIdHash,
     tokenId,
-    orgJson
+    orgJson,
+    delegates
   };
 }
 
