@@ -79,6 +79,41 @@ describe('OrgId setup', () => {
         await setup.registerOrgId(owner as VoidSigner, overrides);
         await expect(verifyVC(orgJson, delegateBlockchainAccountId)).to.not.rejected;
       });
+
+      it('should register new orgId and sign ORG.JSON with delegated key (2 levels)', async () => {
+        // Level 0 (delegate of Level 1)
+        const owner0 = setup.signers[3];
+        const { orgJson: orgJson0 } = await setup.registerOrgId(owner0 as VoidSigner);
+        const delegateAddress0 = await owner0.getAddress();
+        const delegateBlockchainAccountId0 = `${delegateAddress0}@eip155:1337`;
+        await expect(verifyVC(orgJson0, delegateBlockchainAccountId0)).to.not.rejected;
+
+        // Level 1 (delegate of Level 2)
+        const overrides1: TestOverrideOptions = {
+          signWithDelegate: {
+            delegate: orgJson0 as ORGJSONVCNFT,
+            signer: owner0 as VoidSigner
+          }
+        };
+        const owner1 = setup.signers[4];
+        const { orgJson: orgJson1 } = await setup.registerOrgId(owner1 as VoidSigner, overrides1);
+        // Verify with delegate on the level 0
+        await expect(verifyVC(orgJson1, delegateBlockchainAccountId0)).to.not.rejected;
+        const delegateAddress1 = await owner1.getAddress();
+        const delegateBlockchainAccountId1 = `${delegateAddress1}@eip155:1337`;
+
+        // Level 2
+        const overrides2: TestOverrideOptions = {
+          signWithDelegate: {
+            delegate: orgJson1 as ORGJSONVCNFT,
+            signer: owner1 as VoidSigner
+          }
+        };
+        const owner2 = setup.signers[4];
+        const { orgJson: orgJson2 } = await setup.registerOrgId(owner2 as VoidSigner, overrides2);
+        // Verify with delegate on the level 1
+        await expect(verifyVC(orgJson2, delegateBlockchainAccountId1)).to.not.rejected;
+      });
     });
   });
 });

@@ -90,44 +90,25 @@ export const buildOrgJson = async (
     image: orgJson.legalEntity.media.logo
   };
 
-  let verificationMethod: DidVerificationMethod;
-  let issuer: string;
-  let blockchainAccountId: string;
-
   orgJson.id = did;
   orgJson.created = new Date().toISOString();
   orgJson.updated = new Date().toISOString();
 
-  if (overrideOptions.signWithDelegate !== undefined) {
-    verificationMethod = getDeepValue(
-      overrideOptions.signWithDelegate.delegate,
-      'credentialSubject.verificationMethod[0]'
-    ) as DidVerificationMethod;
+  const ownerIssuer = `${did}#key-1`;
+  const ownerAddress = await owner.getAddress();
+  const ownerBlockchainAccountId = `${ownerAddress}@eip155:1337`;
 
-    if (!verificationMethod) {
-      throw new Error('Invalid verificationMethod definition of delegate');
-    }
-
-    issuer = verificationMethod.id;
-    blockchainAccountId = verificationMethod.blockchainAccountId as string;
-    orgJson.capabilityDelegation = [ verificationMethod.id ];
-  } else {
-    issuer = `${did}#key-1`;
-    const ownerAddress = await owner.getAddress();
-    blockchainAccountId = `${ownerAddress}@eip155:1337`;
-
-    verificationMethod = await createVerificationMethodWithBlockchainAccountId(
-      issuer,
+  const ownerVerificationMethod = await createVerificationMethodWithBlockchainAccountId(
+    ownerIssuer,
       did,
       overrideOptions.orgJsonBlockchainAccountId !== undefined
         ? overrideOptions.orgJsonBlockchainAccountId
-        : blockchainAccountId
+        : ownerBlockchainAccountId
     );
-  }
 
   orgJson.verificationMethod.push(
     {
-      ...verificationMethod,
+      ...ownerVerificationMethod,
       ...(
         overrideOptions.orgJsonVerificationMethodRevocation !== undefined
           ? {
@@ -146,8 +127,26 @@ export const buildOrgJson = async (
     orgJson.verificationMethod = overrideOptions.orgJsonVerificationMethod;
   }
 
+  let issuer: string | undefined;
+  let blockchainAccountId: string | undefined;
+
+  if (overrideOptions.signWithDelegate !== undefined) {
+    const delegateVerificationMethod = getDeepValue(
+      overrideOptions.signWithDelegate.delegate,
+      'credentialSubject.verificationMethod[0]'
+    ) as DidVerificationMethod;
+
+    if (!delegateVerificationMethod) {
+      throw new Error('Invalid verificationMethod definition of delegate');
+    }
+
+    issuer = delegateVerificationMethod.id;
+    blockchainAccountId = delegateVerificationMethod.blockchainAccountId as string;
+    orgJson.capabilityDelegation = [ delegateVerificationMethod.id ];
+  }
+
   const vc: SignedVC = await createVC(
-    issuer,
+    issuer || ownerIssuer,
     overrideOptions.vcType !== undefined ? overrideOptions.vcType : ['OrgJson']
   )
     .setCredentialSubject(
@@ -161,8 +160,10 @@ export const buildOrgJson = async (
         : nftMetaData
     )
     .signWithBlockchainAccount(
-      blockchainAccountId,
-      owner
+      blockchainAccountId || ownerBlockchainAccountId,
+      overrideOptions.signWithDelegate !== undefined
+        ? overrideOptions.signWithDelegate.signer
+        : owner
     );
   return vc;
 };
@@ -224,9 +225,7 @@ export const registerOrgId = async (
   const tokenId = await contract.getTokenId(event.args.orgId);
   const orgJson = await buildOrgJson(
     `did:orgid:1337:${orgIdHash}`,
-    overrideOptions.signWithDelegate !== undefined
-      ? overrideOptions.signWithDelegate.signer
-      : owner,
+    orgIdOwner,
     overrideOptions
   );
 
