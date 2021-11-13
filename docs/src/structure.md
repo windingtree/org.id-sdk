@@ -1,0 +1,1 @@
+# ORGiD SDK structure
