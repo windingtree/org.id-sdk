@@ -12,17 +12,7 @@ ORGiD SDK provides libraries and utilities for identity management that can be e
 
 ## ORGiD identifier Compatibility
 
-ORGiD identity follows the [DID specification](https://www.w3.org/TR/did-core/), supports the related data-model and core properties.
-
-An example of ORGiD DID:
-
-```text
-did:orgid:1:0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119
-```
-
-- `orgid` is a DID method
-- `1` - is a blockchain Id according to [chainlist.org](https://chainlist.org/) where the identity has been issued
-- `0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119` is unique organization (or personal) profile Id
+ORGiD identifier follows the [DID specification](https://www.w3.org/TR/did-core/), supports the related data-model and core properties. The DID method for such kind of identifiers is `orgid`.
 
 ## Multichain DIDs support
 
@@ -30,9 +20,14 @@ When the idea of the ORGiD has appeared, no one could predict how much an Ethere
 
 Currently, the ORGiD smart contract is deployed to the following chains:
 
-- `Arbitrum`
-- `Optimism`
+- (expected soon) `Arbitrum`
+- (expected soon) `Optimism`
 - (expected soon) `ZKSync`
+
+Test networks:
+
+- Arbitrum Testnet
+- Rinkeby Testnet
 
 As mentioned above, every ORGiD DID contains information in which blockchain network this identifier has been issued. Thanks to that it is easy to implement cross-chain identifiers lookup and verification.
 
