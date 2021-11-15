@@ -1,0 +1,34 @@
+// {type:activity}
+// {generate:true}
+
+(org.json-schema {bg:beige})schema, types->(org.id-utils)
+(org.json-schema {bg:beige})schema, types->(org.id-auth)
+(org.json-schema {bg:beige})schema, types->(org.id-test-setup)
+(org.json-schema {bg:beige})schema, types->(org.json-utils)
+(org.json-schema {bg:beige})schema, types->(org.id-resolver {bg:beige})
+
+(org.id {bg:beige})ABI, types->(org.id-core)
+(org.id {bg:beige})ABI, types->(org.id-test-setup)
+(org.id {bg:beige})ABI, types->(org.id-resolver {bg:beige})
+
+(org.id-test-http-server)tests env->(org.id-test-setup)
+(org.id-test-http-server)tests env->(org.id-utils)
+
+(org.id-utils)utils->(org.id-auth)
+(org.id-utils)utils->(org.id-core)
+(org.id-utils)utils->(org.id-test-setup)
+(org.id-utils)utils->(org.json-utils)
+(org.id-utils)utils->(org.id-resolver {bg:beige})
+
+(org.id-test-setup)tests env->(org.id-core)
+(org.id-test-setup)tests env->(org.id-resolver {bg:beige})
+
+(org.id-auth)lib->(org.json-utils)
+(org.id-auth)lib->(org.id-test-setup)
+(org.id-auth)lib->(org.id-resolver {bg:beige})
+
+(org.json-utils)utils->(org.id-test-setup)
+
+(org.id-core)lib->(org.id-resolver {bg:beige})
+
+
