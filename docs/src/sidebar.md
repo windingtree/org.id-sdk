@@ -1,5 +1,5 @@
 <!-- markdownlint-disable MD041 -->
-* [Getting started](/)
+* [Welcome](/)
 * [Features](/build/features.md)
 * [Glossary](/build/glossary.md)
 * [Structure](/build/structure.md)

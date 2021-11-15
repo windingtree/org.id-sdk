@@ -1,8 +1,8 @@
 # Glossary of terms
 
-## ORGiD
+## ORGiD DID
 
-ORGiD is the unique identifier compatible with [DID specification](https://www.w3.org/TR/did-core/).
+ORGiD DID is the unique identifier compatible with [DID specification](https://www.w3.org/TR/did-core/).
 
 The example of ORGiD DID:
 
