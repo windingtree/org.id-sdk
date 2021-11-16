@@ -580,6 +580,7 @@ export const createVC = (
       return chain;
     },
 
+    // @todo Add link NFT context to the VC contexts definition
     setNftMetaData: metaData => {
       const validationResult = object.validateWithSchemaOrRef(
         NftMetaDataSchema,
