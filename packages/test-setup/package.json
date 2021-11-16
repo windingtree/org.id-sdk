@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-test-setup",
-  "version": "1.0.0-beta.21",
+  "version": "1.0.0-beta.22",
   "description": "Ease ORGiD setup for testing purposes",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -40,11 +40,11 @@
   "dependencies": {
     "@nomiclabs/hardhat-ethers": "2.0.2",
     "@windingtree/org.id": "3.0.0-beta.6",
-    "@windingtree/org.id-auth": "^1.0.0-beta.10",
+    "@windingtree/org.id-auth": "^1.0.0-beta.22",
     "@windingtree/org.id-test-http-server": "^1.0.0-beta.7",
-    "@windingtree/org.id-utils": "^1.0.0-beta.10",
+    "@windingtree/org.id-utils": "^1.0.0-beta.22",
     "@windingtree/org.json-schema": "1.0.0-beta.5",
-    "@windingtree/org.json-utils": "^1.0.0-beta.10",
+    "@windingtree/org.json-utils": "^1.0.0-beta.22",
     "ethers": "5.5.1",
     "hardhat": "2.6.8"
   },
