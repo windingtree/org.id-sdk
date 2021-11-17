@@ -21,13 +21,14 @@
 
 ### Type aliases
 
-- [CredentialSubjectTypes](vc.md#credentialsubjecttypes)
 - [GenericObject](vc.md#genericobject)
 - [SubjectTypeConfig](vc.md#subjecttypeconfig)
 
 ### Variables
 
 - [CredentialSubjectTypesMap](vc.md#credentialsubjecttypesmap)
+- [verifiableCredentialDomain](vc.md#verifiablecredentialdomain)
+- [verifiableCredentialSignatureTypes](vc.md#verifiablecredentialsignaturetypes)
 
 ### Functions
 
@@ -44,16 +45,6 @@
 
 ## Type aliases
 
-### CredentialSubjectTypes
-
-Ƭ **CredentialSubjectTypes**: ``"VerifiableCredential"`` \| ``"OrgJson"`` \| ``"TrustAssertion"``
-
-#### Defined in
-
-[src/vc.ts:44](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L44)
-
-___
-
 ### GenericObject
 
 Ƭ **GenericObject**: `Object`
@@ -64,17 +55,21 @@ ___
 
 #### Defined in
 
-[src/vc.ts:34](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L34)
+[src/vc.ts:36](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L36)
 
 ___
 
 ### SubjectTypeConfig
 
-Ƭ **SubjectTypeConfig**: { [k in CredentialSubjectTypes]: CredentialSubjectValidatorConfig }
+Ƭ **SubjectTypeConfig**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: [`CredentialSubjectValidatorConfig`](../interfaces/vc.CredentialSubjectValidatorConfig.md)
 
 #### Defined in
 
-[src/vc.ts:109](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L109)
+[src/vc.ts:109](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L109)
 
 ## Variables
 
@@ -84,7 +79,39 @@ ___
 
 #### Defined in
 
-[src/vc.ts:117](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L117)
+[src/vc.ts:117](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L117)
+
+___
+
+### verifiableCredentialDomain
+
+• **verifiableCredentialDomain**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Defined in
+
+[src/vc.ts:155](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L155)
+
+___
+
+### verifiableCredentialSignatureTypes
+
+• **verifiableCredentialSignatureTypes**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `Payload` | { `name`: `string` = 'payload'; `type`: `string` = 'string' }[] |
+
+#### Defined in
+
+[src/vc.ts:160](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L160)
 
 ## Functions
 
@@ -105,7 +132,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:258](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L258)
+[src/vc.ts:284](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L284)
 
 ___
 
@@ -127,7 +154,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:289](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L289)
+[src/vc.ts:315](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L315)
 
 ___
 
@@ -148,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:133](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L133)
+[src/vc.ts:133](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L133)
 
 ___
 
@@ -168,7 +195,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:277](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L277)
+[src/vc.ts:303](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L303)
 
 ___
 
@@ -190,7 +217,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:309](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L309)
+[src/vc.ts:335](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L335)
 
 ___
 
@@ -210,7 +237,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:193](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L193)
+[src/vc.ts:215](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L215)
 
 ___
 
@@ -230,7 +257,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:171](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L171)
+[src/vc.ts:193](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L193)
 
 ___
 
@@ -242,7 +269,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `signer` | `Signer` |
+| `signer` | `VoidSigner` |
 | `verificationMethod` | `string` |
 | `payload` | `string` \| [`GenericObject`](vc.md#genericobject) |
 
@@ -252,7 +279,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:155](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L155)
+[src/vc.ts:170](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L170)
 
 ___
 
@@ -273,7 +300,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:232](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L232)
+[src/vc.ts:254](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L254)
 
 ___
 
@@ -294,4 +321,4 @@ ___
 
 #### Defined in
 
-[src/vc.ts:616](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L616)
+[src/vc.ts:700](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L700)

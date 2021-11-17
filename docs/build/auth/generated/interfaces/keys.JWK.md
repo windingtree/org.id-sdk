@@ -44,7 +44,7 @@
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:99
+node_modules/jose/dist/types/types.d.ts:91
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:100
+node_modules/jose/dist/types/types.d.ts:92
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:101
+node_modules/jose/dist/types/types.d.ts:93
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:102
+node_modules/jose/dist/types/types.d.ts:94
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:103
+node_modules/jose/dist/types/types.d.ts:95
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:104
+node_modules/jose/dist/types/types.d.ts:96
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:105
+node_modules/jose/dist/types/types.d.ts:97
 
 ___
 
@@ -114,7 +114,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:106
+node_modules/jose/dist/types/types.d.ts:98
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:107
+node_modules/jose/dist/types/types.d.ts:99
 
 ___
 
@@ -134,7 +134,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:108
+node_modules/jose/dist/types/types.d.ts:100
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:109
+node_modules/jose/dist/types/types.d.ts:101
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:110
+node_modules/jose/dist/types/types.d.ts:102
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:111
+node_modules/jose/dist/types/types.d.ts:103
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:116
+node_modules/jose/dist/types/types.d.ts:108
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:117
+node_modules/jose/dist/types/types.d.ts:109
 
 ___
 
@@ -194,7 +194,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:118
+node_modules/jose/dist/types/types.d.ts:110
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:119
+node_modules/jose/dist/types/types.d.ts:111
 
 ___
 
@@ -214,7 +214,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:120
+node_modules/jose/dist/types/types.d.ts:112
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:122
+node_modules/jose/dist/types/types.d.ts:114
 
 ___
 
@@ -234,7 +234,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:123
+node_modules/jose/dist/types/types.d.ts:115
 
 ___
 
@@ -244,7 +244,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:124
+node_modules/jose/dist/types/types.d.ts:116
 
 ___
 
@@ -254,7 +254,7 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:125
+node_modules/jose/dist/types/types.d.ts:117
 
 ___
 
@@ -264,4 +264,4 @@ ___
 
 #### Defined in
 
-node_modules/jose/dist/types/types.d.ts:121
+node_modules/jose/dist/types/types.d.ts:113

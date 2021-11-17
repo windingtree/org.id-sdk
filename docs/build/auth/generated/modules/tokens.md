@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[src/tokens.ts:15](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/tokens.ts#L15)
+[src/tokens.ts:15](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/tokens.ts#L15)
 
 ___
 
@@ -59,4 +59,4 @@ ___
 
 #### Defined in
 
-[src/tokens.ts:95](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/tokens.ts#L95)
+[src/tokens.ts:95](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/tokens.ts#L95)

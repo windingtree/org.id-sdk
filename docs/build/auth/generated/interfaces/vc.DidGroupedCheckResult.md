@@ -75,7 +75,7 @@ RegExpExecArray.groups
 
 #### Defined in
 
-[src/vc.ts:76](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L76)
+[src/vc.ts:76](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L76)
 
 ___
 
@@ -536,7 +536,7 @@ specified depth.
 | Name | Type |
 | :------ | :------ |
 | `A` | `A` |
-| `D` | extends `number```1`` |
+| `D` | extends `number` = ``1`` |
 
 #### Parameters
 

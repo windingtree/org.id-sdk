@@ -3,11 +3,12 @@
 * [Features](/build/features.md)
 * [Glossary](/build/glossary.md)
 * [Structure](/build/structure.md)
-* [Validation schema](/build/schema.md)
-  * [ORG.JSON](/build/orgJson.md)
-  * [VC](/build/vc.md)
-  * [NFT](/build/nft.md)
-* [Authentication](/build/auth/)
+* [Validation schemas](/build/org.json-schema/index.md)
+* [ORG.JSON schema](/build/org.json-schema/org-json.md)
+* [ORGiD VC schema](/build/org.json-schema/vc.md)
+* [ORG.JSON VC NFT schema](/build/org.json-schema/org-json-vc-nft.md)
+* [Authentication](/build/auth/index.md)
+<!-- *
   * [Keys](/build/auth/keys.md)
   * [Tokens](/build/auth/tokens.md)
   * [Verifiable Credentials](/build/auth/vc.md)
@@ -23,4 +24,4 @@
   * [Objects](/build/utils/object.md)
   * [RegExp](/build/utils/regexp.md)
   * [UID](/build/utils/uid.md)
-* [Contribution](/build/contribution.md)
+* [Contribution](/build/contribution.md) -->

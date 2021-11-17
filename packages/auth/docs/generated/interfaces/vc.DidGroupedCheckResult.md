@@ -1,60 +1,60 @@
-[@windingtree/org.id-auth](../README.md) / [vc](../modules/vc.md) / BlockchainAccountIdGroupedResult
+[@windingtree/org.id-auth](../README.md) / [vc](../modules/vc.md) / DidGroupedCheckResult
 
-# Interface: BlockchainAccountIdGroupedResult
+# Interface: DidGroupedCheckResult
 
-[vc](../modules/vc.md).BlockchainAccountIdGroupedResult
+[vc](../modules/vc.md).DidGroupedCheckResult
 
 ## Hierarchy
 
 - `RegExpExecArray`
 
-  ↳ **`BlockchainAccountIdGroupedResult`**
+  ↳ **`DidGroupedCheckResult`**
 
 ## Table of contents
 
 ### Properties
 
-- [groups](vc.BlockchainAccountIdGroupedResult.md#groups)
-- [index](vc.BlockchainAccountIdGroupedResult.md#index)
-- [input](vc.BlockchainAccountIdGroupedResult.md#input)
-- [length](vc.BlockchainAccountIdGroupedResult.md#length)
+- [groups](vc.DidGroupedCheckResult.md#groups)
+- [index](vc.DidGroupedCheckResult.md#index)
+- [input](vc.DidGroupedCheckResult.md#input)
+- [length](vc.DidGroupedCheckResult.md#length)
 
 ### Methods
 
-- [[iterator]](vc.BlockchainAccountIdGroupedResult.md#[iterator])
-- [[unscopables]](vc.BlockchainAccountIdGroupedResult.md#[unscopables])
-- [at](vc.BlockchainAccountIdGroupedResult.md#at)
-- [concat](vc.BlockchainAccountIdGroupedResult.md#concat)
-- [copyWithin](vc.BlockchainAccountIdGroupedResult.md#copywithin)
-- [entries](vc.BlockchainAccountIdGroupedResult.md#entries)
-- [every](vc.BlockchainAccountIdGroupedResult.md#every)
-- [fill](vc.BlockchainAccountIdGroupedResult.md#fill)
-- [filter](vc.BlockchainAccountIdGroupedResult.md#filter)
-- [find](vc.BlockchainAccountIdGroupedResult.md#find)
-- [findIndex](vc.BlockchainAccountIdGroupedResult.md#findindex)
-- [flat](vc.BlockchainAccountIdGroupedResult.md#flat)
-- [flatMap](vc.BlockchainAccountIdGroupedResult.md#flatmap)
-- [forEach](vc.BlockchainAccountIdGroupedResult.md#foreach)
-- [includes](vc.BlockchainAccountIdGroupedResult.md#includes)
-- [indexOf](vc.BlockchainAccountIdGroupedResult.md#indexof)
-- [join](vc.BlockchainAccountIdGroupedResult.md#join)
-- [keys](vc.BlockchainAccountIdGroupedResult.md#keys)
-- [lastIndexOf](vc.BlockchainAccountIdGroupedResult.md#lastindexof)
-- [map](vc.BlockchainAccountIdGroupedResult.md#map)
-- [pop](vc.BlockchainAccountIdGroupedResult.md#pop)
-- [push](vc.BlockchainAccountIdGroupedResult.md#push)
-- [reduce](vc.BlockchainAccountIdGroupedResult.md#reduce)
-- [reduceRight](vc.BlockchainAccountIdGroupedResult.md#reduceright)
-- [reverse](vc.BlockchainAccountIdGroupedResult.md#reverse)
-- [shift](vc.BlockchainAccountIdGroupedResult.md#shift)
-- [slice](vc.BlockchainAccountIdGroupedResult.md#slice)
-- [some](vc.BlockchainAccountIdGroupedResult.md#some)
-- [sort](vc.BlockchainAccountIdGroupedResult.md#sort)
-- [splice](vc.BlockchainAccountIdGroupedResult.md#splice)
-- [toLocaleString](vc.BlockchainAccountIdGroupedResult.md#tolocalestring)
-- [toString](vc.BlockchainAccountIdGroupedResult.md#tostring)
-- [unshift](vc.BlockchainAccountIdGroupedResult.md#unshift)
-- [values](vc.BlockchainAccountIdGroupedResult.md#values)
+- [[iterator]](vc.DidGroupedCheckResult.md#[iterator])
+- [[unscopables]](vc.DidGroupedCheckResult.md#[unscopables])
+- [at](vc.DidGroupedCheckResult.md#at)
+- [concat](vc.DidGroupedCheckResult.md#concat)
+- [copyWithin](vc.DidGroupedCheckResult.md#copywithin)
+- [entries](vc.DidGroupedCheckResult.md#entries)
+- [every](vc.DidGroupedCheckResult.md#every)
+- [fill](vc.DidGroupedCheckResult.md#fill)
+- [filter](vc.DidGroupedCheckResult.md#filter)
+- [find](vc.DidGroupedCheckResult.md#find)
+- [findIndex](vc.DidGroupedCheckResult.md#findindex)
+- [flat](vc.DidGroupedCheckResult.md#flat)
+- [flatMap](vc.DidGroupedCheckResult.md#flatmap)
+- [forEach](vc.DidGroupedCheckResult.md#foreach)
+- [includes](vc.DidGroupedCheckResult.md#includes)
+- [indexOf](vc.DidGroupedCheckResult.md#indexof)
+- [join](vc.DidGroupedCheckResult.md#join)
+- [keys](vc.DidGroupedCheckResult.md#keys)
+- [lastIndexOf](vc.DidGroupedCheckResult.md#lastindexof)
+- [map](vc.DidGroupedCheckResult.md#map)
+- [pop](vc.DidGroupedCheckResult.md#pop)
+- [push](vc.DidGroupedCheckResult.md#push)
+- [reduce](vc.DidGroupedCheckResult.md#reduce)
+- [reduceRight](vc.DidGroupedCheckResult.md#reduceright)
+- [reverse](vc.DidGroupedCheckResult.md#reverse)
+- [shift](vc.DidGroupedCheckResult.md#shift)
+- [slice](vc.DidGroupedCheckResult.md#slice)
+- [some](vc.DidGroupedCheckResult.md#some)
+- [sort](vc.DidGroupedCheckResult.md#sort)
+- [splice](vc.DidGroupedCheckResult.md#splice)
+- [toLocaleString](vc.DidGroupedCheckResult.md#tolocalestring)
+- [toString](vc.DidGroupedCheckResult.md#tostring)
+- [unshift](vc.DidGroupedCheckResult.md#unshift)
+- [values](vc.DidGroupedCheckResult.md#values)
 
 ## Properties
 
@@ -62,17 +62,12 @@
 
 • **groups**: `Object`
 
-#### Index signature
-
-▪ [key: `string`]: `string`
-
 #### Type declaration
 
 | Name | Type |
 | :------ | :------ |
-| `accountId` | `string` |
-| `blockchainId` | `string` |
-| `blockchainType` | `string` |
+| `did` | `string` |
+| `fragment?` | `string` |
 
 #### Overrides
 
@@ -80,7 +75,7 @@ RegExpExecArray.groups
 
 #### Defined in
 
-[src/vc.ts:83](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L83)
+[src/vc.ts:76](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L76)
 
 ___
 
@@ -259,7 +254,7 @@ ___
 
 ### copyWithin
 
-▸ **copyWithin**(`target`, `start`, `end?`): [`BlockchainAccountIdGroupedResult`](vc.BlockchainAccountIdGroupedResult.md)
+▸ **copyWithin**(`target`, `start`, `end?`): [`DidGroupedCheckResult`](vc.DidGroupedCheckResult.md)
 
 Returns the this object after copying a section of the array identified by start and end
 to the same array starting at position target
@@ -274,7 +269,7 @@ to the same array starting at position target
 
 #### Returns
 
-[`BlockchainAccountIdGroupedResult`](vc.BlockchainAccountIdGroupedResult.md)
+[`DidGroupedCheckResult`](vc.DidGroupedCheckResult.md)
 
 #### Inherited from
 
@@ -364,7 +359,7 @@ ___
 
 ### fill
 
-▸ **fill**(`value`, `start?`, `end?`): [`BlockchainAccountIdGroupedResult`](vc.BlockchainAccountIdGroupedResult.md)
+▸ **fill**(`value`, `start?`, `end?`): [`DidGroupedCheckResult`](vc.DidGroupedCheckResult.md)
 
 Changes all array elements from `start` to `end` index to a static `value` and returns the modified array
 
@@ -378,7 +373,7 @@ Changes all array elements from `start` to `end` index to a static `value` and r
 
 #### Returns
 
-[`BlockchainAccountIdGroupedResult`](vc.BlockchainAccountIdGroupedResult.md)
+[`DidGroupedCheckResult`](vc.DidGroupedCheckResult.md)
 
 #### Inherited from
 
@@ -541,7 +536,7 @@ specified depth.
 | Name | Type |
 | :------ | :------ |
 | `A` | `A` |
-| `D` | extends `number```1`` |
+| `D` | extends `number` = ``1`` |
 
 #### Parameters
 
@@ -1085,7 +1080,7 @@ ___
 
 ### sort
 
-▸ **sort**(`compareFn?`): [`BlockchainAccountIdGroupedResult`](vc.BlockchainAccountIdGroupedResult.md)
+▸ **sort**(`compareFn?`): [`DidGroupedCheckResult`](vc.DidGroupedCheckResult.md)
 
 Sorts an array in place.
 This method mutates the array and returns a reference to the same array.
@@ -1098,7 +1093,7 @@ This method mutates the array and returns a reference to the same array.
 
 #### Returns
 
-[`BlockchainAccountIdGroupedResult`](vc.BlockchainAccountIdGroupedResult.md)
+[`DidGroupedCheckResult`](vc.DidGroupedCheckResult.md)
 
 #### Inherited from
 

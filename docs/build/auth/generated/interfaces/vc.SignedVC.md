@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:37](https://github.com/windingtree/org.id-sdk/blob/5e5ef18/packages/auth/src/vc.ts#L37)
+[src/vc.ts:39](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L39)
 
 ___
 
