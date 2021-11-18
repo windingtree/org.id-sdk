@@ -15,17 +15,20 @@ rm -rf build
 cp -r src build
 cp .nojekyll build
 
-# Prepare temp folder
-cleanTemp
-
 # Build docs from org.json-schema package content
+cleanTemp
 wget -O temp/org.json-schema.zip https://github.com/windingtree/org.json-schema/archive/refs/heads/feat/new-orgid.zip
 unzip temp/org.json-schema.zip "org.json-schema-feat-new-orgid/docs/*" -d temp
 cp -r temp/org.json-schema-feat-new-orgid/docs build/org.json-schema
-cleanTemp
 
 # Build docs from auth package
 cp -r ../packages/auth/docs build/auth
+
+# Build docs for the ORGiD smart contract
+cleanTemp
+wget -O temp/org.id.zip https://github.com/windingtree/org.id/archive/refs/heads/orgid-nft.zip
+unzip temp/org.id.zip "org.id-orgid-nft/docs/*" -d temp
+cp -r temp/org.id-orgid-nft/docs build/org.id-smart-contract
 
 # Linting of the built site
 npx markdownlint build/**/*.md

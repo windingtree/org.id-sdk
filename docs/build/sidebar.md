@@ -8,10 +8,9 @@
 * [ORGiD VC schema](/build/org.json-schema/vc.md)
 * [ORG.JSON VC NFT schema](/build/org.json-schema/org-json-vc-nft.md)
 * [Authentication](/build/auth/index.md)
+* [Smart contract](/build/org.id-smart-contract/index.md)
 <!-- *
-  * [Keys](/build/auth/keys.md)
-  * [Tokens](/build/auth/tokens.md)
-  * [Verifiable Credentials](/build/auth/vc.md)
+
 * [Core library](/build/core/)
   * [Smart contract](/build/core/)
   * [ORGiD flow](/build/core/flow.md)
