@@ -39,15 +39,15 @@
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/test-http-server#readme",
   "devDependencies": {
     "@types/jest": "27.0.2",
-    "@typescript-eslint/eslint-plugin": "4.33.0",
-    "@typescript-eslint/parser": "4.33.0",
-    "axios": "0.22.0",
-    "eslint": "7.32.0",
-    "jest": "27.2.4",
-    "ts-jest": "27.0.5",
-    "typedoc": "0.22.5",
-    "typedoc-plugin-markdown": "3.11.3",
-    "typescript": "4.4.3"
+    "@typescript-eslint/eslint-plugin": "5.4.0",
+    "@typescript-eslint/parser": "5.4.0",
+    "axios": "0.24.0",
+    "eslint": "8.2.0",
+    "jest": "27.3.1",
+    "ts-jest": "27.0.7",
+    "typedoc": "0.22.9",
+    "typedoc-plugin-markdown": "3.11.6",
+    "typescript": "4.4.4"
   },
   "gitHead": "3e80e10b0db7fb9121cfbeb6cdfaf2513816043a"
 }
