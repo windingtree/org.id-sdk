@@ -33,5 +33,11 @@ cp -r temp/org.id-orgid-nft/docs build/org.id-smart-contract
 # Build docs for the ORGiD core library
 cp -r ../packages/core/docs build/core
 
+# Build docs for ORGiD DID resolver
+cleanTemp
+wget -O temp/org.id-resolver.zip https://github.com/windingtree/org.id-resolver/archive/refs/heads/new-resolver.zip
+unzip temp/org.id-resolver.zip "org.id-resolver-new-resolver/packages/resolver/docs/*" -d temp
+cp -r temp/org.id-resolver-new-resolver/packages/resolver/docs build/org.id-resolver
+
 # Linting of the built site
 npx markdownlint build/**/*.md

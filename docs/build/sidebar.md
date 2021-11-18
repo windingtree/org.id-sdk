@@ -9,11 +9,9 @@
 * [ORG.JSON VC NFT schema](/build/org.json-schema/org-json-vc-nft.md)
 * [Authentication](/build/auth/index.md)
 * [Smart contract](/build/org.id-smart-contract/index.md)
-* [Core library](/build/core/index.md)
-<!-- *
-* [ORGiD resolver](/build/resolver/)
-  * [Initialization](/build/resolver/initialization.md)
-  * [Resolution](/build/resolver/resolution.md)
+* [Core ORGiD library](/build/core/index.md)
+* [ORGiD resolver](/build/org.id-resolver/index.md)
+<!--
 * [Utilities](/build/utils/)
   * [HTTP](/build/utils/http.md)
   * [Objects](/build/utils/object.md)
