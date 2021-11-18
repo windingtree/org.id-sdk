@@ -30,5 +30,8 @@ wget -O temp/org.id.zip https://github.com/windingtree/org.id/archive/refs/heads
 unzip temp/org.id.zip "org.id-orgid-nft/docs/*" -d temp
 cp -r temp/org.id-orgid-nft/docs build/org.id-smart-contract
 
+# Build docs for the ORGiD core library
+cp -r ../packages/core/docs build/core
+
 # Linting of the built site
 npx markdownlint build/**/*.md

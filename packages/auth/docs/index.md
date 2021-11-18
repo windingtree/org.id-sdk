@@ -1,5 +1,11 @@
 # ORGiD authentication library
 
+## Setup
+
+```bash
+yarn add @windingtree/org.id-auth
+```
+
 ## Cryptographic keys
 
 ## Keys module

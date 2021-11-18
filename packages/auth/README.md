@@ -9,12 +9,21 @@ ORGiD authentication library
 ## Setup
 
 ```bash
-npm install @windingtree/org.id-auth
+yarn install
 ```
 
-## Documentation
+## Build
 
-[ORGiD authentication library documentation](docs/index.md)
+```bash
+yarn build
+```
+
+## Linting & Testing
+
+```bash
+yarn lint
+yarn test
+```
 
 
 

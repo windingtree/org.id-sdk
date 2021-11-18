@@ -12,6 +12,7 @@ When you adding dependencies to your packages it is recommended to run `bootstra
 ```bash
 yarn install
 yarn bootstrap
+yarn build
 ```
 
 ## Testing and linting

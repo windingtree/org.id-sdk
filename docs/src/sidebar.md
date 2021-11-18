@@ -9,12 +9,8 @@
 * [ORG.JSON VC NFT schema](/build/org.json-schema/org-json-vc-nft.md)
 * [Authentication](/build/auth/index.md)
 * [Smart contract](/build/org.id-smart-contract/index.md)
+* [Core library](/build/core/index.md)
 <!-- *
-
-* [Core library](/build/core/)
-  * [Smart contract](/build/core/)
-  * [ORGiD flow](/build/core/flow.md)
-  * [ORGiD delegation](/build/core/delegation/md)
 * [ORGiD resolver](/build/resolver/)
   * [Initialization](/build/resolver/initialization.md)
   * [Resolution](/build/resolver/resolution.md)
