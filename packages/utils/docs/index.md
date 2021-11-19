@@ -193,11 +193,137 @@ const data = { action: 'true' };
 const response = await request(
   'https://example.com/path/to/api/endpoint',
   'POST',
-  data, // optional body data for POSt, PUT, etc requests
+  data, // optional body data for POST, PUT, etc requests
   extraHeaders, // optional, authentication headers, for example
   timeout, // optional,  default is 100000 (10 sec)
   transformResponse // optional transformer function
 );
+```
+
+## Object utilities
+
+### Fetching of the value from an object by path
+
+```typescript
+import {
+  object: {
+    getDeepValue
+  }
+} from '@windingtree/org.id-utils';
+
+const source = {
+  some: {
+    deep: {
+      value: [
+        'one',
+        'two',
+        'three'
+      ]
+    }
+  }
+};
+
+const result = getDeepValue(source, 'some.deep.value[1]');
+console.log(result); // <-- two
+```
+
+### Validating an object against the schema
+
+> Under the hood this utility is uses a powerful [`ajv`](https://github.com/ajv-validator/ajv) package.
+
+```typescript
+import type { AnySchema } from '@windingtree/org.id-utils/dist/object';
+import {
+  object: {
+    validateWithSchemaOrRef
+  }
+} from '@windingtree/org.id-utils';
+
+const validationSchema: AnySchema = {
+  $id: 'customSchema.json',
+  title: 'My Custom Json Schema',
+  allOf: [
+    {
+      $ref: '#/definitions/OneReference'
+    }
+  ],
+  definitions: {
+    OneReference: {
+      type: 'object',
+      properties: {
+        name: {
+          type: 'string'
+        },
+        status: {
+          oneOf: [
+            {
+              $ref: '#/definitions/TwoReference'
+            },
+            {
+              $ref: '#/definitions/ThreeReference'
+            }
+          ]
+        }
+      },
+      required: [
+        'name',
+        'status'
+      ]
+    },
+    TwoReference: {
+      type: 'object',
+      properties: {
+        member: {
+          type: 'boolean'
+        }
+      },
+      required: [
+        'member'
+      ]
+    },
+    ThreeReference: {
+      type: 'object',
+      properties: {
+        vip: {
+          type: 'boolean'
+        }
+      },
+      required: [
+        'vip'
+      ]
+    }
+  }
+};
+
+// raw data object
+const source: any = {
+  name: 'King Dude',
+  status: {
+    vip: true
+  }
+};
+
+// validating against the root definition
+const validationResult1 = object.validateWithSchemaOrRef(
+  validationSchema,
+  '',
+  orgJson as KnownTargetType
+);
+
+if (validationResult !== null) {
+  throw new Error(
+    `Validation error: ${validationResult}`
+  );
+}
+
+// validating against the specific definition
+const validationResult2 = object.validateWithSchemaOrRef(
+  validationSchema,
+  '#/definitions/TwoReference',
+  orgJson.status
+);
+
+...
 ```
 
 ## Regular expressions
@@ -218,16 +344,42 @@ console.log(Object.keys(regexp));
   ethereumAddress,
   bitcoinAddress,
   blockchainAccountId,
-  blockchainAccountIdGrouped,
-  X25519,          // <-- X25519 pub key
-  secp256k1,       // <-- secp256k1 pub key
+  blockchainAccountIdGrouped, // <-- parses the string into parameters
+  X25519,                     // <-- X25519 pub key
+  secp256k1,                  // <-- secp256k1 pub key
   bytes32,
   swift,
   iban,
+  did,
+  didOnly,
+  didGrouped,                 // <-- parses the string into parameters
+  uuid4,
   ipfs,
   ipfsCidV0,
   ipfsCidV1Base32,
-  ipfsCidV1Base58btc
+  ipfsCidV1Base58btc,
+  ipfsUri,
+  ipfsUriGrouped              // <-- parses the string into parameters
 ]
 */
+```
+
+### "Grouped" RegExps
+
+### blockchainAccountIdGrouped
+
+```text
+string -> result.groups { accountId, blockchainType, blockchainId }
+```
+
+### didGrouped
+
+```text
+string -> result.groups { did, method, network, id, query, fragment }
+```
+
+### ipfsUriGrouped
+
+```text
+string -> result.groups { protocol, cid, blockchainId }
 ```
