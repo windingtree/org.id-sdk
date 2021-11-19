@@ -1,1 +1,49 @@
-# Contribution
+# Contributing to the ORGiD SDK
+
+## Contribution guidelines
+
+> TBD
+
+## Creating Pull Requests (PRs)
+
+As a contributor, you are expected to fork this repository, work on your own fork and then submit pull requests. The pull requests will be reviewed and eventually merged into the main repo. See ["Fork-a-Repo"](https://help.github.com/articles/fork-a-repo/) for how this works.
+
+## A typical workflow
+
+1) Make sure your fork is up to date with the main repository:
+
+> `orgid-sdk` is your local clone of the forked repository
+
+```bash
+cd orgid-sdk
+git remote add upstream https://github.com/windingtree/org.id-sdk.git
+git fetch upstream
+git pull --rebase upstream master
+```
+
+2) Branch out from `master` into `fix/some-bug`:
+
+```bash
+git checkout -b fix/some-bug
+```
+
+3) Make your changes, add your files, test, commit, and push to your fork.
+
+```bash
+git add SomeFile.js
+git commit "Fix some bug"
+git push origin fix/some-bug
+```
+
+4) Run tests, linter, etc.
+
+```bash
+yarn test
+yarn lint
+```
+
+5) Go to [github.com/windingtree/org.id-sdk/pulls](https://github.com/windingtree/org.id-sdk/pulls) in your web browser and issue a new pull request.
+
+## PR template
+
+> TBD

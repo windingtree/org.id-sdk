@@ -11,10 +11,11 @@
 * [Smart contract](/build/org.id-smart-contract/index.md)
 * [Core ORGiD library](/build/core/index.md)
 * [ORGiD resolver](/build/org.id-resolver/index.md)
+* [Contribution](/build/contribution.md)
 <!--
 * [Utilities](/build/utils/)
   * [HTTP](/build/utils/http.md)
   * [Objects](/build/utils/object.md)
   * [RegExp](/build/utils/regexp.md)
   * [UID](/build/utils/uid.md)
-* [Contribution](/build/contribution.md) -->
+-->
