@@ -2,6 +2,8 @@
 
 The ORGiD core package covers the smart contract interface into the simple to use typescript library. This library can be used for developing the server applications and browser-based as well.
 
+> To arrange interaction with blockchain this package is using good known [Ethers.js](https://docs.ethers.io/v5/) library
+
 ## Setup
 
 ```bash

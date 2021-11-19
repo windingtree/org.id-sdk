@@ -39,5 +39,8 @@ wget -O temp/org.id-resolver.zip https://github.com/windingtree/org.id-resolver/
 unzip temp/org.id-resolver.zip "org.id-resolver-new-resolver/packages/resolver/docs/*" -d temp
 cp -r temp/org.id-resolver-new-resolver/packages/resolver/docs build/org.id-resolver
 
+# Build docs for the ORGiD utils library
+cp -r ../packages/utils/docs build/utils
+
 # Linting of the built site
 npx markdownlint build/**/*.md

@@ -13,27 +13,27 @@ new HttpError('Cannot find you in the list', 'FORBIDDEN');
 
 - `Error`
 
-  ↳ **HttpError**
+  ↳ **`HttpError`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](errors.httperror.md#constructor)
+- [constructor](errors.HttpError.md#constructor)
 
 ### Properties
 
-- [code](errors.httperror.md#code)
-- [message](errors.httperror.md#message)
-- [name](errors.httperror.md#name)
-- [stack](errors.httperror.md#stack)
-- [status](errors.httperror.md#status)
-- [prepareStackTrace](errors.httperror.md#preparestacktrace)
-- [stackTraceLimit](errors.httperror.md#stacktracelimit)
+- [code](errors.HttpError.md#code)
+- [message](errors.HttpError.md#message)
+- [name](errors.HttpError.md#name)
+- [stack](errors.HttpError.md#stack)
+- [status](errors.HttpError.md#status)
+- [prepareStackTrace](errors.HttpError.md#preparestacktrace)
+- [stackTraceLimit](errors.HttpError.md#stacktracelimit)
 
 ### Methods
 
-- [captureStackTrace](errors.httperror.md#capturestacktrace)
+- [captureStackTrace](errors.HttpError.md#capturestacktrace)
 
 ## Constructors
 
@@ -45,21 +45,21 @@ new HttpError('Cannot find you in the list', 'FORBIDDEN');
 
 | Name | Type |
 | :------ | :------ |
-| `...args` | [ErrorArgs](../modules/errors.md#errorargs) |
+| `...args` | [`ErrorArgs`](../modules/errors.md#errorargs) |
 
 #### Defined in
 
-[src/errors/index.ts:19](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/errors/index.ts#L19)
+[src/errors/index.ts:20](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/errors/index.ts#L20)
 
 ## Properties
 
 ### code
 
-• **code**: [Code](../modules/http.md#code)
+• **code**: [`Code`](../modules/http.md#code)
 
 #### Defined in
 
-[src/errors/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/errors/index.ts#L10)
+[src/errors/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/errors/index.ts#L10)
 
 ___
 
@@ -95,11 +95,11 @@ ___
 
 ### status
 
-• **status**: [Status](../modules/http.md#status)
+• **status**: [`Status`](../modules/http.md#status)
 
 #### Defined in
 
-[src/errors/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/e476ec1/packages/utils/src/errors/index.ts#L11)
+[src/errors/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/errors/index.ts#L11)
 
 ___
 
@@ -107,13 +107,13 @@ ___
 
 ▪ `Static` `Optional` **prepareStackTrace**: (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any`
 
-Optional override for formatting stack traces
-
-**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
-
 #### Type declaration
 
 ▸ (`err`, `stackTraces`): `any`
+
+Optional override for formatting stack traces
+
+**`see`** https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 ##### Parameters
 
