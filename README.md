@@ -1,5 +1,5 @@
 # org.id-sdk
-Core Typescript tools for the ORGiD ecosystem
+Libraries and utilities for the ORGiD ecosystem
 
 ## Documentation
 
@@ -27,8 +27,10 @@ yarn test
 New repository version setup (according to the SDK stake should be chosen custom `prerelease` or `major` release version type from the `lerna` CLI dialog):
 
 ```bash
-npx lerna version --sign-git-commit --sign-git-tag
-// npx lerna version prerelease --yes
+npx lerna version prerelease --yes --sign-git-commit --sign-git-tag
+# npx lerna version major --yes --sign-git-commit --sign-git-tag
+# npx lerna version minor --yes --sign-git-commit --sign-git-tag
+# npx lerna version patch --yes --sign-git-commit --sign-git-tag
 ```
 
 Publishing of the updated packages:
