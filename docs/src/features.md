@@ -26,11 +26,6 @@ Currently, the ORGiD smart contract is deployed to the following chains:
 - (expected soon) `Optimism`
 - (expected soon) `ZKSync`
 
-Test networks:
-
-- Arbitrum Testnet
-- Rinkeby Testnet
-
 As mentioned above, every ORGiD DID contains information in which blockchain network this identifier has been issued. Thanks to that it is easy to implement cross-chain identifiers lookup and verification.
 
 ## Off-chain identity metadata modification
