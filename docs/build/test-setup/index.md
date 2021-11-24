@@ -8,17 +8,6 @@ This is a utility for an easy setup of the ORGiD environment for testing purpose
 yarn add @windingtree/org.id-test-setup
 ```
 
-## Module
-
-```typescript
-import {
-  orgIdSetup,
-  generateSalt
-} from '@windingtree/org.id-test-setup';
-```
-
-## Initialization
-
 To use this package you must install `hardhat` and `@nomiclabs/hardhat-ethers` as dependencies of your project.
 
 ```bash
@@ -45,6 +34,17 @@ const config: HardhatUserConfig = {
 
 export default config;
 ```
+
+## Module
+
+```typescript
+import {
+  orgIdSetup,
+  generateSalt
+} from '@windingtree/org.id-test-setup';
+```
+
+## Initialization
 
 Calling of the `orgIdSetup` function from the package creates for you an object with the ORGiD environment that can be used in your tests.
 
