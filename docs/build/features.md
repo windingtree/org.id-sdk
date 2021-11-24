@@ -22,7 +22,7 @@ Currently, the ORGiD smart contract is deployed to the following chains:
 
 - Ropsten Testnet: [0x405005a015EA0E24889D6963447Bb0D646D91C83](https://ropsten.etherscan.io/address/0x405005a015EA0E24889D6963447Bb0D646D91C83#readProxyContract)
 - Rinkeby Testnet: [0x877c5532B2a76148334CBfA32779A0b9ee414FBE](https://rinkeby.etherscan.io/address/0x877c5532B2a76148334CBfA32779A0b9ee414FBE#readProxyContract)
-- Arbitrum Rinkeby Testnet: [0x3925A9d5554508b65a6490c450FB294A9173948B](https://testnet.arbiscan.io//address/0x3925A9d5554508b65a6490c450FB294A9173948B#readProxyContract)
+- Arbitrum Rinkeby Testnet: [0x3925A9d5554508b65a6490c450FB294A9173948B](https://rinkeby-explorer.arbitrum.io/address/0x3925A9d5554508b65a6490c450FB294A9173948B)
 - (expected soon) `Optimism`
 - (expected soon) `ZKSync`
 

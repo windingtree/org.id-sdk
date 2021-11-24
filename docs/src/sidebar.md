@@ -12,4 +12,5 @@
 * [Core ORGiD library](/build/core/index.md)
 * [ORGiD resolver](/build/org.id-resolver/index.md)
 * [Utilities](/build/utils/index.md)
+* [Testing environment](build/test-setup/index.md)
 * [Contribution](/build/contribution.md)

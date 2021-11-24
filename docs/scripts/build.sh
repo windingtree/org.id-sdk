@@ -42,5 +42,8 @@ cp -r temp/org.id-resolver-new-resolver/packages/resolver/docs build/org.id-reso
 # Build docs for the ORGiD utils library
 cp -r ../packages/utils/docs build/utils
 
+# Build docs for the test-setup package
+cp -r ../packages/test-setup/docs build/test-setup
+
 # Linting of the built site
 npx markdownlint build/**/*.md
