@@ -1,4 +1,4 @@
-import type { VoidSigner } from 'ethers';
+import type { VoidSigner, Wallet } from 'ethers';
 import type { KeyLike, JWK } from './keys';
 import type {
   VCTypedHolderReference,
@@ -68,7 +68,7 @@ export interface VCBuilderChain {
   ): Promise<SignedVC>;
   signWithBlockchainAccount(
     blockchainAccountId: string,
-    signer: VoidSigner
+    signer: VoidSigner | Wallet
   ): Promise<SignedVC>;
 }
 
@@ -168,7 +168,7 @@ export const verifiableCredentialSignatureTypes = {
 
 // Sign payload using Ethereum account
 export const signWithSigner = async (
-  signer: VoidSigner,
+  signer: VoidSigner | Wallet,
   verificationMethod: string,
   payload: string | GenericObject
 ): Promise<string> => {
@@ -271,7 +271,7 @@ export const verifyJwsSignedWithBlockchainAccount = (
     signature
   );
 
-  if (accountId.toUpperCase() !== recoveredAccountId.toUpperCase()) {
+  if (ethersUtils.getAddress(accountId) !== ethersUtils.getAddress(recoveredAccountId)) {
     throw new Error(
       `VC signed by different accountId: ${accountId} though expected: ${recoveredAccountId}`
     );
@@ -647,7 +647,7 @@ export const createVC = (
     // Sign VC with Web3 provider
     signWithBlockchainAccount: async (
       blockchainAccountId,
-      signer: VoidSigner
+      signer: VoidSigner | Wallet
     ) => {
       buildUnsignedVC();
 
@@ -660,7 +660,7 @@ export const createVC = (
       } = parseBlockchainAccountId(blockchainAccountId);
       const signerAddress = await signer.getAddress();
 
-      if (signerAddress !== accountId) {
+      if (signerAddress !== ethersUtils.getAddress(accountId)) {
         throw new Error(
           'The signer address is different from blockchain account'
         );

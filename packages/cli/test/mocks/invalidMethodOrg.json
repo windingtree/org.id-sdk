@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "1.0.0",
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://windingtree.com/ns/orgid/v1"
+  ],
+  "id": "did:orgid:4:0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119",
+  "created": "2021-06-19T19:45:04.157Z",
+  "updated": "2021-06-19T19:45:04.157Z",
+  "verificationMethod": [],
+  "service": [],
+  "payment": [],
+  "trustAssertions": [],
+  "credentials": [],
+  "legalEntity": {
+    "legalName": "Acme, Corp.",
+    "alternativeName": "Acme",
+    "registryCode": "US12345567",
+    "identifiers": [
+      {
+        "type": "IATA",
+        "value": "123456"
+      },
+      {
+        "type": "Trade License",
+        "value": "98765431"
+      }
+    ],
+    "legalType": "GmBH",
+    "registeredAddress": {
+      "country": "CZ",
+      "subdivision": "71",
+      "locality": "Jihlava",
+      "postalCode": "71354",
+      "streetAddress": "3150 Main St.",
+      "premise": "STE 100"
+    },
+    "locations": [
+      {
+        "name": "Main Office",
+        "description": "This is our main office",
+        "address": {
+          "country": "CZ",
+          "subdivision": "71",
+          "locality": "Jihlava",
+          "postalCode": "71354",
+          "streetAddress": "3150 Main St.",
+          "premise": "STE 100",
+          "gps": "50.087070,14.417210",
+          "geocodes": [
+            {
+              "type": "olc",
+              "value": "3CQ9+F2 Prague"
+            },
+            {
+              "type": "what3words",
+              "value": "printers.torn.images"
+            }
+          ]
+        },
+        "openingHours": [
+          {
+            "weekDay": "mon,tue,wed",
+            "hours": "9:00-18:00"
+          },
+          {
+            "weekDay": "fri",
+            "hours": "10:00-16:00"
+          }
+        ],
+        "contacts": [
+          {
+            "function": "Reception",
+            "name": "John Smith",
+            "phone": "+1234567890",
+            "email": "email@spam.com",
+            "messengers": [
+              {
+                "type": "whatsapp",
+                "value": "+1234567890"
+              },
+              {
+                "type": "whatsapp",
+                "value": "+1234567890"
+              },
+              {
+                "type": "telegram",
+                "value": "acme.ny.reception"
+              },
+              {
+                "type": "viber",
+                "value": "+1234567890"
+              },
+              {
+                "type": "wechat",
+                "value": "acme.ny.reception"
+              },
+              {
+                "type": "messenger",
+                "value": "acme.ny.reception"
+              },
+              {
+                "type": "line",
+                "value": "acme.ny.reception"
+              },
+              {
+                "type": "kik",
+                "value": "acme.ny.reception"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "contacts": [
+      {
+        "function": "Customer Service",
+        "name": "John Smith",
+        "phone": "+1234567890",
+        "email": "email@spam.com"
+      },
+      {
+        "function": "Sales",
+        "name": "Jenna Smith",
+        "phone": "+1234567890",
+        "email": "email@spam.com"
+      },
+      {
+        "function": "Press",
+        "phone": "+1234567890",
+        "email": "email@spam.com"
+      }
+    ]
+  }
+}

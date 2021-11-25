@@ -45,5 +45,8 @@ cp -r ../packages/utils/docs build/utils
 # Build docs for the test-setup package
 cp -r ../packages/test-setup/docs build/test-setup
 
+# Build docs for the ORGiD CLI
+cp -r ../packages/cli/docs build/cli
+
 # Linting of the built site
 npx markdownlint build/**/*.md

@@ -1,0 +1,66 @@
+{
+  "name": "@windingtree/org.id-cli",
+  "version": "1.0.0-beta.23",
+  "description": "An ORGiD command-line utility",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "orgid": "bin/index.js"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "scripts": {
+    "lint": "npx eslint . --ext .ts",
+    "test": "npx jest",
+    "test:coverage": "npx jest --coverage",
+    "build": "rm -rf dist && npx tsc -p tsconfig-build.json"
+  },
+  "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/cli#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windingtree/org.id-sdk.git"
+  },
+  "keywords": [
+    "windingtree",
+    "orgid",
+    "cli",
+    "utilities",
+    "typescript"
+  ],
+  "author": "Winding Tree Developers <dev@windingtree.com>",
+  "contributors": [
+    "Kostiantyn Smyrnov <kostysh@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/windingtree/org.id-sdk.git/issues"
+  },
+  "dependencies": {
+    "chalk": "4.1.2",
+    "crypto-js": "4.1.1",
+    "arg": "5.0.1",
+    "@windingtree/org.id-auth": "1.0.0-beta.23",
+    "@windingtree/org.id-utils": "1.0.0-beta.23",
+    "@windingtree/org.json-schema": "1.0.0-beta.5",
+    "ethers": "5.5.1",
+    "luxon": "2.1.1"
+  },
+  "devDependencies": {
+    "@types/jest": "27.0.3",
+    "@types/prompts": "2.0.14",
+    "@types/clear": "0.1.2",
+    "@types/luxon": "2.0.7",
+    "@typescript-eslint/eslint-plugin": "5.4.0",
+    "@typescript-eslint/parser": "5.4.0",
+    "@types/node": "16.11.10",
+    "eslint": "8.3.0",
+    "jest": "27.3.1",
+    "ts-jest": "27.0.7",
+    "typescript": "4.5.2"
+  }
+}
