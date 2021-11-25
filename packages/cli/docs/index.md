@@ -10,7 +10,7 @@ yarn link
 ## Usage
 
 ```bash
-npx orgid --type <OPERATION_TYPE>
+npx orgid --type <OPERATION_TYPE> <OPERATION_OPTIONS>
 ```
 
 ## Operations
