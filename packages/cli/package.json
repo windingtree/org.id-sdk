@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-cli",
-  "version": "1.0.0-beta.26",
+  "version": "1.0.0-beta.27",
   "description": "An ORGiD command-line utility",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -41,7 +41,7 @@
     "url": "https://github.com/windingtree/org.id-sdk.git/issues"
   },
   "dependencies": {
-    "@windingtree/org.id-auth": "^1.0.0-beta.26",
+    "@windingtree/org.id-auth": "^1.0.0-beta.27",
     "@windingtree/org.id-utils": "^1.0.0-beta.26",
     "@windingtree/org.json-schema": "1.0.0-beta.5",
     "arg": "5.0.1",
