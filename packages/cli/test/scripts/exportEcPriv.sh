@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+export ACCOUNT_KEY=$(cat <<EOF
+-----BEGIN PRIVATE KEY-----
+MIGEAgEAMBAGByqGSM49AgEGBSuBBAAKBG0wawIBAQQgV6PloCFsJsoZmZ5K3Uj2
+6YQwAwOQuyHrFne/p8mXheWhRANCAARtXfQSK+p6pJzFNAVL2lDbdLBjYKHAnkVh
+iI05R8Idksukb/eOuZQc2QhdDtilJlhid8qzHetlkkmycRJv1Ygc
+-----END PRIVATE KEY-----
+EOF
+)

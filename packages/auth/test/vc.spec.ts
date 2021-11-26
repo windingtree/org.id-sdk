@@ -519,6 +519,7 @@ describe('Verifiable Credentials', () => {
     it('should create credential with JWK', async () => {
       const pubJwk = await createJWK(publicKey);
       const privJwk = await createJWK(privateKey);
+      console.log(JSON.stringify(privJwk, null, 2));
       const vc: SignedVC = await createVC(
         issuer,
         'VerifiableCredential'

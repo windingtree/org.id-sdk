@@ -8,8 +8,6 @@ An ORGiD command-line utility
 
 [ORGiD SDK documentation](https://windingtree.github.io/org.id-sdk/)
 
-
-
 ## Development environment
 
 ### Setup

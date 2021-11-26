@@ -1,8 +1,8 @@
 import type { ORGJSON, VerificationMethodReference } from '@windingtree/org.json-schema/types/org.json';
+import type { NFTMetadata } from '@windingtree/org.json-schema/types/nft';
 import type { ORGJSONVCNFT } from '@windingtree/org.json-schema/types/orgVc';
-import type { Wallet } from 'ethers';
 import type { ParsedArgv } from '../utils/env';
-import { vc } from '@windingtree/org.id-auth';
+import { vc, keys } from '@windingtree/org.id-auth';
 import { ethers } from 'ethers';
 import { object as objectUtil } from '@windingtree/org.id-utils';
 import { DateTime } from  'luxon';
@@ -41,50 +41,11 @@ export const fetchVerificationMethod = (
   return orgJsonVerificationMethod;
 };
 
-// Sign orgJson using defined verification method
-export const signOrgJson = async (
-  signer: Wallet,
-  verificationMethodId: string | undefined,
+// Build NFT metadata that will be merged with a VC
+export const buildNftMetadata = (
   orgJson: ORGJSON,
   args: ParsedArgv
-): Promise<ORGJSONVCNFT> => {
-
-  if (!verificationMethodId) {
-    throw new Error(
-      'Verification method Id must be provided using "--method" option'
-    );
-  }
-
-  const verificationMethod = fetchVerificationMethod(
-    orgJson,
-    verificationMethodId
-  );
-
-  const issuerBlockchainAccountId = verificationMethod.blockchainAccountId;
-
-  if (!issuerBlockchainAccountId) {
-    throw new Error('blockchainAccountId not defined in the verificationMethod');
-  }
-
-  const {
-    accountId,
-    blockchainType
-  } = vc.parseBlockchainAccountId(issuerBlockchainAccountId);
-
-  if (blockchainType !== 'eip155') {
-    throw new Error(
-      `Verification method blockchain type "${blockchainType}" is not supported`
-    );
-  }
-
-  const signerAddress = await signer.getAddress();
-
-  if (ethers.utils.getAddress(accountId) !== signerAddress) {
-    throw new Error(
-      `Verification method account Id is different from the signer address: ${signerAddress}`
-    );
-  }
-
+): NFTMetadata => {
   const isLegalEntity = !!orgJson.legalEntity;
   const isPerson = !!orgJson.person;
   let nftNamePath: string;
@@ -159,35 +120,112 @@ export const signOrgJson = async (
     nftImage = args['--nftImage'];
   }
 
-  const nftMetadata = {
+  return {
     name: nftAlterName || nftName,
     description: nftName,
     image: nftImage
   };
+};
+
+// Signature method for `EcdsaSecp256k1RecoveryMethod2020` verification method type
+export const signOrgJsonWithBlockchainAccount = async (
+  verificationMethod: VerificationMethodReference,
+  orgJson: ORGJSON,
+  nftMetadata: NFTMetadata
+): Promise<ORGJSONVCNFT> => {
+  const issuerBlockchainAccountId = verificationMethod.blockchainAccountId;
+
+  if (!issuerBlockchainAccountId) {
+    throw new Error('blockchainAccountId not defined in the verificationMethod');
+  }
+
+  const {
+    accountId,
+    blockchainType
+  } = vc.parseBlockchainAccountId(issuerBlockchainAccountId);
+
+  if (blockchainType !== 'eip155') {
+    throw new Error(
+      `Verification method blockchain type "${blockchainType}" is not supported`
+    );
+  }
+
+  const privateKeyRaw = process.env.ACCOUNT_KEY as string;
+
+  if (!privateKeyRaw) {
+    throw new Error(
+      'Verifiable credential signer private key must be provided using "ACCOUNT_KEY" environment variable'
+    );
+  }
+
+  const signer = new ethers.Wallet(privateKeyRaw);
+
+  const signerAddress = await signer.getAddress();
+
+  if (ethers.utils.getAddress(accountId) !== signerAddress) {
+    throw new Error(
+      `Verification method account Id is different from the signer address: ${signerAddress}`
+    );
+  }
 
   orgJson.updated = DateTime.now().toISO();
 
-  const unsignedOrgJsonNft = vc.createVC(
-    verificationMethodId,
+  return vc.createVC(
+    verificationMethod.id,
     [ 'OrgJson' ]
   )
     .setCredentialSubject(orgJson)
-    .setNftMetaData(nftMetadata);
-
-  switch (verificationMethod.type) {
-    case 'EcdsaSecp256k1RecoveryMethod2020':
-      return unsignedOrgJsonNft
-        .signWithBlockchainAccount(
-          issuerBlockchainAccountId,
-          signer
-        ) as Promise<ORGJSONVCNFT>;
-    default:
-      throw new Error(
-        `Verification type "${verificationMethod.type}" is not supported`
-      );
-  }
+    .setNftMetaData(nftMetadata)
+    .signWithBlockchainAccount(
+      issuerBlockchainAccountId,
+      signer
+    ) as Promise<ORGJSONVCNFT>;
 };
 
+// Signature method for `EcdsaSecp256k1VerificationKey2019` verification method type
+export const signWithEcKey = async (
+  verificationMethod: VerificationMethodReference,
+  orgJson: ORGJSON,
+  nftMetadata: NFTMetadata
+): Promise<ORGJSONVCNFT> => {
+  const capabilityDelegation = orgJson.capabilityDelegation;
+
+  if (!capabilityDelegation) {
+    throw new Error(
+      '"capabilityDelegation" definition is required in case of using the "EcdsaSecp256k1VerificationKey2019" verification method'
+    );
+  }
+
+  const isDelegate = !!capabilityDelegation.filter(
+    id => id === verificationMethod.id
+  )[0];
+
+  if (!isDelegate) {
+    throw new Error(
+      `Verification method "${verificationMethod.id}" must be included into the "capabilityDelegation" definition`
+    );
+  }
+
+  const privateKeyRaw = process.env.ACCOUNT_KEY as string;
+
+  if (!privateKeyRaw) {
+    throw new Error(
+      'Verifiable credential signer private key must be provided using "ACCOUNT_KEY" environment variable'
+    );
+  }
+
+  const privateKey = await keys.importKeyPrivatePem(privateKeyRaw);
+
+  return vc.createVC(
+    verificationMethod.id,
+    [ 'OrgJson' ]
+  )
+    .setCredentialSubject(orgJson)
+    .setNftMetaData(nftMetadata)
+    .sign(privateKey) as Promise<ORGJSONVCNFT>;
+};
+
+// Create signed version of the ORG.JSON in the form of VC
 export const createSignedOrgJson = async (
   basePath: string,
   args: ParsedArgv
@@ -206,22 +244,41 @@ export const createSignedOrgJson = async (
     true
   ) as ORGJSON;
 
-  const privateKey = process.env.ACCOUNT_KEY as string;
-
-  if (!privateKey) {
+  if (!args['--method']) {
     throw new Error(
-      'Verifiable credential signer private key must be provided using "ACCOUNT_KEY" environment variable'
+      'Verification method Id must be provided using "--method" option'
     );
   }
 
-  const signer = new ethers.Wallet(privateKey);
-
-  const orgJsonVc = await signOrgJson(
-    signer,
-    args['--method'],
+  const verificationMethod = fetchVerificationMethod(
     subject,
-    args
+    args['--method']
   );
+
+  const nftMetadata = buildNftMetadata(subject, args);
+
+  let orgJsonVc: ORGJSONVCNFT;
+
+  switch (verificationMethod.type) {
+    case 'EcdsaSecp256k1RecoveryMethod2020':
+      orgJsonVc = await signOrgJsonWithBlockchainAccount(
+        verificationMethod,
+        subject,
+        nftMetadata
+      );
+      break;
+    case 'EcdsaSecp256k1VerificationKey2019':
+      orgJsonVc = await signWithEcKey(
+        verificationMethod,
+        subject,
+        nftMetadata
+      );
+      break;
+    default:
+      throw new Error(
+        `Verification type "${verificationMethod.type}" is not supported`
+      );
+  }
 
   if (!args['--output']) {
     throw new Error(
@@ -235,5 +292,7 @@ export const createSignedOrgJson = async (
     JSON.stringify(orgJsonVc, null, 2)
   );
 
-  printInfo(`ORG.JSON VC successfully saved on path ${outputFile}`);
+  printInfo(
+    `ORG.JSON VC successfully created and saved on the path ${outputFile}`
+  );
 };

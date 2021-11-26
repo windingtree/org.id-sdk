@@ -17,20 +17,34 @@ npx orgid --type <OPERATION_TYPE> <OPERATION_OPTIONS>
 
 ### OrgJson type
 
-Signing of the ORG.JSON using the defined verification method.
+Signing of the ORG.JSON using the defined verification method. Current version of the utility supports the following verification methods:
+
+- `EcdsaSecp256k1RecoveryMethod2020`: signature made with blockchain account
+- `EcdsaSecp256k1VerificationKey2019`: signature made with EC private key
 
 > Requirement: The related to the verification method private key must be available as an `ACCOUNT_KEY` environment variable
 
 ```bash
-npx orgid --type OrgJson --payload <PATH_TO_ORG_JSON> --method <VERIFICATION_METHOD_ID>
+npx orgid --type OrgJson --payload <PATH_TO_ORG_JSON> --method <VERIFICATION_METHOD_ID> --output <PATH_TO_OUTPUT_FILE>
 ```
 
-Example:
+Example with `EcdsaSecp256k1RecoveryMethod2020` method:
+
+> to prepare this example please run this script `source ./test/scripts/exportEthPriv.sh`
 
 ```bash
-npx orgid --type OrgJson --payload ./path/to/raw/org.json --method did:orgid:4:0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119#key-1
+npx orgid --type OrgJson --payload ./test/mocks/validOrg.json --method "did:orgid:4:0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119#key-1" --output ./temp/orgJsonVc.json
+```
+
+Example with `EcdsaSecp256k1VerificationKey2019` method:
+
+> - to prepare this example please run this script `source ./test/scripts/exportEcPriv.sh`
+> - The verification method `EcdsaSecp256k1VerificationKey2019` requires the inclusion of the method Id into the `capabilityDelegation` list (and registration of this ID in the smart contract as a delegate)
+
+```bash
+npx orgid --type OrgJson --payload ./test/mocks/validOrgWithInnerDelegate.json --method "did:orgid:4:0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119#key-2" --output ./temp/orgJsonVc.json
 ```
 
 As a result of this operation the given ORG.JSON will be signed with the private key of the defined verification method.
 
-> Currently, supported the `EcdsaSecp256k1RecoverySignature2020` verification method only
+> Currently, supported `EcdsaSecp256k1RecoveryMethod2020` and `EcdsaSecp256k1VerificationKey2019` verification methods only
