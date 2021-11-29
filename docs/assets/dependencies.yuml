@@ -6,6 +6,7 @@
 (org.json-schema {bg:beige})schema, types->(org.id-test-setup)
 (org.json-schema {bg:beige})schema, types->(org.json-utils)
 (org.json-schema {bg:beige})schema, types->(org.id-resolver {bg:beige})
+(org.json-schema {bg:beige})schema, types->(org.id-cli)
 
 (org.id {bg:beige})ABI, types->(org.id-core)
 (org.id {bg:beige})ABI, types->(org.id-test-setup)
@@ -19,6 +20,7 @@
 (org.id-utils)utils->(org.id-test-setup)
 (org.id-utils)utils->(org.json-utils)
 (org.id-utils)utils->(org.id-resolver {bg:beige})
+(org.id-utils)utils->(org.id-cli)
 
 (org.id-test-setup)tests env->(org.id-core)
 (org.id-test-setup)tests env->(org.id-resolver {bg:beige})
@@ -26,6 +28,7 @@
 (org.id-auth)lib->(org.json-utils)
 (org.id-auth)lib->(org.id-test-setup)
 (org.id-auth)lib->(org.id-resolver {bg:beige})
+(org.id-auth)lib->(org.id-cli)
 
 (org.json-utils)utils->(org.id-test-setup)
 
