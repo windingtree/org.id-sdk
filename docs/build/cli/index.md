@@ -15,7 +15,7 @@ npx orgid --type <OPERATION_TYPE> <OPERATION_OPTIONS>
 
 ## Operations
 
-### OrgJson type
+### `--type OrgJson`
 
 Signing of the ORG.JSON using the defined verification method. Current version of the utility supports the following verification methods:
 
@@ -30,7 +30,7 @@ npx orgid --type OrgJson --payload <PATH_TO_ORG_JSON> --method <VERIFICATION_MET
 
 Example for the `EcdsaSecp256k1RecoveryMethod2020` method:
 
-> to prepare this example please run this script `source ./test/scripts/exportEthPriv.sh`
+> to prepare this example please run this script: `source ./test/scripts/exportEthPriv.sh`
 
 ```bash
 npx orgid --type OrgJson --payload ./test/mocks/validOrg.json --method "did:orgid:4:0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119#key-1" --output ./temp/orgJsonVc.json
@@ -38,7 +38,7 @@ npx orgid --type OrgJson --payload ./test/mocks/validOrg.json --method "did:orgi
 
 Example for the `EcdsaSecp256k1VerificationKey2019` method:
 
-> - to prepare this example please run this script `source ./test/scripts/exportEcPriv.sh`
+> - to prepare this example please run this script: `source ./test/scripts/exportEcPriv.sh`
 > - The verification method `EcdsaSecp256k1VerificationKey2019` requires the inclusion of the method Id into the `capabilityDelegation` list (and registration of this ID in the smart contract as a delegate)
 
 ```bash
