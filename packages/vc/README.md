@@ -1,3 +1,4 @@
+> This package is deprecated and will be removed soon
 # @windingtree/vc
 A library for creating and verifying Verifiable Credentials
 
