@@ -59,7 +59,149 @@ An ORGiD DIDs and cryptographic features stand behind them can be used to arrang
 
 ## Verifiable credentials
 
-[Verifiable credentials](https://www.w3.org/TR/vc-data-model/) can be used in various scenarios in real life, from a representation of physical credentials to tickets, abonnements, reputation facts proofs and so on. The SDK has a powerful library to work with VC's that has a built-in data validation feature based on the JSON-schema standard.
+[Verifiable credentials](https://www.w3.org/TR/vc-data-model/) can be used in various scenarios in real life, from a representation of physical credentials to tickets, atonements, reputation facts proofs and so on. The SDK has a powerful library to work with VC's that has a built-in data validation feature based on the JSON-schema standard.
+
+## ORGiD flow
+
+### Creation of the ORG.JSON VC
+
+```mermaid
+graph LR
+  SALT[Unique salt] -->|salt|HASH[Keccak-256<br>Hash]
+  ACCOUNT[Owner's<br>account] -->|address|HASH
+  HASH -->|hash|ID[Organization<br>Id]
+  ID -->|Id| DID[Create DID]
+  ACCOUNT -->|chain Id|DID
+  DID -->|DID| METHOD[Verification<br>method]
+  ACCOUNT -->|address<br>chain Id| METHOD
+  PROFILE_PROPS[Organization<br>properties] --> ORG_JSON[Organization<br>profile]
+  METHOD --> ORG_JSON[Organization<br>profile]
+  ORG_JSON -->|ORG.JSON| ORGID_VC[ORGiD VC]
+  ACCOUNT -->|Sign with<br>private key| ORGID_VC
+```
+
+Verification method example:
+
+```json
+{
+  "id": "did:orgid:4:0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119#key-1",
+  "controller": "did:orgid:4:0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119",
+  "type": "EcdsaSecp256k1RecoveryMethod2020",
+  "blockchainAccountId": "0xBfD9EebE27d5a2F1113220b53844E5066889035C@eip155:1337"
+}
+```
+
+### Creation of an ORGiD
+
+```mermaid
+graph LR
+  ORGID_VC[ORGiD ORG.JSON<br>Verifiable Credential] -->|VC json|ORGJSON_URI[Save to:<br>IPFS<br>IPNS<br>HTTPS]
+  ORGJSON_URI -->|orgJsonUri|CREATE_ORGID[Create<br>ORGiD<br>transaction]
+  SALT[Unique salt] -->|salt|CREATE_ORGID
+  ADDRESS[Owner's Account] -->|Sign with<br>private key|CREATE_ORGID
+  CREATE_ORGID -->|tx|NFT[ORGiD<br>NFT]
+```
+
+### An organization profile update
+
+```mermaid
+graph LR
+  NFT[ORGiD<br>NFT] -->|orgJsonUri|STORAGE_TYPE{Is orgJsonUri<br>has permanent type:<br>IPNS or HTTPS}
+  STORAGE_TYPE -->|yes|OFFCHAIN_UPDATE[Off-chain<br>update flow]
+  STORAGE_TYPE -->|no|ONCHAIN_UPDATE[On-chain<br>update flow]
+```
+
+### Off-chain profile update
+
+```mermaid
+graph LR
+  ORGID_VC[ORGiD<br>Verifiable Credential] -->|VC subject|ORG_JSON[Organization<br>profile]
+  UPDATED_PROPERTIES[Updated profile<br>properties] --> UPD_ORG_JSON[Updated<br>ORG.JSON]
+  ORG_JSON --> UPD_ORG_JSON
+  UPD_ORG_JSON -->|ORG.JSON|UPD_ORGID_VC[Updated<br>ORGiD VC]
+  ADDRESS[Owner's Account] -->|Sign with<br>private key|UPD_ORGID_VC
+```
+
+### On-chain profile update
+
+```mermaid
+graph LR
+  UPD_ORGID_VC[Updated<br>ORGiD ORG.JSON<br>Verifiable Credential] -->|VC json|ORGJSON_URI[Save to:<br>IPFS<br>IPNS<br>HTTPS]
+  ORGJSON_URI -->|orgJsonUri| UPDATE_URI[Update<br>orgJsonUri<br>transaction]
+  ADDRESS[Owner's Account] -->|Sign with<br>private key|UPDATE_URI
+  UPDATE_URI -->|tx|UPDATED_NFT[Updated<br>ORGiD NFT]
+```
+
+### Capability delegation
+
+```mermaid
+graph LR
+  UPDATED_PROPERTIES[Updated profile<br>properties] --> UPD_ORG_JSON[Updated<br>ORG.JSON]
+  ORG_JSON[Organization<br>profile] --> UPD_ORG_JSON
+  DLEGATED_METHOD[Delegated<br>verification<br>method] --> UPD_ORG_JSON
+  UPD_ORG_JSON -->|ORG.JSON|UPD_ORGID_VC[Updated<br>ORGiD VC]
+  ADDRESS[Account of<br>the delegate] -->|Sign with<br>private key|UPD_ORGID_VC
+  DLEGATED_METHOD -->|method DID|ADD_DELEGATE[`addDelegate`<br>transaction]
+  OWNER[Owner's<br>account] -->|Sign with<br>private key|ADD_DELEGATE
+  ADD_DELEGATE -->|tx|DELEGATE[Registered<br>delegate]
+```
+
+### Trust verification
+
+To verify a trust claim an organization must send a trust assertion claim to the special verification service.
+This service is making a verification procedure and as a result, issues a Trust Assertion VC.
+
+```mermaid
+graph LR
+  ORGANIZATION[Organization] -->|Trust<br>assertion<br>claim|TRUST_VERIFIER[Trust<br>verification<br>service]
+  TRUST_VERIFIER --> VERIFICATION[Trust<br>assertion<br>claim<br>verification]
+  VERIFICATION -->|Verification<br>result|VERIFICATION_VC[Trust<br>assertion<br>VC]
+  ISSUER[Verificator's<br>account] -->|Sign with<br>private key|VERIFICATION_VC
+```
+
+A trust assertion VC document confirms that the assertion claim that has been sent by the organization is successfully verified.
+Here is an example of the Trust Assertion VC:
+
+```json
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1"
+  ],
+  "id": "c48aba97-c92b-4189-8546-184112f0ebff",
+  "issuer": "did:orgid:0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119",
+  "holder": "0x94bf5a57b850a35b4d1d7b59f663ce3a8a76fd9928ef2067cc772fc97fb0ad75",
+  "type": [
+    "VerifiableCredential",
+    "TrustAssertion"
+  ],
+  "issuanceDate": "2019-06-03T13:20:06.398Z",
+  "credentialSubject": {
+    "id": "did:orgid:4:0x94bf5a57b850a35b4d1d7b59f663ce3a8a76fd9928ef2067cc772fc97fb0ad75",
+    "trustAssertion": {
+      "type": "domain",
+      "claim": "test2.com",
+      "proof": "http://test2.com/orgid.txt"
+    }
+  },
+  "proof": {
+    "type": "EcdsaSecp256k1Signature2019",
+    "created": "2019-06-03T13:20:06.398Z",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:orgid:0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119#key-454312",
+    "jws": "eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..."
+  }
+}
+```
+
+All trust assertions should be added to the `trustAssertion` section of the organization profile.
+
+```mermaid
+graph LR
+  ORG_JSON[Organization<br>profile] --> UPD_ORG_JSON[Updated<br>ORG.JSON]
+  UPD_ORG_JSON -->|ORG.JSON|UPD_ORGID_VC[Updated<br>ORGiD VC]
+  ADDRESS[Owner's Account] -->|Sign with<br>private key|UPD_ORGID_VC
+  VERIFICATION_VC[Trust<br>assertion<br>VC] -->|trustAssertion|UPD_ORG_JSON
+```
 
 ## Typescript support
 

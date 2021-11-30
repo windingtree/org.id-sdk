@@ -22,7 +22,8 @@ Signing of the ORG.JSON using the defined verification method. Current version o
 - `EcdsaSecp256k1RecoveryMethod2020`: signature made with blockchain account
 - `EcdsaSecp256k1VerificationKey2019`: signature made with EC private key
 
-> Requirement: The related to the verification method private key must be available as an `ACCOUNT_KEY` environment variable
+> - Requirement: The related to the verification method private key must be available as an `ACCOUNT_KEY` environment variable
+> - The verification method that you want to use for the signing must be properly defined in the ORG.JSON file
 
 ```bash
 npx orgid --type OrgJson --payload <PATH_TO_ORG_JSON> --method <VERIFICATION_METHOD_ID> --output <PATH_TO_OUTPUT_FILE>
@@ -46,3 +47,8 @@ npx orgid --type OrgJson --payload ./test/mocks/validOrgWithInnerDelegate.json -
 ```
 
 As a result of this operation the given ORG.JSON will be signed with the private key of the defined verification method.
+
+## TODO
+
+- Tests
+- ORGiD resolver operation
