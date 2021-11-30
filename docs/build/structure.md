@@ -20,7 +20,7 @@
 |---|---|---|
 | [@windingtree/org.json-schema](https://github.com/windingtree/org.json-schema/tree/feat/new-orgid#readme) | [![@windingtree/org.json-schema](https://img.shields.io/npm/v/@windingtree/org.json-schema.svg)](https://www.npmjs.com/package/@windingtree/org.json-schema) | ORG.JSON schema |
 | [@windingtree/org.id](https://github.com/windingtree/org.id/tree/orgid-nft#readme) | [![@windingtree/org.id](https://img.shields.io/npm/v/@windingtree/org.id.svg)](https://www.npmjs.com/package/@windingtree/org.id) | ORGiD smart contract |
-| [@windingtree/org.id-resolver](https://github.com/windingtree/org.id-resolver/tree/new-resolver#readme) | [![@windingtree/org.id-resolver](https://img.shields.io/npm/v/@windingtree/org.id-resolver.svg)](https://www.npmjs.com/package/@windingtree/org.id-resolver) | ORGiD smart contract |
+| [@windingtree/org.id-resolver](https://github.com/windingtree/org.id-resolver/tree/new-resolver#readme) | [![@windingtree/org.id-resolver](https://img.shields.io/npm/v/@windingtree/org.id-resolver.svg)](https://www.npmjs.com/package/@windingtree/org.id-resolver) | ORGiD DID resolver |
 
 ## Packages dependency diagram
 
