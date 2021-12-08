@@ -19,12 +19,12 @@ import {
   trustAssertion as trustAssertionSchema,
   nft as NftMetaDataSchema
 } from '@windingtree/org.json-schema';
+import { base64url } from './utils';
 import { DateTime } from  'luxon';
 import { importJWK } from 'jose';
 import { CompactSign } from 'jose';
 import { compactVerify } from 'jose';
 import { decodeProtectedHeader } from 'jose';
-import { base64url } from 'jose';
 import { utils as ethersUtils } from 'ethers';
 
 export type {
@@ -137,7 +137,7 @@ export const buildUnsignedDataForSignature = (
   base64url.encode(
       JSON.stringify(
         {
-          alg: 'ES256K',
+          alg: 'ES256', // JsonWebSignature2020
           kid: verificationMethod,
           typ: 'JWT'
         }

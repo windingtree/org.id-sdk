@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+global.randomBytes = require('crypto').randomBytes;
 const { cli, console: { printError } } = require('../dist');
 
 cli(process.cwd(), process.argv)

@@ -276,7 +276,7 @@ export const createSignedOrgJson = async (
       break;
     default:
       throw new Error(
-        `Verification type "${verificationMethod.type}" is not supported`
+        `Verification method type "${verificationMethod.type}" is not supported`
       );
   }
 

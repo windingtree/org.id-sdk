@@ -20,7 +20,6 @@ import '@nomiclabs/hardhat-ethers';
 import { ethers } from 'hardhat';
 
 import orgJsonTemplate from './data/legal-entity.json';
-import { org } from '@windingtree/org.json-schema';
 
 export {
   orgJsonTemplate,

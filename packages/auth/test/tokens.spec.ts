@@ -12,6 +12,7 @@ import {
   privatePem,
   publicPem
 } from './mocks/pemKeys';
+import { isNodeJs } from './helpers/utils';
 import chai, { expect } from 'chai';
 import chp from 'chai-as-promised';
 chai.use(chp);
@@ -20,21 +21,24 @@ describe('Tokens', () => {
 
   describe('JWT tokens creation', () => {
     const issuer = 'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1';
-    const audience = 'did:orgid:0xcfdb769eafae259e58028ba25ab70ce539731b593c08b780e5275c723132d206';
+    const audience = 'did:orgid:4:0xcfdb769eafae259e58028ba25ab70ce539731b593c08b780e5275c723132d206';
     const scope = '';
     let privateKey: KeyLike;
     let publicKey: KeyLike;
     let keyPairs: { privateKey: KeyLike, publicKey: KeyLike }[];
 
     before(async () => {
-      privateKey = await importKeyPrivatePem(privatePem);
-      publicKey = await importKeyPublicPem(publicPem);
       keyPairs = await Promise.all(
         KeyTypes
-          .filter(t => t !== 'EcdsaSecp256k1RecoveryMethod2020')
-          .filter(type => keyTypeConfig[type].jws) // exclude key types not supported by JWS
-          .map(async type => generateKeyPair(type))
+          .filter(t => !(!isNodeJs() && t === 'EcdsaSecp256k1VerificationKey2019'))
+          .map(type => generateKeyPair(type))
       );
+      privateKey = !isNodeJs()
+        ? keyPairs[0].privateKey
+        : await importKeyPrivatePem(privatePem);
+      publicKey = !isNodeJs()
+        ? keyPairs[0].publicKey
+        : await importKeyPublicPem(publicPem);
     });
 
     describe('#createAuthJWT', () => {
@@ -122,7 +126,9 @@ describe('Tokens', () => {
 
       it('should create JWT using JWK', async () => {
         const keyPair = await generateKeyPair(
-          'EcdsaSecp256k1VerificationKey2019'
+          isNodeJs()
+            ? 'EcdsaSecp256k1VerificationKey2019'
+            : 'JsonWebKey2020'
         );
         const pubJwk = await createJWK(keyPair.publicKey);
         const privJwk = await createJWK(keyPair.privateKey);
@@ -261,7 +267,9 @@ describe('Tokens', () => {
 
       before(async () => {
         const keyPair = await generateKeyPair(
-          'EcdsaSecp256k1VerificationKey2019'
+          isNodeJs()
+            ? 'EcdsaSecp256k1VerificationKey2019'
+            : 'JsonWebKey2020'
         );
         pub = keyPair.publicKey;
         priv = keyPair.privateKey;

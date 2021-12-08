@@ -32,10 +32,7 @@ export type KeysAlgConfig = {
 
 export const KeyTypes: VerificationMethodType[] = [
   'EcdsaSecp256k1VerificationKey2019',
-  'Ed25519VerificationKey2018',
-  'RsaVerificationKey2018',
-  'X25519KeyAgreementKey2019',
-  'EcdsaSecp256k1RecoveryMethod2020',
+  'JsonWebKey2020'
 ];
 
 export const keyTypeConfig: {
@@ -45,24 +42,13 @@ export const keyTypeConfig: {
     alg: 'ES256K',
     type: 'ec',
     jws: true,
+    crv: 'secp256k1',
   },
-  'Ed25519VerificationKey2018': {
-    alg: 'EdDSA',
-    type: 'ed25519',
+  'JsonWebKey2020': {
+    alg: 'ES256',
+    type: 'ec',
     jws: true,
-    crv: 'Ed25519',
-  },
-  'RsaVerificationKey2018': {
-    alg: 'RSA-OAEP',
-    type: 'rsa',
-    jws: false,
-    modulusLength: 2048,
-  },
-  'X25519KeyAgreementKey2019': {
-    alg: 'ECDH-ES+A256KW',
-    type: 'x25519',
-    jws: false,
-    crv: 'X25519',
+    crv: 'P-256'
   }
 };
 
@@ -70,17 +56,14 @@ export const keyTypeMap: {
   [key: string]: VerificationMethodType
 } = {
   'secp256k1': 'EcdsaSecp256k1VerificationKey2019',
-  'Ed25519': 'Ed25519VerificationKey2018',
-  'RSA': 'RsaVerificationKey2018',
-  'X25519': 'X25519KeyAgreementKey2019',
+  'P-256': 'JsonWebKey2020'
 };
 
 export const signatureTypeMap: {
   [key: string]: CryptographicSignatureSuiteReference
 } = {
   'secp256k1': 'EcdsaSecp256k1Signature2019',
-  'Ed25519': 'Ed25519Signature2018',
-  'RSA': 'RsaSignature2018',
+  'P-256': 'JsonWebSignature2020'
 };
 
 // Get a key type from the JWK
@@ -94,14 +77,10 @@ export const keyTypeFromJWK = (key: JWK): VerificationMethodType => {
 
   switch (key.kty.toLocaleLowerCase()) {
     case 'ec':
-    case 'okp':
       if (!key.crv) {
         throw new Error('Broken JWK: key curve type not found');
       }
       keyType = keyTypeMap[key.crv];
-      break;
-    case 'rsa':
-      keyType = keyTypeMap['RSA'];
       break;
     default:
   }
@@ -123,14 +102,10 @@ export const signatureTypeFromJWK = (key: JWK): CryptographicSignatureSuiteRefer
 
   switch (key.kty.toLocaleLowerCase()) {
     case 'ec':
-    case 'okp':
       if (!key.crv) {
         throw new Error('Broken JWK: key curve type not found');
       }
       signatureType = signatureTypeMap[key.crv];
-      break;
-    case 'rsa':
-      signatureType = signatureTypeMap['RSA'];
       break;
     default:
   }
@@ -156,14 +131,10 @@ export const getAlgFromJWK = (
 
   switch (key.kty.toLocaleLowerCase()) {
     case 'ec':
-    case 'okp':
       if (!key.crv) {
         throw new Error('Broken JWK: key curve type not found');
       }
       keyConfig = keyTypeConfig[keyTypeMap[key.crv]];
-      break;
-    case 'rsa':
-      keyConfig = keyTypeConfig[keyTypeMap['RSA']];
       break;
     default:
   }

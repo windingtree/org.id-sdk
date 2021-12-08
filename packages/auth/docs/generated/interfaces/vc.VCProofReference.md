@@ -30,7 +30,7 @@ When proof was created
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:104
+node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:103
 
 ___
 
@@ -42,7 +42,7 @@ The digital signature value
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:116
+node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:115
 
 ___
 
@@ -54,7 +54,7 @@ Purpose of the proof
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:108
+node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:107
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:100
+node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:99
 
 ___
 
@@ -76,4 +76,4 @@ The identifier of the public key that can verify the signature
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:112
+node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:111

@@ -12,7 +12,7 @@ import {
   importKeyPublicPem
 } from '../src/keys';
 import { privatePem, publicPem } from './mocks/pemKeys';
-import { clone } from './helpers/utils';
+import { clone, isNodeJs } from './helpers/utils';
 import { expect } from 'chai';
 
 type KeyLikeSet = { privateKey: KeyLike, publicKey: KeyLike }[];
@@ -24,8 +24,8 @@ describe('Keys utilities', () => {
   before(async () => {
     keys = await Promise.all(
       KeyTypes
-        .filter(t => t !== 'EcdsaSecp256k1RecoveryMethod2020')
-        .map(async type => generateKeyPair(type))
+        .filter(t => !(!isNodeJs() && t === 'EcdsaSecp256k1VerificationKey2019'))
+        .map(type => generateKeyPair(type))
     );
   });
 
@@ -88,7 +88,7 @@ describe('Keys utilities', () => {
       });
 
       it('should throw if key curve type not found', async () => {
-        const key = clone(keysJwk[1].privateKey);
+        const key = clone(keysJwk[0].privateKey);
         key.crv = undefined;
         expect(() => signatureTypeFromJWK(key))
           .to.throw('Broken JWK: key curve type not found');
@@ -120,7 +120,7 @@ describe('Keys utilities', () => {
       });
 
       it('should throw if key curve type not found', async () => {
-        const key = clone(keysJwk[1].privateKey);
+        const key = clone(keysJwk[0].privateKey);
         key.crv = undefined;
         expect(() => keyTypeFromJWK(key))
           .to.throw('Broken JWK: key curve type not found');
@@ -152,7 +152,7 @@ describe('Keys utilities', () => {
       });
 
       it('should throw if key curve type not found', async () => {
-        const key = clone(keysJwk[1].privateKey);
+        const key = clone(keysJwk[0].privateKey);
         key.crv = undefined;
         expect(() => getAlgFromJWK(key))
           .to.throw('Broken JWK: key curve type not found');
@@ -165,12 +165,6 @@ describe('Keys utilities', () => {
           .to.throw(`Unsupported key type: ${key.kty}`);
       });
 
-      it('should throw if algorithm not supported by JSW', async () => {
-        const key = clone(keysJwk[2].privateKey); // RSA-OAEP
-        expect(() => getAlgFromJWK(key, true))
-          .to.throw(`Algorithm RSA-OAEP not supported by JWS`);
-      });
-
       it('should return algorithm type from JWK', async () => {
         keysWithKnownSignatures.forEach(async (k, i) => {
           for (const key of [k.privateKey, k.publicKey]) {
@@ -181,19 +175,22 @@ describe('Keys utilities', () => {
     });
   });
 
-  describe('#importKeyPrivatePem', () => {
+  if (isNodeJs()) {
 
-    it('should import private key without passphrase', async () => {
-      const privateKey = await importKeyPrivatePem(privatePem);
-      expect(privateKey.type).to.equal('private');
+    describe('#importKeyPrivatePem', () => {
+
+      it('should import private key without passphrase', async () => {
+        const privateKey = await importKeyPrivatePem(privatePem);
+        expect(privateKey.type).to.equal('private');
+      });
     });
-  });
 
-  describe('#importKeyPublicPem', () => {
+    describe('#importKeyPublicPem', () => {
 
-    it('should import public key', async () => {
-      const publicKey = await importKeyPublicPem(publicPem);
-      expect(publicKey.type).to.equal('public');
+      it('should import public key', async () => {
+        const publicKey = await importKeyPublicPem(publicPem);
+        expect(publicKey.type).to.equal('public');
+      });
     });
-  });
+  }
 });

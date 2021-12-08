@@ -14,16 +14,17 @@ import {
   checkDateUtil,
   buildProofUtil
 } from '../src/vc';
-import { importKeyPrivatePem, importKeyPublicPem, createJWK } from '../src/keys';
+import { importKeyPrivatePem, importKeyPublicPem, generateKeyPair, createJWK } from '../src/keys';
+import { isNodeJs, base64url } from '../src/utils';
 import { clone } from './helpers/utils';
 import { privatePem, publicPem } from './mocks/pemKeys';
 import { decodeProtectedHeader } from 'jose';
-import { base64url } from 'jose';
 import { DateTime } from  'luxon';
-import { ethers } from 'hardhat';
+import { ethers, utils as ethersUtils } from 'ethers';
 import { expect } from 'chai';
 
 describe('Verifiable Credentials', () => {
+  const mnemonic = 'announce room limb pattern dry unit scale effort smooth jazz weasel alcohol';
   const issuer = 'did:orgid:4:0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d#key-1';
   const holder = 'did:orgid:4:0xcfdb769eafae259e58028ba25ab70ce539731b593c08b780e5275c723132d206';
   const subject = {
@@ -45,11 +46,26 @@ describe('Verifiable Credentials', () => {
   let signers: Signer[];
   let accounts: string[];
 
+  const getSigners = (): Signer[] => {
+    const hdNode = ethersUtils.HDNode.fromMnemonic(mnemonic);
+
+    return Array(10).fill(0).map(
+      (_, i) => new ethers.Wallet(hdNode.derivePath(`m/44'/60'/0'/0/${i + 1}`))
+    );
+  };
+
   before(async () => {
-    signers = await ethers.getSigners();
+    signers = getSigners();
     accounts = await Promise.all(signers.map((s: Signer) => s.getAddress()));
-    privateKey = await importKeyPrivatePem(privatePem);
-    publicKey = await importKeyPublicPem(publicPem);
+
+    if (isNodeJs()) {
+      privateKey = await importKeyPrivatePem(privatePem);
+      publicKey = await importKeyPublicPem(publicPem);
+    } else {
+      const keyPair = await generateKeyPair('JsonWebKey2020');
+      privateKey = keyPair.privateKey;
+      publicKey = keyPair.publicKey;
+    }
   });
 
   describe('#buildUnsignedDataForSignature', () => {
@@ -63,7 +79,7 @@ describe('Verifiable Credentials', () => {
       expect(
         JSON.parse(base64url.decode(data[0]).toString())
       ).to.deep.equal({
-        alg: 'ES256K',
+        alg: 'ES256',
         kid: issuer,
         typ: 'JWT'
       });
@@ -77,7 +93,7 @@ describe('Verifiable Credentials', () => {
       expect(
         JSON.parse(base64url.decode(data[0]).toString())
       ).to.deep.equal({
-        alg: 'ES256K',
+        alg: 'ES256',
         kid: issuer,
         typ: 'JWT'
       });
@@ -227,13 +243,13 @@ describe('Verifiable Credentials', () => {
     it('should throw if JWS not been provided', async () => {
       expect(() => buildProofUtil(
         '',
-        'EcdsaSecp256k1RecoverySignature2020',
+        'JsonWebSignature2020',
         issuer
       )).to.throw('JWS must be provided');
     });
 
     it('should build proof', async () => {
-      const type = 'EcdsaSecp256k1RecoverySignature2020';
+      const type = 'JsonWebSignature2020';
       const proof = buildProofUtil(
         jws,
         type,
@@ -249,7 +265,7 @@ describe('Verifiable Credentials', () => {
 
   describe('#createVC', () => {
 
-    it('should throw if', async () => {
+    it('should throw if invalid issuer', async () => {
       const invalidIssuer = 'InvalidIssuer';
       expect(
         () => createVC(
@@ -519,7 +535,7 @@ describe('Verifiable Credentials', () => {
     it('should create credential with JWK', async () => {
       const pubJwk = await createJWK(publicKey);
       const privJwk = await createJWK(privateKey);
-      console.log(JSON.stringify(privJwk, null, 2));
+      // console.log(JSON.stringify(privJwk, null, 2));
       const vc: SignedVC = await createVC(
         issuer,
         'VerifiableCredential'
@@ -575,6 +591,12 @@ describe('Verifiable Credentials', () => {
 
       const payload = await verifyVC(vc, publicKey); // @toto verify payload
       expect(vc.credentialSubject).to.deep.equal(payload.credentialSubject);
+
+      if (isNodeJs()) {
+        expect(vc.proof.type).to.be.equal('EcdsaSecp256k1Signature2019');
+      } else {
+        expect(vc.proof.type).to.be.equal('JsonWebSignature2020');
+      }
     });
 
     it('should create credential signed with ethers provider', async () => {
@@ -596,6 +618,7 @@ describe('Verifiable Credentials', () => {
 
       const payload = await verifyVC(vc, issuerBlockchainAccountId);
       expect(vc.credentialSubject).to.deep.equal(payload.credentialSubject);
+      expect(vc.proof.type).to.be.equal('EcdsaSecp256k1RecoverySignature2020');
     });
 
     it('should create credential with NFT meta-data', async () => {
@@ -696,7 +719,7 @@ describe('Verifiable Credentials', () => {
     });
 
     it('should throw if VC is expired', async () => {
-      const expirationDate = new Date().toISOString();
+      const expirationDate = new Date(Date.now() + 50).toISOString();
       const vc = await createVC(
         issuer,
         'VerifiableCredential'
@@ -717,8 +740,8 @@ describe('Verifiable Credentials', () => {
 
     it('should throw if VC not active by from-until rules', async () => {
       const now = Date.now();
-      const validFrom = DateTime.fromMillis(now + 100).toISO();
-      const validUntil = DateTime.fromMillis(now + 200).toISO();
+      const validFrom = DateTime.fromMillis(now + 200).toISO();
+      const validUntil = DateTime.fromMillis(now + 300).toISO();
       const vc = await createVC(
         issuer,
         'VerifiableCredential'
@@ -749,7 +772,7 @@ describe('Verifiable Credentials', () => {
 
     it('should throw if VC not active by from rule', async () => {
       const now = Date.now();
-      const validFrom = DateTime.fromMillis(now + 100).toISO();
+      const validFrom = DateTime.fromMillis(now + 1000).toISO();
       const vc = await createVC(
         issuer,
         'VerifiableCredential'
