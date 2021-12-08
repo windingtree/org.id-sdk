@@ -345,3 +345,33 @@ contract
   })
   .catch(console.error);
 ```
+
+## Fetching an information of ORGiDs registered by the specific owner
+
+```typescript
+const owner = '0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC';
+contract
+  .getOwnOrgIds(owner)
+  .then(result => {
+
+    if (result.length === 0) {
+      console.log(`The owner "${owner}" has not registered any ORGiDs`);
+    } else {
+      console.log(result);
+      // [
+      //   {
+      //     "created": "2021-12-08T15:23:47.000Z"
+      //     "delegates": []
+      //     "orgId": "0xc3c3303ce0556176e82230...951cd85c64ab4d"
+      //     "orgJsonUri": "http://test.uri"
+      //     "owner": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+      //     "tokenId": {
+      //       "_hex": "0x06"
+      //       "_isBigNumber": true
+      //     }
+      //   }
+      // ]
+    }
+  })
+  .catch(console.error)
+```

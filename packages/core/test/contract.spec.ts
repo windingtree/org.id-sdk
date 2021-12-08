@@ -16,6 +16,7 @@ describe('OrgId contract', () => {
   let orgIdContractAddress: string;
   let contract: OrgIdContract;
   let orgIdOwner: Signer;
+  let notAnOwner: Signer;
   let orgIdHash: string;
   let orgIdTokenId: BigNumber;
 
@@ -23,6 +24,7 @@ describe('OrgId contract', () => {
     setup = await orgIdSetup();
     orgIdContractAddress = setup.orgIdContract.address;
     orgIdOwner = setup.signers[1];
+    notAnOwner = setup.signers[9];
     const regResult = await setup.registerOrgId(orgIdOwner as VoidSigner);
     orgIdHash = regResult.orgIdHash;
     orgIdTokenId = regResult.tokenId;
@@ -688,6 +690,39 @@ describe('OrgId contract', () => {
           );
           expect(result).to.deep.equal(delegates);
         });
+      });
+    });
+
+    describe('#getOwnOrgIds',  () => {
+
+      it('method exposed', async () => {
+        expect(typeof contract.getOwnOrgIds).to.equal('function');
+      });
+
+      it('should throw if invalid owner address provided', async () => {
+        const invalidAddress: TestInput = '023894029384';
+        await expect(
+          contract.getOwnOrgIds(invalidAddress)
+        ).to.rejectedWith('getOwnOrgIds: Invalid the ORGiD owner address');
+      });
+
+      it('should return empty array if the owner does not have any ORGiDs', async () => {
+        const address = await notAnOwner.getAddress();
+        expect(
+          await contract.getOwnOrgIds(address)
+        ).to.deep.equal([]);
+      });
+
+      it('should return array of resolved ORGiDs', async () => {
+        const owner = setup.signers[3];
+        const address = await owner.getAddress();
+        await contract.createOrgId(
+          generateSalt(),
+          'http://test.uri',
+          setup.signers[2]
+        );
+        const orgIds = await contract.getOwnOrgIds(address);
+        orgIds.forEach(o => checkOrgId(o as OrgIdData));
       });
     });
   });

@@ -4,8 +4,7 @@ export const getOrgIdsCount = async (
   contract: OrgIdBaseContract
 ): Promise<number> => {
 
-  // Call smart contract
   const count = await contract['totalSupply()']();
 
-  return Number(count);
+  return count.toNumber();
 };

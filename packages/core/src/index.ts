@@ -24,6 +24,7 @@ import { getOrgIds } from './api/getOrgIds';
 import { addDelegates } from './api/addDelegates';
 import { getDelegates } from './api/getDelegates';
 import { removeDelegates } from './api/removeDelegates';
+import { getOwnOrgIds } from './api/getOwnOrgIds';
 
 export type {
   OrgIdAddresses,
@@ -162,5 +163,9 @@ export class OrgIdContract {
 
   getDelegates(orgIdHash: string): Promise<Delegates> {
     return getDelegates(this.contract, orgIdHash);
+  }
+
+  getOwnOrgIds(ownerAddress: string): Promise<OrgIdData[] | []> {
+    return getOwnOrgIds(this.contract, ownerAddress);
   }
 }
