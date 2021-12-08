@@ -19,14 +19,16 @@ import {
 } from '@windingtree/org.id-auth';
 ```
 
+### Ethereum keys
+
+This package does not provide a generation method for Ethereum compatible keys that are represented by `EcdsaSecp256k1RecoveryMethod2020` suite. But this kind of key can be used for verification of signatures made according to `EcdsaSecp256k1RecoverySignature2020` suite.
+
 ### Keys generation
 
 Under the hood, the ORGiD SDK uses a powerful cryptographic library [jose](https://github.com/panva/jose) that provides the generation of various types of keys. For purposes of signing tokens and verifiable credentials, the ORGiD SDK supports the keys that conform to the following cryptographic suites:
 
-- `EcdsaSecp256k1VerificationKey2019`
-- `Ed25519VerificationKey2018`
-- `RsaVerificationKey2018`
-- `X25519KeyAgreementKey2019`
+- `EcdsaSecp256k1VerificationKey2019`: secp256k1 curve. Keys can be generated in node.js using `generateKeyPair`. Keys can be used for signature of tokens and VC's in node.js environment only. Using this type of key can be generated the `EcdsaSecp256k1Signature2019` signature type
+- `JsonWebKey2020` P-256 curve (alg: ES256). Keys can be generated in node.js & browser using `generateKeyPair`. Using this type of key can be generated the `JsonWebSignature2020` signature type
 
 In most ORGiD use cases usage of the `EcdsaSecp256k1VerificationKey2019` keys is enough and recommended. The generation can be done with the function `generateKeyPair` as follows:
 
@@ -53,6 +55,8 @@ console.log(jwkPubKey);
 
 ### Importing of ECPrivateKey keys
 
+> Importing of ECPrivateKey is available in node.js environment only
+
 ```typescript
 const privatePem =
 `-----BEGIN PRIVATE KEY-----
@@ -65,6 +69,8 @@ const privateKey = await importKeyPrivatePem(privatePem);
 ```
 
 ### Importing PKCS#8 formatted keys
+
+> Importing of PKCS#8 is available in node.js environment only
 
 ```typescript
 export const publicPem =
@@ -107,6 +113,8 @@ import {
 ```
 
 ### Creation of a JWT token
+
+> For signing of authentication tokens can be used keys that compatible with `EcdsaSecp256k1VerificationKey2019` (node.js) and `JsonWebKey2020` (node.js & browser) suites
 
 ```typescript
 const privateKey = '<PRIVATE_KEY_KEYLIKE_OR_JWK>';
@@ -158,6 +166,8 @@ A verification should to fail in case of:
 ## Verifiable credentials
 
 ### VC signed with private key
+
+> With `sign` method can be used keys that compatible with `EcdsaSecp256k1VerificationKey2019` (node.js) and `JsonWebKey2020` (node.js & browser) suites
 
 ```javascript
 const privateKey = '<PRIVATE_KEY_KEYLIKE_OR_JWK>';
@@ -222,8 +232,10 @@ const payload = await verifyVC(vc, publicKey);
 
 Currently, supported Ethereum account type (eip155) only.
 
+> `signWithBlockchainAccount` method requires a signature with a wallet signer (node.js or in the browser). The node.js server environment can be used HDnode signers of `ethers.js` library. In the browser, signatures can be applied using wallets like Metamask or WalletConnect service.
+
 ```javascript
-const web3Provider = '<WEB3_PROVIDER>';
+const web3Provider = '<WEB3_PROVIDER>'; // ethers.js provider
 const account = '<ETH_ACCOUNT>';
 const issuerBlockchainAccountId = `${account}@eip155:1`;
 const vc = await createVC(

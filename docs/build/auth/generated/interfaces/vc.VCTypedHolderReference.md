@@ -23,11 +23,11 @@ This type of the holder definition can be used when a credential issued to a hol
 
 • **id**: `string`
 
-Holder' ORGiD
+Holder's ORGiD
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:93
+node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:92
 
 ___
 
@@ -39,4 +39,4 @@ A type of activity during which the issuer permits to own the credential
 
 #### Defined in
 
-node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:89
+node_modules/@windingtree/org.json-schema/types/vc/index.d.ts:88

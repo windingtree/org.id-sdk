@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:16](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L16)
+[src/keys.ts:16](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L16)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:18](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L18)
+[src/keys.ts:18](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L18)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:24](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L24)
+[src/keys.ts:24](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L24)
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:22](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L22)
+[src/keys.ts:22](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L22)
 
 ## Variables
 
@@ -195,7 +195,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:33](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L33)
+[src/keys.ts:33](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L33)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:41](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L41)
+[src/keys.ts:38](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L38)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:69](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L69)
+[src/keys.ts:55](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L55)
 
 ___
 
@@ -237,7 +237,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:78](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L78)
+[src/keys.ts:62](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L62)
 
 ## Functions
 
@@ -257,7 +257,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:217](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L217)
+[src/keys.ts:188](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L188)
 
 ___
 
@@ -278,7 +278,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:183](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L183)
+[src/keys.ts:154](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L154)
 
 ___
 
@@ -299,7 +299,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:146](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L146)
+[src/keys.ts:121](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L121)
 
 ___
 
@@ -320,7 +320,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:220](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L220)
+[src/keys.ts:191](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L191)
 
 ___
 
@@ -341,13 +341,13 @@ ___
 
 #### Defined in
 
-[src/keys.ts:226](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L226)
+[src/keys.ts:197](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L197)
 
 ___
 
 ### keyTypeFromJWK
 
-▸ `Const` **keyTypeFromJWK**(`key`): ``"JsonWebKey2020"`` \| ``"EcdsaSecp256k1VerificationKey2019"`` \| ``"Ed25519VerificationKey2018"`` \| ``"RsaVerificationKey2018"`` \| ``"X25519KeyAgreementKey2019"`` \| ``"EcdsaSecp256k1RecoveryMethod2020"``
+▸ `Const` **keyTypeFromJWK**(`key`): ``"EcdsaSecp256k1VerificationKey2019"`` \| ``"EcdsaSecp256k1RecoveryMethod2020"`` \| ``"JsonWebKey2020"``
 
 #### Parameters
 
@@ -357,11 +357,11 @@ ___
 
 #### Returns
 
-``"JsonWebKey2020"`` \| ``"EcdsaSecp256k1VerificationKey2019"`` \| ``"Ed25519VerificationKey2018"`` \| ``"RsaVerificationKey2018"`` \| ``"X25519KeyAgreementKey2019"`` \| ``"EcdsaSecp256k1RecoveryMethod2020"``
+``"EcdsaSecp256k1VerificationKey2019"`` \| ``"EcdsaSecp256k1RecoveryMethod2020"`` \| ``"JsonWebKey2020"``
 
 #### Defined in
 
-[src/keys.ts:87](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L87)
+[src/keys.ts:70](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L70)
 
 ___
 
@@ -381,4 +381,4 @@ ___
 
 #### Defined in
 
-[src/keys.ts:116](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/keys.ts#L116)
+[src/keys.ts:95](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/keys.ts#L95)

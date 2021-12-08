@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[src/vc.ts:60](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L60)
+[src/vc.ts:60](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/vc.ts#L60)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:57](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L57)
+[src/vc.ts:57](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/vc.ts#L57)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:47](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L47)
+[src/vc.ts:47](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/vc.ts#L47)
 
 ___
 
@@ -96,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:63](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L63)
+[src/vc.ts:63](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/vc.ts#L63)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:51](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L51)
+[src/vc.ts:51](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/vc.ts#L51)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:54](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L54)
+[src/vc.ts:54](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/vc.ts#L54)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-[src/vc.ts:66](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L66)
+[src/vc.ts:66](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/vc.ts#L66)
 
 ___
 
@@ -169,7 +169,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `blockchainAccountId` | `string` |
-| `signer` | `VoidSigner` |
+| `signer` | `VoidSigner` \| `Wallet` |
 
 #### Returns
 
@@ -177,4 +177,4 @@ ___
 
 #### Defined in
 
-[src/vc.ts:69](https://github.com/windingtree/org.id-sdk/blob/960d341/packages/auth/src/vc.ts#L69)
+[src/vc.ts:69](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/vc.ts#L69)
