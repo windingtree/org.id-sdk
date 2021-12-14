@@ -75,3 +75,24 @@ First version of this feature will not support IPNS deployments.
 - the ORGiD delegates registration transaction hash
 - registration report
 - template of updates what must be reflected in the ORG.JSON
+
+### Authentication tokens generation
+
+This operation is required fot creation of the JWT tokens
+
+### Parameters
+
+- issuer DID
+- audience DID
+- token scope
+- verification method
+
+### Requirements
+
+- token parameters must be valid
+- verification method must be valid
+- private key must be provided in the env
+
+### Result
+
+- generated authentication JWT token
