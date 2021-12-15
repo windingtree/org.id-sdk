@@ -1,5 +1,6 @@
-import { createSignedOrgJson } from './api/orgJson';
 import { parseArguments } from './utils/env';
+import { createSignedOrgJson } from './api/orgJson';
+import { deployFileIpfs } from './api/deployment';
 
 export * as console from './utils/console';
 
@@ -17,15 +18,23 @@ export const cli = async (
       '--nftName': String,
       '--nftDescription': String,
       '--nftImage': String,
+      '--path': String,
+      '--deploy:ipfs': String
     },
     argv
   );
 
+  // Just for separation of the command line from the output
+  console.log('\n');
+
   // Operation selector
   switch (args['--type'] as unknown) {
     case 'OrgJson':
-      return createSignedOrgJson(basePath, args);
-
+      await createSignedOrgJson(basePath, args);
+      break;
+    case 'deploy:ipfs':
+      await deployFileIpfs(basePath, args);
+      break;
     case undefined:
       throw new Error('Operation type must be provided using "--type" option');
     default:

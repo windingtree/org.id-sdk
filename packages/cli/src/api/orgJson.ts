@@ -2,12 +2,15 @@ import type { ORGJSON, VerificationMethodReference } from '@windingtree/org.json
 import type { NFTMetadata } from '@windingtree/org.json-schema/types/nft';
 import type { ORGJSONVCNFT } from '@windingtree/org.json-schema/types/orgVc';
 import type { ParsedArgv } from '../utils/env';
+import type { DeploymentReference, VcReference } from '../schema/project/types';
 import { vc, keys } from '@windingtree/org.id-auth';
 import { ethers } from 'ethers';
 import { object as objectUtil } from '@windingtree/org.id-utils';
 import { DateTime } from  'luxon';
 import { read, write } from './fs';
-import { printInfo } from '../utils/console';
+import { deployFileIpfs } from './deployment';
+import { addVcToProject } from './project';
+import { printInfo, printMessage } from '../utils/console';
 
 // Extract verification method from the orgJson
 export const fetchVerificationMethod = (
@@ -229,11 +232,11 @@ export const signWithEcKey = async (
 export const createSignedOrgJson = async (
   basePath: string,
   args: ParsedArgv
-): Promise<void> => {
+): Promise<VcReference> => {
 
   if (!args['--payload']) {
     throw new Error(
-      `Path to the payload file must be provided using "${args['--payload']}" option`
+      `Path to the payload file must be provided using "--payload" option`
     );
   }
 
@@ -295,4 +298,34 @@ export const createSignedOrgJson = async (
   printInfo(
     `ORG.JSON VC successfully created and saved on the path ${outputFile}`
   );
+
+  let deploymentRecord: DeploymentReference | undefined;
+
+  if (args['--deploy:ipfs']) {
+    printMessage('\nDeploying the file to IPFS...\n');
+    args['--path'] = args['--output'];
+    deploymentRecord = await deployFileIpfs(
+      basePath,
+      args
+    );
+  }
+
+  // Build a deployment record
+  const vcRecord: VcReference = {
+    type: 'OrgJson',
+    did: objectUtil.getDeepValue(orgJsonVc, 'credentialSubject.id') as string,
+    method: args['--method'],
+    payload: args['--payload'],
+    path: args['--output'],
+    date: DateTime.now().toISO(),
+    ...(
+      deploymentRecord
+        ? {
+          uri: deploymentRecord.uri
+        }
+        : {}
+    )
+  };
+
+  return addVcToProject(basePath, vcRecord);
 };

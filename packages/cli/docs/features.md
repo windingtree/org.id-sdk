@@ -19,7 +19,7 @@ During the creation of the file, it will be possible to fill in mandatory fields
 
 - ORG.JSON file created on the basis of a certain template.
 
-## ORGiD VC deployment
+## Deployment to IPFS
 
 First version of this feature will not support IPNS deployments.
 
@@ -27,11 +27,11 @@ First version of this feature will not support IPNS deployments.
 
 - IPFS API key: through env
 - Project config file
-- Path to ORGiD VC file
+- Path to file
 
 ### Requirements
 
-- ORGiD VC provided must be valid and NFT-compatible
+- //
 
 ### Result
 

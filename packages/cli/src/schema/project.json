@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "ORGiD CLI project",
+  "description": "An ORGiD project configuration",
+  "allOf": [
+    {
+        "$ref": "#/definitions/OrgIdCliProjectReference"
+    }
+  ],
+  "definitions": {
+    "OrgIdCliProjectReference": {
+      "type": "object",
+      "properties": {
+        "note": {
+          "description": "Project file note",
+          "type": "string"
+        },
+        "deployments": {
+          "description": "Files deployments information",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DeploymentReference"
+          }
+        },
+        "vcs": {
+          "description": "Verifiable credentials",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VcReference"
+          }
+        }
+      }
+    },
+    "DeploymentReference": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "A type of deployment",
+          "type": "string",
+          "enum": [
+            "ipfs",
+            "ipns",
+            "rest"
+          ]
+        },
+        "path": {
+          "description": "Path to the local file",
+          "type": "string"
+        },
+        "uri": {
+          "description": "URI of deployed file",
+          "type": "string"
+        },
+        "date": {
+          "description": "Deployment date in the ISO format",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "type",
+        "path",
+        "uri",
+        "date"
+      ]
+    },
+    "VcReference": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "A type of VC",
+          "type": "string",
+          "enum": [
+            "VerifiableCredential",
+            "OrgJson"
+          ]
+        },
+        "did": {
+          "description": "ORGiD DID of the ORG.JSON",
+          "type": "string"
+        },
+        "method": {
+          "description": "A verification method used a VC signature creation",
+          "type": "string"
+        },
+        "payload": {
+          "description": "Path to the original credential subject source",
+          "type": "string"
+        },
+        "path": {
+          "description": "Path to the created VC file",
+          "type": "string"
+        },
+        "uri": {
+          "description": "URI of a deployed credential file",
+          "type": "string"
+        },
+        "date": {
+          "description": "VC creation date in the ISO format",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "type",
+        "method",
+        "payload",
+        "path",
+        "date"
+      ]
+    }
+  }
+}

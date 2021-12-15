@@ -14,6 +14,8 @@ export interface CliArgs extends Spec {
   '--nftName': string;
   '--nftDescription': string;
   '--nftImage': string;
+  '--path': string;
+  '--deploy:ipfs': string;
 }
 
 export type ParsedArgv = Result<CliArgs>;
