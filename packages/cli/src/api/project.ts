@@ -11,6 +11,7 @@ import {
   read,
   write
 } from './fs';
+import orgIdCliProjectSchema from '../schema/project.json';
 import { printMessage, printObject } from '../utils/console';
 
 export interface AddDeploymentResult {
@@ -20,6 +21,25 @@ export interface AddDeploymentResult {
 
 export const projectFileTemplate: OrgIdCliProjectReference = {
   note: 'This file is created automatically. Do not edit it manually'
+};
+
+export const saveProjectFile = async (
+  project: OrgIdCliProjectReference
+): Promise<void> => {
+
+  const validationResult = object.validateWithSchemaOrRef(
+    orgIdCliProjectSchema,
+    '',
+    project
+  );
+
+  if (validationResult !== null) {
+    throw new Error(
+      `ORGiD CLI project file schema validation error: ${validationResult}`
+    );
+  }
+
+  await write('.orgid', 'project.json', JSON.stringify(project, null, 2));
 };
 
 // Create an empty project file if not exists
@@ -54,10 +74,10 @@ export const addDeploymentToProject = async (
   records.push(deployment);
   project.deployments = records;
 
-  await write('.orgid', 'project.json', JSON.stringify(project, null, 2));
+  await saveProjectFile(project);
 
   printMessage(
-    `\nThe project configuration file is updated with record [deployment]:`
+    `\nThe project configuration file is updated with the record [deployment]:`
   );
   printObject(deployment);
 
@@ -84,10 +104,10 @@ export const addVcToProject = async (
   records.push(vc);
   project.vcs = records;
 
-  await write('.orgid', 'project.json', JSON.stringify(project, null, 2));
+  await saveProjectFile(project);
 
   printMessage(
-    `\nThe project configuration file is updated with record [VC]:`
+    `\nThe project configuration file is updated with the record [VC]:`
   );
   printObject(vc);
 

@@ -75,6 +75,8 @@ npx orgid --type deploy:ipfs --path ./temp/orgVc.json
 
 ## Project configuration file
 
+When the ORGiD CLI utility makes operations all valuable data that can be reused is logged to the project file. This file is automatically created in the root repository directory on the path `./orgid/project.json`.
+
 ## TODO
 
 - Tests
