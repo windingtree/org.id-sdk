@@ -1,7 +1,11 @@
 import { parseArguments } from './utils/env';
+
+// Operations API methods
 import { createSignedOrgJson } from './api/orgJson';
 import { deployFileIpfs } from './api/deployment';
+import { bootstrapOrgJson } from './api/bootstrap';
 
+// Console helpers
 export * as console from './utils/console';
 
 // Main CLI handler
@@ -34,6 +38,9 @@ export const cli = async (
       break;
     case 'deploy:ipfs':
       await deployFileIpfs(basePath, args);
+      break;
+    case 'bootstrap':
+      await bootstrapOrgJson(basePath, args);
       break;
     case undefined:
       throw new Error('Operation type must be provided using "--type" option');

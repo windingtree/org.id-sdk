@@ -28,6 +28,13 @@
           "items": {
             "$ref": "#/definitions/VcReference"
           }
+        },
+        "orgIds": {
+          "description": "List of registered ORGiDs",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrgIdsReference"
+          }
         }
       }
     },
@@ -107,6 +114,32 @@
         "payload",
         "path",
         "date"
+      ]
+    },
+    "OrgIdsReference": {
+      "type": "object",
+      "properties": {
+        "did": {
+          "type": "string",
+          "description": "ORGiD DID"
+        },
+        "salt": {
+          "type": "string",
+          "description": "ORGiD DID salt"
+        },
+        "owner": {
+          "type": "string",
+          "description": "ORGiD owner"
+        },
+        "template": {
+          "type": "string",
+          "description": "Path to saved ORG.JSON raw template"
+        }
+      },
+      "required": [
+        "did",
+        "salt",
+        "owner"
       ]
     }
   }

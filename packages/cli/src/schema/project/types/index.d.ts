@@ -23,6 +23,10 @@ export interface OrgIdCliProjectReference {
    * Verifiable credentials
    */
   vcs?: VcReference[];
+  /**
+   * List of registered ORGiDs
+   */
+  orgIds?: OrgIdsReference[];
   [k: string]: unknown;
 }
 export interface DeploymentReference {
@@ -73,5 +77,24 @@ export interface VcReference {
    * VC creation date in the ISO format
    */
   date: string;
+  [k: string]: unknown;
+}
+export interface OrgIdsReference {
+  /**
+   * ORGiD DID
+   */
+  did: string;
+  /**
+   * ORGiD DID salt
+   */
+  salt: string;
+  /**
+   * ORGiD owner
+   */
+  owner: string;
+  /**
+   * Path to saved ORG.JSON raw template
+   */
+  template?: string;
   [k: string]: unknown;
 }

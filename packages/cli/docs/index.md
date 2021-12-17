@@ -55,7 +55,7 @@ Example for the `EcdsaSecp256k1VerificationKey2019` method:
 npx orgid --type OrgJson --payload ./test/mocks/validOrgWithInnerDelegate.json --method "did:orgid:4:0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119#key-2" --output ./temp/orgJsonVc.json
 ```
 
-As a result of this operation the given ORG.JSON will be signed with the private key of the defined verification method.
+As a result of this operation the given ORG.JSON will be signed with the private key of the defined verification method. A generated templated will contain a proper verification method record.
 
 The created file will be automatically deployed to the IPFS if the property `--deploy:ipfs` is defined.
 
@@ -72,6 +72,29 @@ Example:
 ```bash
 npx orgid --type deploy:ipfs --path ./temp/orgVc.json
 ```
+
+### `--type bootstrap`
+
+Generation of the ORG.JSON template.
+
+Parameters:
+
+- `--output`: a path where to save a generated ORG.JSON template
+
+During the generation process you will be prompted for the following information:
+
+- Network where an ORGiD will issued
+- Ethereum account address of the ORGiD owner
+- Type of profile
+- Mandatory profile properties
+
+Example:
+
+```bash
+npx orgid --type bootstrap --output ./temp/myTestOrgJson.json
+```
+
+As a result of this operation will be generated a template of an ORG.JSON file and saved on the requested path.
 
 ## Project configuration file
 

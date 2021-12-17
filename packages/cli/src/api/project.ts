@@ -1,7 +1,8 @@
 import type {
   OrgIdCliProjectReference,
   DeploymentReference,
-  VcReference
+  VcReference,
+  OrgIdsReference
 } from '../schema/project/types';
 import path from 'path';
 import { object } from '@windingtree/org.id-utils';
@@ -23,6 +24,7 @@ export const projectFileTemplate: OrgIdCliProjectReference = {
   note: 'This file is created automatically. Do not edit it manually'
 };
 
+// Validate a project file and save it
 export const saveProjectFile = async (
   project: OrgIdCliProjectReference
 ): Promise<void> => {
@@ -112,4 +114,26 @@ export const addVcToProject = async (
   printObject(vc);
 
   return vc;
+};
+
+// Add ORGiD info
+export const addOrgIdToProject = async (
+  basePath: string,
+  orgId: OrgIdsReference
+): Promise<OrgIdsReference> => {
+  const project = await getProjectFile(basePath);
+  const records = ((object.getDeepValue(project, 'orgIds') || []) as OrgIdsReference[])
+    .filter(o => o.did !== orgId.did);
+
+  records.push(orgId);
+  project.orgIds = records;
+
+  await saveProjectFile(project);
+
+  printMessage(
+    `\nThe project configuration file is updated with the record [ORGiD]:`
+  );
+  printObject(orgId);
+
+  return orgId;
 };

@@ -240,18 +240,24 @@ export const createSignedOrgJson = async (
     );
   }
 
-  // Read the payload by path
-  const subject = await read(
-    basePath,
-    args['--payload'],
-    true
-  ) as ORGJSON;
+  if (!args['--output']) {
+    throw new Error(
+      'Path to the output file must be provided using "--output" option'
+    );
+  }
 
   if (!args['--method']) {
     throw new Error(
       'Verification method Id must be provided using "--method" option'
     );
   }
+
+  // Read the payload by path
+  const subject = await read(
+    basePath,
+    args['--payload'],
+    true
+  ) as ORGJSON;
 
   const verificationMethod = fetchVerificationMethod(
     subject,
@@ -281,12 +287,6 @@ export const createSignedOrgJson = async (
       throw new Error(
         `Verification method type "${verificationMethod.type}" is not supported`
       );
-  }
-
-  if (!args['--output']) {
-    throw new Error(
-      'Path to the output file must be provided using "--output" option'
-    );
   }
 
   const outputFile = await write(
