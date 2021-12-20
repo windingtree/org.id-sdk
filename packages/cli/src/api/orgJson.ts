@@ -2,7 +2,7 @@ import type { ORGJSON, VerificationMethodReference } from '@windingtree/org.json
 import type { NFTMetadata } from '@windingtree/org.json-schema/types/nft';
 import type { ORGJSONVCNFT } from '@windingtree/org.json-schema/types/orgVc';
 import type { ParsedArgv } from '../utils/env';
-import type { DeploymentReference, VcReference } from '../schema/project/types';
+import type { ProjectDeploymentReference, ProjectVcReference } from '../schema/types/project';
 import { vc, keys } from '@windingtree/org.id-auth';
 import { ethers } from 'ethers';
 import { object as objectUtil } from '@windingtree/org.id-utils';
@@ -10,6 +10,7 @@ import { DateTime } from  'luxon';
 import { read, write } from './fs';
 import { deployFileIpfs } from './deployment';
 import { addVcToProject } from './project';
+import { promptKeyPair } from './common';
 import { printInfo, printMessage } from '../utils/console';
 
 // Extract verification method from the orgJson
@@ -132,6 +133,7 @@ export const buildNftMetadata = (
 
 // Signature method for `EcdsaSecp256k1RecoveryMethod2020` verification method type
 export const signOrgJsonWithBlockchainAccount = async (
+  basePath: string,
   verificationMethod: VerificationMethodReference,
   orgJson: ORGJSON,
   nftMetadata: NFTMetadata
@@ -153,7 +155,24 @@ export const signOrgJsonWithBlockchainAccount = async (
     );
   }
 
-  const privateKeyRaw = process.env.ACCOUNT_KEY as string;
+  let privateKeyRaw: string;
+
+  const keyPairRecord = await promptKeyPair(
+    basePath,
+    record => {
+      if (record.type !== 'eip155') {
+        throw new Error(
+          `Key pair with tag "${record.tag}" has a type "${record.type}" that not supported for an ORGiD bootstrap. Please use "eip155" keys`
+        )
+      }
+    }
+  );
+
+  if (keyPairRecord) {
+    privateKeyRaw = keyPairRecord.privateKey;
+  } else {
+    privateKeyRaw = process.env.ACCOUNT_KEY as string;
+  }
 
   if (!privateKeyRaw) {
     throw new Error(
@@ -187,6 +206,7 @@ export const signOrgJsonWithBlockchainAccount = async (
 
 // Signature method for `EcdsaSecp256k1VerificationKey2019` verification method type
 export const signWithEcKey = async (
+  basePath: string,
   verificationMethod: VerificationMethodReference,
   orgJson: ORGJSON,
   nftMetadata: NFTMetadata
@@ -232,7 +252,7 @@ export const signWithEcKey = async (
 export const createSignedOrgJson = async (
   basePath: string,
   args: ParsedArgv
-): Promise<VcReference> => {
+): Promise<ProjectVcReference> => {
 
   if (!args['--payload']) {
     throw new Error(
@@ -271,6 +291,7 @@ export const createSignedOrgJson = async (
   switch (verificationMethod.type) {
     case 'EcdsaSecp256k1RecoveryMethod2020':
       orgJsonVc = await signOrgJsonWithBlockchainAccount(
+        basePath,
         verificationMethod,
         subject,
         nftMetadata
@@ -278,6 +299,7 @@ export const createSignedOrgJson = async (
       break;
     case 'EcdsaSecp256k1VerificationKey2019':
       orgJsonVc = await signWithEcKey(
+        basePath,
         verificationMethod,
         subject,
         nftMetadata
@@ -299,7 +321,7 @@ export const createSignedOrgJson = async (
     `ORG.JSON VC successfully created and saved on the path ${outputFile}`
   );
 
-  let deploymentRecord: DeploymentReference | undefined;
+  let deploymentRecord: ProjectDeploymentReference | undefined;
 
   if (args['--deploy:ipfs']) {
     printMessage('\nDeploying the file to IPFS...\n');
@@ -311,7 +333,7 @@ export const createSignedOrgJson = async (
   }
 
   // Build a deployment record
-  const vcRecord: VcReference = {
+  const vcRecord: ProjectVcReference = {
     type: 'OrgJson',
     did: objectUtil.getDeepValue(orgJsonVc, 'credentialSubject.id') as string,
     method: args['--method'],

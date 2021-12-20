@@ -1,19 +1,36 @@
-# An ORGiD command-line utility
+# The ORGiD command-line utility
 
 ## Setup
 
 ```bash
 yarn add @windingtree/org.id-cli
-yarn link
 ```
 
 ## Usage
 
 ```bash
-npx orgid --type <OPERATION_TYPE> <OPERATION_OPTIONS>
+npx orgid --type <OPERATION_TYPE> <OPERATION_PARAMETERS>
 ```
 
+## Glossary
+
+- `operation`: an utility operation, a scope of functionality
+- `local project file`: a special JSON file which will be automatically created in the root utility folder where it is installed. This file contains the utility configuration and artifacts that can be reused between operations. Some information such as private keys and API keys is stored in the encrypted form.
+
 ## Operation types
+
+---
+
+### `--keys:import`
+
+Import of key pairs.
+
+Parameters:
+
+- `--keytype`: supported key pair types.
+
+
+Currently, `eip155` key pair type (Ethereum) is supported only. During an import process, the utility will prompt a user for a password witch will be used for the encryption of the private key and for a unique tag that will be used as a key pair identifier. Imported key pairs will be stored in the local project file and can be used across operations. Each time when another operation will access a key pair a user will be prompted for a password with which the key pair was encrypted.
 
 ### `--type OrgJson`
 
@@ -24,15 +41,17 @@ Parameters:
 - `--method`: a verification method registered in the ORG.JSON
 - `--payload`: a path to ORG.JSON file
 - `--output`: a path where to save an ORGID VC
-- `--deploy:ipfs` (optional): created ORGiD VC will be deployed
+- `--deploy:ipfs` (optional): created ORGiD VC will be deployed to IPFS
 
 Signing of the ORG.JSON using the defined verification method. Current version of the utility supports the following verification methods:
 
 - `EcdsaSecp256k1RecoveryMethod2020`: signature made with blockchain account
 - `EcdsaSecp256k1VerificationKey2019`: signature made with EC private key
 
-> - Requirement: The related to the verification method private key must be available as an `ACCOUNT_KEY` environment variable
+> - Requirement: The related to the verification method private key must be registered in the local project file or available as an `ACCOUNT_KEY` environment variable.
 > - The verification method that you want to use for the signing must be properly defined in the ORG.JSON file
+
+During an interaction with a user, he will be prompted to choose how to access a private key that should be used for an ORGiD VC signature. In the case of a registered key, a user has to provide a key pair tag and password. Using this data a proper key will be loaded from the local project file, decrypted and used for making of signature.
 
 ```bash
 npx orgid --type OrgJson --payload <PATH_TO_ORG_JSON> --method <VERIFICATION_METHOD_ID> --output <PATH_TO_OUTPUT_FILE> --deploy:ipfs true
@@ -98,9 +117,13 @@ As a result of this operation will be generated a template of an ORG.JSON file a
 
 ## Project configuration file
 
+---
+
 When the ORGiD CLI utility makes operations all valuable data that can be reused is logged to the project file. This file is automatically created in the root repository directory on the path `./orgid/project.json`.
 
 ## TODO
+
+---
 
 - Tests
 - ORGiD resolver operation

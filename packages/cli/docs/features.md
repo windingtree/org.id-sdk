@@ -25,7 +25,7 @@ First version of this feature will not support IPNS deployments.
 
 Parameters:
 
-- IPFS API key: through env
+- IPFS API key: through env (or from project)
 - Project config file
 - Path to file
 
@@ -38,11 +38,25 @@ Result:
 - Operation on-screen report
 - Generated/updated project config file
 
+## Keys registration and generation
+
+This feature allow to import, generate and store keys. Stored keys will be encrypted using provided password.
+
+Parameters:
+
+- PIN encryption password for keys
+- Type of key
+- Raw key (in case of import)
+
+Requirements:
+
+- all parameters are mandatory
+
 ## ORGiD creation
 
 Parameters:
 
-- ETH account (private key): through env
+- ETH account (private key): through env (or from project)
 - ORGiD salt (used for an organization Id generation)
 - IPFS hash of the ORGiD VC (orgJsonUri)
 

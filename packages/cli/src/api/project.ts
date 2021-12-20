@@ -1,9 +1,10 @@
 import type {
   OrgIdCliProjectReference,
-  DeploymentReference,
-  VcReference,
-  OrgIdsReference
-} from '../schema/project/types';
+  ProjectDeploymentReference,
+  ProjectVcReference,
+  ProjectOrgIdsReference,
+  ProjectKeysReference
+} from '../schema/types/project';
 import path from 'path';
 import { object } from '@windingtree/org.id-utils';
 import {
@@ -16,8 +17,8 @@ import orgIdCliProjectSchema from '../schema/project.json';
 import { printMessage, printObject } from '../utils/console';
 
 export interface AddDeploymentResult {
-  add: DeploymentReference;
-  remove: DeploymentReference | undefined;
+  add: ProjectDeploymentReference;
+  remove: ProjectDeploymentReference | undefined;
 }
 
 export const projectFileTemplate: OrgIdCliProjectReference = {
@@ -67,10 +68,10 @@ export const getProjectFile = async (
 // Add deployment info
 export const addDeploymentToProject = async (
   basePath: string,
-  deployment: DeploymentReference
+  deployment: ProjectDeploymentReference
 ): Promise<AddDeploymentResult> => {
   const project = await getProjectFile(basePath);
-  const deployments = ((object.getDeepValue(project, 'deployments') || []) as DeploymentReference[]);
+  const deployments = ((object.getDeepValue(project, 'deployments') || []) as ProjectDeploymentReference[]);
   const remove = deployments.filter(r => r.path === deployment.path)[0];
   const records = deployments.filter(r => r.path !== deployment.path);
   records.push(deployment);
@@ -92,10 +93,10 @@ export const addDeploymentToProject = async (
 // Add VC info
 export const addVcToProject = async (
   basePath: string,
-  vc: VcReference
-): Promise<VcReference> => {
+  vc: ProjectVcReference
+): Promise<ProjectVcReference> => {
   const project = await getProjectFile(basePath);
-  const records = ((object.getDeepValue(project, 'vcs') || []) as VcReference[])
+  const records = ((object.getDeepValue(project, 'vcs') || []) as ProjectVcReference[])
     .filter(
       r => r.path !== vc.path &&
           (
@@ -119,11 +120,11 @@ export const addVcToProject = async (
 // Add ORGiD info
 export const addOrgIdToProject = async (
   basePath: string,
-  orgId: OrgIdsReference
-): Promise<OrgIdsReference> => {
+  orgId: ProjectOrgIdsReference
+): Promise<ProjectOrgIdsReference> => {
   const project = await getProjectFile(basePath);
-  const records = ((object.getDeepValue(project, 'orgIds') || []) as OrgIdsReference[])
-    .filter(o => o.did !== orgId.did);
+  const records = ((object.getDeepValue(project, 'orgIds') || []) as ProjectOrgIdsReference[])
+    .filter(o => o.did !== orgId.did && o.template !== orgId.template);
 
   records.push(orgId);
   project.orgIds = records;
@@ -136,4 +137,36 @@ export const addOrgIdToProject = async (
   printObject(orgId);
 
   return orgId;
+};
+
+// Add key pair info
+export const addKeyPairToProject = async (
+  basePath: string,
+  keyPair: ProjectKeysReference
+): Promise<ProjectKeysReference> => {
+  const project = await getProjectFile(basePath);
+  const records = ((object.getDeepValue(project, 'keys') || []) as ProjectKeysReference[])
+    .filter(o => o.tag !== keyPair.tag);
+
+  records.push(keyPair);
+  project.keys = records;
+
+  await saveProjectFile(project);
+
+  printMessage(
+    `\nThe project configuration file is updated with the record [KeyPair]:`
+  );
+  printObject(keyPair);
+
+  return keyPair;
+};
+
+// Get key pair by its tag from the project file
+export const getKeyPairByTagFromProject = async (
+  basePath: string,
+  tag: string
+): Promise<ProjectKeysReference> => {
+  const project = await getProjectFile(basePath);
+  return ((object.getDeepValue(project, 'keys') || []) as ProjectKeysReference[])
+    .filter(o => o.tag === tag)[0];
 };

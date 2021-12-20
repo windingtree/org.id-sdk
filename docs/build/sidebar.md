@@ -15,3 +15,4 @@
 * [Testing environment](/build/test-setup/index.md)
 * [CLI](/build/cli/index.md)
 * [Contribution](/build/contribution.md)
+* [Change Log](/build/changelog.md)

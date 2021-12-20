@@ -1,12 +1,17 @@
 import type { ParsedArgv } from '../utils/env';
-import type { OrgIdsReference } from '../schema/project/types';
+import type {
+  ProjectOrgIdsReference
+} from '../schema/types/project';
 import type { AnySchema } from '@windingtree/org.id-utils/dist/object';
-import type { ORGJSON } from '@windingtree/org.json-schema/types/org.json';
 // @todo Move `AnySchema` type declaration to the top level
+import type { ORGJSON } from '@windingtree/org.json-schema/types/org.json';
 import { org as orgJsonSchema } from '@windingtree/org.json-schema';
 import { object, regexp, common } from '@windingtree/org.id-utils';
 import { printInfo, printWarn, printObject } from '../utils/console';
-import { addOrgIdToProject } from './project';
+import {
+  addOrgIdToProject
+} from './project';
+import { promptKeyPair } from './common';
 import { write } from './fs';
 import { DateTime } from  'luxon';
 import prompts from 'prompts';
@@ -162,19 +167,38 @@ export const bootstrapOrgJson = async (
     ]
   );
 
-  let { accountAddress } = await prompts(
-    [
-      {
-        type: 'text',
-        name: 'accountAddress',
-        message: 'Enter your Ethereum account address that will be used for issuing of the ORGiD',
-        validate: value =>
-          regexp.ethereumAddress.exec(value) !== null
-            ? true
-            : 'Value must be a valid Ethereum address'
+  let accountAddress: string;
+
+  const keyPairRecord = await promptKeyPair(
+    basePath,
+    record => {
+      if (record.type === 'eip155') {
+        throw new Error(
+          `Key pair with tag "${record.tag}" has a type "${record.type}" that not supported for an ORGiD bootstrap. Please use "eip155" keys`
+        )
       }
-    ]
+    }
   );
+
+  if (keyPairRecord) {
+
+    accountAddress = keyPairRecord.publicKey as string;
+  } else {
+
+    const accountResult = await prompts({
+      type: 'text',
+      name: 'accountAddress',
+      message: 'Enter your Ethereum account address that will be used for issuing of the ORGiD',
+      validate: value =>
+        regexp.ethereumAddress.exec(value) !== null
+          ? true
+          : 'Value must be a valid Ethereum address'
+    });
+
+    accountAddress = accountResult.accountAddress
+  }
+
+  // Normalizing the address
   accountAddress = ethersUtils.getAddress(accountAddress);
 
   const salt = common.generateSalt();
@@ -187,6 +211,10 @@ ORGiD owner address: ${accountAddress}
 ORGiD DID: ${did}\n`
   );
 
+  const verificationMethodTag = keyPairRecord
+    ? keyPairRecord.tag
+    : 'key1';
+
   const orgJsonTemplate: ORGJSON = {
     '@context': [
       'https://www.w3.org/ns/did/v1',
@@ -196,7 +224,7 @@ ORGiD DID: ${did}\n`
     created: DateTime.now().toISO(),
     verificationMethod: [
       {
-        id: `${did}#key1`,
+        id: `${did}#${verificationMethodTag}`,
         controller: did,
         type: 'EcdsaSecp256k1RecoveryMethod2020',
         blockchainAccountId: `${accountAddress}@eip155:${networkId}`
@@ -277,11 +305,12 @@ ORGiD DID: ${did}\n`
 
   printObject(orgJsonTemplate);
 
-  const orgIdRecord: OrgIdsReference = {
+  const orgIdRecord: ProjectOrgIdsReference = {
     did,
     salt,
     owner: accountAddress,
-    template: outputFile
+    template: outputFile,
+    date: DateTime.now().toISO()
   };
 
   await addOrgIdToProject(basePath, orgIdRecord);

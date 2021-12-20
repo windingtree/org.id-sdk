@@ -19,26 +19,33 @@
           "description": "Files deployments information",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/DeploymentReference"
+            "$ref": "#/definitions/ProjectDeploymentReference"
           }
         },
         "vcs": {
           "description": "Verifiable credentials",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VcReference"
+            "$ref": "#/definitions/ProjectVcReference"
           }
         },
         "orgIds": {
           "description": "List of registered ORGiDs",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/OrgIdsReference"
+            "$ref": "#/definitions/ProjectOrgIdsReference"
+          }
+        },
+        "keys": {
+          "description": "List of registered keys",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProjectKeysReference"
           }
         }
       }
     },
-    "DeploymentReference": {
+    "ProjectDeploymentReference": {
       "type": "object",
       "properties": {
         "type": {
@@ -71,7 +78,7 @@
         "date"
       ]
     },
-    "VcReference": {
+    "ProjectVcReference": {
       "type": "object",
       "properties": {
         "type": {
@@ -116,7 +123,7 @@
         "date"
       ]
     },
-    "OrgIdsReference": {
+    "ProjectOrgIdsReference": {
       "type": "object",
       "properties": {
         "did": {
@@ -134,12 +141,59 @@
         "template": {
           "type": "string",
           "description": "Path to saved ORG.JSON raw template"
+        },
+        "date": {
+          "description": "Creation/update date in the ISO format",
+          "type": "string",
+          "format": "date-time"
         }
       },
       "required": [
         "did",
         "salt",
         "owner"
+      ]
+    },
+    "ProjectKeysReference": {
+      "description": "Registered key pair",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Type of key pair",
+          "enum": [
+            "eip155"
+          ]
+        },
+        "tag": {
+          "type": "string",
+          "description": "A unique key pair tag"
+        },
+        "publicKey": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object"
+            }
+          ],
+          "description": "Public key"
+        },
+        "privateKey": {
+          "type": "string",
+          "description": "Encrypted private key"
+        },
+        "date": {
+          "description": "Creation/update date in the ISO format",
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "type",
+        "tag",
+        "publicKey",
+        "privateKey"
       ]
     }
   }

@@ -18,18 +18,22 @@ export interface OrgIdCliProjectReference {
   /**
    * Files deployments information
    */
-  deployments?: DeploymentReference[];
+  deployments?: ProjectDeploymentReference[];
   /**
    * Verifiable credentials
    */
-  vcs?: VcReference[];
+  vcs?: ProjectVcReference[];
   /**
    * List of registered ORGiDs
    */
-  orgIds?: OrgIdsReference[];
+  orgIds?: ProjectOrgIdsReference[];
+  /**
+   * List of registered keys
+   */
+  keys?: ProjectKeysReference[];
   [k: string]: unknown;
 }
-export interface DeploymentReference {
+export interface ProjectDeploymentReference {
   /**
    * A type of deployment
    */
@@ -48,7 +52,7 @@ export interface DeploymentReference {
   date: string;
   [k: string]: unknown;
 }
-export interface VcReference {
+export interface ProjectVcReference {
   /**
    * A type of VC
    */
@@ -79,7 +83,7 @@ export interface VcReference {
   date: string;
   [k: string]: unknown;
 }
-export interface OrgIdsReference {
+export interface ProjectOrgIdsReference {
   /**
    * ORGiD DID
    */
@@ -96,5 +100,39 @@ export interface OrgIdsReference {
    * Path to saved ORG.JSON raw template
    */
   template?: string;
+  /**
+   * Creation/update date in the ISO format
+   */
+  date?: string;
+  [k: string]: unknown;
+}
+/**
+ * Registered key pair
+ */
+export interface ProjectKeysReference {
+  /**
+   * Type of key pair
+   */
+  type: "eip155";
+  /**
+   * A unique key pair tag
+   */
+  tag: string;
+  /**
+   * Public key
+   */
+  publicKey:
+    | string
+    | {
+        [k: string]: unknown;
+      };
+  /**
+   * Encrypted private key
+   */
+  privateKey: string;
+  /**
+   * Creation/update date in the ISO format
+   */
+  date?: string;
   [k: string]: unknown;
 }

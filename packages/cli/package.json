@@ -19,7 +19,7 @@
     "test": "npx jest",
     "test:coverage": "npx jest --coverage",
     "build": "rm -rf dist && npx webpack",
-    "types": "mkdir -p ./src/schema/project/types && npx json2ts ./src/schema/project.json > ./src/schema/project/types/index.d.ts"
+    "types": "mkdir -p ./src/schema/types && npx json2ts ./src/schema/project.json > ./src/schema/types/project.d.ts"
   },
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/cli#readme",
   "repository": {
@@ -60,6 +60,7 @@
     "@types/luxon": "2.0.8",
     "@types/node": "16.11.13",
     "@types/prompts": "2.0.14",
+    "@types/crypto-js": "4.0.2",
     "@typescript-eslint/eslint-plugin": "5.7.0",
     "@typescript-eslint/parser": "5.7.0",
     "eslint": "8.4.1",

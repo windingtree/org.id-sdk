@@ -1,5 +1,5 @@
 import type { ParsedArgv } from '../utils/env';
-import type { DeploymentReference } from '../schema/project/types';
+import type { ProjectDeploymentReference } from '../schema/types/project';
 import path from 'path';
 import { DateTime } from  'luxon';
 import { addDeploymentToProject } from './project';
@@ -9,7 +9,7 @@ import { printInfo } from '../utils/console';
 export const deployFileIpfs = async (
   basePath: string,
   args: ParsedArgv
-): Promise<DeploymentReference> => {
+): Promise<ProjectDeploymentReference> => {
 
   if (!args['--path']) {
     throw new Error(
@@ -22,7 +22,7 @@ export const deployFileIpfs = async (
   const { Hash } = await addToIpfs(fileToDeploy);
 
   // Build a deployment record
-  const deploymentRecord: DeploymentReference = {
+  const deploymentRecord: ProjectDeploymentReference = {
     type: 'ipfs',
     path: fileToDeploy,
     uri: `ipfs://${Hash}`,

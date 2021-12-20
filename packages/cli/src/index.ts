@@ -1,9 +1,11 @@
+import './fixRandomSource';
 import { parseArguments } from './utils/env';
 
 // Operations API methods
 import { createSignedOrgJson } from './api/orgJson';
 import { deployFileIpfs } from './api/deployment';
 import { bootstrapOrgJson } from './api/bootstrap';
+import { keysImport } from './api/keysImport';
 
 // Console helpers
 export * as console from './utils/console';
@@ -23,7 +25,8 @@ export const cli = async (
       '--nftDescription': String,
       '--nftImage': String,
       '--path': String,
-      '--deploy:ipfs': String
+      '--deploy:ipfs': String,
+      '--keytype': String
     },
     argv
   );
@@ -41,6 +44,9 @@ export const cli = async (
       break;
     case 'bootstrap':
       await bootstrapOrgJson(basePath, args);
+      break;
+    case 'keys:import':
+      await keysImport(basePath, args);
       break;
     case undefined:
       throw new Error('Operation type must be provided using "--type" option');
