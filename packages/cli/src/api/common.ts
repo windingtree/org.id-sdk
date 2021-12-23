@@ -1,11 +1,79 @@
+import type { ORGJSON } from '@windingtree/org.json-schema/types/org.json';
 import type {
-  ProjectKeysReference
+  ProjectKeysReference,
+  ProjectOrgIdsReference
 } from '../schema/types/project';
+import { KnownProvider, OrgIdContract } from '@windingtree/org.id-core';
 import { AES, enc } from 'crypto-js';
+import { ethers, Wallet, utils as etherUtils, Signer } from 'ethers';
+import { regexp } from '@windingtree/org.id-utils';
 import prompts from 'prompts';
 import {
-  getKeyPairByTagFromProject
+  getKeyPairsFromProject,
+  getOrgIdsFromProject,
+  getNetworkProviderById
 } from './project';
+import { read } from './fs';
+
+export interface ParsedDid {
+  did: string;
+  method: string;
+  network: string;
+  orgId: string;
+  query?: string;
+  fragment?: string;
+}
+
+export interface DidGroupedCheckResult extends RegExpExecArray {
+  groups: {
+    did: string;
+    method: string;
+    network?: string;
+    id: string;
+    query?: string;
+    fragment?: string;
+  }
+}
+
+export interface BlockchainNetworkConfig {
+  name: string;
+  id: string;
+  address: string;
+}
+
+export interface OrgIdApi {
+  provider: KnownProvider;
+  orgIdContract: OrgIdContract;
+  signer: Signer;
+  id: string;
+}
+
+export const blockchainNetworks: BlockchainNetworkConfig[] = [
+  {
+    name: 'Sokol xDAI Testnet',
+    id: '77',
+    address: '0xDd1231c0FD9083DA42eDd2BD4f041d0a54EF7BeE'
+  },
+  {
+    name: 'Arbitrum Rinkeby Testnet',
+    id: '421611',
+    address: '0x3925A9d5554508b65a6490c450FB294A9173948B'
+  },
+  {
+    name: 'Rinkeby Testnet',
+    id: '4',
+    address: '0x877c5532B2a76148334CBfA32779A0b9ee414FBE'
+  },
+  {
+    name: 'Ropsten Testnet',
+    id: '3',
+    address: '0x405005a015EA0E24889D6963447Bb0D646D91C83'
+  }
+];
+
+// Extract ORGiD smart contract address from networks list
+export const getOrgIdContractAddress = (id: string): BlockchainNetworkConfig =>
+  blockchainNetworks.filter(b => b.id === id)[0];
 
 // Encrypts the data
 export const encrypt = (data: string, password: string | unknown): string => {
@@ -37,7 +105,7 @@ export const decrypt = (encData: string, password: string): string => {
 // Prompt for registered key pair
 export const promptKeyPair = async (
   basePath: string,
-  validate?: (record: ProjectKeysReference) => void
+  type?: string
 ): Promise<ProjectKeysReference | undefined> => {
 
   const { useRegisteredAddress } = await prompts({
@@ -57,30 +125,181 @@ export const promptKeyPair = async (
     initial: 0
   });
 
-  let keyPairRecord: ProjectKeysReference | undefined;
+  let keyPair: ProjectKeysReference | undefined;
 
   if (useRegisteredAddress) {
 
-    const { keyTag } = await prompts({
-      type: 'text',
-      name: 'keyTag',
-      message: 'Enter registered Ethereum account key pair tag'
+    const keyPairRecords = await getKeyPairsFromProject(basePath, type);
+
+    const keyPairResult = await prompts({
+      type: 'select',
+      name: 'keyPair',
+      message: 'Choose a key',
+      choices: keyPairRecords.map(
+        k => ({
+          title: k.tag,
+          value: k
+        })
+      ),
+      initial: 0
     });
-
-    keyPairRecord = await getKeyPairByTagFromProject(basePath, keyTag);
-
-    if (typeof validate === 'function') {
-      validate(keyPairRecord);
-    }
 
     const { password } = await prompts({
       type: 'password',
       name: 'password',
-      message: `Enter the password for key pair "${keyTag}"`
+      message: `Enter the password for the key pair "${keyPairResult.keyPair.tag}"`
     });
 
-    keyPairRecord.privateKey = decrypt(keyPairRecord.privateKey, password);
+    keyPair = keyPairResult.keyPair as ProjectKeysReference;
+    keyPair.privateKey = decrypt(keyPair.privateKey, password);
   }
 
-  return keyPairRecord;
+  return keyPair;
+};
+
+// Prompt for ORGiDs
+export const promptOrgId = async (
+  basePath: string,
+  created?: boolean
+): Promise<ProjectOrgIdsReference> => {
+
+  const orgIdsRecords = await getOrgIdsFromProject(basePath);
+
+    if (orgIdsRecords.length === 0) {
+
+      throw new Error(
+        `Registered ORGIDs are found`
+      );
+    }
+
+    const { orgId } = await prompts({
+      type: 'select',
+      name: 'orgId',
+      message: 'Choose a registered ORGiD DID',
+      choices: orgIdsRecords
+        .filter(
+          o => {
+            if (created !== undefined) {
+              return o.created === created
+            }
+            return true;
+          }
+        )
+        .map(
+          (o: ProjectOrgIdsReference) => ({
+            title: o.did,
+            value: o
+          })
+        ),
+      initial: 0
+    }) as { orgId: ProjectOrgIdsReference };
+
+    return orgId;
+};
+
+// Parse DID
+export const parseDid = (did: string): ParsedDid => {
+  const groupedCheck = regexp.didGrouped.exec(did) as DidGroupedCheckResult;
+
+  if (!groupedCheck || !groupedCheck.groups || !groupedCheck.groups.did) {
+    throw new Error(`Invalid DID format: ${did}`);
+  }
+
+  const {
+    method,
+    network,
+    id,
+    query,
+    fragment
+  } = groupedCheck.groups;
+
+  return {
+    did,
+    method,
+    network: network || '1', // Mainnet is default value
+    orgId: id,
+    query,
+    fragment
+  };
+};
+
+// Prepare an ORGiD API for transactions on the ORG.JSON basis
+export const prepareOrgIdApi = async (
+  basePath: string,
+  orgId: ProjectOrgIdsReference
+): Promise<OrgIdApi> => {
+
+  const {
+    orgJson,
+    owner
+  } = orgId;
+
+  if (!orgJson) {
+    throw new Error('Chosen ORGiD does not have registered ORG.JSON yet.');
+  }
+
+  const orgJsonSource = await read(
+    basePath,
+    orgJson,
+    true
+  ) as ORGJSON;
+
+  const { network, orgId: id } = parseDid(orgJsonSource.id);
+  const networkConfig = getOrgIdContractAddress(network);
+
+  if (!networkConfig) {
+    throw new Error(`Network #${network} not supported by ORGiD protocol yet`);
+  }
+
+  let providerUri: string | undefined;
+
+  const { uri, encrypted } = await getNetworkProviderById(basePath, network);
+
+  if (!uri) {
+    throw new Error(
+      `Network provider URI for the network #${network} is not found. Please add it to the project config using operation "--config --record networkProviders"`
+    );
+  }
+
+  if (encrypted) {
+    const { password } = await prompts({
+      type: 'password',
+      name: 'password',
+      message: `Enter the password for the encrypted network provided URI`
+    });
+
+    providerUri = decrypt(uri, password);
+  } else {
+    providerUri = uri;
+  }
+
+  const provider = new ethers.providers.JsonRpcProvider(providerUri);
+
+  const orgIdContract = new OrgIdContract(
+    networkConfig.address,
+    provider
+  );
+
+  // @todo Add support for other types of keys
+  const keyPair = await promptKeyPair(basePath, 'eip155');
+
+  if (!keyPair) {
+    throw new Error('Unable to get registered key pair');
+  }
+
+  const signer = new Wallet(keyPair.privateKey, provider);
+  const signerAddress = await signer.getAddress();
+
+  if (signerAddress !== etherUtils.getAddress(owner)) {
+    throw new Error(
+      `The registered key has a different address "${signerAddress}" than the ORGiD owner "${owner}"`
+    );
+  }
+
+  return {
+    provider,
+    orgIdContract,
+    signer,
+    id
+  }
 };

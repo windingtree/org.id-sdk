@@ -9,7 +9,7 @@ yarn add @windingtree/org.id-cli
 ## Usage
 
 ```bash
-npx orgid --type <OPERATION_TYPE> <OPERATION_PARAMETERS>
+npx orgid --operation <OPERATION_TYPE> <OPERATION_PARAMETERS>
 ```
 
 ## Glossary
@@ -17,113 +17,113 @@ npx orgid --type <OPERATION_TYPE> <OPERATION_PARAMETERS>
 - `operation`: an utility operation, a scope of functionality
 - `local project file`: a special JSON file which will be automatically created in the root utility folder where it is installed. This file contains the utility configuration and artifacts that can be reused between operations. Some information such as private keys and API keys is stored in the encrypted form.
 
-## Operation types
+## General CLI usage flow
 
----
+- [Configuration](#cli-configuration)
+- [Keys management](#keys-management)
+- [ORG.JSON bootstrap](#orgjson-bootstrap)
+- [Creation of ORGiD VC](#orgid-vc)
+- [Creation of ORGiD](#orgid-creation)
+- [ORGiD update](#orgid-update)
 
-### `--keys:import`
+## CLI configuration
 
-Import of key pairs.
+The utility configuration data is stored in the file `./orgid/project.json` that is automatically created in the root repository directory.
+
+This file is also dedicated to storing valuable utility usage data that can be reused between operations.
+
+### `--operation config --record networkProviders`
+
+This operation allows adding network providers with their JSON RPC APIs. When you will add a network provider you will be prompted to set a password for the API URI that can contain secret API keys.
+
+> Please save passwords in a safe place. When any CLI operation where required network provider access you will be prompted to enter a password to decrypt a URI.
+
+## Keys management
+
+### `--operation keys:import --keytype:eip155`
+
+`eip155` keys are key pairs of Ethereum accounts. The CLI is allows to add key pair in the following format:
+
+- `publicKey`: account address
+- `privateKey`: account private key. For example, you can export this key from Metamask wallet. When you add a private key you will be prompted to set a password to encrypt this sensitive data
+- `tag`: unique key id that will be used across operations and verification methods
+
+> Currently, `eip155` key pair type (Ethereum) is the only supported. More key pairs types will be added soon.<br>
+> When you need to update a key data just use the same `tag` and a key pair record will be overwritten.
+
+## ORG.JSON bootstrap
+
+### `--operation bootstrap --output <PATH_TO_OUTPUT_FILE>`
+
+To bootstrap a new ORG.JSON file the CLI will prompt you for the following information:
+
+- `ORGiD blockchain network`: selection from the allowed options
+- `ORGiD owner key`: a selection from the registered (imported) keys
+- `entity type`: `legalEntity` or `organizationalUnit` options. `personal` profile type will be added soon.
+
+During the interaction, the CLI will prompt to fill mandatory or whole profile properties. For now, it is possible to fill properties with simple types (string, number, enum). Support for complex types (arrays of objects, etc.) will be added soon.
+
+> `EcdsaSecp256k1RecoveryMethod2020` is the only verification method that will be bootstrapped. More verification methods will be added soon.
+
+## ORGiD VC
+
+> An ORGiD VC is a cryptographically signed version of an ORG.JSON file.
+
+### `--operation OrgJson --payload <PATH_TO_RAW_ORGJSON_FILE> --output <PATH_TO_OUTPUT_FILE> --deploy ipfs`
 
 Parameters:
 
-- `--keytype`: supported key pair types.
-
-
-Currently, `eip155` key pair type (Ethereum) is supported only. During an import process, the utility will prompt a user for a password witch will be used for the encryption of the private key and for a unique tag that will be used as a key pair identifier. Imported key pairs will be stored in the local project file and can be used across operations. Each time when another operation will access a key pair a user will be prompted for a password with which the key pair was encrypted.
-
-### `--type OrgJson`
-
-Creation of an ORGiD VC on an ORG.JSON basis.
-
-Parameters:
-
-- `--method`: a verification method registered in the ORG.JSON
 - `--payload`: a path to ORG.JSON file
 - `--output`: a path where to save an ORGID VC
-- `--deploy:ipfs` (optional): created ORGiD VC will be deployed to IPFS
+- `--deploy` (optional): deployment type. With an `ipfs` value means that created ORGiD VC will be deployed to IPFS right after creation
 
 Signing of the ORG.JSON using the defined verification method. Current version of the utility supports the following verification methods:
 
 - `EcdsaSecp256k1RecoveryMethod2020`: signature made with blockchain account
-- `EcdsaSecp256k1VerificationKey2019`: signature made with EC private key
+- `EcdsaSecp256k1VerificationKey2019`: (**not supported yet, will be added soon**) signature made with EC private key. This method type will be used for `capabilityDelegation` flow
 
-> - Requirement: The related to the verification method private key must be registered in the local project file or available as an `ACCOUNT_KEY` environment variable.
+Verification method will be automatically loaded from the ORG.JSON file.
+
+> - The related to the verification method private key must be registered in the local project file.<br>
 > - The verification method that you want to use for the signing must be properly defined in the ORG.JSON file
 
-During an interaction with a user, he will be prompted to choose how to access a private key that should be used for an ORGiD VC signature. In the case of a registered key, a user has to provide a key pair tag and password. Using this data a proper key will be loaded from the local project file, decrypted and used for making of signature.
+## Deployments
 
-```bash
-npx orgid --type OrgJson --payload <PATH_TO_ORG_JSON> --method <VERIFICATION_METHOD_ID> --output <PATH_TO_OUTPUT_FILE> --deploy:ipfs true
-```
+### `--operation deploy:ipfs --path <PATH_TO_FILE>`
 
-Example for the `EcdsaSecp256k1RecoveryMethod2020` method:
-
-> to prepare this example please run this script: `source ./test/scripts/exportEthPriv.sh`
-
-```bash
-npx orgid --type OrgJson --payload ./test/mocks/validOrg.json --method "did:orgid:4:0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119#key-1" --output ./temp/orgJsonVc.json
-```
-
-Example for the `EcdsaSecp256k1VerificationKey2019` method:
-
-> - to prepare this example please run this script: `source ./test/scripts/exportEcPriv.sh`
-> - The verification method `EcdsaSecp256k1VerificationKey2019` requires the inclusion of the method Id into the `capabilityDelegation` list (and registration of this ID in the smart contract as a delegate)
-
-```bash
-npx orgid --type OrgJson --payload ./test/mocks/validOrgWithInnerDelegate.json --method "did:orgid:4:0x9300bad07f0b9d904b23781e8bbb05c1219530c51e7e494701db2539b7a5a119#key-2" --output ./temp/orgJsonVc.json
-```
-
-As a result of this operation the given ORG.JSON will be signed with the private key of the defined verification method. A generated templated will contain a proper verification method record.
-
-The created file will be automatically deployed to the IPFS if the property `--deploy:ipfs` is defined.
-
-### `--type deploy:ipfs`
-
-Deployment of files to IPFS.
+Deployment of any files to IPFS.
 
 Parameters:
 
 - `--path`: a path to file that should be deployed
+- `--filetype orgIdVc`: (**optional**) use this parameter when you want to deploy an ORGiD VC file
 
-Example:
+## ORGiD creation
 
-```bash
-npx orgid --type deploy:ipfs --path ./temp/orgVc.json
-```
+After a `bootstrap` operation in the local project file will be created a record for the ORGiD that contains all the information required for the ORGiD creation:
 
-### `--type bootstrap`
+- `salt`: unique hash that is used in the organization identifier generation procedure
+- `owner`: ORGiD owner address
+- `did`: ORGiD DID
+- `orgJson`: path to the local file with ORG.JSON content
+- `orgIdVc`: URI of deployed ORGiD VC file
 
-Generation of the ORG.JSON template.
+### `--operation create`
 
-Parameters:
+During the interaction, the CLI will prompt for all the required information and send a transaction to the ORGiD smart contract.
 
-- `--output`: a path where to save a generated ORG.JSON template
+If saved in the CLI configuration network provider URI is encrypted the user will be prompted for entering a password. The same for a private key.
 
-During the generation process you will be prompted for the following information:
+## ORGiD update
 
-- Network where an ORGiD will issued
-- Ethereum account address of the ORGiD owner
-- Type of profile
-- Mandatory profile properties
+### `--operation update`
 
-Example:
-
-```bash
-npx orgid --type bootstrap --output ./temp/myTestOrgJson.json
-```
-
-As a result of this operation will be generated a template of an ORG.JSON file and saved on the requested path.
-
-## Project configuration file
-
----
-
-When the ORGiD CLI utility makes operations all valuable data that can be reused is logged to the project file. This file is automatically created in the root repository directory on the path `./orgid/project.json`.
+Working the same way as for an ORGiD creation but send a transaction for the ORGiD VC URI update.
 
 ## TODO
 
 ---
 
+- Implement TODOs
 - Tests
 - ORGiD resolver operation

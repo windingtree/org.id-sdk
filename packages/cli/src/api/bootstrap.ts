@@ -8,38 +8,19 @@ import type { ORGJSON } from '@windingtree/org.json-schema/types/org.json';
 import { org as orgJsonSchema } from '@windingtree/org.json-schema';
 import { object, regexp, common } from '@windingtree/org.id-utils';
 import { printInfo, printWarn, printObject } from '../utils/console';
-import {
-  addOrgIdToProject
-} from './project';
-import { promptKeyPair } from './common';
-import { write } from './fs';
 import { DateTime } from  'luxon';
 import prompts from 'prompts';
 import { utils as ethersUtils } from 'ethers';
+import {
+  addOrgIdToProject
+} from './project';
+import { blockchainNetworks, promptKeyPair } from './common';
+import { write } from './fs';
 
 const entityTypeSchemaPath = {
   legalEntity: 'definitions.LegalEntityReference',
   organizationalUnit: 'definitions.OrganizationalUnitReference'
 };
-
-const blockchainNetworks = [
-  {
-    name: 'Sokol xDAI Testnet',
-    id: 77
-  },
-  {
-    name: 'Arbitrum Rinkeby Testnet',
-    id: 421611
-  },
-  {
-    name: 'Rinkeby Testnet',
-    id: 4
-  },
-  {
-    name: 'Ropsten Testnet',
-    id: 3
-  }
-];
 
 // Convert JSON schema to a prompt config
 export const promptSchema = async (
@@ -171,13 +152,7 @@ export const bootstrapOrgJson = async (
 
   const keyPairRecord = await promptKeyPair(
     basePath,
-    record => {
-      if (record.type === 'eip155') {
-        throw new Error(
-          `Key pair with tag "${record.tag}" has a type "${record.type}" that not supported for an ORGiD bootstrap. Please use "eip155" keys`
-        )
-      }
-    }
+    'eip155'
   );
 
   if (keyPairRecord) {
@@ -309,7 +284,7 @@ ORGiD DID: ${did}\n`
     did,
     salt,
     owner: accountAddress,
-    template: outputFile,
+    orgJson: outputFile,
     date: DateTime.now().toISO()
   };
 

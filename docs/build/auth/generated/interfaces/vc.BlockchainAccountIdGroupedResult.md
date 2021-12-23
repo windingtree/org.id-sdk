@@ -80,7 +80,7 @@ RegExpExecArray.groups
 
 #### Defined in
 
-[src/vc.ts:83](https://github.com/windingtree/org.id-sdk/blob/6ea84e7/packages/auth/src/vc.ts#L83)
+[src/vc.ts:83](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/auth/src/vc.ts#L83)
 
 ___
 

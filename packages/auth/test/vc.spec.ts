@@ -740,8 +740,8 @@ describe('Verifiable Credentials', () => {
 
     it('should throw if VC not active by from-until rules', async () => {
       const now = Date.now();
-      const validFrom = DateTime.fromMillis(now + 200).toISO();
-      const validUntil = DateTime.fromMillis(now + 300).toISO();
+      const validFrom = DateTime.fromMillis(now + 300).toISO();
+      const validUntil = DateTime.fromMillis(now + 400).toISO();
       const vc = await createVC(
         issuer,
         'VerifiableCredential'

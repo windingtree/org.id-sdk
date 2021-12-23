@@ -6,7 +6,7 @@ import type {
   CallOverrides,
   PayableOverrides
 } from 'ethers';
-import { BigNumber as BN, Signer as SignerObject } from 'ethers';
+import { BigNumber as BN } from 'ethers';
 
 export type MethodOverrides = CallOverrides | PayableOverrides;
 
@@ -23,7 +23,7 @@ export const sendHelper = async (
   confirmations = 1
 ): Promise<ContractReceipt> => {
 
-  if (sender instanceof SignerObject === false) {
+  if (!sender || !sender._isSigner) {
     throw new Error('Invalid transaction signer');
   }
 

@@ -1,17 +1,21 @@
 import type { ParsedArgv } from '../utils/env';
-import type { ProjectKeysReference } from '../schema/types/project';
-import { regexp } from '@windingtree/org.id-utils';
+import type {
+  ProjectKeysReference
+} from '../schema/types/project';
 import prompts from 'prompts';
+import { regexp } from '@windingtree/org.id-utils';
 import { DateTime } from  'luxon';
 import { utils as ethersUtils } from 'ethers';
-import { addKeyPairToProject } from './project';
+import {
+  addKeyPairToProject
+} from './project';
+import { printInfo } from '../utils/console';
 import { encrypt } from './common';
 
 // Import of Ethereum keys
 export const importEip155 = async (
   basePath: string,
 ): Promise<ProjectKeysReference> => {
-  const type = 'eip155';
   const { tag, accountAddress, privateKey } = await prompts([
     {
       type: 'text',
@@ -52,15 +56,22 @@ export const importEip155 = async (
     }
   );
 
-  const keyPairRecord: ProjectKeysReference = {
-    type,
-    tag,
-    publicKey: ethersUtils.getAddress(accountAddress),
-    privateKey: encrypt(privateKey, password),
-    date: DateTime.now().toISO()
-  };
+  const keyPairRecord = await addKeyPairToProject(
+    basePath,
+    {
+      type: 'eip155',
+      tag,
+      publicKey: ethersUtils.getAddress(accountAddress),
+      privateKey: encrypt(privateKey, password),
+      date: DateTime.now().toISO()
+    }
+  );
 
-  return addKeyPairToProject(basePath, keyPairRecord);
+  printInfo(
+    `Key of type "eip155" with tag "${tag}" has been successfully imported\n`
+  );
+
+  return keyPairRecord;
 };
 
 // Import key
@@ -81,6 +92,6 @@ export const keysImport = async (
       break;
     // @todo Add more types
     default:
-      throw new Error('Unknown key pair type')
+      throw new Error(`Unknown key pair type: "${args['--keytype']}"`)
   }
 };

@@ -10,11 +10,18 @@
  */
 export type ORGiDCLIProject = OrgIdCliProjectReference;
 
+/**
+ * ORGiD CLI local project schema
+ */
 export interface OrgIdCliProjectReference {
   /**
    * Project file note
    */
   note?: string;
+  /**
+   * ORGiD CLI configuration
+   */
+  config?: ProjectConfigReference;
   /**
    * Files deployments information
    */
@@ -33,6 +40,37 @@ export interface OrgIdCliProjectReference {
   keys?: ProjectKeysReference[];
   [k: string]: unknown;
 }
+/**
+ * Project configuration object
+ */
+export interface ProjectConfigReference {
+  /**
+   * List of network providers configs
+   */
+  networkProviders?: NetworkProviderConfigReference[];
+  [k: string]: unknown;
+}
+/**
+ * Network provider config record
+ */
+export interface NetworkProviderConfigReference {
+  /**
+   * Name of a network provider
+   */
+  id: string;
+  /**
+   * A network provider URI with key
+   */
+  uri: string;
+  /**
+   * Is URI is encrypted
+   */
+  encrypted: boolean;
+  [k: string]: unknown;
+}
+/**
+ * Deployment configuration project record
+ */
 export interface ProjectDeploymentReference {
   /**
    * A type of deployment
@@ -52,6 +90,9 @@ export interface ProjectDeploymentReference {
   date: string;
   [k: string]: unknown;
 }
+/**
+ * Verifiable credential project record
+ */
 export interface ProjectVcReference {
   /**
    * A type of VC
@@ -83,6 +124,9 @@ export interface ProjectVcReference {
   date: string;
   [k: string]: unknown;
 }
+/**
+ * ORGiD configuration project record
+ */
 export interface ProjectOrgIdsReference {
   /**
    * ORGiD DID
@@ -97,9 +141,17 @@ export interface ProjectOrgIdsReference {
    */
   owner: string;
   /**
-   * Path to saved ORG.JSON raw template
+   * Path to saved raw ORG.JSON
    */
-  template?: string;
+  orgJson?: string;
+  /**
+   * URI of deployed ORGiD VC
+   */
+  orgIdVc?: string;
+  /**
+   * Boolean flag that indicate than the ORGiD is created
+   */
+  created?: boolean;
   /**
    * Creation/update date in the ISO format
    */
@@ -107,7 +159,7 @@ export interface ProjectOrgIdsReference {
   [k: string]: unknown;
 }
 /**
- * Registered key pair
+ * Registered key pair project record
  */
 export interface ProjectKeysReference {
   /**
@@ -127,7 +179,7 @@ export interface ProjectKeysReference {
         [k: string]: unknown;
       };
   /**
-   * Encrypted private key
+   * Encrypted private key (encrypted)
    */
   privateKey: string;
   /**

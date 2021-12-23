@@ -2,10 +2,13 @@ import './fixRandomSource';
 import { parseArguments } from './utils/env';
 
 // Operations API methods
+import { manageConfigRecords } from './api/projectConfig';
 import { createSignedOrgJson } from './api/orgJson';
 import { deployFileIpfs } from './api/deployment';
 import { bootstrapOrgJson } from './api/bootstrap';
 import { keysImport } from './api/keysImport';
+import { createOrgId } from './api/createOrgId';
+import { changeOrgJson } from './api/changeOrgJson';
 
 // Console helpers
 export * as console from './utils/console';
@@ -17,7 +20,7 @@ export const cli = async (
 ): Promise<void> => {
   const args = parseArguments(
     {
-      '--type': String,
+      '--operation': String,
       '--payload': String,
       '--method': String,
       '--output': String,
@@ -25,8 +28,10 @@ export const cli = async (
       '--nftDescription': String,
       '--nftImage': String,
       '--path': String,
-      '--deploy:ipfs': String,
-      '--keytype': String
+      '--deploy': String,
+      '--keytype': String,
+      '--record': String,
+      '--filetype': String
     },
     argv
   );
@@ -35,8 +40,11 @@ export const cli = async (
   console.log('\n');
 
   // Operation selector
-  switch (args['--type'] as unknown) {
-    case 'OrgJson':
+  switch (args['--operation'] as unknown) {
+    case 'config':
+      await manageConfigRecords(basePath, args);
+      break;
+    case 'orgIdVc':
       await createSignedOrgJson(basePath, args);
       break;
     case 'deploy:ipfs':
@@ -48,9 +56,15 @@ export const cli = async (
     case 'keys:import':
       await keysImport(basePath, args);
       break;
+    case 'create':
+      await createOrgId(basePath, args);
+      break;
+    case 'update':
+      await changeOrgJson(basePath, args);
+      break;
     case undefined:
-      throw new Error('Operation type must be provided using "--type" option');
+      throw new Error('Operation type must be provided using "--operation" parameter');
     default:
-      throw new Error(`Unknown operation type "${args['--type']}"`);
+      throw new Error(`Unknown operation type "${args['--operation']}"`);
   }
 };

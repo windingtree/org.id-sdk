@@ -43,9 +43,9 @@ KEY3='key3'
 
   describe('Argv utils', () => {
     const config = {
-      '--encrypt': String,
-      '--decrypt': String,
-    };
+      '--type': String,
+      '--payload': String,
+    } as any;
     const argvExec = [
       '/home/host/.nvm/versions/node/v12.20.2/bin/node',
       '/home/host/dev/secure-env-cli/bin/index.js',
@@ -55,22 +55,22 @@ KEY3='key3'
     const argvEncrypt = [
       '/home/host/.nvm/versions/node/v12.20.2/bin/node',
       '/home/host/dev/secure-env-cli/bin/index.js',
-      '--encrypt',
+      '--type',
       './test.env'
     ];
     const argvDecrypt = [
       '/home/host/.nvm/versions/node/v12.20.2/bin/node',
       '/home/host/dev/secure-env-cli/bin/index.js',
-      '--decrypt',
+      '--payload',
       './test.senv'
     ];
 
     const argvEncryptDecrypt = [
       '/home/host/.nvm/versions/node/v12.20.2/bin/node',
       '/home/host/dev/secure-env-cli/bin/index.js',
-      '--encrypt',
+      '--type',
       './test.env',
-      '--decrypt',
+      '--payload',
       './test.senv'
     ];
 
@@ -91,8 +91,8 @@ KEY3='key3'
           config,
           argvEncrypt
         );
-        expect(result).toHaveProperty('--encrypt');
-        expect(result['--encrypt']).toBe(argvEncrypt[3]);
+        expect(result).toHaveProperty('--type');
+        expect(result['--type']).toBe(argvEncrypt[3]);
       });
 
       it('should parse argvDecrypt', async () => {
@@ -100,8 +100,8 @@ KEY3='key3'
           config,
           argvDecrypt
         );
-        expect(result).toHaveProperty('--decrypt');
-        expect(result['--decrypt']).toBe(argvDecrypt[3]);
+        expect(result).toHaveProperty('--payload');
+        expect(result['--payload']).toBe(argvDecrypt[3]);
       });
 
       it('should parse argvEncryptDecrypt', async () => {
@@ -109,10 +109,10 @@ KEY3='key3'
           config,
           argvEncryptDecrypt
         );
-        expect(result).toHaveProperty('--encrypt');
-        expect(result).toHaveProperty('--decrypt');
-        expect(result['--encrypt']).toBe(argvEncryptDecrypt[3]);
-        expect(result['--decrypt']).toBe(argvEncryptDecrypt[5]);
+        expect(result).toHaveProperty('--type');
+        expect(result).toHaveProperty('--payload');
+        expect(result['--type']).toBe(argvEncryptDecrypt[3]);
+        expect(result['--payload']).toBe(argvEncryptDecrypt[5]);
       });
     });
   });

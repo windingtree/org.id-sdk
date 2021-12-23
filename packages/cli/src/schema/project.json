@@ -9,11 +9,20 @@
   ],
   "definitions": {
     "OrgIdCliProjectReference": {
+      "description": "ORGiD CLI local project schema",
       "type": "object",
       "properties": {
         "note": {
           "description": "Project file note",
           "type": "string"
+        },
+        "config": {
+          "description": "ORGiD CLI configuration",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ProjectConfigReference"
+            }
+          ]
         },
         "deployments": {
           "description": "Files deployments information",
@@ -45,7 +54,45 @@
         }
       }
     },
+    "ProjectConfigReference": {
+      "description": "Project configuration object",
+      "type": "object",
+      "properties": {
+        "networkProviders": {
+          "description": "List of network providers configs",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NetworkProviderConfigReference"
+          }
+        }
+      },
+      "required": []
+    },
+    "NetworkProviderConfigReference": {
+      "description": "Network provider config record",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Name of a network provider"
+        },
+        "uri": {
+          "type": "string",
+          "description": "A network provider URI with key"
+        },
+        "encrypted": {
+          "type": "boolean",
+          "description": "Is URI is encrypted"
+        }
+      },
+      "required": [
+        "id",
+        "uri",
+        "encrypted"
+      ]
+    },
     "ProjectDeploymentReference": {
+      "description": "Deployment configuration project record",
       "type": "object",
       "properties": {
         "type": {
@@ -79,6 +126,7 @@
       ]
     },
     "ProjectVcReference": {
+      "description": "Verifiable credential project record",
       "type": "object",
       "properties": {
         "type": {
@@ -124,6 +172,7 @@
       ]
     },
     "ProjectOrgIdsReference": {
+      "description": "ORGiD configuration project record",
       "type": "object",
       "properties": {
         "did": {
@@ -138,9 +187,17 @@
           "type": "string",
           "description": "ORGiD owner"
         },
-        "template": {
+        "orgJson": {
           "type": "string",
-          "description": "Path to saved ORG.JSON raw template"
+          "description": "Path to saved raw ORG.JSON"
+        },
+        "orgIdVc": {
+          "type": "string",
+          "description": "URI of deployed ORGiD VC"
+        },
+        "created": {
+          "type": "boolean",
+          "description": "Boolean flag that indicate than the ORGiD is created"
         },
         "date": {
           "description": "Creation/update date in the ISO format",
@@ -155,7 +212,7 @@
       ]
     },
     "ProjectKeysReference": {
-      "description": "Registered key pair",
+      "description": "Registered key pair project record",
       "properties": {
         "type": {
           "type": "string",
@@ -181,7 +238,7 @@
         },
         "privateKey": {
           "type": "string",
-          "description": "Encrypted private key"
+          "description": "Encrypted private key (encrypted)"
         },
         "date": {
           "description": "Creation/update date in the ISO format",

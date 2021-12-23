@@ -6,19 +6,22 @@ export interface ParsedEnv {
   [k: string]: string
 }
 
-export interface CliArgs extends Spec {
-  '--type': string;
-  '--payload': string;
-  '--method': string;
-  '--output': string;
-  '--nftName': string;
-  '--nftDescription': string;
-  '--nftImage': string;
-  '--path': string;
-  '--deploy:ipfs': string;
+export interface CliSpec extends Spec {
+  '--operation': StringConstructor;
+  '--payload': StringConstructor;
+  '--method': StringConstructor;
+  '--output': StringConstructor;
+  '--nftName': StringConstructor;
+  '--nftDescription': StringConstructor;
+  '--nftImage': StringConstructor;
+  '--path': StringConstructor;
+  '--deploy': StringConstructor;
+  '--keytype': StringConstructor;
+  '--record': StringConstructor;
+  '--filetype': StringConstructor;
 }
 
-export type ParsedArgv = Result<CliArgs>;
+export type ParsedArgv = Result<CliSpec>;
 
 // Extracts strings from quotes
 export const parseQuotedValue = (value: string): string => {
@@ -57,7 +60,7 @@ export const parseEnv = (envRaw: string): ParsedEnv =>
 
 // Argv parser
 export const parseArguments = (
-  config: Spec,
+  config: CliSpec,
   argv: string[]
 ): ParsedArgv => arg(
   config,

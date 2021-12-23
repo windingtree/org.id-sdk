@@ -3,9 +3,12 @@ import type {
   ProjectDeploymentReference,
   ProjectVcReference,
   ProjectOrgIdsReference,
-  ProjectKeysReference
+  ProjectKeysReference,
+  NetworkProviderConfigReference,
+  ProjectConfigReference
 } from '../schema/types/project';
 import path from 'path';
+import { DateTime } from  'luxon';
 import { object } from '@windingtree/org.id-utils';
 import {
   createDir,
@@ -14,12 +17,17 @@ import {
   write
 } from './fs';
 import orgIdCliProjectSchema from '../schema/project.json';
-import { printMessage, printObject } from '../utils/console';
+import { printMessage, printObject, printWarn } from '../utils/console';
 
 export interface AddDeploymentResult {
   add: ProjectDeploymentReference;
   remove: ProjectDeploymentReference | undefined;
 }
+
+export type KnownProjectConfigRecords =
+  | NetworkProviderConfigReference;
+
+export type ProjectConfigRecordsTypes = keyof ProjectConfigReference;
 
 export const projectFileTemplate: OrgIdCliProjectReference = {
   note: 'This file is created automatically. Do not edit it manually'
@@ -68,13 +76,31 @@ export const getProjectFile = async (
 // Add deployment info
 export const addDeploymentToProject = async (
   basePath: string,
-  deployment: ProjectDeploymentReference
+  deployment: ProjectDeploymentReference,
+  orgIdDid?: string
 ): Promise<AddDeploymentResult> => {
   const project = await getProjectFile(basePath);
   const deployments = ((object.getDeepValue(project, 'deployments') || []) as ProjectDeploymentReference[]);
   const remove = deployments.filter(r => r.path === deployment.path)[0];
   const records = deployments.filter(r => r.path !== deployment.path);
   records.push(deployment);
+
+  let orgIdsRecords: ProjectOrgIdsReference[];
+  let updatedOrgIdRecord: ProjectOrgIdsReference | undefined;
+
+  if (orgIdDid) {
+    orgIdsRecords = ((object.getDeepValue(project, 'orgIds') || []) as ProjectOrgIdsReference[])
+      .map(o => {
+        if (o.did === orgIdDid) {
+          o.orgIdVc = deployment.uri;
+          o.date = DateTime.now().toISO();
+          updatedOrgIdRecord = o;
+        }
+        return o;
+      });
+    project.orgIds = orgIdsRecords;
+  }
+
   project.deployments = records;
 
   await saveProjectFile(project);
@@ -83,6 +109,13 @@ export const addDeploymentToProject = async (
     `\nThe project configuration file is updated with the record [deployment]:`
   );
   printObject(deployment);
+
+  if (updatedOrgIdRecord) {
+    printMessage(
+      `\nThe project configuration file is updated with the record [ORGiD]:`
+    );
+    printObject(updatedOrgIdRecord);
+  }
 
   return {
     add: deployment,
@@ -124,7 +157,7 @@ export const addOrgIdToProject = async (
 ): Promise<ProjectOrgIdsReference> => {
   const project = await getProjectFile(basePath);
   const records = ((object.getDeepValue(project, 'orgIds') || []) as ProjectOrgIdsReference[])
-    .filter(o => o.did !== orgId.did && o.template !== orgId.template);
+    .filter(o => o.did !== orgId.did && o.orgJson !== orgId.orgJson);
 
   records.push(orgId);
   project.orgIds = records;
@@ -137,6 +170,39 @@ export const addOrgIdToProject = async (
   printObject(orgId);
 
   return orgId;
+};
+
+// Update `created` property in an ORGiD record
+export const setCreatedOrgIdRecord = async (
+  basePath: string,
+  did: string
+): Promise<void> => {
+  const project = await getProjectFile(basePath);
+  let updatedRecord: ProjectOrgIdsReference | undefined;
+  const records = ((object.getDeepValue(project, 'orgIds') || []) as ProjectOrgIdsReference[])
+    .map(o => {
+      if (o.did === did) {
+        o.created = true;
+        updatedRecord = o;
+      }
+      return o;
+    });
+
+  if (updatedRecord) {
+    project.orgIds = records;
+
+    await saveProjectFile(project);
+
+    printMessage(
+      '\nThe project configuration file is updated with the record [ORGiD]:'
+    );
+    printObject(updatedRecord);
+  } else {
+
+    printWarn(
+      `Something goes wrong. ORGiD record by DID: "${did}" has not been updated`
+    );
+  }
 };
 
 // Add key pair info
@@ -161,12 +227,62 @@ export const addKeyPairToProject = async (
   return keyPair;
 };
 
-// Get key pair by its tag from the project file
-export const getKeyPairByTagFromProject = async (
+// Add record to config
+export const addConfigRecordToProject = async (
   basePath: string,
-  tag: string
-): Promise<ProjectKeysReference> => {
+  recordKey: ProjectConfigRecordsTypes,
+  configRecord: KnownProjectConfigRecords
+): Promise<KnownProjectConfigRecords> => {
+  const project = await getProjectFile(basePath);
+  const records = ((object.getDeepValue(project, `config.${recordKey}`) || []) as KnownProjectConfigRecords[])
+    .filter(o => o.id !== configRecord.id);
+
+  records.push(configRecord);
+  project.config = project.config ? project.config : {};
+  project.config[recordKey] = records;
+
+  await saveProjectFile(project);
+
+  printMessage(
+    `\nThe project config is updated with the record [${recordKey}]:`
+  );
+  printObject(configRecord);
+
+  return configRecord;
+};
+
+// Get list of registered ORGiDs
+export const getOrgIdsFromProject = async (
+  basePath: string
+): Promise<ProjectOrgIdsReference[]> => {
+  const project = await getProjectFile(basePath);
+  return ((object.getDeepValue(project, 'orgIds') || []) as ProjectOrgIdsReference[]);
+};
+
+// Get key pair by its tag from the project file
+export const getKeyPairsFromProject = async (
+  basePath: string,
+  type?: string
+): Promise<ProjectKeysReference[]> => {
   const project = await getProjectFile(basePath);
   return ((object.getDeepValue(project, 'keys') || []) as ProjectKeysReference[])
-    .filter(o => o.tag === tag)[0];
+    .filter(o => type ? o.type === type : true);
+};
+
+// Get list of available network providers
+export const getNetworkProvidersFromProject = async (
+  basePath: string
+): Promise<NetworkProviderConfigReference[]> => {
+  const project = await getProjectFile(basePath);
+  return ((object.getDeepValue(project, 'config.networkProviders') || []) as NetworkProviderConfigReference[]);
+};
+
+// Get network provider record by network Id
+export const getNetworkProviderById = async (
+  basePath: string,
+  networkId: string
+): Promise<NetworkProviderConfigReference> => {
+  const project = await getProjectFile(basePath);
+  return ((object.getDeepValue(project, 'config.networkProviders') || []) as NetworkProviderConfigReference[])
+    .filter(p => p.id === networkId)[0];
 };

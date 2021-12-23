@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   target: 'node',
@@ -9,8 +10,15 @@ module.exports = {
     rules: [
       {
         test: /\.ts?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+                configFile: 'tsconfig-build.json'
+            }
+          }
+        ],
+        exclude: /node_modules/
       },
     ],
   },
@@ -24,4 +32,9 @@ module.exports = {
       type: 'commonjs'
     }
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      fetch: ['node-fetch', 'default'],
+    }),
+  ],
 };

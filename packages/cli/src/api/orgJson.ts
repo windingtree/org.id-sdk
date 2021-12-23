@@ -2,15 +2,19 @@ import type { ORGJSON, VerificationMethodReference } from '@windingtree/org.json
 import type { NFTMetadata } from '@windingtree/org.json-schema/types/nft';
 import type { ORGJSONVCNFT } from '@windingtree/org.json-schema/types/orgVc';
 import type { ParsedArgv } from '../utils/env';
-import type { ProjectDeploymentReference, ProjectVcReference } from '../schema/types/project';
-import { vc, keys } from '@windingtree/org.id-auth';
+import type {
+  ProjectDeploymentReference,
+  ProjectVcReference
+} from '../schema/types/project';
+import prompts from 'prompts';
 import { ethers } from 'ethers';
-import { object as objectUtil } from '@windingtree/org.id-utils';
 import { DateTime } from  'luxon';
+import { vc, keys } from '@windingtree/org.id-auth';
+import { object as objectUtil } from '@windingtree/org.id-utils';
 import { read, write } from './fs';
 import { deployFileIpfs } from './deployment';
 import { addVcToProject } from './project';
-import { promptKeyPair } from './common';
+import { promptKeyPair, promptOrgId } from './common';
 import { printInfo, printMessage } from '../utils/console';
 
 // Extract verification method from the orgJson
@@ -159,13 +163,7 @@ export const signOrgJsonWithBlockchainAccount = async (
 
   const keyPairRecord = await promptKeyPair(
     basePath,
-    record => {
-      if (record.type !== 'eip155') {
-        throw new Error(
-          `Key pair with tag "${record.tag}" has a type "${record.type}" that not supported for an ORGiD bootstrap. Please use "eip155" keys`
-        )
-      }
-    }
+    'eip155'
   );
 
   if (keyPairRecord) {
@@ -254,22 +252,21 @@ export const createSignedOrgJson = async (
   args: ParsedArgv
 ): Promise<ProjectVcReference> => {
 
-  if (!args['--payload']) {
-    throw new Error(
-      `Path to the payload file must be provided using "--payload" option`
-    );
-  }
-
   if (!args['--output']) {
     throw new Error(
       'Path to the output file must be provided using "--output" option'
     );
   }
 
-  if (!args['--method']) {
-    throw new Error(
-      'Verification method Id must be provided using "--method" option'
-    );
+  if (!args['--payload']) {
+
+    const orgId = await promptOrgId(basePath);
+
+    if (!orgId.orgJson) {
+      throw new Error('Chosen ORGiD does not have a registered "orgJson" path');
+    }
+
+    args['--payload'] = orgId.orgJson;
   }
 
   // Read the payload by path
@@ -279,10 +276,43 @@ export const createSignedOrgJson = async (
     true
   ) as ORGJSON;
 
-  const verificationMethod = fetchVerificationMethod(
-    subject,
-    args['--method']
-  );
+  let verificationMethod: VerificationMethodReference | undefined;
+
+  if (!args['--method']) {
+
+    if (!subject.verificationMethod) {
+      throw new Error(
+        'Nor "--method" nor "orgJson.verificationMethods" found. Verification method Id must be provided using "--method" option'
+      );
+    }
+
+    const verificationMethodResult = await prompts({
+      type: 'select',
+      name: 'verificationMethod',
+      message: 'Choose a key that should be used as verification method',
+      choices: subject.verificationMethod.map(
+        o => ({
+          title: o.id,
+          value: o
+        })
+      ),
+      initial: 0
+    });
+
+    verificationMethod = verificationMethodResult.verificationMethod;
+  } else {
+
+    verificationMethod = fetchVerificationMethod(
+      subject,
+      args['--method']
+    );
+  }
+
+  if (!verificationMethod) {
+    throw new Error('Unable to define a verification method');
+  }
+
+  args['--method'] = verificationMethod.id;
 
   const nftMetadata = buildNftMetadata(subject, args);
 
@@ -318,18 +348,26 @@ export const createSignedOrgJson = async (
   );
 
   printInfo(
-    `ORG.JSON VC successfully created and saved on the path ${outputFile}`
+    `\nORG.JSON VC successfully created and saved on the path ${outputFile}`
   );
 
   let deploymentRecord: ProjectDeploymentReference | undefined;
 
-  if (args['--deploy:ipfs']) {
-    printMessage('\nDeploying the file to IPFS...\n');
-    args['--path'] = args['--output'];
-    deploymentRecord = await deployFileIpfs(
-      basePath,
-      args
-    );
+  if (args['--deploy']) {
+
+    switch (args['--deploy']) {
+      case 'ipfs':
+        printMessage('\nDeploying the file to IPFS...\n');
+        args['--path'] = args['--output'];
+        args['--filetype'] = 'OrgIdVc';
+        deploymentRecord = await deployFileIpfs(
+          basePath,
+          args
+        );
+        break;
+      default:
+        throw new Error(`Unknown deployment type: ${args['--deploy']}`);
+    }
   }
 
   // Build a deployment record
