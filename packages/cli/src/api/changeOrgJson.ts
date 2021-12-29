@@ -3,9 +3,6 @@ import {
   promptOrgId,
   prepareOrgIdApi
 } from './common';
-import {
-  setCreatedOrgIdRecord
-} from './project';
 import prompts from 'prompts';
 import { printInfo, printMessage, printObject, printWarn } from '../utils/console';
 import { createOrgId } from './createOrgId';

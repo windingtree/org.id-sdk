@@ -72,8 +72,15 @@ export const blockchainNetworks: BlockchainNetworkConfig[] = [
 ];
 
 // Extract ORGiD smart contract address from networks list
-export const getOrgIdContractAddress = (id: string): BlockchainNetworkConfig =>
-  blockchainNetworks.filter(b => b.id === id)[0];
+export const getSupportedNetworkConfig = (id: string): BlockchainNetworkConfig => {
+  const networkConfig = blockchainNetworks.filter(b => b.id === id)[0];
+
+  if (!networkConfig) {
+    throw new Error(`Network #${id} not supported by ORGiD protocol yet`);
+  }
+
+  return networkConfig;
+}
 
 // Encrypts the data
 export const encrypt = (data: string, password: string | unknown): string => {
@@ -223,34 +230,11 @@ export const parseDid = (did: string): ParsedDid => {
   };
 };
 
-// Prepare an ORGiD API for transactions on the ORG.JSON basis
-export const prepareOrgIdApi = async (
+// Get registered provider from project
+export const getEthersProvider = async (
   basePath: string,
-  orgId: ProjectOrgIdsReference
-): Promise<OrgIdApi> => {
-
-  const {
-    orgJson,
-    owner
-  } = orgId;
-
-  if (!orgJson) {
-    throw new Error('Chosen ORGiD does not have registered ORG.JSON yet.');
-  }
-
-  const orgJsonSource = await read(
-    basePath,
-    orgJson,
-    true
-  ) as ORGJSON;
-
-  const { network, orgId: id } = parseDid(orgJsonSource.id);
-  const networkConfig = getOrgIdContractAddress(network);
-
-  if (!networkConfig) {
-    throw new Error(`Network #${network} not supported by ORGiD protocol yet`);
-  }
-
+  network: string
+): Promise<ethers.providers.JsonRpcProvider> => {
   let providerUri: string | undefined;
 
   const { uri, encrypted } = await getNetworkProviderById(basePath, network);
@@ -273,7 +257,34 @@ export const prepareOrgIdApi = async (
     providerUri = uri;
   }
 
-  const provider = new ethers.providers.JsonRpcProvider(providerUri);
+  return new ethers.providers.JsonRpcProvider(providerUri);
+};
+
+// Prepare an ORGiD API for transactions on the ORG.JSON basis
+export const prepareOrgIdApi = async (
+  basePath: string,
+  orgId: ProjectOrgIdsReference
+): Promise<OrgIdApi> => {
+
+  const {
+    orgJson,
+    owner
+  } = orgId;
+
+  if (!orgJson) {
+    throw new Error('Chosen ORGiD does not have registered ORG.JSON yet.');
+  }
+
+  const orgJsonSource = await read(
+    basePath,
+    orgJson,
+    true
+  ) as ORGJSON;
+
+  const { network, orgId: id } = parseDid(orgJsonSource.id);
+  const networkConfig = getSupportedNetworkConfig(network);
+
+  const provider = await getEthersProvider(basePath, network);
 
   const orgIdContract = new OrgIdContract(
     networkConfig.address,

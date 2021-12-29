@@ -9,6 +9,7 @@ import { bootstrapOrgJson } from './api/bootstrap';
 import { keysImport } from './api/keysImport';
 import { createOrgId } from './api/createOrgId';
 import { changeOrgJson } from './api/changeOrgJson';
+import { resolveOrgId } from './api/resolveOrgId';
 
 // Console helpers
 export * as console from './utils/console';
@@ -31,7 +32,8 @@ export const cli = async (
       '--deploy': String,
       '--keytype': String,
       '--record': String,
-      '--filetype': String
+      '--filetype': String,
+      '--did': String,
     },
     argv
   );
@@ -61,6 +63,9 @@ export const cli = async (
       break;
     case 'update':
       await changeOrgJson(basePath, args);
+      break;
+    case 'resolve':
+      await resolveOrgId(basePath, args);
       break;
     case undefined:
       throw new Error('Operation type must be provided using "--operation" parameter');

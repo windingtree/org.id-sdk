@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env -S node --no-deprecation
 const { cli, console: { printError } } = require('../dist');
 
 cli(process.cwd(), process.argv)

@@ -19,6 +19,7 @@ export interface CliSpec extends Spec {
   '--keytype': StringConstructor;
   '--record': StringConstructor;
   '--filetype': StringConstructor;
+  '--did': StringConstructor;
 }
 
 export type ParsedArgv = Result<CliSpec>;

@@ -25,6 +25,7 @@ npx orgid --operation <OPERATION_TYPE> <OPERATION_PARAMETERS>
 - [Creation of ORGiD VC](#orgid-vc)
 - [Creation of ORGiD](#orgid-creation)
 - [ORGiD update](#orgid-update)
+- [ORGiD DID resolution](#orgid-did-resolve)
 
 ## CLI configuration
 
@@ -119,6 +120,12 @@ If saved in the CLI configuration network provider URI is encrypted the user wil
 ### `--operation update`
 
 Working the same way as for an ORGiD creation but send a transaction for the ORGiD VC URI update.
+
+## ORGiD DID resolve
+
+### `--operation resolve --did <ORGiD_DID>`
+
+Allows to make an ORGiD DID resolution. `<ORGiD_DID>` must be a valid DID that looks like `did:orgid:4:0xd6a429d09a197adafbe8c0d751e2e26711fe870f0ee126ae236481fc2b40895b`. The related network provider (`4`) must be registered before. If you have encrypted you provider URI you will be prompted for password during the resolution flow.
 
 ## TODO
 

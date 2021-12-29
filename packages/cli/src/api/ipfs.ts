@@ -41,3 +41,11 @@ export const removeFromIpfs = (
     `${defaultIpfsApiHost}/api/v0/pin/rm?arg=${cid}&recursive=true`,
     'POST'
   ) as Promise<IpfsApiAddResponse>;
+
+export const getFromIpfs = (
+  cid: string
+): Promise<unknown> =>
+  http.request(
+    `${defaultIpfsApiHost}/api/v0/cat?arg=${cid}`,
+    'POST'
+  ) as Promise<unknown>;
