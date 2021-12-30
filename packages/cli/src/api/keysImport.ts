@@ -13,7 +13,7 @@ import { printInfo } from '../utils/console';
 import { encrypt } from './common';
 
 // Import of Ethereum keys
-export const importEip155 = async (
+export const importEthereum = async (
   basePath: string,
 ): Promise<ProjectKeysReference> => {
   const { tag, accountAddress, privateKey } = await prompts([
@@ -59,7 +59,7 @@ export const importEip155 = async (
   const keyPairRecord = await addKeyPairToProject(
     basePath,
     {
-      type: 'eip155',
+      type: 'ethereum',
       tag,
       publicKey: ethersUtils.getAddress(accountAddress),
       privateKey: encrypt(privateKey, password),
@@ -68,7 +68,7 @@ export const importEip155 = async (
   );
 
   printInfo(
-    `Key of type "eip155" with tag "${tag}" has been successfully imported\n`
+    `Key of type "ethereum" with tag "${tag}" has been successfully imported\n`
   );
 
   return keyPairRecord;
@@ -87,8 +87,8 @@ export const keysImport = async (
   }
 
   switch (args['--keytype']) {
-    case 'eip155':
-      await importEip155(basePath);
+    case 'ethereum':
+      await importEthereum(basePath);
       break;
     // @todo Add more types
     default:

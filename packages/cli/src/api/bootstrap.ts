@@ -152,7 +152,7 @@ export const bootstrapOrgJson = async (
 
   const keyPairRecord = await promptKeyPair(
     basePath,
-    'eip155'
+    'ethereum'
   );
 
   if (keyPairRecord) {
@@ -202,7 +202,7 @@ ORGiD DID: ${did}\n`
         id: `${did}#${verificationMethodTag}`,
         controller: did,
         type: 'EcdsaSecp256k1RecoveryMethod2020',
-        blockchainAccountId: `${accountAddress}@eip155:${networkId}`
+        blockchainAccountId: `${accountAddress}@ethereum:${networkId}`
       }
     ]
   };

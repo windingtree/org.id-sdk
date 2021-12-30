@@ -153,7 +153,7 @@ export const signOrgJsonWithBlockchainAccount = async (
     blockchainType
   } = vc.parseBlockchainAccountId(issuerBlockchainAccountId);
 
-  if (blockchainType !== 'eip155') {
+  if (blockchainType !== 'ethereum') {
     throw new Error(
       `Verification method blockchain type "${blockchainType}" is not supported`
     );
@@ -163,7 +163,7 @@ export const signOrgJsonWithBlockchainAccount = async (
 
   const keyPairRecord = await promptKeyPair(
     basePath,
-    'eip155'
+    'ethereum'
   );
 
   if (keyPairRecord) {
@@ -348,7 +348,7 @@ export const createSignedOrgJson = async (
   );
 
   printInfo(
-    `\nORG.JSON VC successfully created and saved on the path ${outputFile}`
+    `\nORGiD VC successfully created and saved on the path ${outputFile}`
   );
 
   let deploymentRecord: ProjectDeploymentReference | undefined;

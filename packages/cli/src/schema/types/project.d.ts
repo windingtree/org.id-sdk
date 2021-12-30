@@ -165,7 +165,7 @@ export interface ProjectKeysReference {
   /**
    * Type of key pair
    */
-  type: "eip155";
+  type: "ethereum";
   /**
    * A unique key pair tag
    */

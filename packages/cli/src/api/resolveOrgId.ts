@@ -16,7 +16,7 @@ import {
   getSupportedNetworkConfig
 } from './common';
 import { getFromIpfs } from './ipfs';
-import { printInfo, printObject } from '../utils/console';
+import { printInfo, printWarn, printObject } from '../utils/console';
 
 export const resolveOrgId = async (
   basePath: string,
@@ -67,9 +67,17 @@ export const resolveOrgId = async (
 
   const didResponse = await resolver.resolve(args['--did']);
 
-  printInfo(
-    `ORGiD with DID: "${args['--did']}" has been successfully resolved`
-  );
+  // Check the response
+  if (didResponse.didDocument === null) {
+    printWarn(
+      `ORGiD with DID: "${args['--did']}" has finished with the error:`
+    );
+    printWarn(didResponse.didResolutionMetadata.error || 'Unknown error');
+  } else {
+    printInfo(
+      `ORGiD with DID: "${args['--did']}" has been successfully resolved`
+    );
+  }
 
   printObject(didResponse);
 };

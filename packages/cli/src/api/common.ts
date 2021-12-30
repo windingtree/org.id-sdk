@@ -292,7 +292,7 @@ export const prepareOrgIdApi = async (
   );
 
   // @todo Add support for other types of keys
-  const keyPair = await promptKeyPair(basePath, 'eip155');
+  const keyPair = await promptKeyPair(basePath, 'ethereum');
 
   if (!keyPair) {
     throw new Error('Unable to get registered key pair');
