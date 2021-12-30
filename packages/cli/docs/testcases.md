@@ -122,7 +122,7 @@ A section with configuration data will looks like:
 
 If a user wants to update the provider URI he has to add a new provider record with the same `id` this leads to overwriting of the old record.
 
-### Keys management
+### Keys import
 
 Having keys in the ORGiD CLI configuration is required for the possibility of making signatures of transactions and creation of Verifiable Credentials (eq ORGiD VC the signed version of organization profile in the ORG.JSON format).
 
@@ -413,7 +413,7 @@ Here is an example of an ORGiD DID resolution:
 }
 ```
 
-> If a resolution process has failed a `didDocument` property of response will be equal to `null` and `didResolutionMetadata.error ` property must contain an error message.
+> If a resolution process has failed a `didDocument` property of response will be equal to `null` and `didResolutionMetadata.error` property must contain an error message.
 
 ### Documentation
 
