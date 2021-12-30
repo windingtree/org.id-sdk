@@ -19,13 +19,20 @@ npx orgid --operation <OPERATION_TYPE> <OPERATION_PARAMETERS>
 
 ## General CLI usage flow
 
-- [Configuration](#cli-configuration)
-- [Keys management](#keys-management)
-- [ORG.JSON bootstrap](#orgjson-bootstrap)
-- [Creation of ORGiD VC](#orgid-vc)
-- [Creation of ORGiD](#orgid-creation)
-- [ORGiD update](#orgid-update)
-- [ORGiD DID resolution](#orgid-did-resolve)
+- [The ORGiD command-line utility](#the-orgid-command-line-utility)
+  - [Setup](#setup)
+  - [Usage](#usage)
+  - [Glossary](#glossary)
+  - [General CLI usage flow](#general-cli-usage-flow)
+  - [CLI configuration](#cli-configuration)
+  - [Keys management](#keys-management)
+  - [ORG.JSON bootstrap](#orgjson-bootstrap)
+  - [ORGiD VC](#orgid-vc)
+  - [Deployments](#deployments)
+  - [ORGiD creation](#orgid-creation)
+  - [ORGiD update](#orgid-update)
+  - [ORGiD DID resolve](#orgid-did-resolve)
+  - [TODO](#todo)
 
 ## CLI configuration
 
@@ -33,7 +40,7 @@ The utility configuration data is stored in the file `./orgid/project.json` that
 
 This file is also dedicated to storing valuable utility usage data that can be reused between operations.
 
-### `--operation config --record networkProviders`
+**`--operation config --record networkProviders`**
 
 This operation allows adding network providers with their JSON RPC APIs. When you will add a network provider you will be prompted to set a password for the API URI that can contain secret API keys.
 
@@ -41,20 +48,21 @@ This operation allows adding network providers with their JSON RPC APIs. When yo
 
 ## Keys management
 
-### `--operation keys:import --keytype:eip155`
+**`--operation keys:import --keytype:ethereum`**
 
-`eip155` keys are key pairs of Ethereum accounts. The CLI is allows to add key pair in the following format:
+> Currently, `ethereum` key pair type is the only supported. More key pairs types will be added soon.
+
+The CLI is allows to add key pair in the following format:
 
 - `publicKey`: account address
 - `privateKey`: account private key. For example, you can export this key from Metamask wallet. When you add a private key you will be prompted to set a password to encrypt this sensitive data
 - `tag`: unique key id that will be used across operations and verification methods
 
-> Currently, `eip155` key pair type (Ethereum) is the only supported. More key pairs types will be added soon.<br>
 > When you need to update a key data just use the same `tag` and a key pair record will be overwritten.
 
 ## ORG.JSON bootstrap
 
-### `--operation bootstrap --output <PATH_TO_OUTPUT_FILE>`
+**`--operation bootstrap --output <PATH_TO_OUTPUT_FILE>`**
 
 To bootstrap a new ORG.JSON file the CLI will prompt you for the following information:
 
@@ -70,7 +78,7 @@ During the interaction, the CLI will prompt to fill mandatory or whole profile p
 
 > An ORGiD VC is a cryptographically signed version of an ORG.JSON file.
 
-### `--operation OrgJson --payload <PATH_TO_RAW_ORGJSON_FILE> --output <PATH_TO_OUTPUT_FILE> --deploy ipfs`
+**`--operation orgIdVc --payload <PATH_TO_RAW_ORGJSON_FILE> --output <PATH_TO_OUTPUT_FILE> --deploy ipfs`**
 
 Parameters:
 
@@ -90,7 +98,7 @@ Verification method will be automatically loaded from the ORG.JSON file.
 
 ## Deployments
 
-### `--operation deploy:ipfs --path <PATH_TO_FILE>`
+**`--operation deploy:ipfs --path <PATH_TO_FILE>`**
 
 Deployment of any files to IPFS.
 
@@ -109,7 +117,7 @@ After a `bootstrap` operation in the local project file will be created a record
 - `orgJson`: path to the local file with ORG.JSON content
 - `orgIdVc`: URI of deployed ORGiD VC file
 
-### `--operation create`
+**`--operation create`**
 
 During the interaction, the CLI will prompt for all the required information and send a transaction to the ORGiD smart contract.
 
@@ -117,13 +125,13 @@ If saved in the CLI configuration network provider URI is encrypted the user wil
 
 ## ORGiD update
 
-### `--operation update`
+**`--operation update`**
 
 Working the same way as for an ORGiD creation but send a transaction for the ORGiD VC URI update.
 
 ## ORGiD DID resolve
 
-### `--operation resolve --did <ORGiD_DID>`
+**`--operation resolve --did <ORGiD_DID>`**
 
 Allows to make an ORGiD DID resolution. `<ORGiD_DID>` must be a valid DID that looks like `did:orgid:4:0xd6a429d09a197adafbe8c0d751e2e26711fe870f0ee126ae236481fc2b40895b`. The related network provider (`4`) must be registered before. If you have encrypted you provider URI you will be prompted for password during the resolution flow.
 
