@@ -421,7 +421,7 @@ The documentation of the ORGiD CLI utility is here: [https://windingtree.github.
 
 ## Issues management
 
-It is proposed to use use [GitHun issue tracker](https://github.com/windingtree/org.id-sdk/issues) for issues management.
+It is proposed to use use [GitHub issues tracker](https://github.com/windingtree/org.id-sdk/issues) for issues management.
 
 Here the commonly used [issue template](./issue.md).
 
