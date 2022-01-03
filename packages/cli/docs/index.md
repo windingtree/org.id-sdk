@@ -2,8 +2,39 @@
 
 ## Setup
 
+The CLI can be set up via npm package:
+
 ```bash
 yarn add @windingtree/org.id-cli
+```
+
+...or globally:
+
+```bash
+yarn global add @windingtree/org.id-cli
+```
+
+To use the CLI installed by `yarn` you should be sure that its global `bin` directory is available in the PATH in your system.
+
+To know your `yarn` global bin dir please run the command:
+
+```bash
+yarn global bin
+/path/to/yarn/global/bin/dir
+```
+
+After that you should to add in you `.profile.rc` (or similar for your system) the following command:
+
+```bash
+export PATH=$PATH:/path/to/yarn/global/bin/dir
+```
+
+> It is recommended to use the ORGiD CLI in the node.js v14 environment and up.
+
+After the setup, the CLI must be callable by the utility name `orgid`.
+
+```bash
+npx orgid --operation <OPERATION_TYPE> <OPERATION_PARAMETERS>
 ```
 
 ## Usage
