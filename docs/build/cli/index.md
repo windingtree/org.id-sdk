@@ -23,10 +23,16 @@ yarn global bin
 /path/to/yarn/global/bin/dir
 ```
 
-After that you should to add in you `.profile.rc` (or similar for your system) the following command:
+After that you should to add in you `.profile.rc` or `.bash_profile` (or similar for your system) the following command:
 
 ```bash
 export PATH=$PATH:/path/to/yarn/global/bin/dir
+```
+
+After you updated your shell configuration file you need to refresh the environment using this command:
+
+```bash
+source ~/.<YOUR_SHELL_RC_FILE>
 ```
 
 > It is recommended to use the ORGiD CLI in the node.js v14 environment and up.
