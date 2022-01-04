@@ -172,36 +172,36 @@ export const promptOrgId = async (
 
   const orgIdsRecords = await getOrgIdsFromProject(basePath);
 
-    if (orgIdsRecords.length === 0) {
+  if (orgIdsRecords.length === 0) {
 
-      throw new Error(
-        `Registered ORGIDs are found`
-      );
-    }
+    throw new Error(
+      `Registered ORGIDs are found`
+    );
+  }
 
-    const { orgId } = await prompts({
-      type: 'select',
-      name: 'orgId',
-      message: 'Choose a registered ORGiD DID',
-      choices: orgIdsRecords
-        .filter(
-          o => {
-            if (created !== undefined) {
-              return o.created === created
-            }
-            return true;
+  const { orgId } = await prompts({
+    type: 'select',
+    name: 'orgId',
+    message: 'Choose a registered ORGiD DID',
+    choices: orgIdsRecords
+      .filter(
+        o => {
+          if (created !== undefined) {
+            return o.created;
           }
-        )
-        .map(
-          (o: ProjectOrgIdsReference) => ({
-            title: o.did,
-            value: o
-          })
-        ),
-      initial: 0
-    }) as { orgId: ProjectOrgIdsReference };
+          return true;
+        }
+      )
+      .map(
+        (o: ProjectOrgIdsReference) => ({
+          title: o.did,
+          value: o
+        })
+      ),
+    initial: 0
+  }) as { orgId: ProjectOrgIdsReference };
 
-    return orgId;
+  return orgId;
 };
 
 // Parse DID
