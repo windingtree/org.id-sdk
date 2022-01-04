@@ -79,7 +79,7 @@ This operation allows adding network providers with their JSON RPC APIs. When yo
 
 ## Keys management
 
-**`--operation keys:import --keytype:ethereum`**
+**`--operation keys:import --keytype ethereum`**
 
 > Currently, `ethereum` key pair type is the only supported. More key pairs types will be added soon.
 

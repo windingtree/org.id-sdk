@@ -151,7 +151,7 @@ In the current version of CLI, it is possible to import Ethereum compatible priv
 
 > Private keys are sensitive information a private key cannot be saved in the CLI configuration in the raw (unprotected) form. During the ley import, a user will be prompted to enter a password for key encryption.
 
-To import key a user has to use the `--operation keys:import --keytype:ethereum` CLI parameters.
+To import key a user has to use the `--operation keys:import --keytype ethereum` CLI parameters.
 
 As a result of importing keys, the related records will be created in the CLI configuration file.
 
