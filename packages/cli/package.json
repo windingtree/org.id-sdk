@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-cli",
-  "version": "1.0.0-beta.36",
+  "version": "1.0.0-beta.37",
   "description": "An ORGiD command-line utility",
   "main": "dist/index.js",
   "types": "dist/src/index.d.ts",
