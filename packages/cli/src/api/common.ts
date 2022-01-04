@@ -187,7 +187,7 @@ export const promptOrgId = async (
       .filter(
         o => {
           if (created !== undefined) {
-            return o.created;
+            return !!o.created === created;
           }
           return true;
         }
