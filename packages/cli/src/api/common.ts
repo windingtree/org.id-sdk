@@ -46,6 +46,7 @@ export interface OrgIdApi {
   orgIdContract: OrgIdContract;
   signer: Signer;
   id: string;
+  gasPrice?: string;
 }
 
 export const blockchainNetworks: BlockchainNetworkConfig[] = [
@@ -307,10 +308,35 @@ export const prepareOrgIdApi = async (
     );
   }
 
+  const { gasPrice } = await prompts([
+    {
+      type: 'select',
+      name: 'setGasPrice',
+      message: `Do you want to define your own Gas price for transaction?`,
+      choices: [
+        {
+          title: 'Yes',
+          value: true
+        },
+        {
+          title: 'No',
+          value: false
+        }
+      ],
+      initial: 0
+    },
+    {
+      type: prevChoice => prevChoice ? 'text' : null,
+      name: 'gasPrice',
+      message: 'Set gas price (GWEI)'
+    }
+  ])
+
   return {
     provider,
     orgIdContract,
     signer,
-    id
+    id,
+    gasPrice: gasPrice ? etherUtils.formatUnits(gasPrice, 'gwei') : undefined
   }
 };

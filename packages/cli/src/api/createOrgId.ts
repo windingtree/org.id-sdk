@@ -61,13 +61,14 @@ export const createOrgId = async (
 
   if (!orgIdVc) {
     throw new Error(
-      'Chosen ORGiD doe not have registered ORGiD VC yet. Please create it first using operation "--orgIdVc"'
+      'Chosen ORGiD does not have registered ORGiD VC yet. Please create it first using operation "--orgIdVc"'
     );
   }
 
   const {
     orgIdContract,
-    signer
+    signer,
+    gasPrice
   } = await prepareOrgIdApi(basePath, orgId);
 
   printMessage(
@@ -78,7 +79,7 @@ export const createOrgId = async (
     salt,
     orgIdVc,
     signer,
-    undefined,
+    gasPrice ? { gasPrice } : undefined,
     txHash => {
       printInfo(`\nTransaction hash: ${txHash}`);
     }
