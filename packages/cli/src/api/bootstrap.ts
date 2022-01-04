@@ -202,7 +202,7 @@ ORGiD DID: ${did}\n`
         id: `${did}#${verificationMethodTag}`,
         controller: did,
         type: 'EcdsaSecp256k1RecoveryMethod2020',
-        blockchainAccountId: `${accountAddress}@ethereum:${networkId}`
+        blockchainAccountId: `${accountAddress}@eip155:${networkId}`
       }
     ]
   };

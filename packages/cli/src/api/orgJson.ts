@@ -153,7 +153,7 @@ export const signOrgJsonWithBlockchainAccount = async (
     blockchainType
   } = vc.parseBlockchainAccountId(issuerBlockchainAccountId);
 
-  if (blockchainType !== 'ethereum') {
+  if (blockchainType !== 'eip155') {
     throw new Error(
       `Verification method blockchain type "${blockchainType}" is not supported`
     );
