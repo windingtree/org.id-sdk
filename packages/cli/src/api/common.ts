@@ -1,3 +1,4 @@
+import { BigNumber } from 'ethers';
 import type { ORGJSON } from '@windingtree/org.json-schema/types/org.json';
 import type {
   ProjectKeysReference,
@@ -46,7 +47,7 @@ export interface OrgIdApi {
   orgIdContract: OrgIdContract;
   signer: Signer;
   id: string;
-  gasPrice?: string;
+  gasPrice?: BigNumber;
 }
 
 export const blockchainNetworks: BlockchainNetworkConfig[] = [
@@ -337,6 +338,6 @@ export const prepareOrgIdApi = async (
     orgIdContract,
     signer,
     id,
-    gasPrice: gasPrice ? etherUtils.formatUnits(gasPrice, 'gwei') : undefined
+    gasPrice: gasPrice ? etherUtils.parseUnits(gasPrice, 'gwei') : undefined
   }
 };
