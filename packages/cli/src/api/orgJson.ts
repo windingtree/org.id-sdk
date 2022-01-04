@@ -359,7 +359,7 @@ export const createSignedOrgJson = async (
       case 'ipfs':
         printMessage('\nDeploying the file to IPFS...\n');
         args['--path'] = args['--output'];
-        args['--filetype'] = 'OrgIdVc';
+        args['--filetype'] = 'orgIdVc';
         deploymentRecord = await deployFileIpfs(
           basePath,
           args
