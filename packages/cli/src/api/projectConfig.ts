@@ -16,7 +16,7 @@ export const manageProvider = async (
 ): Promise<NetworkProviderConfigReference> => {
   const { id, uri, password } = await prompts([
     {
-      type: 'number',
+      type: 'text',
       name: 'id',
       message: 'Please enter a network Id'
     },
