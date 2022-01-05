@@ -17,9 +17,9 @@ cp .nojekyll build
 
 # Build docs from org.json-schema package content
 cleanTemp
-wget -O temp/org.json-schema.zip https://github.com/windingtree/org.json-schema/archive/refs/heads/feat/new-orgid.zip
-unzip temp/org.json-schema.zip "org.json-schema-feat-new-orgid/docs/*" -d temp
-cp -r temp/org.json-schema-feat-new-orgid/docs build/org.json-schema
+wget -O temp/org.json-schema.zip https://github.com/windingtree/org.json-schema/archive/refs/heads/master.zip
+unzip temp/org.json-schema.zip "org.json-schema-master/docs/*" -d temp
+cp -r temp/org.json-schema-master/docs build/org.json-schema
 
 # Build docs from auth package
 cp -r ../packages/auth/docs build/auth
