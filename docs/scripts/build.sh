@@ -26,18 +26,18 @@ cp -r ../packages/auth/docs build/auth
 
 # Build docs for the ORGiD smart contract
 cleanTemp
-wget -O temp/org.id.zip https://github.com/windingtree/org.id/archive/refs/heads/orgid-nft.zip
-unzip temp/org.id.zip "org.id-orgid-nft/docs/*" -d temp
-cp -r temp/org.id-orgid-nft/docs build/org.id-smart-contract
+wget -O temp/org.id.zip https://github.com/windingtree/org.id/archive/refs/heads/master.zip
+unzip temp/org.id.zip "org.id-master/docs/*" -d temp
+cp -r temp/org.id-master/docs build/org.id-smart-contract
 
 # Build docs for the ORGiD core library
 cp -r ../packages/core/docs build/core
 
 # Build docs for ORGiD DID resolver
 cleanTemp
-wget -O temp/org.id-resolver.zip https://github.com/windingtree/org.id-resolver/archive/refs/heads/new-resolver.zip
-unzip temp/org.id-resolver.zip "org.id-resolver-new-resolver/packages/resolver/docs/*" -d temp
-cp -r temp/org.id-resolver-new-resolver/packages/resolver/docs build/org.id-resolver
+wget -O temp/org.id-resolver.zip https://github.com/windingtree/org.id-resolver/archive/refs/heads/master.zip
+unzip temp/org.id-resolver.zip "org.id-resolver-master/packages/resolver/docs/*" -d temp
+cp -r temp/org.id-resolver-master/packages/resolver/docs build/org.id-resolver
 
 # Build docs for the ORGiD utils library
 cp -r ../packages/utils/docs build/utils
