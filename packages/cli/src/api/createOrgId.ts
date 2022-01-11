@@ -6,7 +6,7 @@ import {
   prepareOrgIdApi
 } from './common';
 import {
-  setCreatedOrgIdRecord
+  updateOrgIdRecord
 } from './project';
 import { printInfo, printMessage, printObject, printWarn } from '../utils/console';
 import { changeOrgJson } from './changeOrgJson';
@@ -98,5 +98,11 @@ export const createOrgId = async (
     tokenId: orgIdData.tokenId.toString()
   });
 
-  await setCreatedOrgIdRecord(basePath, did);
+  await updateOrgIdRecord(
+    basePath,
+    did,
+    {
+      created: true
+    }
+  );
 };

@@ -10,6 +10,7 @@ import { keysImport } from './api/keysImport';
 import { createOrgId } from './api/createOrgId';
 import { changeOrgJson } from './api/changeOrgJson';
 import { resolveOrgId } from './api/resolveOrgId';
+import { transferOwnership } from './api/transferOwnership';
 
 // Console helpers
 export * as console from './utils/console';
@@ -34,6 +35,7 @@ export const cli = async (
       '--record': String,
       '--filetype': String,
       '--did': String,
+      '--newOwner': String,
     },
     argv
   );
@@ -66,6 +68,9 @@ export const cli = async (
       break;
     case 'resolve':
       await resolveOrgId(basePath, args);
+      break;
+    case 'transfer':
+      await transferOwnership(basePath, args);
       break;
     case undefined:
       throw new Error('Operation type must be provided using "--operation" parameter');

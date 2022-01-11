@@ -172,17 +172,22 @@ export const addOrgIdToProject = async (
   return orgId;
 };
 
-// Update `created` property in an ORGiD record
-export const setCreatedOrgIdRecord = async (
+// Update an ORGiD record
+export const updateOrgIdRecord = async (
   basePath: string,
-  did: string
+  did: string,
+  partialRecord: Partial<ProjectOrgIdsReference>
 ): Promise<void> => {
   const project = await getProjectFile(basePath);
   let updatedRecord: ProjectOrgIdsReference | undefined;
   const records = ((object.getDeepValue(project, 'orgIds') || []) as ProjectOrgIdsReference[])
     .map(o => {
       if (o.did === did) {
-        o.created = true;
+        o = {
+          ...o,
+          ...partialRecord,
+          date: DateTime.now().toISO()
+        };
         updatedRecord = o;
       }
       return o;
