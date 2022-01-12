@@ -11,9 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        # with:
+        #   fetch-depth: "0"
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
           registry-url: "https://registry.npmjs.org"
           scope: "@windingtree"
           github_token:  ${{secrets.GITHUB_TOKEN}}
@@ -27,21 +29,31 @@ jobs:
           yarn lint
           yarn build
           yarn test
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v4
+        with:
+          gpg_private_key: ${{secrets.GPG_PRIVATE_KEY}}
       - name: Git configuration
         run: |
           git config --global user.email "dev@windingtree.com"
           git config --global user.name "@$GITHUB_ACTOR"
+          git config --global commit.gpgsign true
+          git config --global gpg.program gpg2
+          git config --global user.signingkey 58DBEF1CA88E6CB8
       - name: Initializing release version
         run: |
-          if [ ${{ github.base_ref }} = develop ]; then
+          echo "Processing the branch: ${{github.ref_name}}"
+          if [ ${{github.ref_name}} = develop ]; then
             npx lerna version --conventional-commits --conventional-prerelease --preid beta --sign-git-commit --sign-git-tag --yes
           else
-            npx lerna version --conventional-commits --conventional-graduate --sign-git-commit --sign-git-tag --yes
+            echo "Major release not implemented yet"
           fi
       - name: Build packages
         run: yarn build
       - name: Publish release
         run: npx lerna publish from-git --yes
+
+# npx lerna version --conventional-commits --conventional-graduate --sign-git-commit --sign-git-tag --yes
 
 # on:
 #   repository_dispatch:
