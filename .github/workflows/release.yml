@@ -51,8 +51,6 @@ jobs:
           else
             echo "Major release not implemented yet"
           fi
-      - name: Build packages
-        run: yarn build
       - name: Publish release
         run: npx lerna publish from-git --yes
 
