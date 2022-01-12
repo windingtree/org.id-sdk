@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[index.ts:35](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/core/src/index.ts#L35)
+[index.ts:35](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L35)
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 #### Defined in
 
-[types.ts:3](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/core/src/types.ts#L3)
+[types.ts:3](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/types.ts#L3)
