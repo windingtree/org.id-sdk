@@ -20,6 +20,7 @@ export interface CliSpec extends Spec {
   '--record': StringConstructor;
   '--filetype': StringConstructor;
   '--did': StringConstructor;
+  '--newOwner': StringConstructor;
 }
 
 export type ParsedArgv = Result<CliSpec>;

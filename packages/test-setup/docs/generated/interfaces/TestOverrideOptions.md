@@ -29,7 +29,7 @@
 
 #### Defined in
 
-[test-setup/src/index.ts:59](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L59)
+[test-setup/src/index.ts:59](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L59)
 
 ___
 
@@ -39,7 +39,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:58](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L58)
+[test-setup/src/index.ts:58](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L58)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:57](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L57)
+[test-setup/src/index.ts:57](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L57)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:56](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L56)
+[test-setup/src/index.ts:56](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L56)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:64](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L64)
+[test-setup/src/index.ts:64](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L64)
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:65](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L65)
+[test-setup/src/index.ts:65](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L65)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:66](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L66)
+[test-setup/src/index.ts:66](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L66)
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:63](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L63)
+[test-setup/src/index.ts:63](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L63)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:67](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L67)
+[test-setup/src/index.ts:67](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L67)
 
 ___
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:68](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L68)
+[test-setup/src/index.ts:68](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L68)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:69](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L69)
+[test-setup/src/index.ts:69](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L69)
 
 ___
 
@@ -146,7 +146,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:61](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L61)
+[test-setup/src/index.ts:61](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L61)
 
 ___
 
@@ -156,7 +156,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:62](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L62)
+[test-setup/src/index.ts:62](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L62)
 
 ___
 
@@ -166,4 +166,4 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:60](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/test-setup/src/index.ts#L60)
+[test-setup/src/index.ts:60](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L60)

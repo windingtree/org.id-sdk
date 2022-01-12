@@ -69,7 +69,7 @@ npx orgid --operation <OPERATION_TYPE> <OPERATION_PARAMETERS>
   - [ORGiD creation](#orgid-creation)
   - [ORGiD update](#orgid-update)
   - [ORGiD DID resolve](#orgid-did-resolve)
-  - [TODO](#todo)
+  - [ORGiD ownership transfer](#orgid-ownership-transfer)
 
 ## CLI configuration
 
@@ -170,12 +170,10 @@ Working the same way as for an ORGiD creation but send a transaction for the ORG
 
 **`--operation resolve --did <ORGiD_DID>`**
 
-Allows to make an ORGiD DID resolution. `<ORGiD_DID>` must be a valid DID that looks like `did:orgid:4:0xd6a429d09a197adafbe8c0d751e2e26711fe870f0ee126ae236481fc2b40895b`. The related network provider (`4`) must be registered before. If you have encrypted you provider URI you will be prompted for password during the resolution flow.
+Allows to make an ORGiD DID resolution. `<ORGiD_DID>` must be a valid DID that looks like `did:orgid:4:0xd6a429d09a197adafbe8c0d751e2e26711fe870f0ee126ae236481fc2b40895b`. The related network provider (`4`) must be registered before. If you have encrypted your provider URI you will be prompted for password during the resolution flow.
 
-## TODO
+## ORGiD ownership transfer
 
----
+**`--operation transfer --newOwner <NEW_OWNER_ADDRESS>`**
 
-- Implement TODOs
-- Tests
-- ORGiD resolver operation
+Makes the transfer of the ORGiD to the new owner. During the interaction, a user will be prompted to choose an ORGiD from the list of registered ORGiDs. The related to the chosen ORGiD network provider must be registered before. If you have encrypted your provider URI you will be prompted for a password during the resolution flow.

@@ -18,4 +18,4 @@
 
 #### Defined in
 
-[src/vc.ts:114](https://github.com/windingtree/org.id-sdk/blob/625ccde/packages/auth/src/vc.ts#L114)
+[src/vc.ts:114](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/vc.ts#L114)

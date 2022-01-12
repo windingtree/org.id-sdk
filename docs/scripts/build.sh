@@ -3,10 +3,14 @@
 # clean helper
 cleanTemp() {
   rm -rf $PWD/temp/*
+  mkdir -p $PWD/temp
 }
 
 # Exit script as soon as a command fails.
 set -o errexit
+
+# Clean temp on exit
+trap cleanTemp EXIT
 
 # Clean build directory
 rm -rf build
@@ -50,3 +54,5 @@ cp -r ../packages/cli/docs build/cli
 
 # Linting of the built site
 npx markdownlint build/**/*.md
+
+
