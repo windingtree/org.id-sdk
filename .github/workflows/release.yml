@@ -56,6 +56,7 @@ jobs:
           fi
       - name: Publish release
         run: |
+          yarn build
           npx lerna publish from-git --yes
 
 # on:
