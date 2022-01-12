@@ -13,7 +13,7 @@
   "scripts": {
     "lint": "npx eslint . --ext .ts",
     "lint:fix": "npx eslint . --ext .ts --fix",
-    "build": "rm -rf dist && npx tsc -p tsconfig-build.json && yarn build:docs",
+    "build": "rm -rf dist && npx tsc -p tsconfig-build.json",
     "build:docs": "rm -rf docs/generated && npx typedoc --plugin typedoc-plugin-markdown --readme none --out docs/generated src/index.ts",
     "test": "npx hardhat test",
     "test:coverage": "npx nyc --reporter=html --reporter=lcov hardhat test"
