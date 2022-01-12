@@ -1,0 +1,72 @@
+name: SDK Release
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          registry-url: "https://registry.npmjs.org"
+          scope: "@windingtree"
+          github_token:  ${{secrets.GITHUB_TOKEN}}
+          npm_token: ${{secrets.NPM_TOKEN}}
+      - name: Bootstrap
+        run: |
+          yarn install
+          yarn bootstrap
+      - name: Tests
+        run: |
+          yarn lint
+          yarn build
+          yarn test
+      - name: Git configuration
+        run: |
+          git config --global user.email "dev@windingtree.com"
+          git config --global user.name "@$GITHUB_ACTOR"
+      - name: Initializing release version
+        run: |
+          if [ ${{ github.base_ref }} = develop ]; then
+            npx lerna version --conventional-commits --conventional-prerelease --preid beta --sign-git-commit --sign-git-tag --yes
+          else
+            npx lerna version --conventional-commits --conventional-graduate --sign-git-commit --sign-git-tag --yes
+          fi
+      - name: Build packages
+        run: yarn build
+      - name: Publish release
+        run: npx lerna publish from-git --yes
+
+# on:
+#   repository_dispatch:
+#     types: [release_to_npm]
+
+# jobs:
+#   release:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v1
+#       - uses: actions/setup-node@v1
+#         with:
+#           node-version: 12
+#       - name: Package bootstrap
+#         run: yarn run exec --scope @windingtree/${{ github.event.client_payload.packageName }} yarn install
+#       - name: Run tests
+#         run: yarn run exec --scope @windingtree/${{ github.event.client_payload.packageName }} yarn run test
+#       - name: Build the package
+#         run: yarn run exec --scope @windingtree/${{ github.event.client_payload.packageName }} yarn run build
+#       - uses: actions/setup-node@v1
+#         with:
+#           node-version: 12
+#           registry-url: "https://registry.npmjs.org"
+#           scope: "@windingtree"
+#       - name: Publish to npmjs.org
+#         run: yarn run exec --scope @windingtree/${{ github.event.client_payload.packageName }} npm publish
+#         env:
+#           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
