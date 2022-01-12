@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[src/tokens.ts:15](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/tokens.ts#L15)
+[src/tokens.ts:15](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/tokens.ts#L15)
 
 ___
 
@@ -59,4 +59,4 @@ ___
 
 #### Defined in
 
-[src/tokens.ts:95](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/tokens.ts#L95)
+[src/tokens.ts:95](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/tokens.ts#L95)

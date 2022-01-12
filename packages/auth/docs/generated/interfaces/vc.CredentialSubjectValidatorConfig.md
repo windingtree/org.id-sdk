@@ -19,7 +19,7 @@
 
 #### Defined in
 
-[src/vc.ts:106](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/vc.ts#L106)
+[src/vc.ts:106](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/vc.ts#L106)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 #### Defined in
 
-[src/vc.ts:105](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/vc.ts#L105)
+[src/vc.ts:105](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/vc.ts#L105)

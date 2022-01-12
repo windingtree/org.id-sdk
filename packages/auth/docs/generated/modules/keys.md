@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:16](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L16)
+[src/keys.ts:16](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L16)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:18](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L18)
+[src/keys.ts:18](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L18)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:24](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L24)
+[src/keys.ts:24](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L24)
 
 ___
 
@@ -185,7 +185,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:22](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L22)
+[src/keys.ts:22](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L22)
 
 ## Variables
 
@@ -195,7 +195,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:33](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L33)
+[src/keys.ts:33](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L33)
 
 ___
 
@@ -209,7 +209,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:38](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L38)
+[src/keys.ts:38](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L38)
 
 ___
 
@@ -223,7 +223,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:55](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L55)
+[src/keys.ts:55](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L55)
 
 ___
 
@@ -237,7 +237,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:62](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L62)
+[src/keys.ts:62](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L62)
 
 ## Functions
 
@@ -257,7 +257,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:188](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L188)
+[src/keys.ts:188](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L188)
 
 ___
 
@@ -278,7 +278,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:154](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L154)
+[src/keys.ts:154](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L154)
 
 ___
 
@@ -299,7 +299,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:121](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L121)
+[src/keys.ts:121](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L121)
 
 ___
 
@@ -320,7 +320,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:191](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L191)
+[src/keys.ts:191](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L191)
 
 ___
 
@@ -341,7 +341,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:197](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L197)
+[src/keys.ts:197](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L197)
 
 ___
 
@@ -361,7 +361,7 @@ ___
 
 #### Defined in
 
-[src/keys.ts:70](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L70)
+[src/keys.ts:70](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L70)
 
 ___
 
@@ -381,4 +381,4 @@ ___
 
 #### Defined in
 
-[src/keys.ts:95](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/keys.ts#L95)
+[src/keys.ts:95](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/auth/src/keys.ts#L95)

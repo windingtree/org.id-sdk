@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[test-setup/src/index.ts:48](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L48)
+[test-setup/src/index.ts:48](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/test-setup/src/index.ts#L48)
 
 ## Properties
 
@@ -103,7 +103,7 @@
 
 #### Defined in
 
-[test-setup/src/index.ts:76](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L76)
+[test-setup/src/index.ts:76](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/test-setup/src/index.ts#L76)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:261](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L261)
+[test-setup/src/index.ts:261](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/test-setup/src/index.ts#L261)
 
 ___
 
@@ -196,4 +196,4 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:171](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/test-setup/src/index.ts#L171)
+[test-setup/src/index.ts:171](https://github.com/windingtree/org.id-sdk/blob/b4abc84/packages/test-setup/src/index.ts#L171)
