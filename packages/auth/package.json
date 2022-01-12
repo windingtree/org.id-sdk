@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-auth",
-  "version": "1.0.0-beta.34",
+  "version": "1.0.0-beta.42",
   "description": "ORGiD authentication library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/auth#readme",
   "dependencies": {
-    "@windingtree/org.id-utils": "^1.0.0-beta.34",
+    "@windingtree/org.id-utils": "^1.0.0-beta.42",
     "@windingtree/org.json-schema": "1.0.0-beta.9",
     "ethers": "5.5.2",
     "jose": "4.3.7",
