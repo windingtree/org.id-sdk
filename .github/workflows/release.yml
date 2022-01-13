@@ -46,6 +46,7 @@ jobs:
       - name: Initializing release version
         run: |
           echo "Processing the branch: ${{github.ref_name}}"
+          git stash
           if [ ${{github.ref_name}} = develop ]; then
             npx lerna version --conventional-commits --conventional-prerelease --preid beta --sign-git-commit --sign-git-tag --yes
           else
