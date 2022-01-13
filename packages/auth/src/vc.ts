@@ -81,17 +81,17 @@ export interface DidGroupedCheckResult extends RegExpExecArray {
 
 export interface BlockchainAccountIdGroupedResult extends RegExpExecArray {
   groups: {
-    accountId: string;
+    accountAddress: string;
     blockchainType: string;
-    blockchainId: string;
+    chainId: string;
     [key: string]: string;
   }
 }
 
 export interface BlockchainAccountIdParsed {
-  accountId: string;
+  accountAddress: string;
   blockchainType: string;
-  blockchainId: string;
+  chainId: string;
 }
 
 export interface DecodedJws {
@@ -191,23 +191,38 @@ export const signWithSigner = async (
 
 // Parse string formatted as blockchain account Id
 export const parseBlockchainAccountId = (blockchainAccountId: string): BlockchainAccountIdParsed => {
-  const blockchainAccountIdResult  = regexp.blockchainAccountIdGrouped
-    .exec(blockchainAccountId) as BlockchainAccountIdGroupedResult;
+  let parseRule: RegExp;
 
-  if (!blockchainAccountIdResult) {
+  if (
+    blockchainAccountId.includes('@') &&
+    regexp.blockchainAccountIdLegacy.exec(blockchainAccountId)
+  ) {
+    // Legacy format
+    parseRule = regexp.blockchainAccountIdLegacyGrouped;
+  } else if (regexp.blockchainAccountId.exec(blockchainAccountId)) {
+    // Actual format
+    parseRule = regexp.blockchainAccountIdGrouped;
+  } else {
     throw new Error('Invalid blockchain account Id format');
   }
 
+  const blockchainAccountIdResult  = parseRule
+    .exec(blockchainAccountId) as BlockchainAccountIdGroupedResult;
+
+  if (!blockchainAccountIdResult) {
+    throw new Error('Unable to parse blockchain account Id format');
+  }
+
   const {
-    accountId,
+    accountAddress,
     blockchainType,
-    blockchainId
+    chainId
   } = blockchainAccountIdResult.groups;
 
   return {
-    accountId,
+    accountAddress,
     blockchainType,
-    blockchainId
+    chainId
   };
 };
 
@@ -655,12 +670,12 @@ export const createVC = (
       let vcProof: VCProofReference | undefined;
 
       const {
-        accountId,
+        accountAddress,
         blockchainType
       } = parseBlockchainAccountId(blockchainAccountId);
       const signerAddress = await signer.getAddress();
 
-      if (signerAddress !== ethersUtils.getAddress(accountId)) {
+      if (signerAddress !== ethersUtils.getAddress(accountAddress)) {
         throw new Error(
           'The signer address is different from blockchain account'
         );
@@ -745,16 +760,16 @@ export const verifyVC = async (
     } catch (error) {
       throw new Error('Unable to parse VC payload');
     }
-  } else if (regexp.blockchainAccountId.exec(publicKey)) {
+  } else if (regexp.blockchainAccountIdWithLegacy.exec(publicKey)) {
     // Trying to parse a blockchain account Id
     const {
-      accountId,
+      accountAddress,
       blockchainType
     } = parseBlockchainAccountId(publicKey);
 
     switch (blockchainType) {
       case 'eip155':
-        payload = verifyJwsSignedWithBlockchainAccount(jws, accountId) as CredentialReference;
+        payload = verifyJwsSignedWithBlockchainAccount(jws, accountAddress) as CredentialReference;
         break;
       default:
         throw new Error(`Unsupported blockchain type: ${blockchainType}`);

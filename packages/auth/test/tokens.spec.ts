@@ -2,7 +2,6 @@ import type { KeyLike } from '../src/keys';
 import { createAuthJWT, verifyAuthJWT } from '../src/tokens';
 import {
   KeyTypes,
-  keyTypeConfig,
   generateKeyPair,
   importKeyPrivatePem,
   importKeyPublicPem,
