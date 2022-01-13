@@ -62,9 +62,9 @@ export const createVerificationMethodWithBlockchainAccountId = async (
 ): Promise<DidVerificationMethod> => {
   validateIdAndController(id, controller);
 
-  if (!regexp.blockchainAccountId.exec(blockchainAccountId)) {
+  if (!regexp.blockchainAccountIdWithLegacy.exec(blockchainAccountId)) {
     throw new Error(
-      `Blockchain account Id has wrong format: ${blockchainAccountId}`
+      'Invalid blockchain account Id format'
     );
   }
 
