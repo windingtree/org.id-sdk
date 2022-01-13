@@ -95,7 +95,7 @@ export const buildOrgJson = async (
 
   const ownerIssuer = `${did}#key-1`;
   const ownerAddress = await owner.getAddress();
-  const ownerBlockchainAccountId = `${ownerAddress}@eip155:1337`;
+  const ownerBlockchainAccountId = `eip155:1337:${ownerAddress}`;
 
   const ownerVerificationMethod = await createVerificationMethodWithBlockchainAccountId(
     ownerIssuer,
