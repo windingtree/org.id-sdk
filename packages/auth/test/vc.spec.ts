@@ -105,10 +105,16 @@ describe('Verifiable Credentials', () => {
 
   describe('#parseBlockchainAccountId', () => {
     const validId = {
-      id: '0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb@eip155:1',
-      accountId: '0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb',
+      id: 'eip155:1:0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb',
+      accountAddress: '0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb',
       blockchainType: 'eip155',
-      blockchainId: '1',
+      chainId: '1',
+    };
+    const validIdLegacy = {
+      id: '0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb@eip155:1',
+      accountAddress: '0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb',
+      blockchainType: 'eip155',
+      chainId: '1',
     };
 
     it('should throw if invalid blockchain account Id provided', async () => {
@@ -118,10 +124,17 @@ describe('Verifiable Credentials', () => {
     });
 
     it('should parse a blockchain account Id', async () => {
-      const result = parseBlockchainAccountId(validId.id);
-      expect(result).to.have.property('accountId').to.equal(validId.accountId);
-      expect(result).to.have.property('blockchainType').to.equal(validId.blockchainType);
-      expect(result).to.have.property('blockchainId').to.equal(validId.blockchainId);
+      const validateResult = result => {
+        expect(result).to.have.property('accountAddress').to.equal(validId.accountAddress);
+        expect(result).to.have.property('blockchainType').to.equal(validId.blockchainType);
+        expect(result).to.have.property('chainId').to.equal(validId.chainId);
+      };
+      validateResult(
+        parseBlockchainAccountId(validId.id)
+      );
+      validateResult(
+        parseBlockchainAccountId(validIdLegacy.id)
+      );
     });
   });
 
@@ -434,7 +447,7 @@ describe('Verifiable Credentials', () => {
     it('should throw if the signer address is different from blockchain account', async () => {
       const signer = signers[3];
       const nonSignerAddress = await signers[4].getAddress();
-      const issuerBlockchainAccountId = `${nonSignerAddress}@eip155:1`;
+      const issuerBlockchainAccountId = `eip155:1:${nonSignerAddress}`;
       await expect(
         createVC(
           issuer,
@@ -455,8 +468,8 @@ describe('Verifiable Credentials', () => {
     it('should throw if unsupported blockchain type is provided with blockchain account Id', async () => {
       const signer = signers[3];
       const signerAddress = await signer.getAddress();
-      const blockchainType = 'Unsupported';
-      const issuerBlockchainAccountId = `${signerAddress}@${blockchainType}:1`;
+      const blockchainType = 'unsupported';
+      const issuerBlockchainAccountId = `${blockchainType}:1:${signerAddress}`;
       await expect(
         createVC(
           issuer,
@@ -589,7 +602,7 @@ describe('Verifiable Credentials', () => {
       .setCredentialSubject(subject)
       .sign(privateKey);
 
-      const payload = await verifyVC(vc, publicKey); // @toto verify payload
+      const payload = await verifyVC(vc, publicKey); // @todo verify payload
       expect(vc.credentialSubject).to.deep.equal(payload.credentialSubject);
 
       if (isNodeJs()) {
@@ -601,7 +614,7 @@ describe('Verifiable Credentials', () => {
 
     it('should create credential signed with ethers provider', async () => {
       const signerIndex = 0;
-      const issuerBlockchainAccountId = `${accounts[signerIndex]}@eip155:1`;
+      const issuerBlockchainAccountId = `eip155:1:${accounts[signerIndex]}`;
       const vc: SignedVC = await createVC(
         issuer,
         'VerifiableCredential'
@@ -645,7 +658,7 @@ describe('Verifiable Credentials', () => {
       expect(vc).to.haveOwnProperty('image').to.equal(nftMetaData.image);
       expect(vc).to.haveOwnProperty('external_url').to.equal(nftMetaData.external_url);
 
-      const payload = await verifyVC(vc, publicKey); // @toto verify payload
+      const payload = await verifyVC(vc, publicKey); // @todo verify payload
       expect(vc.credentialSubject).to.deep.equal(payload.credentialSubject);
     });
   });
@@ -690,9 +703,9 @@ describe('Verifiable Credentials', () => {
 
     it('should throw if unsupported blockchain type is used for verification', async () => {
       const signerIndex = 0;
-      const blockchainType = 'Unknown';
-      const invalidBlockchainAccountId = `${accounts[signerIndex]}@${blockchainType}:1`;
-      const blockchainAccountId = `${accounts[signerIndex]}@eip155:1`;
+      const blockchainType = 'unknown';
+      const invalidBlockchainAccountId = `${blockchainType}:1:${accounts[signerIndex]}`;
+      const blockchainAccountId = `eip155:1:${accounts[signerIndex]}`;
       const vc: SignedVC = await createVC(
         issuer,
         'VerifiableCredential'

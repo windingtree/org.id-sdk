@@ -8,8 +8,11 @@ export const isoDate = /(\d{4})-(\d{2})-(\d{2})T((\d{2}):(\d{2}):(\d{2}))\.(\d{3
 // Crypto addresses
 export const ethereumAddress = /^0x[a-fA-F0-9]{40}$/;
 export const bitcoinAddress = /^(bc1|[13]{1})([a-zA-HJ-NP-Z0-9]{25,39})$/;
-export const blockchainAccountId = /^([a-zA-Z-0-9]+)@([a-zA-Z-0-9]+):([a-zA-Z-0-9]+)$/;
-export const blockchainAccountIdGrouped = /^(?<accountId>[a-zA-Z-0-9]+)@(?<blockchainType>[a-zA-Z-0-9]+):(?<blockchainId>[a-zA-Z-0-9]+)$/;
+export const blockchainAccountId = /^([-a-zA-Z0-9]{5,41}):([-a-zA-Z0-9]{1,32}):([a-zA-Z0-9]{1,64})$/;
+export const blockchainAccountIdWithLegacy = /^([-a-zA-Z0-9]{5,41}):([-a-zA-Z0-9]{1,32}):([a-zA-Z0-9]{1,64})|([a-zA-Z0-9]{1,64})@([-a-z0-9]{5,41}):([-a-zA-Z-0-9]{1,32})$/;
+export const blockchainAccountIdGrouped = /^(?<blockchainType>[-a-zA-Z0-9]{5,41}):(?<chainId>[-a-zA-Z0-9]{1,32}):(?<accountAddress>[a-zA-Z0-9]{1,64})$/;
+export const blockchainAccountIdLegacy = /^([a-zA-Z0-9]{1,64})@([-a-z0-9]{5,41}):([-a-zA-Z-0-9]{1,32})$/;
+export const blockchainAccountIdLegacyGrouped = /^(?<accountAddress>[a-zA-Z0-9]{1,64})@(?<blockchainType>[-a-z0-9]{5,41}):(?<chainId>[-a-zA-Z-0-9]{1,32})$/;
 
 // Public keys (as strings)
 export const X25519 = /^(MCowBQYDK2VuAyEA[a-zA-Z0-9/]{43}=)$/;

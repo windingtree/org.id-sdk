@@ -109,51 +109,102 @@ describe('Regular expressions', () => {
     describe('blockchainAccountId', () => {
       const validIds = [
         {
-          '0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb@eip155:1': {
-            accountId: '0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb',
+          'eip155:1:0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb': {
+            accountAddress: '0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb',
             blockchainType: 'eip155',
-            blockchainId: '1',
+            chainId: '1',
+          }
+        },
+        {
+          'bip122:000000000019d6689c085ae165831e93:128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6': {
+            accountAddress: '128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6',
+            blockchainType: 'bip122',
+            chainId: '000000000019d6689c085ae165831e93',
+          }
+        },
+        {
+          'cosmos:cosmoshub-3:cosmos1t2uflqwqe0fsj0shcfkrvpukewcw40yjj6hdc0': {
+            accountAddress: 'cosmos1t2uflqwqe0fsj0shcfkrvpukewcw40yjj6hdc0',
+            blockchainType: 'cosmos',
+            chainId: 'cosmoshub-3',
+          }
+        },
+        {
+          'polkadot:b0a8d493285c2df73290dfb7e61f870f:5hmuyxw9xdgbpptgypokw4thfyoe3ryenebr381z9iaegmfy': {
+            accountAddress: '5hmuyxw9xdgbpptgypokw4thfyoe3ryenebr381z9iaegmfy',
+            blockchainType: 'polkadot',
+            chainId: 'b0a8d493285c2df73290dfb7e61f870f',
+          }
+        },
+        {
+          'chainstd:8c3444cf8970a9e41a706fab93e7a6c4:6d9b0b4b9994e8a6afbd3dc3ed983cd51c755afb27cd1dc7825ef59c134a39f7': {
+            accountAddress: '6d9b0b4b9994e8a6afbd3dc3ed983cd51c755afb27cd1dc7825ef59c134a39f7',
+            blockchainType: 'chainstd',
+            chainId: '8c3444cf8970a9e41a706fab93e7a6c4',
+          }
+        },
+      ];
+      const validLegacyIds = [
+        {
+          '0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb@eip155:1': {
+            accountAddress: '0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb',
+            blockchainType: 'eip155',
+            chainId: '1',
           }
         },
         {
           '128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6@bip122:000000000019d6689c085ae165831e93': {
-            accountId: '128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6',
+            accountAddress: '128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6',
             blockchainType: 'bip122',
-            blockchainId: '000000000019d6689c085ae165831e93',
+            chainId: '000000000019d6689c085ae165831e93',
           }
         },
         {
           'cosmos1t2uflqwqe0fsj0shcfkrvpukewcw40yjj6hdc0@cosmos:cosmoshub-3': {
-            accountId: 'cosmos1t2uflqwqe0fsj0shcfkrvpukewcw40yjj6hdc0',
+            accountAddress: 'cosmos1t2uflqwqe0fsj0shcfkrvpukewcw40yjj6hdc0',
             blockchainType: 'cosmos',
-            blockchainId: 'cosmoshub-3',
+            chainId: 'cosmoshub-3',
           }
         },
         {
           '5hmuyxw9xdgbpptgypokw4thfyoe3ryenebr381z9iaegmfy@polkadot:b0a8d493285c2df73290dfb7e61f870f': {
-            accountId: '5hmuyxw9xdgbpptgypokw4thfyoe3ryenebr381z9iaegmfy',
+            accountAddress: '5hmuyxw9xdgbpptgypokw4thfyoe3ryenebr381z9iaegmfy',
             blockchainType: 'polkadot',
-            blockchainId: 'b0a8d493285c2df73290dfb7e61f870f',
+            chainId: 'b0a8d493285c2df73290dfb7e61f870f',
           }
         },
         {
-          'bd57219062044ed77c7e5b865339a6d727309c548763141f11e26e9242bbd34@max-namespace-16:xip3343-8c3444cf8970a9e41a706fab93e7a6c4-xxxyyy': {
-            accountId: 'bd57219062044ed77c7e5b865339a6d727309c548763141f11e26e9242bbd34',
+          'bd57219062044ed77c7e5b865339a6d727309c548763141f11e26e9242bbd34@max-namespace-16:8c3444cf8970a9e41a706fab93e7a6c4': {
+            accountAddress: 'bd57219062044ed77c7e5b865339a6d727309c548763141f11e26e9242bbd34',
             blockchainType: 'max-namespace-16',
-            blockchainId: 'xip3343-8c3444cf8970a9e41a706fab93e7a6c4-xxxyyy',
+            chainId: '8c3444cf8970a9e41a706fab93e7a6c4',
           }
         }
       ];
 
-      it('should validate blockchainAccountId format', async () => {
-        validIds.forEach((s: any) => {
+      it('should validate blockchainAccountId format (new and legacy)', async () => {
+        const parseBlockchainId = (ids: any, rule: RegExp) => ids.forEach((s: any) => {
           const string = Object.keys(s)[0];
           const values = s[string];
-          const result = (rules.blockchainAccountIdGrouped.exec(string) as TestInput).groups;
-          expect(result.accountId).to.equal(values.accountId);
+          const result = (rule.exec(string) as TestInput).groups;
+          expect(result.accountAddress).to.equal(values.accountAddress);
           expect(result.blockchainType).to.equal(values.blockchainType);
-          expect(result.blockchainId).to.equal(values.blockchainId);
+          expect(result.chainId).to.equal(values.chainId);
         });
+        const validateBlockchainAccountId = (ids: any, rule: RegExp) => ids.forEach((s: any) => {
+          const string = Object.keys(s)[0];
+          expect(rule.exec(string)).to.not.null;
+        });
+
+        parseBlockchainId(validIds, rules.blockchainAccountIdGrouped);
+        parseBlockchainId(validLegacyIds, rules.blockchainAccountIdLegacyGrouped);
+        validateBlockchainAccountId(
+          [
+            ...validIds,
+            ...validLegacyIds
+          ],
+          rules.blockchainAccountIdWithLegacy
+        );
       });
     });
   });
@@ -355,7 +406,7 @@ describe('Regular expressions', () => {
       });
     });
 
-    it('should validate IPFS CIDV1Bse58btc', async () => {
+    it('should validate IPFS CIDV1Base58btc', async () => {
       validV1Base58btc.forEach(cid => {
         expect(rules.ipfsCidV1Base58btc.exec(cid)).not.to.be.null;
       });
