@@ -29,13 +29,15 @@ git checkout -b fix/some-bug
 
 3) Make your changes, add your files, test, commit, and push to your fork.
 
+> Making commits it is required to follow the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) specification
+
 ```bash
 git add SomeFile.js
-git commit "Fix some bug"
+git commit "fix(package-name): Fixed some bug"
 git push origin fix/some-bug
 ```
 
-4) Run tests, linter, etc.
+1) Run tests, linter, etc.
 
 ```bash
 yarn test

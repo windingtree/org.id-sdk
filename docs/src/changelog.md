@@ -1,5 +1,8 @@
 # Change Log
 
+## 1.0.0-beta.45
+
+- The ORGiD CLI package has been extracted into the separate repository: https://github.com/windingtree/org.id-cli
 ## 1.0.0-beta.33
 
 - Updated ORG.JSON schema: `media` property is mandatory now for the all profiles types; all dependent packages are updated
