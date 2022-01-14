@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - develop
 
 jobs:
   release:
@@ -47,11 +46,7 @@ jobs:
         run: |
           echo "Processing the branch: ${{github.ref_name}}"
           git stash
-          if [ ${{github.ref_name}} = develop ]; then
-            npx lerna version --conventional-commits --conventional-prerelease --preid beta --sign-git-commit --sign-git-tag --yes
-          else
-            npx lerna version --conventional-commits --conventional-graduate --sign-git-commit --sign-git-tag --yes
-          fi
+          npx lerna version --conventional-commits --conventional-graduate --sign-git-commit --sign-git-tag --yes
       - name: Publish release
         run: |
           yarn build
