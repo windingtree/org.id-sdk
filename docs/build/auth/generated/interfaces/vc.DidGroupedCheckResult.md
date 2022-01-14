@@ -75,7 +75,7 @@ RegExpExecArray.groups
 
 #### Defined in
 
-[src/vc.ts:76](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/auth/src/vc.ts#L76)
+[src/vc.ts:76](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/auth/src/vc.ts#L76)
 
 ___
 

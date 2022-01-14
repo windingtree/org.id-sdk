@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[index.ts:47](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L47)
+[index.ts:47](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L47)
 
 ## Properties
 
@@ -53,7 +53,7 @@
 
 #### Defined in
 
-[index.ts:43](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L43)
+[index.ts:43](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L43)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[index.ts:45](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L45)
+[index.ts:45](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L45)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[index.ts:44](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L44)
+[index.ts:44](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L44)
 
 ## Methods
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[index.ts:124](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L124)
+[index.ts:124](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L124)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[index.ts:88](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L88)
+[index.ts:88](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L88)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-[index.ts:164](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L164)
+[index.ts:164](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L164)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[index.ts:156](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L156)
+[index.ts:156](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L156)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 #### Defined in
 
-[index.ts:152](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L152)
+[index.ts:152](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L152)
 
 ___
 
@@ -204,7 +204,7 @@ ___
 
 #### Defined in
 
-[index.ts:160](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L160)
+[index.ts:160](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L160)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-[index.ts:148](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L148)
+[index.ts:148](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L148)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 #### Defined in
 
-[index.ts:168](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L168)
+[index.ts:168](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L168)
 
 ___
 
@@ -263,7 +263,7 @@ ___
 
 #### Defined in
 
-[index.ts:136](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L136)
+[index.ts:136](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L136)
 
 ___
 
@@ -288,7 +288,7 @@ ___
 
 #### Defined in
 
-[index.ts:100](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L100)
+[index.ts:100](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L100)
 
 ___
 
@@ -313,4 +313,4 @@ ___
 
 #### Defined in
 
-[index.ts:112](https://github.com/kostysh/org.id-sdk/blob/8a83d95/packages/core/src/index.ts#L112)
+[index.ts:112](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/core/src/index.ts#L112)

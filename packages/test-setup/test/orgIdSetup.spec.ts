@@ -57,7 +57,7 @@ describe('OrgId setup', () => {
         } = await setup.registerOrgId(owner as VoidSigner);
         expect(/^0x[a-fA-F0-9]{64}$/.exec(orgIdHash)).not.null;
         const ownerAddress = await owner.getAddress();
-        const issuerBlockchainAccountId = `${ownerAddress}@eip155:1337`;
+        const issuerBlockchainAccountId = `eip155:1337:${ownerAddress}`;
         await expect(verifyVC(orgJson, issuerBlockchainAccountId)).to.not.rejected;
       });
 
@@ -66,7 +66,7 @@ describe('OrgId setup', () => {
         const delegateOwner = setup.signers[3];
         const delegateAddress = await delegateOwner.getAddress();
         const { orgJson } = await setup.registerOrgId(delegateOwner as VoidSigner);
-        const delegateBlockchainAccountId = `${delegateAddress}@eip155:1337`;
+        const delegateBlockchainAccountId = `eip155:1337:${delegateAddress}`;
 
         // Create ORGiD
         const overrides: TestOverrideOptions = {
@@ -85,7 +85,7 @@ describe('OrgId setup', () => {
         const owner0 = setup.signers[3];
         const { orgJson: orgJson0 } = await setup.registerOrgId(owner0 as VoidSigner);
         const delegateAddress0 = await owner0.getAddress();
-        const delegateBlockchainAccountId0 = `${delegateAddress0}@eip155:1337`;
+        const delegateBlockchainAccountId0 = `eip155:1337:${delegateAddress0}`;
         await expect(verifyVC(orgJson0, delegateBlockchainAccountId0)).to.not.rejected;
 
         // Level 1 (delegate of Level 2)
@@ -100,7 +100,7 @@ describe('OrgId setup', () => {
         // Verify with delegate on the level 0
         await expect(verifyVC(orgJson1, delegateBlockchainAccountId0)).to.not.rejected;
         const delegateAddress1 = await owner1.getAddress();
-        const delegateBlockchainAccountId1 = `${delegateAddress1}@eip155:1337`;
+        const delegateBlockchainAccountId1 = `eip155:1337:${delegateAddress1}`;
 
         // Level 2
         const overrides2: TestOverrideOptions = {
