@@ -26,13 +26,13 @@
 
 #### Defined in
 
-[org.json/src/index.ts:17](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/org.json/src/index.ts#L17)
+[org.json/src/index.ts:17](https://github.com/windingtree/org.id-sdk/blob/7837f3e/packages/org.json/src/index.ts#L17)
 
 ## Functions
 
 ### createVerificationMethodWithBlockchainAccountId
 
-▸ `Const` **createVerificationMethodWithBlockchainAccountId**(`id`, `controller`, `blockchainAccountId`, `note?`): `Promise`<[`DidVerificationMethod`](interfaces/DidVerificationMethod.md)\>
+▸ `Const` **createVerificationMethodWithBlockchainAccountId**(`id`, `controller`, `blockchainType`, `chainId`, `accountAddress`, `note?`): [`DidVerificationMethod`](interfaces/DidVerificationMethod.md)
 
 #### Parameters
 
@@ -40,16 +40,18 @@
 | :------ | :------ |
 | `id` | `string` |
 | `controller` | `string` |
-| `blockchainAccountId` | `string` |
+| `blockchainType` | `string` |
+| `chainId` | `string` \| `number` |
+| `accountAddress` | `string` |
 | `note?` | `string` |
 
 #### Returns
 
-`Promise`<[`DidVerificationMethod`](interfaces/DidVerificationMethod.md)\>
+[`DidVerificationMethod`](interfaces/DidVerificationMethod.md)
 
 #### Defined in
 
-[org.json/src/index.ts:57](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/org.json/src/index.ts#L57)
+[org.json/src/index.ts:57](https://github.com/windingtree/org.id-sdk/blob/7837f3e/packages/org.json/src/index.ts#L57)
 
 ___
 
@@ -72,7 +74,7 @@ ___
 
 #### Defined in
 
-[org.json/src/index.ts:86](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/org.json/src/index.ts#L86)
+[org.json/src/index.ts:90](https://github.com/windingtree/org.id-sdk/blob/7837f3e/packages/org.json/src/index.ts#L90)
 
 ___
 
@@ -93,4 +95,4 @@ ___
 
 #### Defined in
 
-[org.json/src/index.ts:32](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/org.json/src/index.ts#L32)
+[org.json/src/index.ts:32](https://github.com/windingtree/org.id-sdk/blob/7837f3e/packages/org.json/src/index.ts#L32)
