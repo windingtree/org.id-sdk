@@ -1,5 +1,7 @@
 import type { KeyLike, JWK } from '@windingtree/org.id-auth/dist/keys';
-import type { DidVerificationMethod } from '../src';
+import type {
+  VerificationMethodReference
+} from '@windingtree/org.json-schema/types/org.json';
 import {
   KeyTypes,
   generateKeyPair,
@@ -41,7 +43,7 @@ describe('DID utilities', () => {
     });
 
     it('should create verification method from KeyLike', async () => {
-      const methods: DidVerificationMethod[] = await Promise.all(
+      const methods: VerificationMethodReference[] = await Promise.all(
         keyPairs.map(
           k => createVerificationMethodWithKey(
             id,
@@ -59,7 +61,7 @@ describe('DID utilities', () => {
     });
 
     it('should create verification method from JWK', async () => {
-      const methods: DidVerificationMethod[] = await Promise.all(
+      const methods: VerificationMethodReference[] = await Promise.all(
         keyJWK.map(
           k => createVerificationMethodWithKey(
             id,

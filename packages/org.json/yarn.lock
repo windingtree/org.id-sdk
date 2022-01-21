@@ -423,10 +423,10 @@
   resolved "https://registry.yarnpkg.com/@ungap/promise-all-settled/-/promise-all-settled-1.1.2.tgz#aa58042711d6e3275dd37dc597e5d31e8c290a44"
   integrity sha512-sL/cEvJWAnClXw0wHk85/2L0G6Sj8UB0Ctc1TEMbKSsmpRosqhwj9gWgFRZSrBr2f9tiXISwNhCPmlfqUqyb9Q==
 
-"@windingtree/org.json-schema@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-1.0.1.tgz#d1ef5770c5084847d7e9fdabc774db3c057e81ac"
-  integrity sha512-3jIH4GiMpu4VD4g98+J26XWf+MxTp9JSuNk4uE7yq/k6kUHGYk3K+cWyjBwzYUyBirNS7+otOdeeq06IRMap2g==
+"@windingtree/org.json-schema@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-1.0.2.tgz#a1f738f9e067225ca1d05cd2b925bba09381812a"
+  integrity sha512-q9lcSiU7wAjXpN/ux3rqlIgsnNWmUfOnOW0HtY+AlvkdJK+a7P0KYs3K69KHvFWdKN8CJJWyeIVANlaZ/6WeiQ==
 
 acorn-jsx@^5.3.1:
   version "5.3.2"

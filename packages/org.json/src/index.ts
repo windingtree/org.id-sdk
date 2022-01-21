@@ -14,21 +14,6 @@ import type {
   VerificationMethodReference
 } from '@windingtree/org.json-schema/types/org.json';
 
-export type DidVerificationMethodRevocation =
-  VerificationMethodReference['verificationMethodRevocation'];
-
-export interface DidVerificationMethod {
-  id: string;
-  type: string;
-  controller: string;
-  publicKeyJwk?: JWK;
-  blockchainAccountId?: string;
-  publicKeyPem?: string;
-  publicKeyBase58?: string;
-  verificationMethodRevocation?: DidVerificationMethodRevocation;
-  note?: string;
-}
-
 export const validateIdAndController = (
   id: string,
   controller: string
@@ -61,7 +46,7 @@ export const createVerificationMethodWithBlockchainAccountId = (
   chainId: string | number,
   accountAddress: string,
   note?: string
-): DidVerificationMethod => {
+): VerificationMethodReference => {
   validateIdAndController(id, controller);
 
   const blockchainAccountId = `${blockchainType}:${chainId}:${accountAddress}`;
@@ -92,10 +77,10 @@ export const createVerificationMethodWithKey = async (
   controller: string,
   key: KeyLike | JWK,
   note?: string
-): Promise<DidVerificationMethod> => {
+): Promise<VerificationMethodReference> => {
   validateIdAndController(id, controller);
 
-  let type: string;
+  let type: VerificationMethodReference['type'];
   let publicKeyJwk: JWK;
 
   if ((key as JWK).kty) {

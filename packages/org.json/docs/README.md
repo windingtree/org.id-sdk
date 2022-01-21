@@ -4,35 +4,17 @@
 
 ## Table of contents
 
-### Interfaces
-
-- [DidVerificationMethod](interfaces/DidVerificationMethod.md)
-
-### Type aliases
-
-- [DidVerificationMethodRevocation](README.md#didverificationmethodrevocation)
-
 ### Functions
 
 - [createVerificationMethodWithBlockchainAccountId](README.md#createverificationmethodwithblockchainaccountid)
 - [createVerificationMethodWithKey](README.md#createverificationmethodwithkey)
 - [validateIdAndController](README.md#validateidandcontroller)
 
-## Type aliases
-
-### DidVerificationMethodRevocation
-
-Ƭ **DidVerificationMethodRevocation**: `VerificationMethodReference`[``"verificationMethodRevocation"``]
-
-#### Defined in
-
-[org.json/src/index.ts:17](https://github.com/windingtree/org.id-sdk/blob/7837f3e/packages/org.json/src/index.ts#L17)
-
 ## Functions
 
 ### createVerificationMethodWithBlockchainAccountId
 
-▸ `Const` **createVerificationMethodWithBlockchainAccountId**(`id`, `controller`, `blockchainType`, `chainId`, `accountAddress`, `note?`): [`DidVerificationMethod`](interfaces/DidVerificationMethod.md)
+▸ `Const` **createVerificationMethodWithBlockchainAccountId**(`id`, `controller`, `blockchainType`, `chainId`, `accountAddress`, `note?`): `VerificationMethodReference`
 
 #### Parameters
 
@@ -47,17 +29,17 @@
 
 #### Returns
 
-[`DidVerificationMethod`](interfaces/DidVerificationMethod.md)
+`VerificationMethodReference`
 
 #### Defined in
 
-[org.json/src/index.ts:57](https://github.com/windingtree/org.id-sdk/blob/7837f3e/packages/org.json/src/index.ts#L57)
+[index.ts:42](https://github.com/windingtree/org.id-sdk/blob/06a82db/packages/org.json/src/index.ts#L42)
 
 ___
 
 ### createVerificationMethodWithKey
 
-▸ `Const` **createVerificationMethodWithKey**(`id`, `controller`, `key`, `note?`): `Promise`<[`DidVerificationMethod`](interfaces/DidVerificationMethod.md)\>
+▸ `Const` **createVerificationMethodWithKey**(`id`, `controller`, `key`, `note?`): `Promise`<`VerificationMethodReference`\>
 
 #### Parameters
 
@@ -65,16 +47,16 @@ ___
 | :------ | :------ |
 | `id` | `string` |
 | `controller` | `string` |
-| `key` | `JWK` \| `KeyLike` |
+| `key` | `KeyLike` \| `JWK` |
 | `note?` | `string` |
 
 #### Returns
 
-`Promise`<[`DidVerificationMethod`](interfaces/DidVerificationMethod.md)\>
+`Promise`<`VerificationMethodReference`\>
 
 #### Defined in
 
-[org.json/src/index.ts:90](https://github.com/windingtree/org.id-sdk/blob/7837f3e/packages/org.json/src/index.ts#L90)
+[index.ts:75](https://github.com/windingtree/org.id-sdk/blob/06a82db/packages/org.json/src/index.ts#L75)
 
 ___
 
@@ -95,4 +77,4 @@ ___
 
 #### Defined in
 
-[org.json/src/index.ts:32](https://github.com/windingtree/org.id-sdk/blob/7837f3e/packages/org.json/src/index.ts#L32)
+[index.ts:17](https://github.com/windingtree/org.id-sdk/blob/06a82db/packages/org.json/src/index.ts#L17)
