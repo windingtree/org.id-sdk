@@ -8,6 +8,7 @@ import {
   generateOrgIdWithSigner,
   generateOrgIdWithAddress
 } from '@windingtree/org.id-utils/dist/common';
+import { parseBlockchainAccountId } from '@windingtree/org.id-utils/dist/parsers';
 import { getDeepValue } from '@windingtree/org.id-utils/dist/object';
 import { createVC } from '@windingtree/org.id-auth/dist/vc';
 import {
@@ -95,15 +96,22 @@ export const buildOrgJson = async (
 
   const ownerIssuer = `${did}#key-1`;
   const ownerAddress = await owner.getAddress();
-  const ownerBlockchainAccountId = `eip155:1337:${ownerAddress}`;
+  const blockchainType = 'eip155';
+  const chainId = 1337;
+  const ownerBlockchainAccountId = `${blockchainType}:${chainId}:${ownerAddress}`;
+  let parsedAccountId;
 
-  const ownerVerificationMethod = await createVerificationMethodWithBlockchainAccountId(
+  if (overrideOptions.orgJsonBlockchainAccountId !== undefined) {
+    parsedAccountId = parseBlockchainAccountId(overrideOptions.orgJsonBlockchainAccountId);
+  }
+
+  const ownerVerificationMethod = createVerificationMethodWithBlockchainAccountId(
     ownerIssuer,
-      did,
-      overrideOptions.orgJsonBlockchainAccountId !== undefined
-        ? overrideOptions.orgJsonBlockchainAccountId
-        : ownerBlockchainAccountId
-    );
+    did,
+    parsedAccountId && parsedAccountId.blockchainType ? parsedAccountId.blockchainType : blockchainType,
+    parsedAccountId && parsedAccountId.chainId ? parsedAccountId.chainId : chainId,
+    parsedAccountId && parsedAccountId.accountAddress ? parsedAccountId.accountAddress : ownerAddress
+  );
 
   orgJson.verificationMethod.push(
     {
