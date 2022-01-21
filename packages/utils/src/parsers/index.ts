@@ -14,6 +14,12 @@ export interface ParsedUri {
   type: string;
 }
 
+export interface ParsedBlockchainAccountId {
+  accountAddress: string;
+  blockchainType: string;
+  chainId: string;
+}
+
 export interface DidGroupedCheckResult extends RegExpExecArray {
   groups: {
     did: string;
@@ -29,6 +35,15 @@ export interface IpfsUriGroupedResult extends RegExpExecArray {
   groups: {
     protocol: string;
     cid: string;
+  }
+}
+
+export interface BlockchainAccountIdGroupedResult extends RegExpExecArray {
+  groups: {
+    accountAddress: string;
+    blockchainType: string;
+    chainId: string;
+    [key: string]: string;
   }
 }
 
@@ -90,4 +105,40 @@ export const parseUri = (uri: string): ParsedUri => {
     uri: parsedUri,
     type
   }
+};
+
+export const parseBlockchainAccountId = (blockchainAccountId: string): ParsedBlockchainAccountId => {
+  let parseRule: RegExp;
+
+  if (
+    blockchainAccountId.includes('@') &&
+    regexp.blockchainAccountIdLegacy.exec(blockchainAccountId)
+  ) {
+    // Legacy format
+    parseRule = regexp.blockchainAccountIdLegacyGrouped;
+  } else if (regexp.blockchainAccountId.exec(blockchainAccountId)) {
+    // Actual format
+    parseRule = regexp.blockchainAccountIdGrouped;
+  } else {
+    throw new Error('Invalid blockchain account Id format');
+  }
+
+  const blockchainAccountIdResult  = parseRule
+    .exec(blockchainAccountId) as BlockchainAccountIdGroupedResult;
+
+  if (!blockchainAccountIdResult) {
+    throw new Error('Unable to parse blockchain account Id format');
+  }
+
+  const {
+    accountAddress,
+    blockchainType,
+    chainId
+  } = blockchainAccountIdResult.groups;
+
+  return {
+    accountAddress,
+    blockchainType,
+    chainId
+  };
 };
