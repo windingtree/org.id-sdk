@@ -10,6 +10,9 @@
 - [bitcoinAddress](regexp.md#bitcoinaddress)
 - [blockchainAccountId](regexp.md#blockchainaccountid)
 - [blockchainAccountIdGrouped](regexp.md#blockchainaccountidgrouped)
+- [blockchainAccountIdLegacy](regexp.md#blockchainaccountidlegacy)
+- [blockchainAccountIdLegacyGrouped](regexp.md#blockchainaccountidlegacygrouped)
+- [blockchainAccountIdWithLegacy](regexp.md#blockchainaccountidwithlegacy)
 - [bytes32](regexp.md#bytes32)
 - [did](regexp.md#did)
 - [didGrouped](regexp.md#didgrouped)
@@ -39,7 +42,7 @@
 
 #### Defined in
 
-[src/regexp/index.ts:15](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L15)
+[src/regexp/index.ts:18](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L18)
 
 ___
 
@@ -49,7 +52,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L10)
+[src/regexp/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L10)
 
 ___
 
@@ -59,7 +62,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L11)
+[src/regexp/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L11)
 
 ___
 
@@ -69,7 +72,37 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:12](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L12)
+[src/regexp/index.ts:13](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L13)
+
+___
+
+### blockchainAccountIdLegacy
+
+• **blockchainAccountIdLegacy**: `RegExp`
+
+#### Defined in
+
+[src/regexp/index.ts:14](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L14)
+
+___
+
+### blockchainAccountIdLegacyGrouped
+
+• **blockchainAccountIdLegacyGrouped**: `RegExp`
+
+#### Defined in
+
+[src/regexp/index.ts:15](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L15)
+
+___
+
+### blockchainAccountIdWithLegacy
+
+• **blockchainAccountIdWithLegacy**: `RegExp`
+
+#### Defined in
+
+[src/regexp/index.ts:12](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L12)
 
 ___
 
@@ -79,7 +112,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:19](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L19)
+[src/regexp/index.ts:22](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L22)
 
 ___
 
@@ -89,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:26](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L26)
+[src/regexp/index.ts:29](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L29)
 
 ___
 
@@ -99,7 +132,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:28](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L28)
+[src/regexp/index.ts:31](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L31)
 
 ___
 
@@ -109,7 +142,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:27](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L27)
+[src/regexp/index.ts:30](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L30)
 
 ___
 
@@ -119,7 +152,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:5](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L5)
+[src/regexp/index.ts:5](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L5)
 
 ___
 
@@ -129,7 +162,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:9](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L9)
+[src/regexp/index.ts:9](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L9)
 
 ___
 
@@ -139,7 +172,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:23](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L23)
+[src/regexp/index.ts:26](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L26)
 
 ___
 
@@ -149,7 +182,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:34](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L34)
+[src/regexp/index.ts:37](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L37)
 
 ___
 
@@ -159,7 +192,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:35](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L35)
+[src/regexp/index.ts:38](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L38)
 
 ___
 
@@ -169,7 +202,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:36](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L36)
+[src/regexp/index.ts:39](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L39)
 
 ___
 
@@ -179,7 +212,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:37](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L37)
+[src/regexp/index.ts:40](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L40)
 
 ___
 
@@ -189,7 +222,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:38](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L38)
+[src/regexp/index.ts:41](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L41)
 
 ___
 
@@ -199,7 +232,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:39](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L39)
+[src/regexp/index.ts:42](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L42)
 
 ___
 
@@ -209,7 +242,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:6](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L6)
+[src/regexp/index.ts:6](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L6)
 
 ___
 
@@ -219,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:2](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L2)
+[src/regexp/index.ts:2](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L2)
 
 ___
 
@@ -229,7 +262,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:16](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L16)
+[src/regexp/index.ts:19](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L19)
 
 ___
 
@@ -239,7 +272,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:22](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L22)
+[src/regexp/index.ts:25](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L25)
 
 ___
 
@@ -249,7 +282,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:3](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L3)
+[src/regexp/index.ts:3](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L3)
 
 ___
 
@@ -259,7 +292,7 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:4](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L4)
+[src/regexp/index.ts:4](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L4)
 
 ___
 
@@ -269,4 +302,4 @@ ___
 
 #### Defined in
 
-[src/regexp/index.ts:31](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/regexp/index.ts#L31)
+[src/regexp/index.ts:34](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/regexp/index.ts#L34)

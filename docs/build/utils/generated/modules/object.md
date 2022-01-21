@@ -42,7 +42,7 @@ node_modules/ajv/dist/types/index.d.ts:24
 
 #### Defined in
 
-[src/object/index.ts:15](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/object/index.ts#L15)
+[src/object/index.ts:15](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/object/index.ts#L15)
 
 ___
 
@@ -64,4 +64,4 @@ ___
 
 #### Defined in
 
-[src/object/index.ts:33](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/object/index.ts#L33)
+[src/object/index.ts:33](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/object/index.ts#L33)

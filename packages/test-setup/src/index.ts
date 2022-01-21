@@ -2,7 +2,7 @@ import type { Signer, VoidSigner, BigNumber } from 'ethers';
 import type { SignedVC } from '@windingtree/org.id-auth/dist/vc';
 import type { OrgId as OrgIdBaseContract } from '@windingtree/org.id/types';
 import type { NFTMetadata } from '@windingtree/org.json-schema/types/nft';
-import type { ORGJSONVCNFT } from '@windingtree/org.json-schema/types/orgVc';
+import type { ORGJSONVCNFT, VerificationMethodReference } from '@windingtree/org.json-schema/types/orgVc';
 import {
   generateSalt,
   generateOrgIdWithSigner,
@@ -12,8 +12,7 @@ import { parseBlockchainAccountId } from '@windingtree/org.id-utils/dist/parsers
 import { getDeepValue } from '@windingtree/org.id-utils/dist/object';
 import { createVC } from '@windingtree/org.id-auth/dist/vc';
 import {
-  createVerificationMethodWithBlockchainAccountId,
-  DidVerificationMethod
+  createVerificationMethodWithBlockchainAccountId
 } from '@windingtree/org.json-utils';
 import { OrgIdContract } from '@windingtree/org.id';
 import { HttpFileServer, File } from '@windingtree/org.id-test-http-server';
@@ -141,7 +140,7 @@ export const buildOrgJson = async (
     const delegateVerificationMethod = getDeepValue(
       overrideOptions.signWithDelegate.delegate,
       'credentialSubject.verificationMethod[0]'
-    ) as DidVerificationMethod;
+    ) as VerificationMethodReference;
 
     if (!delegateVerificationMethod) {
       throw new Error('Invalid verificationMethod definition of delegate');
@@ -218,7 +217,7 @@ export const registerOrgId = async (
     const verificationMethod = getDeepValue(
       overrideOptions.signWithDelegate.delegate,
       'credentialSubject.verificationMethod[0]'
-    ) as DidVerificationMethod;
+    ) as VerificationMethodReference;
 
     if (!verificationMethod) {
       throw new Error('Invalid verificationMethod definition of delegate');

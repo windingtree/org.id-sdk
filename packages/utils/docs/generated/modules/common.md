@@ -29,7 +29,7 @@
 
 #### Defined in
 
-[src/common/index.ts:33](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/common/index.ts#L33)
+[src/common/index.ts:33](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/common/index.ts#L33)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[src/common/index.ts:15](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/common/index.ts#L15)
+[src/common/index.ts:15](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/common/index.ts#L15)
 
 ___
 
@@ -64,4 +64,4 @@ ___
 
 #### Defined in
 
-[src/common/index.ts:5](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/common/index.ts#L5)
+[src/common/index.ts:5](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/common/index.ts#L5)

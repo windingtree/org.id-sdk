@@ -49,7 +49,7 @@ new HttpError('Cannot find you in the list', 'FORBIDDEN');
 
 #### Defined in
 
-[src/errors/index.ts:20](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/errors/index.ts#L20)
+[src/errors/index.ts:20](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/errors/index.ts#L20)
 
 ## Properties
 
@@ -59,7 +59,7 @@ new HttpError('Cannot find you in the list', 'FORBIDDEN');
 
 #### Defined in
 
-[src/errors/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/errors/index.ts#L10)
+[src/errors/index.ts:10](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/errors/index.ts#L10)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:974
+node_modules/typescript/lib/lib.es5.d.ts:1023
 
 ___
 
@@ -79,7 +79,7 @@ ___
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:973
+node_modules/typescript/lib/lib.es5.d.ts:1022
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:975
+node_modules/typescript/lib/lib.es5.d.ts:1024
 
 ___
 
@@ -99,7 +99,7 @@ ___
 
 #### Defined in
 
-[src/errors/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/errors/index.ts#L11)
+[src/errors/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/errors/index.ts#L11)
 
 ___
 

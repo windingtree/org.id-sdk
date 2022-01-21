@@ -70,9 +70,9 @@
 
 | Name | Type |
 | :------ | :------ |
-| `accountId` | `string` |
-| `blockchainId` | `string` |
+| `accountAddress` | `string` |
 | `blockchainType` | `string` |
+| `chainId` | `string` |
 
 #### Overrides
 
@@ -80,7 +80,7 @@ RegExpExecArray.groups
 
 #### Defined in
 
-[src/vc.ts:83](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/auth/src/vc.ts#L83)
+[src/vc.ts:83](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/auth/src/vc.ts#L83)
 
 ___
 
@@ -94,7 +94,7 @@ RegExpExecArray.index
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:915
+node_modules/typescript/lib/lib.es5.d.ts:935
 
 ___
 
@@ -108,7 +108,7 @@ RegExpExecArray.input
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:916
+node_modules/typescript/lib/lib.es5.d.ts:936
 
 ___
 
@@ -124,7 +124,7 @@ RegExpExecArray.length
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1224
+node_modules/typescript/lib/lib.es5.d.ts:1273
 
 ## Methods
 
@@ -230,7 +230,7 @@ RegExpExecArray.concat
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1248
+node_modules/typescript/lib/lib.es5.d.ts:1297
 
 ▸ **concat**(...`items`): `string`[]
 
@@ -253,7 +253,7 @@ RegExpExecArray.concat
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1254
+node_modules/typescript/lib/lib.es5.d.ts:1303
 
 ___
 
@@ -335,7 +335,7 @@ RegExpExecArray.every
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1331
+node_modules/typescript/lib/lib.es5.d.ts:1380
 
 ▸ **every**(`predicate`, `thisArg?`): `boolean`
 
@@ -358,7 +358,7 @@ RegExpExecArray.every
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1340
+node_modules/typescript/lib/lib.es5.d.ts:1389
 
 ___
 
@@ -419,7 +419,7 @@ RegExpExecArray.filter
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1367
+node_modules/typescript/lib/lib.es5.d.ts:1416
 
 ▸ **filter**(`predicate`, `thisArg?`): `string`[]
 
@@ -442,7 +442,7 @@ RegExpExecArray.filter
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1373
+node_modules/typescript/lib/lib.es5.d.ts:1422
 
 ___
 
@@ -622,7 +622,7 @@ RegExpExecArray.forEach
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1355
+node_modules/typescript/lib/lib.es5.d.ts:1404
 
 ___
 
@@ -676,7 +676,7 @@ RegExpExecArray.indexOf
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1316
+node_modules/typescript/lib/lib.es5.d.ts:1365
 
 ___
 
@@ -702,7 +702,7 @@ RegExpExecArray.join
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1259
+node_modules/typescript/lib/lib.es5.d.ts:1308
 
 ___
 
@@ -749,7 +749,7 @@ RegExpExecArray.lastIndexOf
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1322
+node_modules/typescript/lib/lib.es5.d.ts:1371
 
 ___
 
@@ -782,7 +782,7 @@ RegExpExecArray.map
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1361
+node_modules/typescript/lib/lib.es5.d.ts:1410
 
 ___
 
@@ -803,7 +803,7 @@ RegExpExecArray.pop
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1237
+node_modules/typescript/lib/lib.es5.d.ts:1286
 
 ___
 
@@ -829,7 +829,7 @@ RegExpExecArray.push
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1242
+node_modules/typescript/lib/lib.es5.d.ts:1291
 
 ___
 
@@ -855,7 +855,7 @@ RegExpExecArray.reduce
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1379
+node_modules/typescript/lib/lib.es5.d.ts:1428
 
 ▸ **reduce**(`callbackfn`, `initialValue`): `string`
 
@@ -876,7 +876,7 @@ RegExpExecArray.reduce
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1380
+node_modules/typescript/lib/lib.es5.d.ts:1429
 
 ▸ **reduce**<`U`\>(`callbackfn`, `initialValue`): `U`
 
@@ -905,7 +905,7 @@ RegExpExecArray.reduce
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1386
+node_modules/typescript/lib/lib.es5.d.ts:1435
 
 ___
 
@@ -931,7 +931,7 @@ RegExpExecArray.reduceRight
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1392
+node_modules/typescript/lib/lib.es5.d.ts:1441
 
 ▸ **reduceRight**(`callbackfn`, `initialValue`): `string`
 
@@ -952,7 +952,7 @@ RegExpExecArray.reduceRight
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1393
+node_modules/typescript/lib/lib.es5.d.ts:1442
 
 ▸ **reduceRight**<`U`\>(`callbackfn`, `initialValue`): `U`
 
@@ -981,7 +981,7 @@ RegExpExecArray.reduceRight
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1399
+node_modules/typescript/lib/lib.es5.d.ts:1448
 
 ___
 
@@ -1002,7 +1002,7 @@ RegExpExecArray.reverse
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1264
+node_modules/typescript/lib/lib.es5.d.ts:1313
 
 ___
 
@@ -1023,7 +1023,7 @@ RegExpExecArray.shift
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1269
+node_modules/typescript/lib/lib.es5.d.ts:1318
 
 ___
 
@@ -1052,7 +1052,7 @@ RegExpExecArray.slice
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1279
+node_modules/typescript/lib/lib.es5.d.ts:1328
 
 ___
 
@@ -1079,7 +1079,7 @@ RegExpExecArray.some
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1349
+node_modules/typescript/lib/lib.es5.d.ts:1398
 
 ___
 
@@ -1094,7 +1094,7 @@ This method mutates the array and returns a reference to the same array.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `compareFn?` | (`a`: `string`, `b`: `string`) => `number` | Function used to determine the order of the elements. It is expected to return a negative value if first argument is less than second argument, zero if they're equal and a positive value otherwise. If omitted, the elements are sorted in ascending, ASCII character order. ```ts [11,2,22,1].sort((a, b) => a - b) ``` |
+| `compareFn?` | (`a`: `string`, `b`: `string`) => `number` | Function used to determine the order of the elements. It is expected to return a negative value if the first argument is less than the second argument, zero if they're equal, and a positive value otherwise. If omitted, the elements are sorted in ascending, ASCII character order. ```ts [11,2,22,1].sort((a, b) => a - b) ``` |
 
 #### Returns
 
@@ -1106,7 +1106,7 @@ RegExpExecArray.sort
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1290
+node_modules/typescript/lib/lib.es5.d.ts:1339
 
 ___
 
@@ -1135,7 +1135,7 @@ RegExpExecArray.splice
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1297
+node_modules/typescript/lib/lib.es5.d.ts:1346
 
 ▸ **splice**(`start`, `deleteCount`, ...`items`): `string`[]
 
@@ -1161,7 +1161,7 @@ RegExpExecArray.splice
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1305
+node_modules/typescript/lib/lib.es5.d.ts:1354
 
 ___
 
@@ -1181,7 +1181,7 @@ RegExpExecArray.toLocaleString
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1232
+node_modules/typescript/lib/lib.es5.d.ts:1281
 
 ___
 
@@ -1201,7 +1201,7 @@ RegExpExecArray.toString
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1228
+node_modules/typescript/lib/lib.es5.d.ts:1277
 
 ___
 
@@ -1227,7 +1227,7 @@ RegExpExecArray.unshift
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1310
+node_modules/typescript/lib/lib.es5.d.ts:1359
 
 ___
 

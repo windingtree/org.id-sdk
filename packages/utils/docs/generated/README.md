@@ -10,5 +10,6 @@
 - [errors](modules/errors.md)
 - [http](modules/http.md)
 - [object](modules/object.md)
+- [parsers](modules/parsers.md)
 - [regexp](modules/regexp.md)
 - [uid](modules/uid.md)

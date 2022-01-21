@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[index.ts:42](https://github.com/windingtree/org.id-sdk/blob/06a82db/packages/org.json/src/index.ts#L42)
+[index.ts:42](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/org.json/src/index.ts#L42)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[index.ts:75](https://github.com/windingtree/org.id-sdk/blob/06a82db/packages/org.json/src/index.ts#L75)
+[index.ts:75](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/org.json/src/index.ts#L75)
 
 ___
 
@@ -77,4 +77,4 @@ ___
 
 #### Defined in
 
-[index.ts:17](https://github.com/windingtree/org.id-sdk/blob/06a82db/packages/org.json/src/index.ts#L17)
+[index.ts:17](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/org.json/src/index.ts#L17)

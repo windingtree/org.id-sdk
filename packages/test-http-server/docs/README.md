@@ -10,7 +10,7 @@
 
 ### Classes
 
-- [HttpFileServer](classes/httpfileserver.md)
+- [HttpFileServer](classes/HttpFileServer.md)
 
 ### Type aliases
 
@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/60e34e2/packages/test-http-server/src/index.ts#L11)
+[src/index.ts:11](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/test-http-server/src/index.ts#L11)
 
 ___
 
@@ -40,13 +40,13 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `content` | `string` \| `Record`<string, unknown\> |
+| `content` | `string` \| `Record`<`string`, `unknown`\> |
 | `path` | `string` |
-| `type` | [MimeKeys](README.md#mimekeys) |
+| `type` | [`MimeKeys`](README.md#mimekeys) |
 
 #### Defined in
 
-[src/index.ts:17](https://github.com/windingtree/org.id-sdk/blob/60e34e2/packages/test-http-server/src/index.ts#L17)
+[src/index.ts:17](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/test-http-server/src/index.ts#L17)
 
 ___
 
@@ -56,11 +56,11 @@ ___
 
 #### Index signature
 
-▪ [path: `string`]: [File](README.md#file)
+▪ [path: `string`]: [`File`](README.md#file)
 
 #### Defined in
 
-[src/index.ts:23](https://github.com/windingtree/org.id-sdk/blob/60e34e2/packages/test-http-server/src/index.ts#L23)
+[src/index.ts:23](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/test-http-server/src/index.ts#L23)
 
 ___
 
@@ -70,14 +70,14 @@ ___
 
 #### Defined in
 
-[src/index.ts:9](https://github.com/windingtree/org.id-sdk/blob/60e34e2/packages/test-http-server/src/index.ts#L9)
+[src/index.ts:9](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/test-http-server/src/index.ts#L9)
 
 ___
 
 ### Mimes
 
-Ƭ **Mimes**: { [key in MimeKeys]: AllowedMimes}
+Ƭ **Mimes**: { [key in MimeKeys]: AllowedMimes }
 
 #### Defined in
 
-[src/index.ts:13](https://github.com/windingtree/org.id-sdk/blob/60e34e2/packages/test-http-server/src/index.ts#L13)
+[src/index.ts:13](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/test-http-server/src/index.ts#L13)

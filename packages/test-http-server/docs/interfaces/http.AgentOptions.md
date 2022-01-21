@@ -8,13 +8,13 @@
 
 ### Properties
 
-- [keepAlive](http.agentoptions.md#keepalive)
-- [keepAliveMsecs](http.agentoptions.md#keepalivemsecs)
-- [maxFreeSockets](http.agentoptions.md#maxfreesockets)
-- [maxSockets](http.agentoptions.md#maxsockets)
-- [maxTotalSockets](http.agentoptions.md#maxtotalsockets)
-- [scheduling](http.agentoptions.md#scheduling)
-- [timeout](http.agentoptions.md#timeout)
+- [keepAlive](http.AgentOptions.md#keepalive)
+- [keepAliveMsecs](http.AgentOptions.md#keepalivemsecs)
+- [maxFreeSockets](http.AgentOptions.md#maxfreesockets)
+- [maxSockets](http.AgentOptions.md#maxsockets)
+- [maxTotalSockets](http.AgentOptions.md#maxtotalsockets)
+- [scheduling](http.AgentOptions.md#scheduling)
+- [timeout](http.AgentOptions.md#timeout)
 
 ## Properties
 
@@ -26,7 +26,7 @@ Keep sockets around in a pool to be used by other requests in the future. Defaul
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:355
+node_modules/@types/node/http.d.ts:957
 
 ___
 
@@ -39,7 +39,7 @@ Only relevant if keepAlive is set to true.
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:360
+node_modules/@types/node/http.d.ts:962
 
 ___
 
@@ -51,7 +51,7 @@ Maximum number of sockets to leave open in a free state. Only relevant if keepAl
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:372
+node_modules/@types/node/http.d.ts:974
 
 ___
 
@@ -63,7 +63,7 @@ Maximum number of sockets to allow per host. Default for Node 0.10 is 5, default
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:364
+node_modules/@types/node/http.d.ts:966
 
 ___
 
@@ -75,7 +75,7 @@ Maximum number of sockets allowed for all hosts in total. Each request will use 
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:368
+node_modules/@types/node/http.d.ts:970
 
 ___
 
@@ -89,7 +89,7 @@ Scheduling strategy to apply when picking the next free socket to use.
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:381
+node_modules/@types/node/http.d.ts:983
 
 ___
 
@@ -101,4 +101,4 @@ Socket timeout in milliseconds. This will set the timeout after the socket is co
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:376
+node_modules/@types/node/http.d.ts:978

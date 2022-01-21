@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[test-setup/src/index.ts:34](https://github.com/windingtree/org.id-sdk/blob/ec1768d/packages/test-setup/src/index.ts#L34)
+[test-setup/src/index.ts:33](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/test-setup/src/index.ts#L33)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:36](https://github.com/windingtree/org.id-sdk/blob/ec1768d/packages/test-setup/src/index.ts#L36)
+[test-setup/src/index.ts:35](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/test-setup/src/index.ts#L35)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:35](https://github.com/windingtree/org.id-sdk/blob/ec1768d/packages/test-setup/src/index.ts#L35)
+[test-setup/src/index.ts:34](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/test-setup/src/index.ts#L34)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:33](https://github.com/windingtree/org.id-sdk/blob/ec1768d/packages/test-setup/src/index.ts#L33)
+[test-setup/src/index.ts:32](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/test-setup/src/index.ts#L32)
 
 ## Methods
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:41](https://github.com/windingtree/org.id-sdk/blob/ec1768d/packages/test-setup/src/index.ts#L41)
+[test-setup/src/index.ts:40](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/test-setup/src/index.ts#L40)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:46](https://github.com/windingtree/org.id-sdk/blob/ec1768d/packages/test-setup/src/index.ts#L46)
+[test-setup/src/index.ts:45](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/test-setup/src/index.ts#L45)
 
 ___
 
@@ -112,4 +112,4 @@ ___
 
 #### Defined in
 
-[test-setup/src/index.ts:37](https://github.com/windingtree/org.id-sdk/blob/ec1768d/packages/test-setup/src/index.ts#L37)
+[test-setup/src/index.ts:36](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/test-setup/src/index.ts#L36)

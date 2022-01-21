@@ -7,6 +7,7 @@
     "lint": "lerna run lint",
     "clean": "lerna clean",
     "build": "lerna run build",
+    "build:docs": "lerna run build:docs",
     "bootstrap": "lerna bootstrap",
     "bootstrap:local": "lerna bootstrap",
     "publish": "lerna publish",

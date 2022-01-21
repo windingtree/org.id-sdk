@@ -8,29 +8,19 @@
 
 ### Properties
 
-- [accountId](vc.BlockchainAccountIdParsed.md#accountid)
-- [blockchainId](vc.BlockchainAccountIdParsed.md#blockchainid)
+- [accountAddress](vc.BlockchainAccountIdParsed.md#accountaddress)
 - [blockchainType](vc.BlockchainAccountIdParsed.md#blockchaintype)
+- [chainId](vc.BlockchainAccountIdParsed.md#chainid)
 
 ## Properties
 
-### accountId
+### accountAddress
 
-• **accountId**: `string`
-
-#### Defined in
-
-[src/vc.ts:92](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/auth/src/vc.ts#L92)
-
-___
-
-### blockchainId
-
-• **blockchainId**: `string`
+• **accountAddress**: `string`
 
 #### Defined in
 
-[src/vc.ts:94](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/auth/src/vc.ts#L94)
+[src/vc.ts:92](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/auth/src/vc.ts#L92)
 
 ___
 
@@ -40,4 +30,14 @@ ___
 
 #### Defined in
 
-[src/vc.ts:93](https://github.com/windingtree/org.id-sdk/blob/7a05fcf/packages/auth/src/vc.ts#L93)
+[src/vc.ts:93](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/auth/src/vc.ts#L93)
+
+___
+
+### chainId
+
+• **chainId**: `string`
+
+#### Defined in
+
+[src/vc.ts:94](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/auth/src/vc.ts#L94)

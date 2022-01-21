@@ -8,30 +8,30 @@
 
 ### Properties
 
-- [IncomingMessage](http.serveroptions.md#incomingmessage)
-- [ServerResponse](http.serveroptions.md#serverresponse)
-- [insecureHTTPParser](http.serveroptions.md#insecurehttpparser)
-- [maxHeaderSize](http.serveroptions.md#maxheadersize)
+- [IncomingMessage](http.ServerOptions.md#incomingmessage)
+- [ServerResponse](http.ServerOptions.md#serverresponse)
+- [insecureHTTPParser](http.ServerOptions.md#insecurehttpparser)
+- [maxHeaderSize](http.ServerOptions.md#maxheadersize)
 
 ## Properties
 
 ### IncomingMessage
 
-• `Optional` **IncomingMessage**: typeof [IncomingMessage](../classes/http.incomingmessage.md)
+• `Optional` **IncomingMessage**: typeof [`IncomingMessage`](../classes/http.IncomingMessage.md)
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:106
+node_modules/@types/node/http.d.ts:141
 
 ___
 
 ### ServerResponse
 
-• `Optional` **ServerResponse**: typeof [ServerResponse](../classes/http.serverresponse.md)
+• `Optional` **ServerResponse**: typeof [`ServerResponse`](../classes/http.ServerResponse.md)
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:107
+node_modules/@types/node/http.d.ts:142
 
 ___
 
@@ -47,7 +47,7 @@ See --insecure-http-parser for more information.
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:121
+node_modules/@types/node/http.d.ts:156
 
 ___
 
@@ -63,4 +63,4 @@ the maximum length of request headers in bytes.
 
 #### Defined in
 
-node_modules/@types/node/http.d.ts:114
+node_modules/@types/node/http.d.ts:149

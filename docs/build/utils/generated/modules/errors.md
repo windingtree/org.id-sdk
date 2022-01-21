@@ -20,4 +20,4 @@
 
 #### Defined in
 
-[src/errors/index.ts:7](https://github.com/windingtree/org.id-sdk/blob/fc1d09f/packages/utils/src/errors/index.ts#L7)
+[src/errors/index.ts:7](https://github.com/windingtree/org.id-sdk/blob/6904194/packages/utils/src/errors/index.ts#L7)

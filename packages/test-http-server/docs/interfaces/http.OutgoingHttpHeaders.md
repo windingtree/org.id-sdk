@@ -6,6 +6,6 @@
 
 ## Hierarchy
 
-- `Dict`<[OutgoingHttpHeader](../modules/http.md#outgoinghttpheader)\>
+- `Dict`<[`OutgoingHttpHeader`](../modules/http.md#outgoinghttpheader)\>
 
-  ↳ **OutgoingHttpHeaders**
+  ↳ **`OutgoingHttpHeaders`**
