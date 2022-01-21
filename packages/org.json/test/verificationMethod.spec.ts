@@ -5,6 +5,7 @@ import {
   generateKeyPair,
   createJWK
 } from '@windingtree/org.id-auth/dist/keys';
+import { parsers } from '@windingtree/org.id-utils';
 import {
   createVerificationMethodWithKey,
   createVerificationMethodWithBlockchainAccountId
@@ -77,32 +78,38 @@ describe('DID utilities', () => {
   });
 
   describe('#createVerificationMethodWithBlockchainAccountId', () => {
+    const validId = 'eip155:1:0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb';
     const validIds = [
       'eip155:1:0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb',
       '0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb@eip155:1'
     ];
 
     it('should throw if invalid blockchain account Id provided', async () => {
-      await expect(
-        createVerificationMethodWithBlockchainAccountId(
+      expect(
+        () => createVerificationMethodWithBlockchainAccountId(
           id,
           controller,
-          'invalidId'
+          '',
+          'invalidChainId',
+          'invalidAddress'
         )
-      ).to.rejectedWith('Invalid blockchain account Id format');
+      ).to.throw('Invalid blockchain account Id format');
     });
 
     it('should create verification method with blockchain account id', async () => {
-      validIds.forEach(async accountId => {
-        const method = await createVerificationMethodWithBlockchainAccountId(
+      validIds.forEach(accountId => {
+        const parsedAccountId = parsers.parseBlockchainAccountId(accountId);
+        const method = createVerificationMethodWithBlockchainAccountId(
           id,
           controller,
-          accountId
+          parsedAccountId.blockchainType,
+          parsedAccountId.chainId,
+          parsedAccountId.accountAddress
         );
         expect(method).to.haveOwnProperty('id').to.equal(id);
         expect(method).to.haveOwnProperty('controller').to.equal(controller);
         expect(method).to.haveOwnProperty('type').to.equal('EcdsaSecp256k1RecoveryMethod2020');
-        expect(method).to.haveOwnProperty('blockchainAccountId').to.equal(accountId);
+        expect(method).to.haveOwnProperty('blockchainAccountId').to.equal(validId);
       });
     });
   });

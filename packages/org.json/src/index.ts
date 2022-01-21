@@ -54,13 +54,17 @@ export const validateIdAndController = (
   }
 };
 
-export const createVerificationMethodWithBlockchainAccountId = async (
+export const createVerificationMethodWithBlockchainAccountId = (
   id: string,
   controller: string,
-  blockchainAccountId: string,
+  blockchainType: string,
+  chainId: string | number,
+  accountAddress: string,
   note?: string
-): Promise<DidVerificationMethod> => {
+): DidVerificationMethod => {
   validateIdAndController(id, controller);
+
+  const blockchainAccountId = `${blockchainType}:${chainId}:${accountAddress}`;
 
   if (!regexp.blockchainAccountIdWithLegacy.exec(blockchainAccountId)) {
     throw new Error(
