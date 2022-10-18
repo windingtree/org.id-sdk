@@ -10,7 +10,7 @@ describe('HTTP fetch method', () => {
         server = new HttpFileServer();
     });
 
-    afterAll(() => server.close());
+    afterAll(async () => await server.close());
 
     describe('#start', () => {
 
@@ -24,7 +24,7 @@ describe('HTTP fetch method', () => {
       test('should close the server', async () => {
         const server = new HttpFileServer();
         await server.start();
-        server.close();
+        await server.close();
         expect(server.server).toBe(null);
       });
     });
@@ -111,7 +111,7 @@ describe('HTTP fetch method', () => {
         await server.start();
       });
 
-      afterAll(() => server.close());
+      afterAll(async () => await server.close());
 
       test('should fail if unknown file has been provided', async () => {
         expect(

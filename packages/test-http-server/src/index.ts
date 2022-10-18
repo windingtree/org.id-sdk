@@ -65,12 +65,31 @@ export class HttpFileServer {
     );
   }
 
-  close(): void {
-    if (this.server) {
-      this.server.close();
-    }
-
-    this.server = null;
+  close(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if (this.server) {
+        if (typeof (this.server as any).closeAllConnections === 'function') {
+          (this.server as any).closeAllConnections();
+        }
+        this.server.once('close', () => {
+          this.server = null;
+          resolve();
+        });
+        this.server.close();
+        if (!this.server.listening) {
+          this.server.emit('close');
+        }
+        // this.server.close(err => {
+        //   if (err) {
+        //     return reject(err);
+        //   }
+        //   this.server = null;
+        //   resolve();
+        // });
+      } else {
+        resolve();
+      }
+    });
   }
 
   reqHandler(request: ClientRequest, res: ServerResponse): void {

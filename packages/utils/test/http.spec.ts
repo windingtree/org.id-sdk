@@ -25,7 +25,7 @@ describe('HTTP utils', () => {
     });
 
     after(async () => {
-      server.close();
+      await server.close();
     });
 
     describe('#request', () => {
@@ -64,7 +64,7 @@ describe('HTTP utils', () => {
             'post',
             {},
             {},
-            0 // <-- zero timeout
+            5 // <-- small timeout
           )
         ).to.rejectedWith(
           `Cannot connect to the source: ${url}`,

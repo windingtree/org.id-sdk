@@ -60,3 +60,24 @@ export const validateWithSchemaOrRef = (
       ? ajv.errorsText(ajv.errors)
       : null;
 };
+
+// Stringifies objects with circular dependencies
+export const safeObjectStringify = (
+  object: unknown,
+  indent?: number
+): string => JSON.stringify(
+  object,
+  (() => {
+    const seen = new WeakSet();
+    return (key: string, value: unknown) => {
+      if (value !== null && typeof value === 'object') {
+        if (seen.has(value) && value[key] && seen.has(value[key])) {
+          return '[Circular]';
+        }
+        seen.add(value);
+      }
+      return value;
+    };
+  })(),
+  indent
+);

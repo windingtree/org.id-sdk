@@ -39,7 +39,7 @@ describe('Common ORGiD utils', () => {
 
     it('should generate ORGiD', async () => {
       expect(
-        await generateOrgIdWithAddress(address, generateSalt())
+        generateOrgIdWithAddress(address, generateSalt())
       ).to.match(regex.bytes32);
     });
   });

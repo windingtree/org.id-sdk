@@ -4,12 +4,37 @@ import {
 } from '@windingtree/org.json-schema';
 import {
   getDeepValue,
-  validateWithSchemaOrRef
+  validateWithSchemaOrRef,
+  safeObjectStringify
 } from '../src/object';
 import vcJson from './fixtures/vc.json';
 import { expect } from 'chai';
 
 describe('Object utils', () => {
+
+  describe('#safeObjectStringify', () => {
+
+    it('should stringify an object with circular refs', async () => {
+      const obj: any = { prop: 111 };
+      obj.circular = obj;
+      expect(JSON.parse(safeObjectStringify(obj)))
+        .to.haveOwnProperty('circular').eq('[Circular]');
+    });
+
+    it('should process objects with multiple copies without reduction', async () => {
+      const obj = { aaa: 'aaa' };
+      const objWithCopies = {
+        prop1: obj,
+        prop2: obj,
+        prop3: {
+          ...obj,
+          prop4: obj
+        }
+      };
+      expect(JSON.parse(safeObjectStringify(objWithCopies)))
+        .to.deep.eq(objWithCopies);
+    });
+  });
 
   describe('#getDeepValue', () => {
     const obj = {

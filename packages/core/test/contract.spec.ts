@@ -126,10 +126,10 @@ describe('OrgId contract', () => {
       it('should fail if invalid tokenId provided', async () => {
         let invalidTokenId: TestInput = '';
         await expect(contract.getOrgIdByTokenId(invalidTokenId))
-          .to.rejectedWith('invalid BigNumber string (argument="value", value="", code=INVALID_ARGUMENT, version=bignumber/5.5.0)');
+          .to.rejectedWith('invalid BigNumber string');
           invalidTokenId = undefined;
         await expect(contract.getOrgIdByTokenId(invalidTokenId))
-          .to.rejectedWith('invalid BigNumber value (argument="value", value=undefined, code=INVALID_ARGUMENT, version=bignumber/5.5.0)');
+          .to.rejectedWith('invalid BigNumber value');
         await expect(contract.getOrgIdByTokenId(0))
           .to.rejectedWith('tokenId cannot be equal to zero');
       });

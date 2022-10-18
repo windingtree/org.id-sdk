@@ -20,12 +20,17 @@ When the idea of the ORGiD has appeared, no one could predict how much an Ethere
 
 Currently, the ORGiD smart contract is deployed to the following chains:
 
-- Ropsten Testnet: [0x405005a015EA0E24889D6963447Bb0D646D91C83](https://ropsten.etherscan.io/address/0x405005a015EA0E24889D6963447Bb0D646D91C83#readProxyContract)
-- Rinkeby Testnet: [0x877c5532B2a76148334CBfA32779A0b9ee414FBE](https://rinkeby.etherscan.io/address/0x877c5532B2a76148334CBfA32779A0b9ee414FBE#readProxyContract)
-- Arbitrum Rinkeby Testnet: [0x3925A9d5554508b65a6490c450FB294A9173948B](https://rinkeby-explorer.arbitrum.io/address/0x3925A9d5554508b65a6490c450FB294A9173948B)
-- Sokol Testnet (xDAI): [0xDd1231c0FD9083DA42eDd2BD4f041d0a54EF7BeE](https://blockscout.com/poa/sokol/address/0xDd1231c0FD9083DA42eDd2BD4f041d0a54EF7BeE)
-- (expected soon) `Optimism`
-- (expected soon) `ZKSync`
+- Gnosis Chain (100): [0xb63d48e9d1e51305a17F4d95aCa3637BBC181b44](https://blockscout.com/xdai/mainnet/address/0xb63d48e9d1e51305a17F4d95aCa3637BBC181b44/read-proxy#address-tabs)
+- Polygon (137): [0x8a093Cb94663994d19a778c7EA9161352a434c64](https://polygonscan.com/address/0x8a093Cb94663994d19a778c7EA9161352a434c64#readProxyContract)
+- Goerli (5): [0xe02dF24d8dFdd37B21690DB30F4813cf6c4D9D93](https://goerli.etherscan.io/address/0xe02dF24d8dFdd37B21690DB30F4813cf6c4D9D93#readProxyContract)
+- Sokol (77): [0xDd1231c0FD9083DA42eDd2BD4f041d0a54EF7BeE](https://blockscout.com/poa/sokol/address/0xDd1231c0FD9083DA42eDd2BD4f041d0a54EF7BeE/read-proxy#address-tabs)
+- Columbus (502): [0xd8b75be9a47ffab0b5c27a143b911af7a7bf4076](https://explorer.camino.foundation/c-chain/address/0xd8b75be9a47ffab0b5c27a143b911af7a7bf4076)
+
+
+### Deprecated deployments
+
+- Rinkeby (4): 0x877c5532B2a76148334CBfA32779A0b9ee414FBE
+- Ropsten (3): 0x405005a015EA0E24889D6963447Bb0D646D91C83
 
 As mentioned above, every ORGiD DID contains information in which blockchain network this identifier has been issued. Thanks to that it is easy to implement cross-chain identifiers lookup and verification.
 
