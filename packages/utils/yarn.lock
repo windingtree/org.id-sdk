@@ -785,6 +785,11 @@
     "@typescript-eslint/types" "5.40.1"
     eslint-visitor-keys "^3.3.0"
 
+"@windingtree/org.id-test-http-server@^1.0.0-beta.48":
+  version "1.0.0-beta.48"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-test-http-server/-/org.id-test-http-server-1.0.0-beta.48.tgz#ea899bd77f3866e62c80c552fe6f5cd4e4ead64f"
+  integrity sha512-xo/GMJKe8y324Fk4C0kMBqpp3ySdZZaauR0zUkEYkrnFS49T3TEYr3bphPy6UMtacHyT1DsyZaPm4gdU+T4WiQ==
+
 "@windingtree/org.json-schema@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-1.0.2.tgz#a1f738f9e067225ca1d05cd2b925bba09381812a"
@@ -2078,9 +2083,9 @@ minimatch@^5.1.0:
     brace-expansion "^2.0.1"
 
 minimist@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
-  integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
+  integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
 
 mocha@10.1.0:
   version "10.1.0"
