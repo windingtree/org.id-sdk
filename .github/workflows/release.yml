@@ -46,7 +46,7 @@ jobs:
         run: |
           echo "Processing the branch: ${{github.ref_name}}"
           git stash
-          npx lerna version --conventional-commits --conventional-graduate --sign-git-commit --sign-git-tag --yes
+          npx lerna version --conventional-commits --sign-git-commit --sign-git-tag --yes
       - name: Publish release
         run: |
           yarn build
