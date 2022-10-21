@@ -21,7 +21,7 @@ import {
 } from '@windingtree/org.json-schema';
 import { base64url } from './utils';
 import { DateTime } from  'luxon';
-import { importJWK } from 'jose';
+import { importJWK, JWTPayload, ProtectedHeaderParameters } from 'jose';
 import { CompactSign } from 'jose';
 import { compactVerify } from 'jose';
 import { decodeProtectedHeader } from 'jose';
@@ -94,9 +94,9 @@ export interface BlockchainAccountIdParsed {
   chainId: string;
 }
 
-export interface DecodedJws {
+export interface DecodedToken<T> {
   protectedHeader: GenericObject;
-  payload: CredentialReference;
+  payload: T;
   signature: string;
   message: string;
 }
@@ -227,7 +227,7 @@ export const parseBlockchainAccountId = (blockchainAccountId: string): Blockchai
 };
 
 // Decode raw JWS
-export const decodeJws = (jws: string): DecodedJws => {
+export const decodeJws = <T extends CredentialReference | JWTPayload>(jws: string): DecodedToken<T> => {
   const {
     0: encodedProtectedHeader,
     1: encodedPayload,
@@ -239,7 +239,7 @@ export const decodeJws = (jws: string): DecodedJws => {
     throw new Error('Invalid JWS signature');
   }
 
-  let protectedHeader;
+  let protectedHeader: ProtectedHeaderParameters;
 
   try {
     protectedHeader = decodeProtectedHeader(jws);
@@ -247,7 +247,7 @@ export const decodeJws = (jws: string): DecodedJws => {
     throw new Error('Unable to decode JWS protected header');
   }
 
-  let payload: CredentialReference;
+  let payload: T;
 
   try {
     payload = JSON.parse(
@@ -274,7 +274,7 @@ export const verifyJwsSignedWithBlockchainAccount = (
     payload,
     message,
     signature
-  } = decodeJws(jws);
+  } = decodeJws<CredentialReference>(jws);
 
   // Verify signature
   const recoveredAccountId = ethersUtils.verifyTypedData(

@@ -5,6 +5,9 @@ import { SignJWT, decodeJwt } from 'jose';
 import { importJWK } from 'jose';
 import { jwtVerify } from 'jose';
 import { getAlgFromJWK, createJWK } from './keys';
+import { base64url } from './utils';
+import { buildUnsignedDataForSignature, decodeJws, parseBlockchainAccountId } from './vc';
+import { utils as ethersUtils, VoidSigner, Wallet } from 'ethers';
 
 export { JWTPayload, decodeJwt };
 
@@ -93,6 +96,49 @@ export const createAuthJWT = async (
   return token.sign(privateKey as KeyLike);
 };
 
+export const jwtDomain = {
+  'name': 'JWT'
+};
+
+export const jwtSignatureTypes = {
+  Payload: [
+    {
+      name: 'payload',
+      type: 'string'
+    }
+  ]
+};
+
+// Create auth JWT with ethers signer
+export const createAuthJWTWithEthers = async (
+  signer: VoidSigner | Wallet,
+  iss: string,
+  aud: string,
+  scope?: string | string[],
+  exp?: string
+): Promise<string> => {
+  const unsignedData = buildUnsignedDataForSignature(
+    'EcdsaSecp256k1RecoveryMethod2020',
+    {
+      iss,
+      aud,
+      scope,
+      exp
+    }
+  );
+
+  // @todo "_signTypedData" method should be renamed to the "signTypedData" in one of next ethers.js version
+  const signature: string = await signer._signTypedData(
+    jwtDomain,
+    jwtSignatureTypes,
+    {
+      payload: unsignedData
+    }
+  );
+
+  return `${unsignedData}.${base64url.encode(signature as string)}`;
+};
+
 // Verify authentication token
 export const verifyAuthJWT = async (
   jwt: string,
@@ -164,6 +210,54 @@ export const verifyAuthJWT = async (
         `The scope provided by the JWT ${JSON.stringify(payload.scope)} not fully matches with verification scope: ${JSON.stringify(parsedScope)}`
       );
     }
+  }
+
+  return {
+    payload,
+    protectedHeader
+  };
+};
+
+// Verify JWT signed with signer
+export const verifyAuthJWTWithEthers = async (
+  jwt: string,
+  blockchainAccountId: string,
+  issuer: string,
+  audience: string,
+): Promise<JWTVerifyResult> => {
+  const {
+    accountAddress
+  } = parseBlockchainAccountId(blockchainAccountId);
+
+  const {
+    protectedHeader,
+    payload,
+    message,
+    signature
+  } = decodeJws<JWTPayload>(jwt);
+
+  // Verify signature
+  const recoveredAccountId = ethersUtils.verifyTypedData(
+    jwtDomain,
+    jwtSignatureTypes,
+    {
+      payload: message
+    },
+    signature
+  );
+
+  if (ethersUtils.getAddress(accountAddress) !== ethersUtils.getAddress(recoveredAccountId)) {
+    throw new Error(
+      `JWT signed by different accountId: ${accountAddress} though expected: ${recoveredAccountId}`
+    );
+  }
+
+  if (payload.iss !== issuer) {
+    throw new Error(`Unknown JWT issuer: ${payload.iss}`);
+  }
+
+  if (payload.aud !== audience) {
+    throw new Error(`Invalid JWT audience: ${payload.iss}`);
   }
 
   return {
