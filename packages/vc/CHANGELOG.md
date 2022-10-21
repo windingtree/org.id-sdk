@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2022-10-21)
+
+
+### Features
+
+* Added functions for creation and verification of JWT with ethers signer ([c3e61a5](https://github.com/windingtree/org.id-tools/commit/c3e61a54f523adf220cb3e0ef15633794fae902d))
+
+
+
+
+
 # 1.1.0 (2022-10-20)
 
 
