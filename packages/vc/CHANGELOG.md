@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.3 (2022-10-25)
+
+
+### Bug Fixes
+
+* FIxed typing in createAuthJWTWithEthers ([6669812](https://github.com/windingtree/org.id-tools/commit/6669812dd75e6ae726bd7f4707514bf573c9a273))
+
+
+
+
+
 ## 1.2.2 (2022-10-25)
 
 
