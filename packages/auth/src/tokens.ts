@@ -16,6 +16,46 @@ export interface JWTVerifyResult {
   protectedHeader: JWSHeaderParameters
 }
 
+export const validateScope = (
+  payload: JWTPayload,
+  scope?: string | string[]
+): void => {
+  if (scope && scope !== '') {
+    let parsedScope: string[];
+
+    if (!Array.isArray(scope)) {
+      try {
+        parsedScope = JSON.parse(scope);
+      } catch {
+        throw new Error(`Unable to parse stringified scope: ${scope}`);
+      }
+    } else {
+      parsedScope = scope;
+    }
+
+    if (!payload.scope || payload.scope === '') {
+      throw new Error('Scope not found in the payload');
+    }
+
+    try {
+      payload.scope = JSON.parse(payload.scope as string);
+    } catch {
+      throw new Error(`Unable to parse scope in the payload: ${payload.scope}`);
+    }
+
+    const scopeMatch = (payload.scope as string[])
+      .filter(
+        x => parsedScope.includes(x)
+      );
+
+    if (scopeMatch.length !== parsedScope.length) {
+      throw new Error(
+        `The scope provided by the JWT ${JSON.stringify(payload.scope)} not fully matches with verification scope: ${JSON.stringify(parsedScope)}`
+      );
+    }
+  }
+};
+
 // Create an authentication JWT
 export const createAuthJWT = async (
   privateKey: KeyLike | JWK,
@@ -177,40 +217,7 @@ export const verifyAuthJWT = async (
     }
   );
 
-  if (scope && scope !== '') {
-    let parsedScope: string[];
-
-    if (!Array.isArray(scope)) {
-      try {
-        parsedScope = JSON.parse(scope);
-      } catch {
-        throw new Error(`Unable to parse stringified scope: ${scope}`);
-      }
-    } else {
-      parsedScope = scope;
-    }
-
-    if (!payload.scope || payload.scope === '') {
-      throw new Error('Scope not found in the payload');
-    }
-
-    try {
-      payload.scope = JSON.parse(payload.scope as string);
-    } catch {
-      throw new Error(`Unable to parse scope in the payload: ${payload.scope}`);
-    }
-
-    const scopeMatch = (payload.scope as string[])
-      .filter(
-        x => parsedScope.includes(x)
-      );
-
-    if (scopeMatch.length !== parsedScope.length) {
-      throw new Error(
-        `The scope provided by the JWT ${JSON.stringify(payload.scope)} not fully matches with verification scope: ${JSON.stringify(parsedScope)}`
-      );
-    }
-  }
+  validateScope(payload, scope);
 
   return {
     payload,
@@ -224,6 +231,7 @@ export const verifyAuthJWTWithEthers = async (
   blockchainAccountId: string,
   issuer: string,
   audience: string,
+  scope?: string | string[]
 ): Promise<JWTVerifyResult> => {
   const {
     accountAddress
@@ -252,6 +260,10 @@ export const verifyAuthJWTWithEthers = async (
     );
   }
 
+  if (payload.exp && payload.exp < Date.now()) {
+    throw new Error(`JWT expired at ${(new Date(payload.exp)).toISOString()}`);
+  }
+
   if (payload.iss !== issuer) {
     throw new Error(`Unknown JWT issuer: ${payload.iss}`);
   }
@@ -259,6 +271,8 @@ export const verifyAuthJWTWithEthers = async (
   if (payload.aud !== audience) {
     throw new Error(`Invalid JWT audience: ${payload.iss}`);
   }
+
+  validateScope(payload, scope);
 
   return {
     payload,
