@@ -20,7 +20,7 @@ describe('VC', () => {
     claim: 'https://t.me/windingtree'
   };
 
-  describe('#createVc', () => {
+  describe.skip('#createVc', () => {
 
     it('should create a VC', async () => {
       const vc = createVc(
@@ -46,7 +46,7 @@ describe('VC', () => {
     });
   });
 
-  describe('#verifyVc', () => {
+  describe.skip('#verifyVc', () => {
 
     it('should verify a VC', async () => {
       const vc = createVc(

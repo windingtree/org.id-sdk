@@ -63,10 +63,12 @@ export const parseDid = (did: string): ParsedDid => {
     fragment
   } = groupedCheck.groups;
 
+  const parsedNetwork = network || '1'; // Mainnet is default value
+
   return {
-    did,
+    did: `did:orgid:${parsedNetwork}:${id}`,
     method,
-    network: network || '1', // Mainnet is default value
+    network: parsedNetwork,
     orgId: id,
     query,
     fragment
