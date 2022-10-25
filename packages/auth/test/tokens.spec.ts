@@ -118,7 +118,7 @@ describe('Tokens', () => {
             issuer,
             audience,
             '',
-            'invalid expiration'
+            'invalid expiration' as unknown as number
           )
         ).to.rejectedWith('Invalid time period format');
       });
