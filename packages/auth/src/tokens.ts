@@ -62,7 +62,7 @@ export const createAuthJWT = async (
   issuer: string,
   audience: string,
   scope?: string | string[],
-  expiration?: string | number,
+  expiration?: string | number
 ): Promise<string> => {
 
   const groupedCheck = regexp.didGrouped.exec(issuer);
@@ -155,7 +155,7 @@ export const createAuthJWTWithEthers = async (
   iss: string,
   aud: string,
   scope?: string | string[],
-  exp?: string
+  exp?: string | number
 ): Promise<string> => {
   const unsignedData = buildUnsignedDataForSignature(
     'EcdsaSecp256k1RecoveryMethod2020',
