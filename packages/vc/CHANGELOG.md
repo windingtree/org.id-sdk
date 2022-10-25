@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.2 (2022-10-25)
+
+
+### Bug Fixes
+
+* Fixed Auth tests ([6562524](https://github.com/windingtree/org.id-tools/commit/65625243cf238ba59d99947a94af338aeb5b249e))
+
+
+
+
+
 ## 1.2.1 (2022-10-25)
 
 

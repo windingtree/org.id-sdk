@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/org.id-utils",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Shared ORGiD utilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -51,7 +51,7 @@
     "@types/node": "18.11.0",
     "@typescript-eslint/eslint-plugin": "5.40.1",
     "@typescript-eslint/parser": "5.40.1",
-    "@windingtree/org.id-test-http-server": "^1.2.1",
+    "@windingtree/org.id-test-http-server": "^1.2.2",
     "@windingtree/org.json-schema": "1.0.2",
     "chai": "4.3.6",
     "chai-as-promised": "7.1.1",
