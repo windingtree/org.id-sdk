@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.1 (2022-10-25)
+
+
+### Bug Fixes
+
+* Fixed parseDid parser ([ecc8e80](https://github.com/windingtree/org.id-sdk/commit/ecc8e8087c10830cc0f8255d0df2d5f47dc96c3d))
+
+
+
+
+
 # 1.2.0 (2022-10-21)
 
 
