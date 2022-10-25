@@ -62,7 +62,7 @@ export const createAuthJWT = async (
   issuer: string,
   audience: string,
   scope?: string | string[],
-  expiration?: string,
+  expiration?: number,
 ): Promise<string> => {
 
   const groupedCheck = regexp.didGrouped.exec(issuer);
