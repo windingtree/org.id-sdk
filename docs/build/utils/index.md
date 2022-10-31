@@ -207,7 +207,8 @@ const response = await request(
 ```typescript
 import {
   object: {
-    getDeepValue
+    getDeepValue,
+    safeObjectStringify
   }
 } from '@windingtree/org.id-utils';
 
@@ -225,6 +226,11 @@ const source = {
 
 const result = getDeepValue(source, 'some.deep.value[1]');
 console.log(result); // <-- two
+
+const obj: any = { prop: 111 };
+obj.circular = obj;
+const str = safeObjectStringify(obj);
+// {"prop":111,"circular":"[Circular]"}
 ```
 
 ### Validating an object against the schema
