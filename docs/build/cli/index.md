@@ -69,7 +69,7 @@ npx orgid --operation <OPERATION_TYPE> <OPERATION_PARAMETERS>
   - [ORGiD creation](#orgid-creation)
   - [ORGiD update](#orgid-update)
   - [ORGiD DID resolve](#orgid-did-resolve)
-  - [ORGiD ownership transfer](#orgid-ownership-transfer)
+  - [Extended Docs](#extended-docs)
 
 ## CLI configuration
 
@@ -85,17 +85,16 @@ This operation allows adding network providers with their JSON RPC APIs. When yo
 
 ## Keys management
 
-**`--operation keys:import --keytype ethereum`**
+- **`--operation keys:import --keytype ethereum`**
+- **`--operation keys:import --keytype pem --pubPem <path> --privPem <path>`**
+- **`--operation keys:import --keytype multisig`**
 
-> Currently, `ethereum` key pair type is the only supported. More key pairs types will be added soon.
+> Currently, `ethereum` and `EC PEM` keys pair type are the only supported.
 
-The CLI is allows to add key pair in the following format:
+The CLI is allows to add key pair in the PEM format:
 
-- `publicKey`: account address
-- `privateKey`: account private key. For example, you can export this key from Metamask wallet. When you add a private key you will be prompted to set a password to encrypt this sensitive data
-- `tag`: unique key id that will be used across operations and verification methods
-
-> When you need to update a key data just use the same `tag` and a key pair record will be overwritten.
+- `pubPem`: EC public key in PEM format
+- `privPem`: EC private key in PEM format
 
 ## ORG.JSON bootstrap
 
@@ -119,14 +118,14 @@ During the interaction, the CLI will prompt to fill mandatory or whole profile p
 
 Parameters:
 
-- `--payload`: a path to ORG.JSON file
+- `--payload`: a path to ORG.JSON file (optional)
 - `--output`: a path where to save an ORGID VC
 - `--deploy` (optional): deployment type. With an `ipfs` value means that created ORGiD VC will be deployed to IPFS right after creation
 
 Signing of the ORG.JSON using the defined verification method. Current version of the utility supports the following verification methods:
 
 - `EcdsaSecp256k1RecoveryMethod2020`: signature made with blockchain account
-- `EcdsaSecp256k1VerificationKey2019`: (**not supported yet, will be added soon**) signature made with EC private key. This method type will be used for `capabilityDelegation` flow
+- `EcdsaSecp256k1VerificationKey2019`: signature made with EC private key. This method type will be used for `capabilityDelegation` flow
 
 Verification method will be automatically loaded from the ORG.JSON file.
 
@@ -172,8 +171,8 @@ Working the same way as for an ORGiD creation but send a transaction for the ORG
 
 Allows to make an ORGiD DID resolution. `<ORGiD_DID>` must be a valid DID that looks like `did:orgid:4:0xd6a429d09a197adafbe8c0d751e2e26711fe870f0ee126ae236481fc2b40895b`. The related network provider (`4`) must be registered before. If you have encrypted your provider URI you will be prompted for password during the resolution flow.
 
-## ORGiD ownership transfer
 
-**`--operation transfer --newOwner <NEW_OWNER_ADDRESS>`**
+## Extended Docs
 
-Makes the transfer of the ORGiD to the new owner. During the interaction, a user will be prompted to choose an ORGiD from the list of registered ORGiDs. The related to the chosen ORGiD network provider must be registered before. If you have encrypted your provider URI you will be prompted for a password during the resolution flow.
+- [Creation of ORGiD with delegated key](create.md)
+- [Creation of ORGiD compatible with multisig ownership](create-multisig.md)

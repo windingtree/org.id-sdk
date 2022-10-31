@@ -50,9 +50,9 @@ cp -r ../packages/utils/docs build/utils
 cp -r ../packages/test-setup/docs build/test-setup
 
 # Build docs for the ORGiD CLI
-wget -O temp/org.id-cli.zip https://github.com/windingtree/org.id-cli/archive/refs/heads/develop.zip
-unzip temp/org.id-cli.zip "org.id-cli-develop/docs/*" -d temp
-cp -r temp/org.id-cli-develop/docs build/cli
+wget -O temp/org.id-cli.zip https://github.com/windingtree/org.id-cli/archive/refs/heads/master.zip
+unzip temp/org.id-cli.zip "org.id-cli-master/docs/*" -d temp
+cp -r temp/org.id-cli-master/docs build/cli
 
 # Linting of the built site
 npx markdownlint build/**/*.md
