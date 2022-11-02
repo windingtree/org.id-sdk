@@ -19,7 +19,7 @@ jobs:
           npm_token: ${{secrets.NPM_TOKEN}}
       - name: Bootstrap
         run: |
-          yarn install
+          yarn install --ignore-engines
           yarn bootstrap
       - name: Tests
         run: |
