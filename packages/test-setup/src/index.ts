@@ -197,7 +197,7 @@ export const registerOrgId = async (
     orgIdHash = overrideOptions.orgIdHash;
   }
 
-  let tx = await contract.connect(orgIdOwner).createOrgId(
+  let tx = await contract.connect(orgIdOwner)['createOrgId(bytes32,string)'](
     salt,
     'temp'
   );
@@ -246,7 +246,7 @@ export const registerOrgId = async (
   };
   const file = httpServer.addFile(fileToAdd);
 
-  tx = await contract.connect(orgIdOwner).setOrgJson(
+  tx = await contract.connect(orgIdOwner)['setOrgJson(bytes32,string)'](
     orgIdHash,
     `${
       overrideOptions.baseUri !== undefined
