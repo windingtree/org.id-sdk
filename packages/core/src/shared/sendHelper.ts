@@ -37,7 +37,7 @@ export const sendHelper = async (
 
   // Transaction gas estimation
   const gasAmount: BigNumber = await contractWithSigner
-    .estimateGas[method](...args);
+    .estimateGas[method].apply(contractWithSigner, args);
 
   // Validate available gas
   if (overrides && overrides.gasPrice) {
