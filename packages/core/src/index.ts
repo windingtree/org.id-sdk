@@ -14,8 +14,12 @@ import {
 import { regexp } from '@windingtree/org.id-utils';
 
 // Methods
-import { createOrgId } from './api/createOrgId';
-import { setOrgJson } from './api/setOrgJson';
+import {
+  createOrgId,
+  createOrgIdWithDelegates,
+  createOrgIdFor
+} from './api/createOrgId';
+import { setOrgJson, setOrgJsonWithDelegates } from './api/setOrgJson';
 import { transferOrgIdOwnership } from './api/transferOrgIdOwnership';
 import { getOrgIdsCount } from './api/getOrgIdsCount';
 import { getOrgIdByTokenId } from './api/getOrgIdByTokenId';
@@ -94,7 +98,61 @@ export class OrgIdContract {
     transactionHashCb: TxHashCallbackFn = () => {},
     confirmations?: number
   ): Promise<OrgIdData | null> {
-    return createOrgId(this.contract, salt, orgJsonUri, orgIdOwner, overrides, transactionHashCb, confirmations);
+    return createOrgId(
+      this.contract,
+      salt,
+      orgJsonUri,
+      orgIdOwner,
+      overrides,
+      transactionHashCb,
+      confirmations
+    );
+  }
+
+  createOrgIdWithDelegates(
+    salt: string,
+    orgJsonUri: string,
+    delegates: string[],
+    orgIdOwner: Signer,
+    overrides?: MethodOverrides,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    transactionHashCb: TxHashCallbackFn = () => {},
+    confirmations?: number
+  ): Promise<OrgIdData | null> {
+    return createOrgIdWithDelegates(
+      this.contract,
+      salt,
+      orgJsonUri,
+      delegates,
+      orgIdOwner,
+      overrides,
+      transactionHashCb,
+      confirmations
+    );
+  }
+
+  createOrgIdFor(
+    orgId: string,
+    orgJsonUri: string,
+    orgIdOwner: string,
+    delegates: string[],
+    creator: Signer,
+    overrides?: MethodOverrides,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    transactionHashCb: TxHashCallbackFn = () => {},
+    confirmations?: number
+  ): Promise<OrgIdData | null> {
+    return createOrgIdFor(
+      this.contract,
+      orgId,
+      orgJsonUri,
+      orgIdOwner,
+      delegates,
+      creator,
+      overrides,
+      transactionHashCb,
+      confirmations
+    );
   }
 
   setOrgJson(
@@ -106,7 +164,37 @@ export class OrgIdContract {
     transactionHashCb: TxHashCallbackFn = () => {},
     confirmations?: number
   ): Promise<OrgIdData | null> {
-    return setOrgJson(this.contract, orgIdHash, orgJsonUri, orgIdOwner, overrides, transactionHashCb, confirmations);
+    return setOrgJson(
+      this.contract,
+      orgIdHash,
+      orgJsonUri,
+      orgIdOwner,
+      overrides,
+      transactionHashCb,
+      confirmations
+    );
+  }
+
+  setOrgJsonWithDelegates(
+    orgIdHash: string,
+    orgJsonUri: string,
+    delegates: string[],
+    orgIdOwner: Signer,
+    overrides?: MethodOverrides,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    transactionHashCb: TxHashCallbackFn = () => {},
+    confirmations?: number
+  ): Promise<OrgIdData | null> {
+    return setOrgJsonWithDelegates(
+      this.contract,
+      orgIdHash,
+      orgJsonUri,
+      delegates,
+      orgIdOwner,
+      overrides,
+      transactionHashCb,
+      confirmations
+    );
   }
 
   transferOrgIdOwnership(
@@ -118,7 +206,15 @@ export class OrgIdContract {
     transactionHashCb: TxHashCallbackFn = () => {},
     confirmations?: number
   ): Promise<OrgIdData | null> {
-    return transferOrgIdOwnership(this.contract, orgIdHash, newOrgIdOwner, orgIdOwner, overrides, transactionHashCb, confirmations);
+    return transferOrgIdOwnership(
+      this.contract,
+      orgIdHash,
+      newOrgIdOwner,
+      orgIdOwner,
+      overrides,
+      transactionHashCb,
+      confirmations
+    );
   }
 
   addDelegates(
@@ -130,7 +226,15 @@ export class OrgIdContract {
     transactionHashCb: TxHashCallbackFn = () => {},
     confirmations?: number
   ): Promise<AddDelegatesResult> {
-    return addDelegates(this.contract, orgIdHash, dids, orgIdOwner, overrides, transactionHashCb, confirmations);
+    return addDelegates(
+      this.contract,
+      orgIdHash,
+      dids,
+      orgIdOwner,
+      overrides,
+      transactionHashCb,
+      confirmations
+    );
   }
 
   removeDelegates(
@@ -142,7 +246,15 @@ export class OrgIdContract {
     transactionHashCb: TxHashCallbackFn = () => {},
     confirmations?: number
   ): Promise<RemoveDelegatesResult> {
-    return removeDelegates(this.contract, orgIdHash, dids, orgIdOwner, overrides, transactionHashCb, confirmations);
+    return removeDelegates(
+      this.contract,
+      orgIdHash,
+      dids,
+      orgIdOwner,
+      overrides,
+      transactionHashCb,
+      confirmations
+    );
   }
 
   getOrgIdsCount(): Promise<number> {

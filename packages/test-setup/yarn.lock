@@ -1051,10 +1051,10 @@
   resolved "https://registry.yarnpkg.com/@nomiclabs/hardhat-ethers/-/hardhat-ethers-2.2.0.tgz#f55ace2752d0effcf583e754960e9fa89fbe12cd"
   integrity sha512-kKCW7xawuD/lw69Yr1yqUUrF0IKmnLNGf+pTVbJ/ctHaRcPrwKI0EPkO1RNXBHlOOZkv6v4DK2PPvq0lL2ykig==
 
-"@openzeppelin/contracts-upgradeable@4.3.2":
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts-upgradeable/-/contracts-upgradeable-4.3.2.tgz#92df481362e366c388fc02133cf793029c744cea"
-  integrity sha512-i/pOaOtcqDk4UqsrOv735uYyTbn6dvfiuVu5hstsgV6c4ZKUtu88/31zT2BzkCg+3JfcwOfgg2TtRKVKKZIGkQ==
+"@openzeppelin/contracts-upgradeable@4.7.3":
+  version "4.7.3"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts-upgradeable/-/contracts-upgradeable-4.7.3.tgz#f1d606e2827d409053f3e908ba4eb8adb1dd6995"
+  integrity sha512-+wuegAMaLcZnLCJIvrVUDzA9z/Wp93f0Dla/4jJvIhijRrPabjQbZe6fWiECLaJyfn5ci9fqf9vTw3xpQOad2A==
 
 "@scure/base@~1.1.0":
   version "1.1.1"
@@ -1323,12 +1323,12 @@
     "@typescript-eslint/types" "5.40.1"
     eslint-visitor-keys "^3.3.0"
 
-"@windingtree/org.id@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@windingtree/org.id/-/org.id-3.0.1.tgz#35674ebd250ca6cb76d6fd414aba01e8837a287c"
-  integrity sha512-BVDr9DuJOrNDxdl0IDDWrH0JRREzom8stLbvAPLi0pTmL/yNfvb0BmPPr/qLyvKnA1Bojci18HmPEcPN5N2TCQ==
+"@windingtree/org.id@3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id/-/org.id-3.1.1.tgz#fbb950178651c80fbb337da14983be6bc37180b0"
+  integrity sha512-WVFqMkpgp4AkFsbiH5Zvf8Emv2dAN4hDQY9f34wZ2NPHCx9OcwZKFRLPRlUsS//xwQpZ6DQZIJZsJo2xMHLD8A==
   dependencies:
-    "@openzeppelin/contracts-upgradeable" "4.3.2"
+    "@openzeppelin/contracts-upgradeable" "4.7.3"
 
 "@windingtree/org.json-schema@1.0.2":
   version "1.0.2"

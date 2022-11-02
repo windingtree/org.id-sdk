@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/windingtree/org.id-sdk/tree/master/packages/core#readme",
   "dependencies": {
-    "@windingtree/org.id": "3.0.1",
+    "@windingtree/org.id": "3.1.1",
     "@windingtree/org.id-utils": "^1.2.3",
     "ethers": "5.7.1"
   },

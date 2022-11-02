@@ -1,6 +1,6 @@
 import type { Signer, VoidSigner, BigNumber } from 'ethers';
 import type { OrgIdSetup } from '@windingtree/org.id-test-setup';
-import type { AddDelegatesResult, Delegates, OrgIdData } from '../src/types';
+import type { AddDelegatesResult, OrgIdData } from '../src/types';
 import { orgIdSetup, generateSalt } from '@windingtree/org.id-test-setup';
 import { ethers, providers, Contract, BigNumber as BN } from 'ethers';
 import { regexp } from '@windingtree/org.id-utils';
@@ -255,6 +255,153 @@ describe('OrgId contract', () => {
       });
     });
 
+    describe('#createOrgIdWithDelegates', () => {
+      const delegates = ['did1', 'did2'];
+
+      it('method exposed', async () => {
+        expect(typeof contract.createOrgId).to.equal('function');
+      });
+
+      it('should fail if invalid salt provided', async () => {
+        let invalidSalt: TestInput = '';
+        await expect(
+          contract.createOrgIdWithDelegates(
+            invalidSalt,
+            'http://test.uri',
+            delegates,
+            setup.signers[2]
+          )
+        ).to.rejectedWith(`createOrgIdWithDelegates: Invalid ORGiD salt: ${invalidSalt}`);
+        invalidSalt = undefined;
+        await expect(
+          contract.createOrgIdWithDelegates(
+            invalidSalt,
+            'http://test.uri',
+            delegates,
+            setup.signers[2]
+          )
+        ).to.rejectedWith(`createOrgIdWithDelegates: Invalid ORGiD salt: ${invalidSalt}`);
+      });
+
+      it('should fail if invalid orgJsonUri provided', async () => {
+        let invalidUri: TestInput = '';
+        await expect(
+          contract.createOrgIdWithDelegates(
+            generateSalt(),
+            invalidUri,
+            delegates,
+            setup.signers[2]
+          )
+        ).to.rejectedWith(`createOrgIdWithDelegates: Invalid orgJsonUri value: ${invalidUri}`);
+        invalidUri = undefined;
+        await expect(
+          contract.createOrgIdWithDelegates(
+            generateSalt(),
+            invalidUri,
+            delegates,
+            setup.signers[2]
+          )
+        ).to.rejectedWith(`createOrgIdWithDelegates: Invalid orgJsonUri value: ${invalidUri}`);
+      });
+
+      it('should fail if invalid orgIdOwner provided', async () => {
+        const invalidSigner: TestInput = undefined;
+        await expect(
+          contract.createOrgIdWithDelegates(
+            generateSalt(),
+            'http://test.uri',
+            delegates,
+            invalidSigner
+          )
+        ).to.rejectedWith('Invalid transaction signer');
+      });
+
+      it('should create orgId (no extra params)', async () => {
+        const orgId = await contract.createOrgIdWithDelegates(
+          generateSalt(),
+          'http://test.uri',
+          delegates,
+          setup.signers[2]
+        );
+        checkOrgId(orgId as OrgIdData);
+      });
+
+      it('should create orgId (with gasPrice, tx callback)', async () => {
+        let txHash: any;
+        const orgId = await contract.createOrgIdWithDelegates(
+          generateSalt(),
+          'http://test.uri',
+          delegates,
+          setup.signers[2],
+          {
+            gasPrice: ethers.utils.parseUnits( '100', 'gwei')
+          },
+          th => { txHash = th; }
+        );
+        checkOrgId(orgId as OrgIdData);
+        expect(typeof txHash).to.equal('string');
+      });
+    });
+
+    describe('#createOrgIdFor', () => {
+      const delegates = ['did1', 'did2'];
+
+      it('method exposed', async () => {
+        expect(typeof contract.createOrgIdFor).to.equal('function');
+      });
+
+      it('should fail if invalid orgJsonUri provided', async () => {
+        let invalidUri: TestInput = '';
+        await expect(
+          contract.createOrgIdFor(
+            generateSalt(),
+            invalidUri,
+            setup.accounts[1],
+            delegates,
+            setup.signers[2]
+          )
+        ).to.rejectedWith(`createOrgIdFor: Invalid orgJsonUri value: ${invalidUri}`);
+        invalidUri = undefined;
+        await expect(
+          contract.createOrgIdFor(
+            generateSalt(),
+            invalidUri,
+            setup.accounts[1],
+            delegates,
+            setup.signers[2]
+          )
+        ).to.rejectedWith(`createOrgIdFor: Invalid orgJsonUri value: ${invalidUri}`);
+      });
+
+      it('should create orgId (no extra params)', async () => {
+        const orgId = await contract.createOrgIdFor(
+          generateSalt(),
+          'http://test.uri',
+          setup.accounts[1],
+          delegates,
+          setup.signers[1]
+        );
+        checkOrgId(orgId as OrgIdData);
+      });
+
+      it('should create orgId (with gasPrice, tx callback)', async () => {
+        let txHash: any;
+        const orgId = await contract.createOrgIdFor(
+          generateSalt(),
+          'http://test.uri',
+          setup.accounts[1],
+          delegates,
+          setup.signers[1],
+          {
+            gasPrice: ethers.utils.parseUnits( '100', 'gwei')
+          },
+          th => { txHash = th; }
+        );
+        checkOrgId(orgId as OrgIdData);
+        expect(typeof txHash).to.equal('string');
+      });
+    });
+
     describe('#setOrgJson', () => {
 
       it('method exposed', async () => {
@@ -343,6 +490,115 @@ describe('OrgId contract', () => {
         const orgId = await contract.setOrgJson(
           orgIdHash,
           'http://test.uri',
+          orgIdOwner,
+          {
+            gasPrice: ethers.utils.parseUnits( '100', 'gwei')
+          },
+          th => { txHash = th; }
+        );
+        checkOrgId(orgId as OrgIdData);
+        expect(typeof txHash).to.equal('string');
+      });
+    });
+
+    describe('#setOrgJsonWithDelegates', () => {
+      const delegates = ['did1', 'did2'];
+
+      it('method exposed', async () => {
+        expect(typeof contract.setOrgJsonWithDelegates).to.equal('function');
+      });
+
+      it('should fail if invalid orgIdHash provided', async () => {
+        let invalidOrgIdHash: TestInput = '';
+        await expect(
+          contract.setOrgJsonWithDelegates(
+            invalidOrgIdHash,
+            'http://test.uri',
+            delegates,
+            setup.signers[2]
+          )
+        ).to.rejectedWith(`setOrgJsonWithDelegates: Invalid ORGiD hash: ${invalidOrgIdHash}`);
+        invalidOrgIdHash = undefined;
+        await expect(
+          contract.setOrgJsonWithDelegates(
+            invalidOrgIdHash,
+            'http://test.uri',
+            delegates,
+            setup.signers[2]
+          )
+        ).to.rejectedWith(`setOrgJsonWithDelegates: Invalid ORGiD hash: ${invalidOrgIdHash}`);
+      });
+
+      it('should fail if unknown orgIdHash provided', async () => {
+        const unknownOrgId = '0x7b15197de62b0bc73da908b215666c48e1e49ed38e4486f5f6f094458786412d';
+        await expect(
+          contract.setOrgJsonWithDelegates(
+            unknownOrgId,
+            'http://test.uri',
+            delegates,
+            setup.signers[2]
+          )
+        ).to.rejectedWith(`setOrgJsonWithDelegates: ORGiD not found: ${unknownOrgId}`);
+      });
+
+      it('should fail if invalid orgJsonUri provided', async () => {
+        let invalidUri: TestInput = '';
+        await expect(
+          contract.setOrgJsonWithDelegates(
+            orgIdHash,
+            invalidUri,
+            delegates,
+            setup.signers[2]
+          )
+        ).to.rejectedWith(`setOrgJsonWithDelegates: Invalid orgJsonUri value: ${invalidUri}`);
+        invalidUri = undefined;
+        await expect(
+          contract.setOrgJsonWithDelegates(
+            orgIdHash,
+            invalidUri,
+            delegates,
+            setup.signers[2]
+          )
+        ).to.rejectedWith(`setOrgJsonWithDelegates: Invalid orgJsonUri value: ${invalidUri}`);
+      });
+
+      it('should fail if invalid orgIdOwner provided', async () => {
+        let invalidSigner: TestInput = '';
+        await expect(
+          contract.setOrgJsonWithDelegates(
+            orgIdHash,
+            'http://test.uri',
+            delegates,
+            invalidSigner
+          )
+        ).to.rejectedWith('Invalid transaction signer');
+        invalidSigner = undefined;
+        await expect(
+          contract.setOrgJsonWithDelegates(
+            orgIdHash,
+            'http://test.uri',
+            delegates,
+            invalidSigner
+          )
+        ).to.rejectedWith('Invalid transaction signer');
+      });
+
+      it('should set ORG.JSON URI (no extra params)', async () => {
+        const orgId = await contract.setOrgJsonWithDelegates(
+          orgIdHash,
+          'http://test.uri',
+          delegates,
+          orgIdOwner
+        );
+        checkOrgId(orgId as OrgIdData);
+      });
+
+      it('should set ORG.JSON URI (with gasPrice, tx callback)', async () => {
+        let txHash: any;
+        const orgId = await contract.setOrgJsonWithDelegates(
+          orgIdHash,
+          'http://test.uri',
+          delegates,
           orgIdOwner,
           {
             gasPrice: ethers.utils.parseUnits( '100', 'gwei')
@@ -502,7 +758,7 @@ describe('OrgId contract', () => {
 
       it('should fail if invalid count provided', async () => {
         const invalidCount = 0;
-        await expect(contract.getOrgIds(0, invalidCount))
+        await expect(contract.getOrgIds(1, invalidCount))
           .to.rejectedWith(
             `getOrgIds: Invalid count: ${invalidCount}`
           );
@@ -515,7 +771,7 @@ describe('OrgId contract', () => {
       });
 
       it('should return list of ORGiDs (paginated version)', async () => {
-        const cursor = 0;
+        const cursor = 1;
         const count = 1;
         let orgIds = await contract.getOrgIds(cursor, count);
         expect(Array.isArray(orgIds)).to.equal(true);
@@ -592,17 +848,14 @@ describe('OrgId contract', () => {
     });
 
     describe('#getDelegates', () => {
-      let delegates: Delegates;
+      const delegate = 'did:orgid:1337:0x2389deb1e582b49ab388c7ebc16b49e5a95e0b8c92ffa9c74881a9904074de9a#key1';
 
       before(async () => {
-        const result = await contract.addDelegates(
+        await contract.addDelegates(
           orgIdHash,
-          [
-            'did:orgid:1337:0x2389deb1e582b49ab388c7ebc16b49e5a95e0b8c92ffa9c74881a9904074de9a#key1'
-          ],
+          [delegate],
           orgIdOwner
         );
-        delegates = result.delegates;
       });
 
       it('method exposed', async () => {
@@ -629,7 +882,7 @@ describe('OrgId contract', () => {
 
       it('should return delegates', async () => {
         const result = await contract.getDelegates(orgIdHash);
-        expect(result).to.deep.equal(delegates);
+        expect(result).to.include(delegate);
       });
     });
 
@@ -683,12 +936,13 @@ describe('OrgId contract', () => {
         });
 
         it('should remove all delegates', async () => {
+          const currDelegates = await contract.getDelegates(orgIdHash);
           const result = await contract.removeDelegates(
             orgIdHash,
             [],
             orgIdOwner
           );
-          expect(result).to.deep.equal(delegates);
+          expect(result.delegates).to.deep.equal(currDelegates);
         });
       });
     });
