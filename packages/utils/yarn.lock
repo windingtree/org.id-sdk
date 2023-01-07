@@ -785,6 +785,11 @@
     "@typescript-eslint/types" "5.40.1"
     eslint-visitor-keys "^3.3.0"
 
+"@windingtree/org.id-test-http-server@^1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@windingtree/org.id-test-http-server/-/org.id-test-http-server-1.2.4.tgz#9ac39fea8607ef535b3123cee50a5379d8582b53"
+  integrity sha512-bOQs7PmHVL/E9eGmcfjm6X/uwnZGk4auvfJBCK/8dFSChJI6cLEaepIJmSN3Bb8Dv769TikDSNwtPrF5BeYcmQ==
+
 "@windingtree/org.json-schema@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@windingtree/org.json-schema/-/org.json-schema-1.0.2.tgz#a1f738f9e067225ca1d05cd2b925bba09381812a"
@@ -1927,11 +1932,9 @@ json-stable-stringify-without-jsonify@^1.0.1:
   integrity sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=
 
 json5@^2.1.2:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.0.tgz#2dfefe720c6ba525d9ebd909950f0515316c89a3"
-  integrity sha512-f+8cldu7X/y7RAJurMEJmdoKXGB/X550w2Nr3tTbezL6RwEE/iMcm+tZnXeoZtKuOq6ft8+CqzEkrIgx1fPoQA==
-  dependencies:
-    minimist "^1.2.5"
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
+  integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
 
 jsonc-parser@^3.0.0:
   version "3.0.0"
