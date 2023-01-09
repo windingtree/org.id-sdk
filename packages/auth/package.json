@@ -45,7 +45,7 @@
     "@windingtree/org.json-schema": "1.0.2",
     "ethers": "5.7.1",
     "jose": "4.10.0",
-    "luxon": "3.0.4"
+    "luxon": "3.2.1"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "7.19.1",
